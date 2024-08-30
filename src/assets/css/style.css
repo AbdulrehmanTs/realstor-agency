@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slick-prev {
+  z-index: 1;
+  left: 1rem !important;
+}
+.slick-next {
+  right: 1rem !important;
+}
+
+.slick-dots {
+  background-color: #fff;
+}
+.slick-dots li {
+  border-radius: 50%;
+  padding: 4px;
+  width: min-content;
+}
+
+#left-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+#left-sidebar::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 20px;
+}
