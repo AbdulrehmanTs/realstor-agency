@@ -13,623 +13,812 @@
       href="./assets/slick/slick-theme.css"
     />
   </head>
-  <body class="bg-blue-200">
-    <!-- Header -->
-    <div class="w-full h-14 mt-4 px-4">
-      <div class="size-full pb-4 border-b border-gray-600/20">
-        <div class="size-full lg:px-10">
-          <div
-            class="w-full relative flex items-center lg:justify-center justify-between"
-          >
-            <!-- logo -->
-            <div class="flex items-center absolute left-0">
+  <body class="bg-slate-900">
+    <!-- Layout >>> everything shold be inside this layout -->
+    <div class="w-full h-full flex">
+      <!-- sidebar-nav -->
+      <div
+        id="navbar"
+        class="max-w-16 w-full h-screen overflow-y-auto overflow-x-hidden bg-slate-900 transition-all"
+      >
+        <div class="h-full">
+          <!-- Logo -->
+          <div class="flex justify-start px-4 h-14 border-b border-gray-600/20">
+            <div class="flex items-center">
               <ion-icon
-                class="size-10 text-blue-800"
+                class="size-8 text-blue-300"
                 name="invert-mode-outline"
               ></ion-icon>
-              <p class="font-semibold text-2xl ml-2 text-blue-800">
+              <p
+                class="brand-name whitespace-nowrap ml-4 text-blue-100"
+              >
                 Real Store
               </p>
             </div>
-
-            <!-- Searchbar -->
-            <div class="max-w-md lg:w-full absolute lg:static lg:right-12">
-              <div class="relative">
-                <label for="Search" class="sr-only"> Search </label>
-                <input
-                  type="text"
-                  id="Search"
-                  placeholder="Search for..."
-                  autocomplete="off"
-                  class="w-full rounded-full border-none text-gray-700 font-medium text-lg py-2.5 sm:text-sm"
-                />
-                <span class="absolute inset-y-0 end-0 w-10">
-                  <button
-                    type="button"
-                    class="text-gray-600 hover:text-gray-700 h-full grid place-content-center"
+          </div>
+          <div class="mt-3 px-3 flex flex-col items-start">
+            <!-- menu icon -->
+            <div class="size-full flex items-center justify-end">
+              <button
+                id="nav-btn"
+                class="flex rounded p-2 hover:bg-gray-600/40"
+              >
+                <ion-icon
+                  class="text-blue-100/80 size-5"
+                  name="reorder-three"
+                ></ion-icon>
+              </button>
+            </div>
+            <!-- Navitems -->
+            <div class="w-full mt-8">
+              <ul class="flex flex-col gap-y-6">
+                <li class="transition">
+                  <a
+                    href="#"
+                    class="flex items-center hover:bg-gray-600/40 rounded p-2"
                   >
-                    <span class="sr-only">Search</span>
                     <ion-icon
-                      class="size-6 text-gray-600"
-                      name="search-outline"
+                      class="text-blue-200 size-5"
+                      name="home"
                     ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-200 ml-6">Home</p>
+                  </a>
+                </li>
+                <li class="transition">
+                  <a
+                    href="#"
+                    class="flex items-center hover:bg-gray-600/40 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-200 size-5"
+                      name="analytics"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-200 ml-6">
+                      Nav Item
+                    </p>
+                  </a>
+                </li>
+                <li class="transition">
+                  <a
+                    href="#"
+                    class="flex items-center hover:bg-gray-600/40 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-200 size-5"
+                      name="bonfire"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-200 ml-6">
+                      Nav Item
+                    </p>
+                  </a>
+                </li>
+                <li class="transition">
+                  <a
+                    href="#"
+                    class="flex items-center hover:bg-gray-600/40 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-200 size-5"
+                      name="document-attach"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-200 ml-6">
+                      Nav Item
+                    </p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main body -->
+      <div class="w-full bg-slate-900 rounded-l-xl overflow-x-hidden">
+        <div class="bg-white size-full">
+          <!-- Header -->
+          <div class="h-14 pb-4 p-2 border-b border-gray-600/20">
+            <div class="lg:px-2">
+              <div class="w-full flex items-center">
+                <!-- Searchbar -->
+                <div class="max-w-xs lg:w-full mr-4">
+                  <div class="relative">
+                    <label for="Search" class="sr-only"> Search </label>
+                    <input
+                      type="text"
+                      id="Search"
+                      placeholder="Search something..."
+                      autocomplete="off"
+                      class="w-full rounded-full bg-gray-200 border-none text-gray-700 text-lg py-2.5 sm:text-sm"
+                    />
+                    <span class="absolute inset-y-0 end-0 w-10">
+                      <button
+                        type="button"
+                        class="text-gray-600 hover:text-gray-700 h-full grid place-content-center"
+                      >
+                        <span class="sr-only">Search</span>
+                        <ion-icon
+                          class="size-6 text-gray-600"
+                          name="search-outline"
+                        ></ion-icon>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="relative">
+                  <button class="flex gap-x-1 items-center bg-blue-500 text-white rounded-lg shadow-sm p-1.5">
+                    <ion-icon name="funnel-outline"></ion-icon>
+                    <p class="text-sm">filters</p>
+                    <div class="size-4 bg-white rounded-full flex items-center justify-center">
+                      <p class="text-[8px] font-medium text-blue-500">2</p>
+                    </div>
                   </button>
-                </span>
-              </div>
-            </div>
-
-            <!-- Switches -->
-            <div class="flex items-center gap-x-2 absolute right-0">
-              <!-- map-and-grid -->
-              <div
-                class="flex gap-x-1 items-center bg-white rounded-xl shadow-sm p-1.5"
-              >
-                <button
-                  id="map-switch"
-                  class="bg-gray-200 rounded-lg shadow-sm py-1 px-1.5 flex items-center justify-center"
-                >
-                  <ion-icon
-                    class="text-gray-600 stroke-2 size-4"
-                    name="map-outline"
-                  ></ion-icon>
-                </button>
-                <button
-                  id="grid-switch"
-                  class="rounded-lg py-1 px-1.5 flex items-center justify-center"
-                >
-                  <ion-icon
-                    class="text-gray-600 stroke-2 size-4"
-                    name="grid-outline"
-                  ></ion-icon>
-                </button>
-              </div>
-
-              <!-- currency changer -->
-              <div class="flex items-center">
-                <button
-                  id="currency-button"
-                  class="bg-white rounded-xl hover:bg-white/80 flex items-center gap-x-2 shadow-sm px-3 py-1.5"
-                >
-                  <p
-                    class="currency text-gray-600 font-medium text-base transition-all ease-linear duration-200"
-                  >
-                    USD
-                  </p>
-                  <div class="h-4 w-[2px] bg-gray-400"></div>
-                  <p
-                    class="measure text-gray-600 font-medium text-base transition-all ease-linear duration-200"
-                  >
-                    ft<sup>2</sup>
-                  </p>
-                </button>
-
-                <div
-                  id="currencies"
-                  class="absolute z-10 top-10 right-0 w-80 scale-0 opacity-0 origin-top-right transition-all duration-200 ease-out"
-                >
-                  <div class="size-full bg-white rounded-xl shadow-xl p-4">
-                    <h2 class="text-lg text-gray-800 font-semibold mb-2">
-                      Currency
-                    </h2>
-                    <div class="flex flex-wrap items-center gap-2">
+                </div>
+                <!-- <div class="flex justify-between items-center">
+                  <div class="">
+                    <div class="flex flex-wrap items-center gap-6">
                       <button
-                        onClick="selectCurrency(this)"
-                        class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-xl shadow-sm"
+                        class="bg-white hover:shadow-md px-6 py-1.5 rounded-full shadow-sm"
                       >
-                        <p class="currency font-medium text-base text-gray-600">
-                          AED
+                        <p class="font-medium text-base text-gray-600">
+                          Emirate
                         </p>
                       </button>
                       <button
-                        onClick="selectCurrency(this)"
-                        class="bg-gray-600 hover:shadow-md px-7 py-1.5 rounded-xl shadow-sm"
+                        class="bg-white hover:shadow-md px-6 py-1.5 rounded-full shadow-sm"
                       >
-                        <p class="currency font-medium text-base text-gray-100">
-                          USD
+                        <p class="font-medium text-base text-gray-600">
+                          District
                         </p>
                       </button>
                       <button
-                        onClick="selectCurrency(this)"
-                        class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-xl shadow-sm"
+                        class="bg-white hover:shadow-md px-6 py-1.5 rounded-full shadow-sm"
                       >
-                        <p class="currency font-medium text-base text-gray-600">
-                          EUR
+                        <p class="font-medium text-base text-gray-600">
+                          Developer
                         </p>
                       </button>
                       <button
-                        onClick="selectCurrency(this)"
-                        class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-xl shadow-sm"
+                        class="bg-white hover:shadow-md px-6 py-1.5 rounded-full shadow-sm"
                       >
-                        <p class="currency font-medium text-base text-gray-600">
-                          CAD
+                        <p class="font-medium text-base text-gray-600">
+                          More filters
+                        </p>
+                      </button>
+                      <button
+                        class="bg-blue-500 px-6 py-1.5 rounded-full shadow-sm"
+                      >
+                        <p class="font-medium text-base text-white/90">
+                          Clear Filter
                         </p>
                       </button>
                     </div>
-                    <!-- Sizes -->
-                    <h2 class="text-lg text-gray-800 font-semibold mt-4 mb-2">
-                      Measures
-                    </h2>
-                    <div class="flex flex-wrap items-center gap-2">
-                      <button
-                        onClick="selectMeasure(this)"
-                        class="bg-gray-600 hover:shadow-md px-7 py-1.5 rounded-xl shadow-sm"
+                  </div>
+                </div> -->
+
+
+                <!-- Switches -->
+                <div class="ml-4 flex items-center gap-x-2">
+                  <!-- currency changer -->
+                  <div class="flex relative items-center">
+                    <button
+                      id="currency-button"
+                      class="bg-gray-200 rounded-lg hover:bg-gray-200/80 flex items-center gap-x-2 shadow-sm px-3 py-1.5"
+                    >
+                      <p
+                        class="currency text-gray-600 font-medium text-sm transition-all ease-linear duration-200"
                       >
-                        <p class="measure font-medium text-base text-gray-100">
-                          ft<sup>2</sup>
-                        </p>
-                      </button>
-                      <button
-                        onClick="selectMeasure(this)"
-                        class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-xl shadow-sm"
+                        USD
+                      </p>
+                      <div class="h-4 w-[2px] bg-gray-400"></div>
+                      <p
+                        class="measure text-gray-600 font-medium text-sm transition-all ease-linear duration-200"
                       >
-                        <p class="measure font-medium text-base text-gray-600">
-                          m<sup>2</sup>
-                        </p>
-                      </button>
+                        ft<sup>2</sup>
+                      </p>
+                    </button>
+
+                    <div
+                      id="currencies"
+                      class="absolute z-10 top-12 right-0 w-80 scale-0 opacity-0 origin-top-right transition-all duration-200 ease-out"
+                    >
+                      <div class="size-full bg-white rounded-lg shadow-xl p-4">
+                        <h2 class="text-lg text-gray-800 font-semibold mb-2">
+                          Currency
+                        </h2>
+                        <div class="flex flex-wrap items-center gap-2">
+                          <button
+                            onClick="selectCurrency(this)"
+                            class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
+                          >
+                            <p
+                              class="currency font-medium text-sm text-gray-600"
+                            >
+                              AED
+                            </p>
+                          </button>
+                          <button
+                            onClick="selectCurrency(this)"
+                            class="bg-gray-600 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
+                          >
+                            <p
+                              class="currency font-medium text-sm text-gray-100"
+                            >
+                              USD
+                            </p>
+                          </button>
+                          <button
+                            onClick="selectCurrency(this)"
+                            class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
+                          >
+                            <p
+                              class="currency font-medium text-sm text-gray-600"
+                            >
+                              EUR
+                            </p>
+                          </button>
+                          <button
+                            onClick="selectCurrency(this)"
+                            class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
+                          >
+                            <p
+                              class="currency font-medium text-sm text-gray-600"
+                            >
+                              CAD
+                            </p>
+                          </button>
+                        </div>
+                        <!-- Sizes -->
+                        <h2
+                          class="text-lg text-gray-800 font-semibold mt-4 mb-2"
+                        >
+                          Measures
+                        </h2>
+                        <div class="flex flex-wrap items-center gap-2">
+                          <button
+                            onClick="selectMeasure(this)"
+                            class="bg-gray-600 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
+                          >
+                            <p
+                              class="measure font-medium text-sm text-gray-100"
+                            >
+                              ft<sup>2</sup>
+                            </p>
+                          </button>
+                          <button
+                            onClick="selectMeasure(this)"
+                            class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
+                          >
+                            <p
+                              class="measure font-medium text-sm text-gray-600"
+                            >
+                              m<sup>2</sup>
+                            </p>
+                          </button>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+
+                  <!-- map-and-grid -->
+                  <div
+                    class="flex gap-x-1 items-center bg-gray-200 rounded-lg shadow-sm p-1"
+                  >
+                    <button
+                      id="map-switch"
+                      class="bg-blue-500 rounded shadow-sm py-1 px-1.5 flex items-center justify-center"
+                    >
+                      <ion-icon
+                        class="text-white size-4"
+                        name="map-outline"
+                      ></ion-icon>
+                    </button>
+                    <button
+                      id="grid-switch"
+                      class="rounded py-1 px-1.5 flex items-center justify-center"
+                    >
+                      <ion-icon
+                        class="text-gray-600 size-4"
+                        name="grid-outline"
+                      ></ion-icon>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="flex">
-      <!-- LeftSidebar -->
-      <div
-        id="left-sidebar"
-        class="w-full max-w-0 lg:max-w-0 relative origin-left transition-all duration-300 ease-out h-[calc(100vh-4.5rem)] overflow-auto bg-white"
-      >
-        <!-- close button -->
-        <button
-          type="button"
-          onclick="closeLeftSidebar()"
-          class="absolute z-10 right-2 top-4 bg-white/60 hover:bg-white/70 rounded-full size-6 p-0.5 flex items-center justify-center"
-        >
-          <ion-icon class="size-full" name="close-outline"></ion-icon>
-        </button>
-        <!-- sliders -->
-        <div class="">
-          <div class="slider size-full">
-            <div class="size-full aspect-video slider-image">
-              <img
-                class="size-full lazy"
-                src="https://www.propertyfinder.ae/blog/wp-content/uploads/2023/08/ondrej-bocek-3Q17UE2FZM4-unsplash.jpg"
-                alt=""
-              />
-            </div>
-            <div class="size-full aspect-video slider-image">
-              <img
-                class="size-full lazy"
-                src="https://airfixture.com/hubfs/Imported_Blog_Media/What-to-know-when-designing-high-rise-buildings-1.jpg"
-                alt=""
-              />
-            </div>
-            <div class="size-full aspect-video slider-image">
-              <img
-                class="size-full lazy"
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/152229/slider-img-1.jpg"
-                alt=""
-              />
-            </div>
-            <div class="size-full aspect-video slider-image">
-              <img
-                class="size-full lazy"
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/152229/slider-img-3.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-        <!-- Title and description -->
-        <div class="p-2 ">
-          <h2
-            title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-          veritatis earum recusandae culpa,"
-            class="font-semibold text-base text-center leading-5 line-clamp-2"
-          >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            veritatis earum recusandae culpa,
-          </h2>
-          <p class="text-gray-600 text-sm mt-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            veritatis earum recusandae culpa, laboriosam nihil eveniet unde
-            rerum itaque natus eaque ea rem, consectetur quod voluptas laborum.
-            Provident, necessitatibus dignissimos.
-          </p>
-        </div>
-        <!-- Details -->
-        <div class="w-full">
-          <h2 class="mt-4 mb-2 text-base font-semibold px-4">Details</h2>
-          <div class="bg-gray-100 divide-y divide-gray-300">
-            <div class="px-4 py-3 flex justify-between">
-              <h3 class="text-gray-500 font-medium">Developer</h3>
-              <p class="text-gray-700 text-sm">Dubai Properties</p>
-            </div>
-            <div class="px-4 py-3 flex justify-between">
-              <h3 class="text-gray-500 font-medium">District</h3>
-              <p class="text-gray-700 text-sm">Dubai Properties</p>
-            </div>
-            <div class="px-4 py-3 flex justify-between">
-              <h3 class="text-gray-500 font-medium">Price</h3>
-              <p class="text-gray-700 text-sm">Dubai Properties</p>
-            </div>
-            <div class="px-4 py-3 flex justify-between">
-              <h3 class="text-gray-500 font-medium">Size</h3>
-              <p class="text-gray-700 text-sm">Dubai Properties</p>
-            </div>
-            <div class="px-4 py-3 flex justify-between">
-              <h3 class="text-gray-500 font-medium">Handover</h3>
-              <p class="text-gray-700 text-sm">Dubai Properties</p>
-            </div>
-            <div class="px-4 py-3 flex justify-between">
-              <h3 class="text-gray-500 font-medium">Unit type</h3>
-              <p class="text-gray-700 text-sm">Dubai Properties</p>
-            </div>
-            <div class="px-4 py-3 flex justify-between">
-              <h3 class="text-gray-500 font-medium">Furnishing</h3>
-              <p class="text-gray-700 text-sm">Dubai Properties</p>
-            </div>
-            <div class="px-4 py-3 flex justify-between">
-              <h3 class="text-gray-500 font-medium">Resale allowed after</h3>
-              <p class="text-gray-700 text-sm">Dubai Properties</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Filters section -->
-
-      <main id="main-container" class="w-full mt-2 px-4">
-        <section class="w-full mt-1 mb-4 flex justify-between items-center">
-          <div class="">
-            <div class="flex flex-wrap items-center gap-6">
-              <button
-                class="bg-white hover:shadow-md px-6 py-1.5 rounded-full shadow-sm"
-              >
-                <p class="font-medium text-base text-gray-600">Emirate</p>
-              </button>
-              <button
-                class="bg-white hover:shadow-md px-6 py-1.5 rounded-full shadow-sm"
-              >
-                <p class="font-medium text-base text-gray-600">District</p>
-              </button>
-              <button
-                class="bg-white hover:shadow-md px-6 py-1.5 rounded-full shadow-sm"
-              >
-                <p class="font-medium text-base text-gray-600">Developer</p>
-              </button>
-              <button
-                class="bg-white hover:shadow-md px-6 py-1.5 rounded-full shadow-sm"
-              >
-                <p class="font-medium text-base text-gray-600">More filters</p>
-              </button>
-              <button class="bg-blue-500 px-6 py-1.5 rounded-full shadow-sm">
-                <p class="font-medium text-base text-white/90">Clear Filter</p>
-              </button>
-            </div>
-          </div>
-        </section>
-        <div class="h-[calc(100vh-9rem)] overflow-auto">
-          <div id="map" class="rounded-3xl p-4 bg-white h-full">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d36014.92721428063!2d54.350579929568454!3d24.471830375557406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e440f723ef2b9%3A0xc7cc2e9341971108!2sAbu%20Dhabi%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1724091904495!5m2!1sen!2s"
-              class="size-full outline-0 border-none border-0"
-              allowfullscreen=""
-              loading="lazy"
-              frameborder="0"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <div id="grid" class="hidden pb-10">
-            <h3 class="font-semibold text-xl text-blue-800 mt-8 mb-6">
-              Available now
-            </h3>
+          <!-- Main -->
+          <div class="flex h-[calc(100vh-3.5rem)]">
+            <!-- LeftSidebar -->
             <div
-              class="grid gap-4 lg:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+              id="left-sidebar"
+              class="w-full max-w-0 lg:max-w-0 relative origin-left transition-all duration-300 ease-out h-[calc(100vh-4.5rem)] overflow-auto bg-white"
             >
-              <div class="grid-card">
-                <div
-                  class="hover:shadow-xl transition-all duration-300 shadow rounded-lg overflow-hidden bg-white/80"
-                >
-                  <div class="aspect-video">
+              <!-- close button -->
+              <button
+                type="button"
+                onclick="closeLeftSidebar()"
+                class="absolute z-10 right-2 top-4 bg-white/60 hover:bg-white/70 rounded-full size-6 p-0.5 flex items-center justify-center"
+              >
+                <ion-icon class="size-full" name="close-outline"></ion-icon>
+              </button>
+              <!-- sliders -->
+              <div class="">
+                <div class="slider size-full">
+                  <div class="size-full aspect-video slider-image">
                     <img
-                      class="w-full h-full object-cover object-center"
-                      src="https://cdn.britannica.com/82/156482-131-AEEBFEFC/New-York-York.jpg?w=840&h=460&c=crop"
-                      alt="thumbnail"
+                      class="size-full lazy"
+                      src="https://www.propertyfinder.ae/blog/wp-content/uploads/2023/08/ondrej-bocek-3Q17UE2FZM4-unsplash.jpg"
+                      alt=""
                     />
                   </div>
-                  <div class="shadow p-6">
-                    <div class="flex items-center justify-between mb-1">
-                      <h5 class="font-medium text-gray-800">Rhonda Doe</h5>
-                    </div>
-                    <p class="text-xs text-gray-600 font-medium mb-2">
-                      Professor
-                    </p>
-                    <p class="text-xs text-gray-600 mb-4">
-                      Et quidem faciunt, ut de voluptate ponit, quod summum
-                      bonum sit aut rerum et quidem…
-                    </p>
-                    <div class="flex flex-wrap gap-2 items-center text-xs mb-5">
-                      <p class="py-1 px-2 text-gray-600 bg-blue-100 rounded">
-                        Investment
-                      </p>
-                      <p
-                        class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
-                      >
-                        Marketing
-                      </p>
-                      <p class="py-1 px-2 text-gray-600 bg-blue-100 rounded">
-                        Budget
-                      </p>
-                    </div>
-                    <div
-                      class="flex flex-col lg:flex-row w-full items-start lg:items-center mb-8 lg:mb-0 lg:justify-between"
-                    >
-                      <div
-                        class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
-                      >
-                        <h3 class="text-gray-800 leading-6 text-sm">Courses</h3>
-                        <h2
-                          class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                        >
-                          23
-                        </h2>
-                      </div>
-                      <div
-                        class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
-                      >
-                        <h3 class="text-gray-800 leading-6 text-sm">Hours</h3>
-
-                        <h2
-                          class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                        >
-                          2400
-                        </h2>
-                      </div>
-                      <div class="flex lg:block flex-row-reverse items-center">
-                        <h3 class="text-gray-800 leading-6 text-sm">
-                          Students
-                        </h3>
-
-                        <h2
-                          class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                        >
-                          104
-                        </h2>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="grid-card">
-                <div
-                  class="hover:shadow-xl transition-all duration-300 shadow rounded-lg overflow-hidden bg-white/80"
-                >
-                  <div class="aspect-video">
+                  <div class="size-full aspect-video slider-image">
                     <img
-                      class="w-full h-full object-cover object-center -t"
+                      class="size-full lazy"
                       src="https://airfixture.com/hubfs/Imported_Blog_Media/What-to-know-when-designing-high-rise-buildings-1.jpg"
-                      alt="thumbnail"
+                      alt=""
                     />
                   </div>
-                  <div class="shadow p-6">
-                    <div class="flex items-center justify-between mb-1">
-                      <h5 class="font-medium text-gray-800">Chan Doe</h5>
-                    </div>
-                    <p class="text-xs text-gray-600 font-medium mb-2">
-                      Venture Capitalist
-                    </p>
-                    <p class="text-xs text-gray-600 mb-4">
-                      Et quidem faciunt, ut de voluptate ponit, quod summum
-                      bonum sit aut rerum et quidem…
-                    </p>
-                    <div class="flex flex-wrap gap-2 items-center text-xs mb-5">
-                      <p class="py-1 px-2 text-gray-600 bg-blue-100 rounded">
-                        Investment
-                      </p>
-                      <p
-                        class="py-1 px-2 text-gray-600 bg-blue-100 rounded mx-2"
-                      >
-                        Marketing
-                      </p>
-                      <p class="py-1 px-2 text-gray-600 bg-blue-100 rounded">
-                        Budget
-                      </p>
-                    </div>
-                    <div
-                      class="flex flex-col lg:flex-row w-full items-start lg:items-center mb-8 lg:mb-0 lg:justify-between"
-                    >
-                      <div
-                        class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
-                      >
-                        <h3 class="text-gray-800 leading-6 text-sm">Courses</h3>
-                        <h2
-                          class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                        >
-                          23
-                        </h2>
-                      </div>
-                      <div
-                        class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
-                      >
-                        <h3 class="text-gray-800 leading-6 text-sm">Hours</h3>
-
-                        <h2
-                          class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                        >
-                          2400
-                        </h2>
-                      </div>
-                      <div class="flex lg:block flex-row-reverse items-center">
-                        <h3 class="text-gray-800 leading-6 text-sm">
-                          Students
-                        </h3>
-
-                        <h2
-                          class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                        >
-                          104
-                        </h2>
-                      </div>
-                    </div>
+                  <div class="size-full aspect-video slider-image">
+                    <img
+                      class="size-full lazy"
+                      src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/152229/slider-img-1.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="size-full aspect-video slider-image">
+                    <img
+                      class="size-full lazy"
+                      src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/152229/slider-img-3.jpg"
+                      alt=""
+                    />
                   </div>
                 </div>
               </div>
-              <div class="grid-card">
-                <div
-                  class="hover:shadow-xl transition-all duration-300 shadow rounded-lg overflow-hidden bg-white/80"
+              <!-- Title and description -->
+              <div class="p-2">
+                <h2
+                  title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+            veritatis earum recusandae culpa,"
+                  class="font-semibold text-base text-center leading-5 line-clamp-2"
                 >
-                  <div class="aspect-video">
-                    <img
-                      class="w-full h-full object-cover object-center -t"
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7j5fLPqDcuwZ4WC2sId05_g7RifrkwVt3NQ&s"
-                      alt="thumbnail"
-                    />
-                  </div>
-                  <div class="shadow p-6">
-                    <div class="flex items-center justify-between mb-1">
-                      <h5 class="font-medium text-gray-800">Jack Nielsen</h5>
-                    </div>
-                    <p class="text-xs text-gray-600 font-medium mb-2">
-                      Creative Director
-                    </p>
-                    <p class="text-xs text-gray-600 mb-4">
-                      Et quidem faciunt, ut de voluptate ponit, quod summum
-                      bonum sit aut rerum et quidem…
-                    </p>
-                    <div class="flex flex-wrap gap-2 items-center text-xs mb-5">
-                      <p class="py-1 px-2 text-gray-600 bg-blue-100 rounded">
-                        Investment
-                      </p>
-                      <p
-                        class="py-1 px-2 text-gray-600 bg-blue-100 rounded mx-2"
-                      >
-                        Marketing
-                      </p>
-                      <p class="py-1 px-2 text-gray-600 bg-blue-100 rounded">
-                        Budget
-                      </p>
-                    </div>
-                    <div
-                      class="flex flex-col lg:flex-row w-full items-start lg:items-center mb-8 lg:mb-0 lg:justify-between"
-                    >
-                      <div
-                        class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
-                      >
-                        <h3 class="text-gray-800 leading-6 text-sm">Courses</h3>
-                        <h2
-                          class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                        >
-                          23
-                        </h2>
-                      </div>
-                      <div
-                        class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
-                      >
-                        <h3 class="text-gray-800 leading-6 text-sm">Hours</h3>
-
-                        <h2
-                          class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                        >
-                          2400
-                        </h2>
-                      </div>
-                      <div class="flex lg:block flex-row-reverse items-center">
-                        <h3 class="text-gray-800 leading-6 text-sm">
-                          Students
-                        </h3>
-
-                        <h2
-                          class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                        >
-                          104
-                        </h2>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Deleniti veritatis earum recusandae culpa,
+                </h2>
+                <p class="text-gray-600 text-sm mt-2">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Deleniti veritatis earum recusandae culpa, laboriosam nihil
+                  eveniet unde rerum itaque natus eaque ea rem, consectetur quod
+                  voluptas laborum. Provident, necessitatibus dignissimos.
+                </p>
               </div>
-              <div class="grid-card">
-                <div
-                  class="hover:shadow-xl transition-all duration-300 shadow rounded-lg overflow-hidden bg-white/80"
-                >
-                  <div class="aspect-video">
-                    <img
-                      class="w-full h-full object-cover object-center -t"
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbnP0XOSlI5bDO2wjHrgQGk6RCvCpmnOz8DA&s"
-                      alt="thumbnail"
-                    />
+              <!-- Details -->
+              <div class="w-full">
+                <h2 class="mt-4 mb-2 text-base font-semibold px-4">Details</h2>
+                <div class="bg-gray-100 divide-y divide-gray-300">
+                  <div class="px-4 py-3 flex justify-between">
+                    <h3 class="text-gray-500 font-medium">Developer</h3>
+                    <p class="text-gray-700 text-sm">Dubai Properties</p>
                   </div>
-                  <div class="shadow p-6">
-                    <div class="flex items-center justify-between mb-1">
-                      <h5 class="font-medium text-gray-800">Pamela Kirsten</h5>
-                    </div>
-                    <p class="text-xs text-gray-600 font-medium mb-2">Banker</p>
-                    <p class="text-xs text-gray-600 mb-4">
-                      Et quidem faciunt, ut de voluptate ponit, quod summum
-                      bonum sit aut rerum et quidem…
-                    </p>
-                    <div class="flex flex-wrap gap-2 items-center text-xs mb-5">
-                      <p class="py-1 px-2 text-gray-600 bg-blue-100 rounded">
-                        Investment
-                      </p>
-                      <p
-                        class="py-1 px-2 text-gray-600 bg-blue-100 rounded mx-2"
-                      >
-                        Marketing
-                      </p>
-                      <p class="py-1 px-2 text-gray-600 bg-blue-100 rounded">
-                        Budget
-                      </p>
-                    </div>
-                    <div
-                      class="flex flex-col lg:flex-row w-full items-start lg:items-center mb-8 lg:mb-0 lg:justify-between"
-                    >
-                      <div
-                        class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
-                      >
-                        <h3 class="text-gray-800 leading-6 text-sm">Courses</h3>
-                        <h2
-                          class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                        >
-                          23
-                        </h2>
-                      </div>
-                      <div
-                        class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
-                      >
-                        <h3 class="text-gray-800 leading-6 text-sm">Hours</h3>
-
-                        <h2
-                          class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                        >
-                          2400
-                        </h2>
-                      </div>
-                      <div class="flex lg:block flex-row-reverse items-center">
-                        <h3 class="text-gray-800 leading-6 text-sm">
-                          Students
-                        </h3>
-
-                        <h2
-                          class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                        >
-                          104
-                        </h2>
-                      </div>
-                    </div>
+                  <div class="px-4 py-3 flex justify-between">
+                    <h3 class="text-gray-500 font-medium">District</h3>
+                    <p class="text-gray-700 text-sm">Dubai Properties</p>
+                  </div>
+                  <div class="px-4 py-3 flex justify-between">
+                    <h3 class="text-gray-500 font-medium">Price</h3>
+                    <p class="text-gray-700 text-sm">Dubai Properties</p>
+                  </div>
+                  <div class="px-4 py-3 flex justify-between">
+                    <h3 class="text-gray-500 font-medium">Size</h3>
+                    <p class="text-gray-700 text-sm">Dubai Properties</p>
+                  </div>
+                  <div class="px-4 py-3 flex justify-between">
+                    <h3 class="text-gray-500 font-medium">Handover</h3>
+                    <p class="text-gray-700 text-sm">Dubai Properties</p>
+                  </div>
+                  <div class="px-4 py-3 flex justify-between">
+                    <h3 class="text-gray-500 font-medium">Unit type</h3>
+                    <p class="text-gray-700 text-sm">Dubai Properties</p>
+                  </div>
+                  <div class="px-4 py-3 flex justify-between">
+                    <h3 class="text-gray-500 font-medium">Furnishing</h3>
+                    <p class="text-gray-700 text-sm">Dubai Properties</p>
+                  </div>
+                  <div class="px-4 py-3 flex justify-between">
+                    <h3 class="text-gray-500 font-medium">
+                      Resale allowed after
+                    </h3>
+                    <p class="text-gray-700 text-sm">Dubai Properties</p>
                   </div>
                 </div>
               </div>
             </div>
+            <main id="main-container" class="w-full">
+              <div class="h-full border overflow-auto">
+                <!-- Map -->
+                <div
+                  id="map"
+                  class="overflow-hidden bg-gray-100 h-full"
+                >
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d36014.92721428063!2d54.350579929568454!3d24.471830375557406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e440f723ef2b9%3A0xc7cc2e9341971108!2sAbu%20Dhabi%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1724091904495!5m2!1sen!2s"
+                    class="size-full outline-0 border-none border-0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    frameborder="0"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+                <!-- Grid -->
+                <div id="grid" class="hidden px-4 pb-10">
+                  <h3 class="font-semibold text-xl text-blue-800 mt-8 mb-6">
+                    Available now
+                  </h3>
+                  <div
+                    class="grid gap-4 lg:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+                  >
+                    <div class="grid-card">
+                      <div
+                        class="hover:shadow-xl transition-all duration-300 shadow rounded-lg overflow-hidden bg-gray-100"
+                      >
+                        <div class="aspect-video">
+                          <img
+                            class="w-full h-full object-cover object-center"
+                            src="https://cdn.britannica.com/82/156482-131-AEEBFEFC/New-York-York.jpg?w=840&h=460&c=crop"
+                            alt="thumbnail"
+                          />
+                        </div>
+                        <div class="shadow p-6">
+                          <div class="flex items-center justify-between mb-1">
+                            <h5 class="font-medium text-gray-800">
+                              Rhonda Doe
+                            </h5>
+                          </div>
+                          <p class="text-xs text-gray-600 font-medium mb-2">
+                            Professor
+                          </p>
+                          <p class="text-xs text-gray-600 mb-4">
+                            Et quidem faciunt, ut de voluptate ponit, quod
+                            summum bonum sit aut rerum et quidem…
+                          </p>
+                          <div
+                            class="flex flex-wrap gap-2 items-center text-xs mb-5"
+                          >
+                            <p
+                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                            >
+                              Investment
+                            </p>
+                            <p
+                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                            >
+                              Marketing
+                            </p>
+                            <p
+                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                            >
+                              Budget
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col lg:flex-row w-full items-start lg:items-center mb-8 lg:mb-0 lg:justify-between"
+                          >
+                            <div
+                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
+                            >
+                              <h3 class="text-gray-800 leading-6 text-sm">
+                                Courses
+                              </h3>
+                              <h2
+                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
+                              >
+                                23
+                              </h2>
+                            </div>
+                            <div
+                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
+                            >
+                              <h3 class="text-gray-800 leading-6 text-sm">
+                                Hours
+                              </h3>
+
+                              <h2
+                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
+                              >
+                                2400
+                              </h2>
+                            </div>
+                            <div
+                              class="flex lg:block flex-row-reverse items-center"
+                            >
+                              <h3 class="text-gray-800 leading-6 text-sm">
+                                Students
+                              </h3>
+
+                              <h2
+                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
+                              >
+                                104
+                              </h2>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="grid-card">
+                      <div
+                        class="hover:shadow-xl transition-all duration-300 shadow rounded-lg overflow-hidden bg-gray-100"
+                      >
+                        <div class="aspect-video">
+                          <img
+                            class="w-full h-full object-cover object-center -t"
+                            src="https://airfixture.com/hubfs/Imported_Blog_Media/What-to-know-when-designing-high-rise-buildings-1.jpg"
+                            alt="thumbnail"
+                          />
+                        </div>
+                        <div class="shadow p-6">
+                          <div class="flex items-center justify-between mb-1">
+                            <h5 class="font-medium text-gray-800">Chan Doe</h5>
+                          </div>
+                          <p class="text-xs text-gray-600 font-medium mb-2">
+                            Venture Capitalist
+                          </p>
+                          <p class="text-xs text-gray-600 mb-4">
+                            Et quidem faciunt, ut de voluptate ponit, quod
+                            summum bonum sit aut rerum et quidem…
+                          </p>
+                          <div
+                            class="flex flex-wrap gap-2 items-center text-xs mb-5"
+                          >
+                            <p
+                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                            >
+                              Investment
+                            </p>
+                            <p
+                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded mx-2"
+                            >
+                              Marketing
+                            </p>
+                            <p
+                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                            >
+                              Budget
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col lg:flex-row w-full items-start lg:items-center mb-8 lg:mb-0 lg:justify-between"
+                          >
+                            <div
+                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
+                            >
+                              <h3 class="text-gray-800 leading-6 text-sm">
+                                Courses
+                              </h3>
+                              <h2
+                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
+                              >
+                                23
+                              </h2>
+                            </div>
+                            <div
+                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
+                            >
+                              <h3 class="text-gray-800 leading-6 text-sm">
+                                Hours
+                              </h3>
+
+                              <h2
+                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
+                              >
+                                2400
+                              </h2>
+                            </div>
+                            <div
+                              class="flex lg:block flex-row-reverse items-center"
+                            >
+                              <h3 class="text-gray-800 leading-6 text-sm">
+                                Students
+                              </h3>
+
+                              <h2
+                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
+                              >
+                                104
+                              </h2>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid-card">
+                      <div
+                        class="hover:shadow-xl transition-all duration-300 shadow rounded-lg overflow-hidden bg-gray-100"
+                      >
+                        <div class="aspect-video">
+                          <img
+                            class="w-full h-full object-cover object-center -t"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7j5fLPqDcuwZ4WC2sId05_g7RifrkwVt3NQ&s"
+                            alt="thumbnail"
+                          />
+                        </div>
+                        <div class="shadow p-6">
+                          <div class="flex items-center justify-between mb-1">
+                            <h5 class="font-medium text-gray-800">
+                              Jack Nielsen
+                            </h5>
+                          </div>
+                          <p class="text-xs text-gray-600 font-medium mb-2">
+                            Creative Director
+                          </p>
+                          <p class="text-xs text-gray-600 mb-4">
+                            Et quidem faciunt, ut de voluptate ponit, quod
+                            summum bonum sit aut rerum et quidem…
+                          </p>
+                          <div
+                            class="flex flex-wrap gap-2 items-center text-xs mb-5"
+                          >
+                            <p
+                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                            >
+                              Investment
+                            </p>
+                            <p
+                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded mx-2"
+                            >
+                              Marketing
+                            </p>
+                            <p
+                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                            >
+                              Budget
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col lg:flex-row w-full items-start lg:items-center mb-8 lg:mb-0 lg:justify-between"
+                          >
+                            <div
+                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
+                            >
+                              <h3 class="text-gray-800 leading-6 text-sm">
+                                Courses
+                              </h3>
+                              <h2
+                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
+                              >
+                                23
+                              </h2>
+                            </div>
+                            <div
+                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
+                            >
+                              <h3 class="text-gray-800 leading-6 text-sm">
+                                Hours
+                              </h3>
+
+                              <h2
+                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
+                              >
+                                2400
+                              </h2>
+                            </div>
+                            <div
+                              class="flex lg:block flex-row-reverse items-center"
+                            >
+                              <h3 class="text-gray-800 leading-6 text-sm">
+                                Students
+                              </h3>
+
+                              <h2
+                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
+                              >
+                                104
+                              </h2>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid-card">
+                      <div
+                        class="hover:shadow-xl transition-all duration-300 shadow rounded-lg overflow-hidden bg-gray-100"
+                      >
+                        <div class="aspect-video">
+                          <img
+                            class="w-full h-full object-cover object-center -t"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbnP0XOSlI5bDO2wjHrgQGk6RCvCpmnOz8DA&s"
+                            alt="thumbnail"
+                          />
+                        </div>
+                        <div class="shadow p-6">
+                          <div class="flex items-center justify-between mb-1">
+                            <h5 class="font-medium text-gray-800">
+                              Pamela Kirsten
+                            </h5>
+                          </div>
+                          <p class="text-xs text-gray-600 font-medium mb-2">
+                            Banker
+                          </p>
+                          <p class="text-xs text-gray-600 mb-4">
+                            Et quidem faciunt, ut de voluptate ponit, quod
+                            summum bonum sit aut rerum et quidem…
+                          </p>
+                          <div
+                            class="flex flex-wrap gap-2 items-center text-xs mb-5"
+                          >
+                            <p
+                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                            >
+                              Investment
+                            </p>
+                            <p
+                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded mx-2"
+                            >
+                              Marketing
+                            </p>
+                            <p
+                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                            >
+                              Budget
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col lg:flex-row w-full items-start lg:items-center mb-8 lg:mb-0 lg:justify-between"
+                          >
+                            <div
+                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
+                            >
+                              <h3 class="text-gray-800 leading-6 text-sm">
+                                Courses
+                              </h3>
+                              <h2
+                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
+                              >
+                                23
+                              </h2>
+                            </div>
+                            <div
+                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
+                            >
+                              <h3 class="text-gray-800 leading-6 text-sm">
+                                Hours
+                              </h3>
+
+                              <h2
+                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
+                              >
+                                2400
+                              </h2>
+                            </div>
+                            <div
+                              class="flex lg:block flex-row-reverse items-center"
+                            >
+                              <h3 class="text-gray-800 leading-6 text-sm">
+                                Students
+                              </h3>
+
+                              <h2
+                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
+                              >
+                                104
+                              </h2>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
           </div>
         </div>
-      </main>
+      </div>
     </div>
+
     <script
       type="text/javascript"
       src="//code.jquery.com/jquery-1.11.0.min.js"
