@@ -128,7 +128,7 @@
                       id="Search"
                       placeholder="Search something..."
                       autocomplete="off"
-                      class="w-full rounded-full bg-gray-200 border-none text-gray-700 text-lg py-2.5 sm:text-sm"
+                      class="w-full rounded-full bg-gray-200 border-none text-gray-700 text-lg py-2 sm:text-sm"
                     />
                     <span class="absolute inset-y-0 end-0 w-10">
                       <button
@@ -331,15 +331,15 @@
 
           <!-- Main -->
           <div class="flex h-[calc(100vh-3.5rem)]">
-            <!-- LeftSidebar -->
+            <!-- ProjectSidebar -->
             <div
-              id="left-sidebar"
+              id="project-sidebar"
               class="w-full max-w-0 lg:max-w-0 relative origin-left transition-all duration-300 ease-out h-[calc(100vh-4.5rem)] overflow-auto bg-white"
             >
               <!-- close button -->
               <button
                 type="button"
-                onclick="closeLeftSidebar()"
+                onclick="closeProjectSidebar()"
                 class="absolute z-10 right-2 top-4 bg-white/60 hover:bg-white/70 rounded-full size-6 p-0.5 flex items-center justify-center"
               >
                 <ion-icon class="size-full" name="close-outline"></ion-icon>
@@ -457,6 +457,7 @@
                     Available now
                   </h3>
                   <div
+                    id="grid-container"
                     class="grid gap-4 lg:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
                   >
                     <div class="grid-card">

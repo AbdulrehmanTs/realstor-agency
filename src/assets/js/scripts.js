@@ -10,16 +10,18 @@ const currencyButton = document.getElementById("currency-button");
 const mapSwitch = document.getElementById("map-switch");
 const gridSwitch = document.getElementById("grid-switch");
 const currenciesContainer = document.getElementById("currencies");
-const leftSidebar = document.getElementById("left-sidebar");
+const projectSidebar = document.getElementById("project-sidebar");
 const mainContainer = document.getElementById("main-container")
+
+const gridContainer = document.getElementById("grid-container")
 
 navBtn.addEventListener("click", toggleNavbar)
 currencyButton.addEventListener("click", handleCurrencyChange);
 mapSwitch.addEventListener("click", handleMapswitch);
 gridSwitch.addEventListener("click", handleGridswitch);
-map.addEventListener("click", openLeftSidebar);
+map.addEventListener("click", openProjectSidebar);
 gridCardsArray.forEach((item) =>
-  item.addEventListener("click", openLeftSidebar)
+  item.addEventListener("click", openProjectSidebar)
 );
 
 function toggleNavbar () {
@@ -139,20 +141,24 @@ function selectMeasure(element) {
   });
 }
 
+// Project Sidebar
 
-function openLeftSidebar() {
+function openProjectSidebar() {
   // checking only one class is enough
-  if (leftSidebar.classList.contains("max-w-xs")) return;
-  leftSidebar.classList.remove("max-w-0", "lg:max-w-0", "opacity-0");
-  leftSidebar.classList.add("max-w-xs", "lg:max-w-md", "opacity-100");
+  if (projectSidebar.classList.contains("max-w-xs")) return;
+  projectSidebar.classList.remove("max-w-0", "lg:max-w-0", "opacity-0");
+  projectSidebar.classList.add("max-w-xs", "lg:max-w-md", "opacity-100");
   mainContainer.classList.add("hidden", "md:block")
-
+  gridContainer.classList.remove("lg:grid-cols-4")
+  gridContainer.classList.add("lg:grid-cols-3")
 }
 
-function closeLeftSidebar() {
-  leftSidebar.classList.add("max-w-0", "lg:max-w-0", "opacity-0");
-  leftSidebar.classList.remove("max-w-xs", "lg:max-w-md", "opacity-100");
+function closeProjectSidebar() {
+  projectSidebar.classList.add("max-w-0", "lg:max-w-0", "opacity-0");
+  projectSidebar.classList.remove("max-w-xs", "lg:max-w-md", "opacity-100");
   mainContainer.classList.remove("hidden", "md:block")
+  gridContainer.classList.add("lg:grid-cols-4")
+  gridContainer.classList.remove("lg:grid-cols-3")
 }
 
 // Image Slider
