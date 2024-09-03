@@ -150,7 +150,7 @@ function openProjectSidebar() {
   projectSidebar.classList.add("max-w-xs", "lg:max-w-md", "opacity-100");
   mainContainer.classList.add("hidden", "md:block")
   gridContainer.classList.remove("lg:grid-cols-4")
-  gridContainer.classList.add("lg:grid-cols-3")
+  gridContainer.classList.add("lg:grid-cols-2")
 }
 
 function closeProjectSidebar() {
@@ -158,7 +158,18 @@ function closeProjectSidebar() {
   projectSidebar.classList.remove("max-w-xs", "lg:max-w-md", "opacity-100");
   mainContainer.classList.remove("hidden", "md:block")
   gridContainer.classList.add("lg:grid-cols-4")
-  gridContainer.classList.remove("lg:grid-cols-3")
+  gridContainer.classList.remove("lg:grid-cols-2")
+}
+// 
+
+function addToFavorites(element) {
+  const hearIcon = element.querySelector("ion-icon")
+  let att = hearIcon.getAttribute("name")
+  if (att === "heart-outline") {
+    hearIcon.setAttribute("name", "heart")
+  } else {
+    hearIcon.setAttribute("name", "heart-outline")
+  }
 }
 
 // Image Slider

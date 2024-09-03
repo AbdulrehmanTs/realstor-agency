@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --header-height: 3.5rem;
+}
+
 .slick-prev {
   z-index: 1;
   left: 1rem !important;
@@ -26,4 +30,9 @@
 #left-sidebar::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   border-radius: 20px;
+}
+
+
+.grid-card2 {
+  box-shadow: #00000029 0px 1px 4px;
 }

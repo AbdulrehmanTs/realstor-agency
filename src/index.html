@@ -23,15 +23,15 @@
       >
         <div class="h-full">
           <!-- Logo -->
-          <div class="flex justify-start px-4 h-14 border-b border-gray-600/20">
+          <div
+            class="flex justify-start px-4 h-[var(--header-height)] border-b border-gray-600/20"
+          >
             <div class="flex items-center">
               <ion-icon
                 class="size-8 text-blue-300"
                 name="invert-mode-outline"
               ></ion-icon>
-              <p
-                class="brand-name whitespace-nowrap ml-4 text-blue-100"
-              >
+              <p class="brand-name whitespace-nowrap ml-4 text-blue-100">
                 Real Store
               </p>
             </div>
@@ -61,7 +61,9 @@
                       class="text-blue-200 size-5"
                       name="home"
                     ></ion-icon>
-                    <p class="navitem-title text-xs hidden text-blue-200 ml-6">Home</p>
+                    <p class="navitem-title text-xs hidden text-blue-200 ml-6">
+                      Home
+                    </p>
                   </a>
                 </li>
                 <li class="transition">
@@ -116,7 +118,7 @@
       <div class="w-full bg-slate-900 rounded-l-xl overflow-x-hidden">
         <div class="bg-white size-full">
           <!-- Header -->
-          <div class="h-14 pb-4 p-2 border-b border-gray-600/20">
+          <div class="h-[--header-height] pb-4 p-2 border-b border-gray-600/20">
             <div class="lg:px-2">
               <div class="w-full flex items-center">
                 <!-- Searchbar -->
@@ -147,10 +149,14 @@
 
                 <!-- Filters -->
                 <div class="relative">
-                  <button class="flex gap-x-1 items-center bg-blue-500 text-white rounded-lg shadow-sm p-1.5">
+                  <button
+                    class="flex gap-x-1 items-center bg-blue-500 text-white rounded-lg shadow-sm p-1.5"
+                  >
                     <ion-icon name="funnel-outline"></ion-icon>
                     <p class="text-sm">filters</p>
-                    <div class="size-4 bg-white rounded-full flex items-center justify-center">
+                    <div
+                      class="size-4 bg-white rounded-full flex items-center justify-center"
+                    >
                       <p class="text-[8px] font-medium text-blue-500">2</p>
                     </div>
                   </button>
@@ -196,7 +202,6 @@
                     </div>
                   </div>
                 </div> -->
-
 
                 <!-- Switches -->
                 <div class="ml-4 flex items-center gap-x-2">
@@ -330,7 +335,7 @@
           </div>
 
           <!-- Main -->
-          <div class="flex h-[calc(100vh-3.5rem)]">
+          <div class="flex h-[calc(100vh-(var(--header-height)))]">
             <!-- ProjectSidebar -->
             <div
               id="project-sidebar"
@@ -344,33 +349,33 @@
               >
                 <ion-icon class="size-full" name="close-outline"></ion-icon>
               </button>
-              <!-- sliders -->
-              <div class="">
+              <!-- image slider -->
+              <div class="aspect-video transition-none">
                 <div class="slider size-full">
                   <div class="size-full aspect-video slider-image">
                     <img
-                      class="size-full lazy"
+                      class="transition-none size-full lazy"
                       src="https://www.propertyfinder.ae/blog/wp-content/uploads/2023/08/ondrej-bocek-3Q17UE2FZM4-unsplash.jpg"
                       alt=""
                     />
                   </div>
                   <div class="size-full aspect-video slider-image">
                     <img
-                      class="size-full lazy"
+                      class="transition-none size-full lazy"
                       src="https://airfixture.com/hubfs/Imported_Blog_Media/What-to-know-when-designing-high-rise-buildings-1.jpg"
                       alt=""
                     />
                   </div>
                   <div class="size-full aspect-video slider-image">
                     <img
-                      class="size-full lazy"
+                      class="transition-none size-full lazy"
                       src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/152229/slider-img-1.jpg"
                       alt=""
                     />
                   </div>
                   <div class="size-full aspect-video slider-image">
                     <img
-                      class="size-full lazy"
+                      class="transition-none size-full lazy"
                       src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/152229/slider-img-3.jpg"
                       alt=""
                     />
@@ -378,7 +383,7 @@
                 </div>
               </div>
               <!-- Title and description -->
-              <div class="p-2">
+              <div class="p-2 mt-5">
                 <h2
                   title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
             veritatis earum recusandae culpa,"
@@ -436,12 +441,9 @@
               </div>
             </div>
             <main id="main-container" class="w-full">
-              <div class="h-full border overflow-auto">
+              <div class="h-full overflow-auto">
                 <!-- Map -->
-                <div
-                  id="map"
-                  class="overflow-hidden bg-gray-100 h-full"
-                >
+                <div id="map" class="overflow-hidden bg-gray-100 h-full">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d36014.92721428063!2d54.350579929568454!3d24.471830375557406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e440f723ef2b9%3A0xc7cc2e9341971108!2sAbu%20Dhabi%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1724091904495!5m2!1sen!2s"
                     class="size-full outline-0 border-none border-0"
@@ -462,351 +464,332 @@
                   >
                     <div class="grid-card">
                       <div
-                        class="hover:shadow-xl transition-all duration-300 shadow rounded-lg overflow-hidden bg-gray-100"
+                        class="hover:shadow-xl transition-all duration-300 shadow-[0px_1px_4px_#00000029] rounded-lg overflow-hidden bg-white"
                       >
-                        <div class="aspect-video">
+                        <div class="aspect-video p-2">
                           <img
-                            class="w-full h-full object-cover object-center"
+                            class="w-full h-full object-cover object-center rounded"
                             src="https://cdn.britannica.com/82/156482-131-AEEBFEFC/New-York-York.jpg?w=840&h=460&c=crop"
                             alt="thumbnail"
                           />
                         </div>
-                        <div class="shadow p-6">
+                        <div class="shadow p-4">
                           <div class="flex items-center justify-between mb-1">
-                            <h5 class="font-medium text-gray-800">
+                            <h5 class="text-lg font-bold text-gray-800">
                               Rhonda Doe
                             </h5>
                           </div>
-                          <p class="text-xs text-gray-600 font-medium mb-2">
-                            Professor
-                          </p>
-                          <p class="text-xs text-gray-600 mb-4">
+                          <p class="text-xs text-gray-600 mb-2">
                             Et quidem faciunt, ut de voluptate ponit, quod
                             summum bonum sit aut rerum et quidem…
                           </p>
+                          <h4 class="font-semibold text-gray-800 text-sm mb-2">
+                            Developer:
+                          </h4>
                           <div
-                            class="flex flex-wrap gap-2 items-center text-xs mb-5"
+                            class="flex flex-wrap gap-2 items-center text-xs mb-3"
                           >
                             <p
-                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
                             >
-                              Investment
+                              Studio
                             </p>
                             <p
-                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
                             >
-                              Marketing
+                              1BR
                             </p>
                             <p
-                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
                             >
-                              Budget
+                              2BR
                             </p>
                           </div>
-                          <div
-                            class="flex flex-col lg:flex-row w-full items-start lg:items-center mb-8 lg:mb-0 lg:justify-between"
-                          >
-                            <div
-                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
-                            >
-                              <h3 class="text-gray-800 leading-6 text-sm">
-                                Courses
-                              </h3>
-                              <h2
-                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                              >
-                                23
-                              </h2>
-                            </div>
-                            <div
-                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
-                            >
-                              <h3 class="text-gray-800 leading-6 text-sm">
-                                Hours
-                              </h3>
-
-                              <h2
-                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                              >
-                                2400
-                              </h2>
-                            </div>
-                            <div
-                              class="flex lg:block flex-row-reverse items-center"
-                            >
-                              <h3 class="text-gray-800 leading-6 text-sm">
-                                Students
-                              </h3>
-
-                              <h2
-                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                              >
-                                104
-                              </h2>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="grid-card">
-                      <div
-                        class="hover:shadow-xl transition-all duration-300 shadow rounded-lg overflow-hidden bg-gray-100"
-                      >
-                        <div class="aspect-video">
-                          <img
-                            class="w-full h-full object-cover object-center -t"
-                            src="https://airfixture.com/hubfs/Imported_Blog_Media/What-to-know-when-designing-high-rise-buildings-1.jpg"
-                            alt="thumbnail"
-                          />
-                        </div>
-                        <div class="shadow p-6">
-                          <div class="flex items-center justify-between mb-1">
-                            <h5 class="font-medium text-gray-800">Chan Doe</h5>
-                          </div>
-                          <p class="text-xs text-gray-600 font-medium mb-2">
-                            Venture Capitalist
+                          <p class="text-sm text-gray-700">
+                            <span class="font-semibold">Location:</span> Sharjah
                           </p>
-                          <p class="text-xs text-gray-600 mb-4">
-                            Et quidem faciunt, ut de voluptate ponit, quod
-                            summum bonum sit aut rerum et quidem…
+                          <p class="text-sm text-gray-700">
+                            <span class="font-semibold">Price from:</span>
+                            AEDXXX,XXX
                           </p>
+                        </div>
+                        <div class="bg-gray-100">
                           <div
-                            class="flex flex-wrap gap-2 items-center text-xs mb-5"
+                            class="flex justify-between divide-x text-[10px]"
                           >
-                            <p
-                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                            <button
+                              onclick="addToFavorites(this)"
+                              class="p-2 flex-1 flex items-center justify-center"
                             >
-                              Investment
-                            </p>
-                            <p
-                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded mx-2"
+                              <ion-icon
+                                class="size-6 text-red-600"
+                                name="heart-outline"
+                              ></ion-icon>
+                            </button>
+                            <button
+                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
                             >
-                              Marketing
-                            </p>
-                            <p
-                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                              PHOPP <span class="font-normal">Y/N</span>
+                            </button>
+                            <span
+                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
+                              >Discount
+                              <span class="font-normal">X%</span></span
                             >
-                              Budget
-                            </p>
-                          </div>
-                          <div
-                            class="flex flex-col lg:flex-row w-full items-start lg:items-center mb-8 lg:mb-0 lg:justify-between"
-                          >
-                            <div
-                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
+                            <span
+                              class="text-gray-700 p-2 font-semibold flex-2 flex flex-col items-center justify-center"
+                              >Handover Date
+                              <span class="font-normal"> MM/YYYY</span></span
                             >
-                              <h3 class="text-gray-800 leading-6 text-sm">
-                                Courses
-                              </h3>
-                              <h2
-                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                              >
-                                23
-                              </h2>
-                            </div>
-                            <div
-                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
-                            >
-                              <h3 class="text-gray-800 leading-6 text-sm">
-                                Hours
-                              </h3>
-
-                              <h2
-                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                              >
-                                2400
-                              </h2>
-                            </div>
-                            <div
-                              class="flex lg:block flex-row-reverse items-center"
-                            >
-                              <h3 class="text-gray-800 leading-6 text-sm">
-                                Students
-                              </h3>
-
-                              <h2
-                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                              >
-                                104
-                              </h2>
-                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="grid-card">
                       <div
-                        class="hover:shadow-xl transition-all duration-300 shadow rounded-lg overflow-hidden bg-gray-100"
+                        class="hover:shadow-xl transition-all duration-300 shadow-[0px_1px_4px_#00000029] rounded-lg overflow-hidden bg-white"
                       >
-                        <div class="aspect-video">
+                        <div class="aspect-video p-2">
                           <img
-                            class="w-full h-full object-cover object-center -t"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7j5fLPqDcuwZ4WC2sId05_g7RifrkwVt3NQ&s"
+                            class="w-full h-full object-cover object-center rounded"
+                            src="https://cdn.britannica.com/82/156482-131-AEEBFEFC/New-York-York.jpg?w=840&h=460&c=crop"
                             alt="thumbnail"
                           />
                         </div>
-                        <div class="shadow p-6">
+                        <div class="shadow p-4">
                           <div class="flex items-center justify-between mb-1">
-                            <h5 class="font-medium text-gray-800">
-                              Jack Nielsen
+                            <h5 class="text-lg font-bold text-gray-800">
+                              Rhonda Doe
                             </h5>
                           </div>
-                          <p class="text-xs text-gray-600 font-medium mb-2">
-                            Creative Director
-                          </p>
-                          <p class="text-xs text-gray-600 mb-4">
+                          <p class="text-xs text-gray-600 mb-2">
                             Et quidem faciunt, ut de voluptate ponit, quod
                             summum bonum sit aut rerum et quidem…
                           </p>
+                          <h4 class="font-semibold text-gray-800 text-sm mb-2">
+                            Developer:
+                          </h4>
                           <div
-                            class="flex flex-wrap gap-2 items-center text-xs mb-5"
+                            class="flex flex-wrap gap-2 items-center text-xs mb-3"
                           >
                             <p
-                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
                             >
-                              Investment
+                              Studio
                             </p>
                             <p
-                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded mx-2"
+                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
                             >
-                              Marketing
+                              1BR
                             </p>
                             <p
-                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
                             >
-                              Budget
+                              2BR
                             </p>
                           </div>
+                          <p class="text-sm text-gray-700">
+                            <span class="font-semibold">Location:</span> Sharjah
+                          </p>
+                          <p class="text-sm text-gray-700">
+                            <span class="font-semibold">Price from:</span>
+                            AEDXXX,XXX
+                          </p>
+                        </div>
+                        <div class="bg-gray-100">
                           <div
-                            class="flex flex-col lg:flex-row w-full items-start lg:items-center mb-8 lg:mb-0 lg:justify-between"
+                            class="flex justify-between divide-x text-[10px]"
                           >
-                            <div
-                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
+                            <button
+                              onclick="addToFavorites(this)"
+                              class="p-2 flex-1 flex items-center justify-center"
                             >
-                              <h3 class="text-gray-800 leading-6 text-sm">
-                                Courses
-                              </h3>
-                              <h2
-                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                              >
-                                23
-                              </h2>
-                            </div>
-                            <div
-                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
+                              <ion-icon
+                                class="size-6 text-red-600"
+                                name="heart-outline"
+                              ></ion-icon>
+                            </button>
+                            <button
+                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
                             >
-                              <h3 class="text-gray-800 leading-6 text-sm">
-                                Hours
-                              </h3>
-
-                              <h2
-                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                              >
-                                2400
-                              </h2>
-                            </div>
-                            <div
-                              class="flex lg:block flex-row-reverse items-center"
+                              PHOPP <span class="font-normal">Y/N</span>
+                            </button>
+                            <span
+                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
+                              >Discount
+                              <span class="font-normal">X%</span></span
                             >
-                              <h3 class="text-gray-800 leading-6 text-sm">
-                                Students
-                              </h3>
-
-                              <h2
-                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                              >
-                                104
-                              </h2>
-                            </div>
+                            <span
+                              class="text-gray-700 p-2 font-semibold flex-2 flex flex-col items-center justify-center"
+                              >Handover Date
+                              <span class="font-normal"> MM/YYYY</span></span
+                            >
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="grid-card">
                       <div
-                        class="hover:shadow-xl transition-all duration-300 shadow rounded-lg overflow-hidden bg-gray-100"
+                        class="hover:shadow-xl transition-all duration-300 shadow-[0px_1px_4px_#00000029] rounded-lg overflow-hidden bg-white"
                       >
-                        <div class="aspect-video">
+                        <div class="aspect-video p-2">
                           <img
-                            class="w-full h-full object-cover object-center -t"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbnP0XOSlI5bDO2wjHrgQGk6RCvCpmnOz8DA&s"
+                            class="w-full h-full object-cover object-center rounded"
+                            src="https://cdn.britannica.com/82/156482-131-AEEBFEFC/New-York-York.jpg?w=840&h=460&c=crop"
                             alt="thumbnail"
                           />
                         </div>
-                        <div class="shadow p-6">
+                        <div class="shadow p-4">
                           <div class="flex items-center justify-between mb-1">
-                            <h5 class="font-medium text-gray-800">
-                              Pamela Kirsten
+                            <h5 class="text-lg font-bold text-gray-800">
+                              Rhonda Doe
                             </h5>
                           </div>
-                          <p class="text-xs text-gray-600 font-medium mb-2">
-                            Banker
-                          </p>
-                          <p class="text-xs text-gray-600 mb-4">
+                          <p class="text-xs text-gray-600 mb-2">
                             Et quidem faciunt, ut de voluptate ponit, quod
                             summum bonum sit aut rerum et quidem…
                           </p>
+                          <h4 class="font-semibold text-gray-800 text-sm mb-2">
+                            Developer:
+                          </h4>
                           <div
-                            class="flex flex-wrap gap-2 items-center text-xs mb-5"
+                            class="flex flex-wrap gap-2 items-center text-xs mb-3"
                           >
                             <p
-                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
                             >
-                              Investment
+                              Studio
                             </p>
                             <p
-                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded mx-2"
+                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
                             >
-                              Marketing
+                              1BR
                             </p>
                             <p
-                              class="py-1 px-2 text-gray-600 bg-blue-100 rounded"
+                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
                             >
-                              Budget
+                              2BR
                             </p>
                           </div>
+                          <p class="text-sm text-gray-700">
+                            <span class="font-semibold">Location:</span> Sharjah
+                          </p>
+                          <p class="text-sm text-gray-700">
+                            <span class="font-semibold">Price from:</span>
+                            AEDXXX,XXX
+                          </p>
+                        </div>
+                        <div class="bg-gray-100">
                           <div
-                            class="flex flex-col lg:flex-row w-full items-start lg:items-center mb-8 lg:mb-0 lg:justify-between"
+                            class="flex justify-between divide-x text-[10px]"
                           >
-                            <div
-                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
+                            <button
+                              onclick="addToFavorites(this)"
+                              class="p-2 flex-1 flex items-center justify-center"
                             >
-                              <h3 class="text-gray-800 leading-6 text-sm">
-                                Courses
-                              </h3>
-                              <h2
-                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                              >
-                                23
-                              </h2>
-                            </div>
-                            <div
-                              class="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0"
+                              <ion-icon
+                                class="size-6 text-red-600"
+                                name="heart-outline"
+                              ></ion-icon>
+                            </button>
+                            <button
+                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
                             >
-                              <h3 class="text-gray-800 leading-6 text-sm">
-                                Hours
-                              </h3>
-
-                              <h2
-                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                              >
-                                2400
-                              </h2>
-                            </div>
-                            <div
-                              class="flex lg:block flex-row-reverse items-center"
+                              PHOPP <span class="font-normal">Y/N</span>
+                            </button>
+                            <span
+                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
+                              >Discount
+                              <span class="font-normal">X%</span></span
                             >
-                              <h3 class="text-gray-800 leading-6 text-sm">
-                                Students
-                              </h3>
-
-                              <h2
-                                class="mr-2 lg:mr-0 text-gray-600 text-xl lg:text-lg font-bold"
-                              >
-                                104
-                              </h2>
-                            </div>
+                            <span
+                              class="text-gray-700 p-2 font-semibold flex-2 flex flex-col items-center justify-center"
+                              >Handover Date
+                              <span class="font-normal"> MM/YYYY</span></span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid-card">
+                      <div
+                        class="hover:shadow-xl transition-all duration-300 shadow-[0px_1px_4px_#00000029] rounded-lg overflow-hidden bg-white"
+                      >
+                        <div class="aspect-video p-2">
+                          <img
+                            class="w-full h-full object-cover object-center rounded"
+                            src="https://cdn.britannica.com/82/156482-131-AEEBFEFC/New-York-York.jpg?w=840&h=460&c=crop"
+                            alt="thumbnail"
+                          />
+                        </div>
+                        <div class="shadow p-4">
+                          <div class="flex items-center justify-between mb-1">
+                            <h5 class="text-lg font-bold text-gray-800">
+                              Rhonda Doe
+                            </h5>
+                          </div>
+                          <p class="text-xs text-gray-600 mb-2">
+                            Et quidem faciunt, ut de voluptate ponit, quod
+                            summum bonum sit aut rerum et quidem…
+                          </p>
+                          <h4 class="font-semibold text-gray-800 text-sm mb-2">
+                            Developer:
+                          </h4>
+                          <div
+                            class="flex flex-wrap gap-2 items-center text-xs mb-3"
+                          >
+                            <p
+                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
+                            >
+                              Studio
+                            </p>
+                            <p
+                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
+                            >
+                              1BR
+                            </p>
+                            <p
+                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
+                            >
+                              2BR
+                            </p>
+                          </div>
+                          <p class="text-sm text-gray-700">
+                            <span class="font-semibold">Location:</span> Sharjah
+                          </p>
+                          <p class="text-sm text-gray-700">
+                            <span class="font-semibold">Price from:</span>
+                            AEDXXX,XXX
+                          </p>
+                        </div>
+                        <div class="bg-gray-100">
+                          <div
+                            class="flex justify-between divide-x text-[10px]"
+                          >
+                            <button
+                              onclick="addToFavorites(this)"
+                              class="p-2 flex-1 flex items-center justify-center"
+                            >
+                              <ion-icon
+                                class="size-6 text-red-600"
+                                name="heart-outline"
+                              ></ion-icon>
+                            </button>
+                            <button
+                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
+                            >
+                              PHOPP <span class="font-normal">Y/N</span>
+                            </button>
+                            <span
+                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
+                              >Discount
+                              <span class="font-normal">X%</span></span
+                            >
+                            <span
+                              class="text-gray-700 p-2 font-semibold flex-2 flex flex-col items-center justify-center"
+                              >Handover Date
+                              <span class="font-normal"> MM/YYYY</span></span
+                            >
                           </div>
                         </div>
                       </div>
