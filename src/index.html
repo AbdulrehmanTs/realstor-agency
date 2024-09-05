@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Real State</title>
+    <title>Realtors Pilot</title>
     <link href="./assets/css/tailwind.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="./assets/images/logo.svg" />
+    <link rel="icon" href="assets/images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="./assets/slick/slick.css" />
     <link
       rel="stylesheet"
@@ -27,12 +27,16 @@
             class="flex justify-start px-4 h-[var(--header-height)] border-b border-gray-600/20"
           >
             <div class="flex items-center">
-              <ion-icon
-                class="size-8 text-blue-300"
-                name="invert-mode-outline"
-              ></ion-icon>
-              <p class="brand-name whitespace-nowrap ml-4 text-blue-100">
-                Real Store
+              <div
+                class="size-8 flex items-center justify-center rounded-full bg-white"
+              >
+                <ion-icon
+                  class="size-8 text-blue-800"
+                  name="invert-mode-outline"
+                ></ion-icon>
+              </div>
+              <p class="brand-name whitespace-nowrap ml-4 text-white">
+                Realtors Pilot
               </p>
             </div>
           </div>
@@ -54,7 +58,7 @@
               <ul class="flex flex-col gap-y-6">
                 <li class="transition">
                   <a
-                    href="#"
+                    href="./index.html"
                     class="flex items-center hover:bg-gray-600/40 rounded p-2"
                   >
                     <ion-icon
@@ -68,29 +72,29 @@
                 </li>
                 <li class="transition">
                   <a
-                    href="#"
+                    href="./favorites.html"
                     class="flex items-center hover:bg-gray-600/40 rounded p-2"
                   >
                     <ion-icon
                       class="text-blue-200 size-5"
-                      name="analytics"
+                      name="heart"
                     ></ion-icon>
                     <p class="navitem-title text-xs hidden text-blue-200 ml-6">
-                      Nav Item
+                      Favorites
                     </p>
                   </a>
                 </li>
                 <li class="transition">
                   <a
-                    href="#"
+                    href="./scripts.html"
                     class="flex items-center hover:bg-gray-600/40 rounded p-2"
                   >
                     <ion-icon
                       class="text-blue-200 size-5"
-                      name="bonfire"
+                      name="barcode"
                     ></ion-icon>
                     <p class="navitem-title text-xs hidden text-blue-200 ml-6">
-                      Nav Item
+                      Scripts
                     </p>
                   </a>
                 </li>
@@ -161,47 +165,6 @@
                     </div>
                   </button>
                 </div>
-                <!-- <div class="flex justify-between items-center">
-                  <div class="">
-                    <div class="flex flex-wrap items-center gap-6">
-                      <button
-                        class="bg-white hover:shadow-md px-6 py-1.5 rounded-full shadow-sm"
-                      >
-                        <p class="font-medium text-base text-gray-600">
-                          Emirate
-                        </p>
-                      </button>
-                      <button
-                        class="bg-white hover:shadow-md px-6 py-1.5 rounded-full shadow-sm"
-                      >
-                        <p class="font-medium text-base text-gray-600">
-                          District
-                        </p>
-                      </button>
-                      <button
-                        class="bg-white hover:shadow-md px-6 py-1.5 rounded-full shadow-sm"
-                      >
-                        <p class="font-medium text-base text-gray-600">
-                          Developer
-                        </p>
-                      </button>
-                      <button
-                        class="bg-white hover:shadow-md px-6 py-1.5 rounded-full shadow-sm"
-                      >
-                        <p class="font-medium text-base text-gray-600">
-                          More filters
-                        </p>
-                      </button>
-                      <button
-                        class="bg-blue-500 px-6 py-1.5 rounded-full shadow-sm"
-                      >
-                        <p class="font-medium text-base text-white/90">
-                          Clear Filter
-                        </p>
-                      </button>
-                    </div>
-                  </div>
-                </div> -->
 
                 <!-- Switches -->
                 <div class="ml-4 flex items-center gap-x-2">
@@ -216,7 +179,7 @@
                       >
                         USD
                       </p>
-                      <div class="h-4 w-[2px] bg-gray-400"></div>
+                      <div class="h-4 w-[1.5px] bg-gray-400"></div>
                       <p
                         class="measure text-gray-600 font-medium text-sm transition-all ease-linear duration-200"
                       >
@@ -330,17 +293,103 @@
                     </button>
                   </div>
                 </div>
+
+                <!-- scripts -->
+                <div class="ml-auto relative">
+                  <button
+                    id="scripts-button"
+                    class="bg-gray-200 rounded-lg text-gray-600 flex items-center gap-x-1 shadow-sm px-3 py-1.5"
+                  >
+                    <ion-icon
+                      class="size-5 text-gray-600"
+                      name="barcode-outline"
+                    ></ion-icon>
+                    <span class="text-sm">Scripts</span>
+                    <ion-icon class="size-4" name="chevron-down"></ion-icon>
+                  </button>
+
+                  <div
+                    id="scripts-panel"
+                    class="absolute top-10 right-0 z-20 w-72 pointer-events-none opacity-0 -translate-y-4 transition-all duration-300"
+                  >
+                    <div
+                      class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"
+                    >
+                      <div
+                        class="scripts-slider pt-4 pb-10 bg-white ring-2 rounded-xl size-full"
+                      >
+                        <div
+                          class="p-6 min-h-40 max-h-48 overflow-auto text-gray-700 text-sm"
+                        >
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing
+                            elit. Autem tenetur, tempora recusandae animi neque
+                            ducimus. Nisi, consectetur et natus earum reiciendis
+                            recusandae officia velit architecto vel neque magni
+                            aut ipsam?
+                          </p>
+                        </div>
+                        <div
+                          class="p-6 min-h-40 max-h-48 overflow-auto text-gray-700 text-sm"
+                        >
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing
+                            elit. Autem tenetur, tempora recusandae animi neque
+                            ducimus. Nisi, consectetur et natus earum reiciendis
+                            recusandae officia velit architecto vel neque magni
+                            aut ipsam?
+                          </p>
+                        </div>
+                        <div
+                          class="p-6 min-h-40 max-h-48 overflow-auto text-gray-700 text-sm"
+                        >
+                          <p>Lorem ipsum dolorto vel neque magni aut ipsam?</p>
+                        </div>
+                        <div
+                          class="p-6 min-h-40 max-h-48 overflow-auto text-gray-700 text-sm"
+                        >
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing
+                            elit. Autem tenetur, tempora recusandae animi neque
+                            ducimus. Nisi, consectetur et natus earum reiciendis
+                            recusandae officia velit architecto vel neque magni
+                            aut ipsam?
+                          </p>
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing
+                            elit. Autem tenetur, tempora recusandae animi neque
+                            ducimus. Nisi, consectetur et natus earum reiciendis
+                            recusandae officia velit architecto vel neque magni
+                            aut ipsam?
+                          </p>
+                        </div>
+                      </div>
+                      <a href="./scripts.html" class="absolute bottom-9 left-5 text-blue-500 font-medium text-sm hover:underline rounded-full py-1 px-2 transition">See all</a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Main -->
           <div class="flex h-[calc(100vh-(var(--header-height)))]">
-            <!-- ProjectSidebar -->
+            <!-- Project-left-sidebar -->
             <div
               id="project-sidebar"
-              class="w-full max-w-0 lg:max-w-0 relative origin-left transition-all duration-300 ease-out h-[calc(100vh-4.5rem)] overflow-auto bg-white"
+              class="w-full max-w-0 lg:max-w-0 relative origin-left transition-all duration-300 ease-out h-[calc(100vh-(var(--header-height)))] overflow-auto border-r shadow-lg"
             >
+              <!-- Add to Favorite btn -->
+              <button
+                onclick="addToFavorites(this)"
+                class="absolute z-10 left-3 top-3 bg-white/80 border rounded-full size-8 flex-1 flex items-center justify-center"
+              >
+                <ion-icon
+                  class="size-5 text-red-700"
+                  name="heart-outline"
+                ></ion-icon>
+              </button>
+
               <!-- close button -->
               <button
                 type="button"
@@ -382,8 +431,20 @@
                   </div>
                 </div>
               </div>
+              <!-- favorite -->
+              <!-- <div class="w-full flex justify-end mt-10">
+                <button
+                  onclick="addToFavorites(this)"
+                  class="p-2 size-10 bg-gray-100 max-w-fit flex-1 flex items-center justify-center"
+                >
+                  <ion-icon
+                    class="size-6 text-red-600"
+                    name="heart-outline"
+                  ></ion-icon>
+                </button>
+              </div> -->
               <!-- Title and description -->
-              <div class="p-2 mt-5">
+              <div class="p-2 mt-4">
                 <h2
                   title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
             veritatis earum recusandae culpa,"
@@ -440,6 +501,139 @@
                 </div>
               </div>
             </div>
+
+            <!-- project-right-sidebar -->
+            <div
+              class="absolute bottom-3 right-4 z-10 w-full max-w-72 h-[calc(100vh-21rem)] shadow-lg bg-blue-300 rounded-xl pt-2 size-full transition-all duration-300 ease-out"
+            >
+            <!-- close btn -->
+              <button onclick="closeRightSidebar(this)" class="absolute -left-[2rem] top-4 bg-blue-200 rounded-l-full size-8 flex items-center justify-center">
+                <ion-icon name="chevron-forward"></ion-icon>
+              </button>
+              <div class="size-full bg-white ring-2 shadow-lg rounded-lg">
+                <!-- districts list -->
+                <div
+                  class=" flex flex-col h-1/2 pl-3 pt-3 pb-1 border-b"
+                >
+                  <h3 class="font-medium text-gray-700">Projects</h3>
+                  <p class="text-xs leading-3 text-gray-500">
+                    Selected district
+                  </p>
+                  <hr class="mt-2" />
+                  <div class="flex-1 mt-2 overflow-auto projects-list">
+                    <ul class="flex flex-col gap-y-2">
+                      <li>
+                        <div class="flex items-center gap-x-2">
+                          <img
+                            class="rounded size-10"
+                            src="https://www.propertyfinder.ae/blog/wp-content/uploads/2023/08/ondrej-bocek-3Q17UE2FZM4-unsplash.jpg"
+                            alt=""
+                          />
+                          <div class="">
+                            <p
+                              class="font-normal text-xs text-gray-700 truncate max-w-52"
+                            >
+                              Lorem ipsum dolor sit amet consectetur adipisicing
+                              elit.
+                            </p>
+                            <p
+                              class="font-thin text-xs text-gray-500 truncate max-w-52"
+                            >
+                              dolor sit amet consectetur adipisicing
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="flex items-center gap-x-2">
+                          <img
+                            class="rounded size-10"
+                            src="https://airfixture.com/hubfs/Imported_Blog_Media/What-to-know-when-designing-high-rise-buildings-1.jpg"
+                            alt=""
+                          />
+                          <div class="">
+                            <p
+                              class="font-normal text-xs text-gray-700 truncate max-w-52"
+                            >
+                              Lorem ipsum dolor sit amet consectetur adipisicing
+                              elit.
+                            </p>
+                            <p
+                              class="font-thin text-xs text-gray-500 truncate max-w-52"
+                            >
+                              dolor sit amet consectetur adipisicing
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="flex items-center gap-x-2">
+                          <img
+                            class="rounded size-10"
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/152229/slider-img-1.jpg"
+                            alt=""
+                          />
+                          <div class="">
+                            <p
+                              class="font-normal text-xs text-gray-700 truncate max-w-52"
+                            >
+                              Lorem ipsum dolor sit amet consectetur adipisicing
+                              elit.
+                            </p>
+                            <p
+                              class="font-thin text-xs text-gray-500 truncate max-w-52"
+                            >
+                              dolor sit amet consectetur adipisicing
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="flex items-center gap-x-2">
+                          <img
+                            class="rounded size-10"
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/152229/slider-img-3.jpg"
+                            alt=""
+                          />
+                          <div class="">
+                            <p
+                              class="font-normal text-xs text-gray-700 truncate max-w-52"
+                            >
+                              Lorem ipsum dolor sit amet consectetur adipisicing
+                              elit.
+                            </p>
+                            <p
+                              class="font-thin text-xs text-gray-500 truncate max-w-52"
+                            >
+                              dolor sit amet consectetur adipisicing
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- data stories -->
+                <div
+                  class="data-stories flex flex-col h-1/2 px-3 pt-3 pb-1 overflow-y-auto"
+                >
+                  <h3 class="font-medium text-gray-700">Data Stories</h3>
+                  <p class="text-xs text-gray-500">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Aliquid quae dolore recusandae, tenetur optio reiciendis ad!
+                    Dolores ipsa ipsam voluptatum, minima pariatur eum?
+                    Accusamus neque aut nemo maiores mollitia commodi?
+                  </p>
+                  <p class="text-xs text-gray-500">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Aliquid quae dolore recusandae, tenetur optio reiciendis ad!
+                    Dolores ipsa ipsam voluptatum, minima pariatur eum?
+                    Accusamus neque aut nemo maiores mollitia commodi?
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- main -->
             <main id="main-container" class="w-full">
               <div class="h-full overflow-auto">
                 <!-- Map -->
@@ -456,7 +650,7 @@
                 <!-- Grid -->
                 <div id="grid" class="hidden px-4 pb-10">
                   <h3 class="font-semibold text-xl text-blue-800 mt-8 mb-6">
-                    Available now
+                    Grid View
                   </h3>
                   <div
                     id="grid-container"
@@ -464,8 +658,17 @@
                   >
                     <div class="grid-card">
                       <div
-                        class="hover:shadow-xl transition-all duration-300 shadow-[0px_1px_4px_#00000029] rounded-lg overflow-hidden bg-white"
+                        class="relative hover:shadow-xl transition-all duration-300 shadow-[0px_1px_4px_#00000029] rounded-lg overflow-hidden bg-white"
                       >
+                        <!-- bage -->
+                        <div class="absolute top-4 left-4">
+                          <span
+                            class="py-1 px-2 font-medium text-xs text-gray-600 bg-blue-300/80 rounded"
+                          >
+                            New
+                          </span>
+                        </div>
+                        <!-- image -->
                         <div class="aspect-video p-2">
                           <img
                             class="w-full h-full object-cover object-center rounded"
@@ -490,17 +693,108 @@
                             class="flex flex-wrap gap-2 items-center text-xs mb-3"
                           >
                             <p
-                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
+                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
                             >
                               Studio
                             </p>
                             <p
-                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
+                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
                             >
                               1BR
                             </p>
                             <p
-                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
+                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                            >
+                              2BR
+                            </p>
+                          </div>
+                          <p class="text-sm text-gray-700">
+                            <span class="font-semibold">Location:</span> Sharjah
+                          </p>
+                          <p class="text-sm text-gray-700">
+                            <span class="font-semibold">Price from:</span>
+                            AEDXXX,XXX
+                          </p>
+                        </div>
+                        <div class="bg-gray-100">
+                          <div
+                            class="flex justify-between divide-x text-[10px]"
+                          >
+                            <button
+                              onclick="addToFavorites(this)"
+                              class="p-2 flex-1 flex items-center justify-center"
+                            >
+                              <ion-icon
+                                class="size-6 text-red-600"
+                                name="heart-outline"
+                              ></ion-icon>
+                            </button>
+                            <button
+                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
+                            >
+                              PHOPP <span class="font-normal">Y/N</span>
+                            </button>
+                            <span
+                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
+                              >Discount
+                              <span class="font-normal">X%</span></span
+                            >
+                            <span
+                              class="text-gray-700 p-2 font-semibold flex-2 flex flex-col items-center justify-center"
+                              >Handover Date
+                              <span class="font-normal"> MM/YYYY</span></span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid-card">
+                      <div
+                        class="relative hover:shadow-xl transition-all duration-300 shadow-[0px_1px_4px_#00000029] rounded-lg overflow-hidden bg-white"
+                      >
+                        <!-- bage -->
+                        <div class="absolute top-4 right-4">
+                          <span
+                            class="py-1 px-2 font-medium text-xs text-gray-600 bg-yellow-300/80 rounded"
+                          >
+                            5%
+                          </span>
+                        </div>
+                        <div class="aspect-video p-2">
+                          <img
+                            class="w-full h-full object-cover object-center rounded"
+                            src="https://cdn.britannica.com/82/156482-131-AEEBFEFC/New-York-York.jpg?w=840&h=460&c=crop"
+                            alt="thumbnail"
+                          />
+                        </div>
+                        <div class="shadow p-4">
+                          <div class="flex items-center justify-between mb-1">
+                            <h5 class="text-lg font-bold text-gray-800">
+                              Rhonda Doe
+                            </h5>
+                          </div>
+                          <p class="text-xs text-gray-600 mb-2">
+                            Et quidem faciunt, ut de voluptate ponit, quod
+                            summum bonum sit aut rerum et quidem…
+                          </p>
+                          <h4 class="font-semibold text-gray-800 text-sm mb-2">
+                            Developer:
+                          </h4>
+                          <div
+                            class="flex flex-wrap gap-2 items-center text-xs mb-3"
+                          >
+                            <p
+                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                            >
+                              Studio
+                            </p>
+                            <p
+                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                            >
+                              1BR
+                            </p>
+                            <p
+                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
                             >
                               2BR
                             </p>
@@ -573,17 +867,17 @@
                             class="flex flex-wrap gap-2 items-center text-xs mb-3"
                           >
                             <p
-                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
+                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
                             >
                               Studio
                             </p>
                             <p
-                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
+                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
                             >
                               1BR
                             </p>
                             <p
-                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
+                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
                             >
                               2BR
                             </p>
@@ -656,100 +950,17 @@
                             class="flex flex-wrap gap-2 items-center text-xs mb-3"
                           >
                             <p
-                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
+                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
                             >
                               Studio
                             </p>
                             <p
-                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
+                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
                             >
                               1BR
                             </p>
                             <p
-                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
-                            >
-                              2BR
-                            </p>
-                          </div>
-                          <p class="text-sm text-gray-700">
-                            <span class="font-semibold">Location:</span> Sharjah
-                          </p>
-                          <p class="text-sm text-gray-700">
-                            <span class="font-semibold">Price from:</span>
-                            AEDXXX,XXX
-                          </p>
-                        </div>
-                        <div class="bg-gray-100">
-                          <div
-                            class="flex justify-between divide-x text-[10px]"
-                          >
-                            <button
-                              onclick="addToFavorites(this)"
-                              class="p-2 flex-1 flex items-center justify-center"
-                            >
-                              <ion-icon
-                                class="size-6 text-red-600"
-                                name="heart-outline"
-                              ></ion-icon>
-                            </button>
-                            <button
-                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
-                            >
-                              PHOPP <span class="font-normal">Y/N</span>
-                            </button>
-                            <span
-                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
-                              >Discount
-                              <span class="font-normal">X%</span></span
-                            >
-                            <span
-                              class="text-gray-700 p-2 font-semibold flex-2 flex flex-col items-center justify-center"
-                              >Handover Date
-                              <span class="font-normal"> MM/YYYY</span></span
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="grid-card">
-                      <div
-                        class="hover:shadow-xl transition-all duration-300 shadow-[0px_1px_4px_#00000029] rounded-lg overflow-hidden bg-white"
-                      >
-                        <div class="aspect-video p-2">
-                          <img
-                            class="w-full h-full object-cover object-center rounded"
-                            src="https://cdn.britannica.com/82/156482-131-AEEBFEFC/New-York-York.jpg?w=840&h=460&c=crop"
-                            alt="thumbnail"
-                          />
-                        </div>
-                        <div class="shadow p-4">
-                          <div class="flex items-center justify-between mb-1">
-                            <h5 class="text-lg font-bold text-gray-800">
-                              Rhonda Doe
-                            </h5>
-                          </div>
-                          <p class="text-xs text-gray-600 mb-2">
-                            Et quidem faciunt, ut de voluptate ponit, quod
-                            summum bonum sit aut rerum et quidem…
-                          </p>
-                          <h4 class="font-semibold text-gray-800 text-sm mb-2">
-                            Developer:
-                          </h4>
-                          <div
-                            class="flex flex-wrap gap-2 items-center text-xs mb-3"
-                          >
-                            <p
-                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
-                            >
-                              Studio
-                            </p>
-                            <p
-                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
-                            >
-                              1BR
-                            </p>
-                            <p
-                              class="py-1 px-2 font-medium text-gray-600 bg-slate-200 rounded-xl"
+                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
                             >
                               2BR
                             </p>

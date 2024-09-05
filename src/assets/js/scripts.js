@@ -15,6 +15,9 @@ const mainContainer = document.getElementById("main-container")
 
 const gridContainer = document.getElementById("grid-container")
 
+const scriptsButton = document.querySelector("#scripts-button")
+const scriptsPanel = document.querySelector("#scripts-panel")
+
 navBtn.addEventListener("click", toggleNavbar)
 currencyButton.addEventListener("click", handleCurrencyChange);
 mapSwitch.addEventListener("click", handleMapswitch);
@@ -23,6 +26,7 @@ map.addEventListener("click", openProjectSidebar);
 gridCardsArray.forEach((item) =>
   item.addEventListener("click", openProjectSidebar)
 );
+scriptsButton.addEventListener("click", toggleScriptsPanel)
 
 function toggleNavbar () {
   if (navbar.classList.contains("max-w-16")) {
@@ -90,13 +94,21 @@ function handleGridswitch() {
 
 // Clicking outside close currenySelector
 window.addEventListener("click", (e) => {
-  // currency dropdwon close
+  // currency dropdwon
   if (currencyButton.contains(e.target)) return;
   if (!currenciesContainer.contains(e.target)) {
     if (currenciesContainer.classList.contains("scale-100")) {
       handleCurrencyChange();
     }
   }
+  // close scripts panle
+  // if (scriptsButton.contains(e.target)) return;
+  // if (!scriptsPanel.contains(e.target)) {
+  //   console.log("object");
+  //   if (scriptsPanel.classList.contains("opacity-100")) {
+  //     toggleScriptsPanel()
+  //   }
+  // }
 });
 
 function selectCurrency(element) {
@@ -163,14 +175,44 @@ function closeProjectSidebar() {
 // 
 
 function addToFavorites(element) {
-  const hearIcon = element.querySelector("ion-icon")
-  let att = hearIcon.getAttribute("name")
+  const heartIcon = element.querySelector("ion-icon")
+  let att = heartIcon.getAttribute("name")
   if (att === "heart-outline") {
-    hearIcon.setAttribute("name", "heart")
+    heartIcon.setAttribute("name", "heart")
   } else {
-    hearIcon.setAttribute("name", "heart-outline")
+    heartIcon.setAttribute("name", "heart-outline")
   }
 }
+
+// open script panel
+
+function toggleScriptsPanel() {
+  if (scriptsPanel.classList.contains("opacity-0")) {
+    // btn style
+    scriptsButton.classList.remove("bg-gray-200","text-gray-600")
+    scriptsButton.classList.add("bg-blue-500","text-white")
+    scriptsButton.firstElementChild.classList.remove("text-gray-600")
+    scriptsButton.firstElementChild.classList.add("text-white")
+    // panel style
+    scriptsPanel.classList.remove("opacity-0", "pointer-events-none", "-translate-y-4")
+    scriptsPanel.classList.add("opacity-100", "pointer-events-auto", "-translate-y-0")
+  } else {
+    // btn style
+    scriptsButton.classList.remove("bg-blue-500","text-white")
+    scriptsButton.classList.add("bg-gray-200","text-gray-600")
+    scriptsButton.firstElementChild.classList.remove("text-white")
+    scriptsButton.firstElementChild.classList.add("text-gray-600")
+    // panel style
+    scriptsPanel.classList.remove("opacity-100", "pointer-events-auto", "-translate-y-0")
+    scriptsPanel.classList.add("opacity-0", "pointer-events-none", "-translate-y-4")
+  }
+}
+
+// 
+function closeRightSidebar (element) {
+  element.parentElement.classList.toggle("translate-x-[100%]")
+}
+
 
 // Image Slider
 
@@ -178,5 +220,16 @@ $(document).ready(function () {
   $(".slider").slick({
     dots: true,
     autoplay: true,
+  });
+});
+
+
+$(document).ready(function () {
+  $(".scripts-slider").slick({
+    dots: true,
+    autoplay: false,
+    adaptiveHeight: true,
+    prevArrow: '<button class="z-10 absolute right-12 bottom-2 bg-blue-200 rounded-full size-6 flex items-center justify-center hover:bg-blue-100"><ion-icon name="chevron-back"></ion-icon></button>',
+    nextArrow: '<button class="z-10 absolute right-4 bottom-2 bg-blue-200 rounded-full size-6 flex items-center justify-center hover:bg-blue-100"><ion-icon name="chevron-forward"></ion-icon></button>'
   });
 });
