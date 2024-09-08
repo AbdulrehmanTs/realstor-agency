@@ -126,6 +126,14 @@ body {
   background-color: #93c5fd;
   border-radius: 20px;
 }
+.filter-dropdwon-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.filter-dropdwon-container::-webkit-scrollbar-thumb {
+  background-color: #93c5fd;
+  border-radius: 20px;
+}
 
 .project-sidebar-filters::-webkit-scrollbar {
   display: none;
