@@ -55,7 +55,7 @@
             </div>
             <!-- Navitems -->
             <div class="w-full mt-8">
-              <ul class="flex flex-col gap-y-6">
+              <ul class="flex flex-col gap-y-4">
                 <li class="transition">
                   <a
                     href="./index.html"
@@ -98,20 +98,7 @@
                     </p>
                   </a>
                 </li>
-                <li class="transition">
-                  <a
-                    href="#"
-                    class="flex items-center hover:bg-gray-600/40 rounded p-2"
-                  >
-                    <ion-icon
-                      class="text-blue-200 size-5"
-                      name="document-attach"
-                    ></ion-icon>
-                    <p class="navitem-title text-xs hidden text-blue-200 ml-6">
-                      Nav Item
-                    </p>
-                  </a>
-                </li>
+                
               </ul>
             </div>
           </div>
@@ -155,55 +142,172 @@
           </div>
 
           <!-- Main -->
-          <div class="flex h-[calc(100vh-(var(--header-height)))]">
+          <div class="flex h-[calc(100vh-(var(--header-height)))] overflow-auto">
             <div
-              class="overflow-auto flex flex-col md:flex-row gap-x-10 divide-x-2"
+              class="flex flex-col md:flex-row mx-auto gap-x-10 md:divide-x-2"
             >
-              <div class="w-full md:w-1/2 p-6 lg:overflow-auto">
-                <h2 class="font-bold text-gray-700">My scripts</h2>
+              <div class="w-full md:w-1/2 max-w-xl p-4 md:p-6 lg:overflow-auto">
+                <div class="flex items-center justify-between gap-x-4">
+                  <h2 class="font-bold text-gray-700">My scripts</h2>
+                  <button
+                  class="p-1 rounded flex items-center gap-x-1 bg-green-50 hover:bg-green-100/80 hover:scale-105 transition-all"
+                >
+                  <ion-icon
+                    class="text-green-600 size-4"
+                    name="add-outline"
+                  ></ion-icon>
+                  <span
+                    class="text-green-600 text-[10px] font-semibold"
+                    >Add New</span
+                  >
+                </button>
+                </div>
                 <div
-                  class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-6"
+                  class="mt-8 grid gap-6"
                 >
                   <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
-                    <div
-                      class="script-box p-6 rounded-xl size-full min-h-40 ring-2 bg-white max-h-56 overflow-auto text-gray-700 text-sm"
-                    >
-                    <h3 class="font-semibold text-gray-800 mb-2">Script title</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum
-                      </p>
+                    <div class="bg-white rounded-xl ring-2">
+                      <div
+                        class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
+                      >
+                        <h3 class="font-semibold text-gray-800 mb-2">
+                          Script title
+                        </h3>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Autem tenetur, tempora recusandae animi neque
+                          ducimus. Nisi, consectetur et natus earum Lorem ipsum
+                          dolor sit amet consectetur, adipisicing elit. Autem
+                          tenetur, tempora recusandae animi neque ducimus. Nisi,
+                          consectetur et natus earum Lorem ipsum dolor sit amet
+                          consectetur, adipisicing elit. Autem tenetur, tempora
+                          recusandae animi neque ducimus. Nisi, consectetur et
+                          natus earum
+                        </p>
+                      </div>
+                      <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
+                        >
+                          <ion-icon
+                            class="text-gray-600 size-4"
+                            name="create-outline"
+                          ></ion-icon>
+                          <span
+                            class="text-gray-500 text-[10px] font-semibold"
+                            >Edit</span
+                          >
+                        </button>
+
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
+                        >
+                          <ion-icon
+                            class="text-red-600 size-4"
+                            name="trash-outline"
+                          ></ion-icon>
+                          <span
+                            class="text-red-500 text-[10px] font-semibold"
+                            >Delete</span
+                          >
+                        </button>
+                      </div>
                     </div>
                   </div>
                   <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
-                    <div
-                      class="script-box p-6 rounded-xl size-full min-h-40 ring-2 bg-white max-h-56 overflow-auto text-gray-700 text-sm"
-                    >
-                    <h3 class="font-semibold text-gray-800 mb-2">Script title</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut?
-                      </p>
+                    <div class="bg-white rounded-xl ring-2">
+                      <div
+                        class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
+                      >
+                        <h3 class="font-semibold text-gray-800 mb-2">
+                          Script title
+                        </h3>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Autem tenetur, tempora recusandae animi neque
+                          ducimus.
+                        </p>
+                      </div>
+                      <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
+                        >
+                          <ion-icon
+                            class="text-gray-600 size-4"
+                            name="create-outline"
+                          ></ion-icon>
+                          <span
+                            class="text-gray-500 text-[10px] font-semibold"
+                            >Edit</span
+                          >
+                        </button>
+
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
+                        >
+                          <ion-icon
+                            class="text-red-600 size-4"
+                            name="trash-outline"
+                          ></ion-icon>
+                          <span
+                            class="text-red-500 text-[10px] font-semibold"
+                            >Delete</span
+                          >
+                        </button>
+                      </div>
                     </div>
                   </div>
                   <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
-                    <div
-                      class="script-box p-6 rounded-xl size-full min-h-40 ring-2 bg-white max-h-56 overflow-auto text-gray-700 text-sm"
-                    >
-                    <h3 class="font-semibold text-gray-800 mb-2">Script title</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut?
-                      </p>
+                    <div class="bg-white rounded-xl ring-2">
+                      <div
+                        class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
+                      >
+                        <h3 class="font-semibold text-gray-800 mb-2">
+                          Script title
+                        </h3>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Autem tenetur, tempora recusandae animi neque
+                          ducimus. Nisi, consectetur et natus earum Lorem ipsum
+                          dolor sit amet consectetur, adipisicing elit. Autem
+                          tenetur, tempora recusandae animi neque ducimus. Nisi,
+                          consectetur et natus earum Lorem ipsum dolor sit amet
+                          consectetur, adipisicing elit. Autem tenetur, tempora
+                          recusandae animi neque ducimus. Nisi, consectetur et
+                          natus earum
+                        </p>
+                      </div>
+                      <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
+                        >
+                          <ion-icon
+                            class="text-gray-600 size-4"
+                            name="create-outline"
+                          ></ion-icon>
+                          <span
+                            class="text-gray-500 text-[10px] font-semibold"
+                            >Edit</span
+                          >
+                        </button>
+
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
+                        >
+                          <ion-icon
+                            class="text-red-600 size-4"
+                            name="trash-outline"
+                          ></ion-icon>
+                          <span
+                            class="text-red-500 text-[10px] font-semibold"
+                            >Delete</span
+                          >
+                        </button>
+                      </div>
                     </div>
                   </div>
-                  <button
-                    class="script-box p-6 mb-6 rounded-xl size-full min-h-40 border-2 border-blue-200 border-dashed group hover:bg-blue-50/90 bg-blue-50 max-h-56 overflow-auto text-gray-700 text-sm transition-all duration-500"
+                  <!-- <button
+                    class="p-6 mb-6 rounded-xl size-full border-2 border-blue-200 border-dashed group hover:bg-blue-50/90 bg-blue-50 text-gray-700 transition-all duration-500"
                   >
                     <div
                       class="size-full flex flex-col items-center justify-center"
@@ -220,97 +324,243 @@
                         Add new
                       </p>
                     </div>
-                  </button>
+                  </button> -->
                 </div>
               </div>
-              <div class="w-full md:w-1/2 p-6 lg:overflow-auto">
-                <h2 class="font-bold text-gray-700">Manager's scripts</h2>
-                <div
-                  class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-6"
-                >
-                  <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
-                    <div
-                      class="script-box p-6 rounded-xl size-full min-h-40 ring-2 bg-white max-h-56 overflow-auto text-gray-700 text-sm"
-                    >
-                    <h3 class="font-semibold text-gray-800 mb-2">Script title</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum
-                      </p>
-                    </div>
-                  </div>
-                  <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
-                    <div
-                      class="script-box p-6 rounded-xl size-full min-h-40 ring-2 bg-white max-h-56 overflow-auto text-gray-700 text-sm"
-                    >
-                    <h3 class="font-semibold text-gray-800 mb-2">Script title</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut?
-                      </p>
-                    </div>
-                  </div>
-                  <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
-                    <div
-                      class="script-box p-6 rounded-xl size-full min-h-40 ring-2 bg-white max-h-56 overflow-auto text-gray-700 text-sm"
-                    >
-                    <h3 class="font-semibold text-gray-800 mb-2">Script title</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut?
-                      </p>
-                    </div>
-                  </div>
-                  <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
-                    <div
-                      class="script-box p-6 rounded-xl size-full min-h-40 ring-2 bg-white max-h-56 overflow-auto text-gray-700 text-sm"
-                    >
-                    <h3 class="font-semibold text-gray-800 mb-2">Script title</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut?
-                      </p>
-                    </div>
-                  </div>
-                  <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
-                    <div
-                      class="script-box p-6 rounded-xl size-full min-h-40 ring-2 bg-white max-h-56 overflow-auto text-gray-700 text-sm"
-                    >
-                    <h3 class="font-semibold text-gray-800 mb-2">Script title</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut?
-                      </p>
-                    </div>
-                  </div>
+              <div class="w-full md:w-1/2 max-w-xl p-4 md:p-6 lg:overflow-auto">
+                <div class="flex items-center justify-between gap-x-4">
+                  <h2 class="font-bold text-gray-700">Manager's scripts</h2>
                   <button
-                    class="script-box p-6 rounded-xl size-full min-h-40 border-2 border-blue-200 border-dashed group hover:bg-blue-50/90 bg-blue-50 max-h-56 overflow-auto text-gray-700 text-sm transition-all duration-500"
+                  class="p-1 rounded flex items-center gap-x-1 bg-green-50 hover:bg-green-100/80 hover:scale-105 transition-all"
+                >
+                  <ion-icon
+                    class="text-green-600 size-4"
+                    name="add-outline"
+                  ></ion-icon>
+                  <span
+                    class="text-green-600 text-[10px] font-semibold"
+                    >Add New</span
                   >
+                </button>
+                </div>
+                <div
+                  class="mt-8 grid gap-6"
+                >
+                <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
+                  <div class="bg-white rounded-xl ring-2">
                     <div
-                      class="size-full flex flex-col items-center justify-center"
+                      class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
                     >
-                      <div
-                        class="bg-blue-100 size-10 rounded-full flex items-center justify-center group-hover:scale-105 transition-all"
+                      <h3 class="font-semibold text-gray-800 mb-2">
+                        Script title
+                      </h3>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus.
+                      </p>
+                    </div>
+                    <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
+                      <button
+                        class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
                       >
                         <ion-icon
-                          class="size-6 group-hover:scale-110 text-blue-500 transition-all"
-                          name="add-circle-outline"
+                          class="text-gray-600 size-4"
+                          name="create-outline"
                         ></ion-icon>
-                      </div>
-                      <p class="font-medium text-xs text-blue-500 mt-2">
-                        Add new
+                        <span
+                          class="text-gray-500 text-[10px] font-semibold"
+                          >Edit</span
+                        >
+                      </button>
+
+                      <button
+                        class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
+                      >
+                        <ion-icon
+                          class="text-red-600 size-4"
+                          name="trash-outline"
+                        ></ion-icon>
+                        <span
+                          class="text-red-500 text-[10px] font-semibold"
+                          >Delete</span
+                        >
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
+                  <div class="bg-white rounded-xl ring-2">
+                    <div
+                      class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
+                    >
+                      <h3 class="font-semibold text-gray-800 mb-2">
+                        Script title
+                      </h3>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus.
                       </p>
                     </div>
-                  </button>
+                    <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
+                      <button
+                        class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
+                      >
+                        <ion-icon
+                          class="text-gray-600 size-4"
+                          name="create-outline"
+                        ></ion-icon>
+                        <span
+                          class="text-gray-500 text-[10px] font-semibold"
+                          >Edit</span
+                        >
+                      </button>
+
+                      <button
+                        class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
+                      >
+                        <ion-icon
+                          class="text-red-600 size-4"
+                          name="trash-outline"
+                        ></ion-icon>
+                        <span
+                          class="text-red-500 text-[10px] font-semibold"
+                          >Delete</span
+                        >
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
+                  <div class="bg-white rounded-xl ring-2">
+                    <div
+                      class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
+                    >
+                      <h3 class="font-semibold text-gray-800 mb-2">
+                        Script title
+                      </h3>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus.
+                      </p>
+                    </div>
+                    <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
+                      <button
+                        class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
+                      >
+                        <ion-icon
+                          class="text-gray-600 size-4"
+                          name="create-outline"
+                        ></ion-icon>
+                        <span
+                          class="text-gray-500 text-[10px] font-semibold"
+                          >Edit</span
+                        >
+                      </button>
+
+                      <button
+                        class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
+                      >
+                        <ion-icon
+                          class="text-red-600 size-4"
+                          name="trash-outline"
+                        ></ion-icon>
+                        <span
+                          class="text-red-500 text-[10px] font-semibold"
+                          >Delete</span
+                        >
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
+                  <div class="bg-white rounded-xl ring-2">
+                    <div
+                      class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
+                    >
+                      <h3 class="font-semibold text-gray-800 mb-2">
+                        Script title
+                      </h3>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus.
+                      </p>
+                    </div>
+                    <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
+                      <button
+                        class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
+                      >
+                        <ion-icon
+                          class="text-gray-600 size-4"
+                          name="create-outline"
+                        ></ion-icon>
+                        <span
+                          class="text-gray-500 text-[10px] font-semibold"
+                          >Edit</span
+                        >
+                      </button>
+
+                      <button
+                        class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
+                      >
+                        <ion-icon
+                          class="text-red-600 size-4"
+                          name="trash-outline"
+                        ></ion-icon>
+                        <span
+                          class="text-red-500 text-[10px] font-semibold"
+                          >Delete</span
+                        >
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
+                  <div class="bg-white rounded-xl ring-2">
+                    <div
+                      class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
+                    >
+                      <h3 class="font-semibold text-gray-800 mb-2">
+                        Script title
+                      </h3>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus.
+                      </p>
+                    </div>
+                    <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
+                      <button
+                        class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
+                      >
+                        <ion-icon
+                          class="text-gray-600 size-4"
+                          name="create-outline"
+                        ></ion-icon>
+                        <span
+                          class="text-gray-500 text-[10px] font-semibold"
+                          >Edit</span
+                        >
+                      </button>
+
+                      <button
+                        class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
+                      >
+                        <ion-icon
+                          class="text-red-600 size-4"
+                          name="trash-outline"
+                        ></ion-icon>
+                        <span
+                          class="text-red-500 text-[10px] font-semibold"
+                          >Delete</span
+                        >
+                      </button>
+                    </div>
+                  </div>
+                </div>
                 </div>
               </div>
             </div>

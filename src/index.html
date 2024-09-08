@@ -13,7 +13,7 @@
       href="./assets/slick/slick-theme.css"
     />
   </head>
-  <body class="bg-slate-900">
+  <body class="bg-slate-900 overflow-x-hidden">
     <!-- Layout >>> everything shold be inside this layout -->
     <div class="w-full h-full flex">
       <!-- sidebar-nav -->
@@ -55,7 +55,7 @@
             </div>
             <!-- Navitems -->
             <div class="w-full mt-8">
-              <ul class="flex flex-col gap-y-6">
+              <ul class="flex flex-col gap-y-4">
                 <li class="transition">
                   <a
                     href="./index.html"
@@ -98,20 +98,6 @@
                     </p>
                   </a>
                 </li>
-                <li class="transition">
-                  <a
-                    href="#"
-                    class="flex items-center hover:bg-gray-600/40 rounded p-2"
-                  >
-                    <ion-icon
-                      class="text-blue-200 size-5"
-                      name="document-attach"
-                    ></ion-icon>
-                    <p class="navitem-title text-xs hidden text-blue-200 ml-6">
-                      Nav Item
-                    </p>
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -119,7 +105,7 @@
       </div>
 
       <!-- Main body -->
-      <div class="w-full bg-slate-900 rounded-l-xl overflow-x-hidden">
+      <div class="w-full bg-slate-900 rounded-l-xl overflow-hidden">
         <div class="bg-white size-full">
           <!-- Header -->
           <div class="h-[--header-height] pb-4 p-2 border-b border-gray-600/20">
@@ -154,25 +140,354 @@
                 <!-- Filters -->
                 <div class="relative">
                   <button
+                    id="filters-button"
                     class="flex gap-x-1 items-center bg-blue-500 text-white rounded-lg shadow-sm p-1.5"
                   >
                     <ion-icon name="funnel-outline"></ion-icon>
-                    <p class="text-sm">filters</p>
+                    <p class="text-sm">Filters</p>
                     <div
                       class="size-4 bg-white rounded-full flex items-center justify-center"
                     >
                       <p class="text-[8px] font-medium text-blue-500">2</p>
                     </div>
                   </button>
+
+                  <div
+                    id="filters-wrapper"
+                    class="absolute z-10 top-10 left-0 w-72 md:w-96 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
+                  >
+                    <div
+                      class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"
+                    >
+                      <div class="p-4 bg-white ring-2 rounded-xl size-full">
+                        <div class="flex items-center justify-between">
+                          <h4 class="font-semibold text-gray-800 text-lg">
+                            Filters
+                          </h4>
+                          <button
+                            class="text-blue-500 text-sm disabled:text-gray-300"
+                          >
+                            clear all
+                          </button>
+                        </div>
+
+                        <div class="mt-6">
+                          <div class="bg-white border rounded-lg p-4">
+                            <!-- Emirate Dropdown -->
+                            <div class="relative">
+                              <input
+                                checked
+                                type="radio"
+                                id="emirate"
+                                name="dropdown"
+                                class="hidden peer"
+                              />
+                              <label
+                                for="emirate"
+                                class="cursor-pointer flex items-center"
+                              >
+                                <span class="font-semibold text-lg"
+                                  >Emirate</span
+                                >
+                                <span class="size-4 flex items-center justify-center bg-blue-500 text-white rounded-full text-[8px] ml-1">2</span>
+                              </label>
+                              <ion-icon
+                                class="absolute right-0 top-0 size-5 peer-checked:rotate-90 transition-all"
+                                name="chevron-forward"
+                              ></ion-icon>
+                              <div class="mt-2 hidden peer-checked:block">
+                                <input
+                                  type="text"
+                                  placeholder="Search emirate"
+                                  class="w-full p-2 border rounded-md mb-2 focus:outline-none"
+                                />
+
+                                <div class="space-y-2 max-h-96 overflow-auto">
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Abu Dhabi</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Ajman</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Al Fujairah</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Dubai</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Ras Al Khaimah</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Sharjah</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Umm Al Quwain</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- States Dropdown -->
+                            <div class="relative">
+                              <input
+                                type="radio"
+                                id="states"
+                                name="dropdown"
+                                class="hidden peer"
+                              />
+                              <label
+                                for="states"
+                                class="cursor-pointer flex justify-between items-center"
+                              >
+                                <span class="font-semibold text-lg"
+                                  >States</span
+                                >
+                              </label>
+                              <ion-icon
+                                class="absolute right-0 top-0 size-5 peer-checked:rotate-90 transition-all"
+                                name="chevron-forward"
+                              ></ion-icon>
+                              <div class="mt-2 hidden peer-checked:block">
+                                <input
+                                  type="text"
+                                  placeholder="Search states"
+                                  class="w-full p-2 border rounded-md mb-2 focus:outline-none"
+                                />
+
+                                <div class="space-y-2 max-h-96 overflow-auto">
+                                  <!-- Abu Dhabi -->
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Abu Dhabi</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Al Ain</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Madinat Zayed</span>
+                                  </label>
+
+                                  <!-- Ajman -->
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Ajman</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Masfout</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Manama</span>
+                                  </label>
+
+                                  <!-- Al Fujairah -->
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Fujairah</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Dibba Al-Fujairah</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Masafi</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Qidfa</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Al Bithnah</span>
+                                  </label>
+
+                                  <!-- Dubai -->
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Dubai</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Hatta</span>
+                                  </label>
+
+                                  <!-- Ras Al Khaimah -->
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Ras Al Khaimah</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Al Jazirah Al Hamra</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Rams</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Al Hamra</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Al Riffa</span>
+                                  </label>
+
+                                  <!-- Sharjah -->
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Sharjah</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Khor Fakkan</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Kalba</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Al Dhaid</span>
+                                  </label>
+
+                                  <!-- Umm Al Quwain -->
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Umm Al Quwain</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="form-checkbox"
+                                    />
+                                    <span>Falaj Al Mualla</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Switches -->
-                <div class="ml-4 flex items-center gap-x-2">
+                <div class="ml-2 flex items-center gap-x-2">
                   <!-- currency changer -->
                   <div class="flex relative items-center">
                     <button
                       id="currency-button"
-                      class="bg-gray-200 rounded-lg hover:bg-gray-200/80 flex items-center gap-x-2 shadow-sm px-3 py-1.5"
+                      class="bg-gray-200 min-w-24 rounded-lg hover:bg-gray-200/80 flex items-center justify-center gap-x-2 shadow-sm px-3 py-1.5"
                     >
                       <p
                         class="currency text-gray-600 font-medium text-sm transition-all ease-linear duration-200"
@@ -189,81 +504,85 @@
 
                     <div
                       id="currencies"
-                      class="absolute z-10 top-12 right-0 w-80 scale-0 opacity-0 origin-top-right transition-all duration-200 ease-out"
+                      class="absolute z-10 top-10 right-0 w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
                     >
-                      <div class="size-full bg-white rounded-lg shadow-xl p-4">
-                        <h2 class="text-lg text-gray-800 font-semibold mb-2">
-                          Currency
-                        </h2>
-                        <div class="flex flex-wrap items-center gap-2">
-                          <button
-                            onClick="selectCurrency(this)"
-                            class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
-                          >
-                            <p
-                              class="currency font-medium text-sm text-gray-600"
+                      <div
+                        class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"
+                      >
+                        <div class="p-4 bg-white ring-2 rounded-xl size-full">
+                          <h2 class="text-lg text-gray-800 font-semibold mb-2">
+                            Currency
+                          </h2>
+                          <div class="flex flex-wrap items-center gap-2">
+                            <button
+                              onClick="selectCurrency(this)"
+                              class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
                             >
-                              AED
-                            </p>
-                          </button>
-                          <button
-                            onClick="selectCurrency(this)"
-                            class="bg-gray-600 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
-                          >
-                            <p
-                              class="currency font-medium text-sm text-gray-100"
+                              <p
+                                class="currency font-medium text-sm text-gray-600"
+                              >
+                                AED
+                              </p>
+                            </button>
+                            <button
+                              onClick="selectCurrency(this)"
+                              class="bg-blue-500 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
                             >
-                              USD
-                            </p>
-                          </button>
-                          <button
-                            onClick="selectCurrency(this)"
-                            class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
-                          >
-                            <p
-                              class="currency font-medium text-sm text-gray-600"
+                              <p
+                                class="currency font-medium text-sm text-gray-100"
+                              >
+                                USD
+                              </p>
+                            </button>
+                            <button
+                              onClick="selectCurrency(this)"
+                              class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
                             >
-                              EUR
-                            </p>
-                          </button>
-                          <button
-                            onClick="selectCurrency(this)"
-                            class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
-                          >
-                            <p
-                              class="currency font-medium text-sm text-gray-600"
+                              <p
+                                class="currency font-medium text-sm text-gray-600"
+                              >
+                                EUR
+                              </p>
+                            </button>
+                            <button
+                              onClick="selectCurrency(this)"
+                              class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
                             >
-                              CAD
-                            </p>
-                          </button>
-                        </div>
-                        <!-- Sizes -->
-                        <h2
-                          class="text-lg text-gray-800 font-semibold mt-4 mb-2"
-                        >
-                          Measures
-                        </h2>
-                        <div class="flex flex-wrap items-center gap-2">
-                          <button
-                            onClick="selectMeasure(this)"
-                            class="bg-gray-600 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
+                              <p
+                                class="currency font-medium text-sm text-gray-600"
+                              >
+                                CAD
+                              </p>
+                            </button>
+                          </div>
+                          <!-- Sizes -->
+                          <h2
+                            class="text-lg text-gray-800 font-semibold mt-4 mb-2"
                           >
-                            <p
-                              class="measure font-medium text-sm text-gray-100"
+                            Measures
+                          </h2>
+                          <div class="flex flex-wrap items-center gap-2">
+                            <button
+                              onClick="selectMeasure(this)"
+                              class="bg-blue-500 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
                             >
-                              ft<sup>2</sup>
-                            </p>
-                          </button>
-                          <button
-                            onClick="selectMeasure(this)"
-                            class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
-                          >
-                            <p
-                              class="measure font-medium text-sm text-gray-600"
+                              <p
+                                class="measure font-medium text-sm text-gray-100"
+                              >
+                                ft<sup>2</sup>
+                              </p>
+                            </button>
+                            <button
+                              onClick="selectMeasure(this)"
+                              class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
                             >
-                              m<sup>2</sup>
-                            </p>
-                          </button>
+                              <p
+                                class="measure font-medium text-sm text-gray-600"
+                              >
+                                m<sup>2</sup>
+                              </p>
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -294,77 +613,97 @@
                   </div>
                 </div>
 
-                <!-- scripts -->
-                <div class="ml-auto relative">
-                  <button
-                    id="scripts-button"
-                    class="bg-gray-200 rounded-lg text-gray-600 flex items-center gap-x-1 shadow-sm px-3 py-1.5"
+                <!-- right items -->
+                <div class="ml-auto flex items-center gap-x-2">
+                  <!-- toggle -->
+                  <label
+                    class="relative inline-flex cursor-pointer items-center"
                   >
-                    <ion-icon
-                      class="size-5 text-gray-600"
-                      name="barcode-outline"
-                    ></ion-icon>
-                    <span class="text-sm">Scripts</span>
-                    <ion-icon class="size-4" name="chevron-down"></ion-icon>
-                  </button>
-
-                  <div
-                    id="scripts-panel"
-                    class="absolute top-10 right-0 z-20 w-72 pointer-events-none opacity-0 -translate-y-4 transition-all duration-300"
-                  >
+                    <input id="switch" type="checkbox" class="peer sr-only" />
+                    <label for="switch" class="hidden"></label>
                     <div
-                      class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"
+                      class="peer h-6 w-11 rounded-full border bg-slate-200 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                    ></div>
+                  </label>
+
+                  <!-- scripts -->
+                  <div class="relative">
+                    <button
+                      id="scripts-button"
+                      class="bg-gray-200 rounded-lg text-gray-600 flex items-center gap-x-1 shadow-sm px-3 py-1.5"
+                    >
+                      <ion-icon
+                        class="size-5 text-gray-600"
+                        name="barcode-outline"
+                      ></ion-icon>
+                      <span class="text-sm">Scripts</span>
+                      <ion-icon class="size-4" name="chevron-down"></ion-icon>
+                    </button>
+
+                    <div
+                      id="scripts-panel"
+                      class="absolute top-10 right-0 z-20 w-72 pointer-events-none opacity-0 -translate-y-4 transition-all duration-300"
                     >
                       <div
-                        class="scripts-slider pt-4 pb-10 bg-white ring-2 rounded-xl size-full"
+                        class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"
                       >
                         <div
-                          class="p-6 min-h-40 max-h-48 overflow-auto text-gray-700 text-sm"
+                          class="scripts-slider pt-4 pb-10 bg-white ring-2 rounded-xl size-full"
                         >
-                          <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Autem tenetur, tempora recusandae animi neque
-                            ducimus. Nisi, consectetur et natus earum reiciendis
-                            recusandae officia velit architecto vel neque magni
-                            aut ipsam?
-                          </p>
+                          <div
+                            class="p-6 min-h-32 max-h-40 overflow-auto text-gray-700 text-sm"
+                          >
+                            <p>
+                              Lorem ipsum dolor sit amet consectetur,
+                              adipisicing elit. Autem tenetur, tempora
+                              recusandae animi neque ducimus. Nisi, consectetur
+                              et natus earum reiciendis recusandae officia velit
+                              architecto vel neque magni aut ipsam?
+                            </p>
+                          </div>
+                          <div
+                            class="p-6 min-h-32 max-h-40 overflow-auto text-gray-700 text-sm"
+                          >
+                            <p>
+                              Lorem ipsum dolor sit amet consectetur,
+                              adipisicing elit. Autem tenetur, tempora
+                              recusandae animi neque ducimus. Nisi, consectetur
+                              et natus earum reiciendis recusandae officia velit
+                              architecto vel neque magni aut ipsam?
+                            </p>
+                          </div>
+                          <div
+                            class="p-6 min-h-32 max-h-40 overflow-auto text-gray-700 text-sm"
+                          >
+                            <p>
+                              Lorem ipsum dolorto vel neque magni aut ipsam?
+                            </p>
+                          </div>
+                          <div
+                            class="p-6 min-h-32 max-h-40 overflow-auto text-gray-700 text-sm"
+                          >
+                            <p>
+                              Lorem ipsum dolor sit amet consectetur,
+                              adipisicing elit. Autem tenetur, tempora
+                              recusandae animi neque ducimus. Nisi, consectetur
+                              et natus earum reiciendis recusandae officia velit
+                              architecto vel neque magni aut ipsam?
+                            </p>
+                            <p>
+                              Lorem ipsum dolor sit amet consectetur,
+                              adipisicing elit. Autem tenetur, tempora
+                              recusandae animi neque ducimus. Nisi, consectetur
+                              et natus earum reiciendis recusandae officia velit
+                              architecto vel neque magni aut ipsam?
+                            </p>
+                          </div>
                         </div>
-                        <div
-                          class="p-6 min-h-40 max-h-48 overflow-auto text-gray-700 text-sm"
+                        <a
+                          href="./scripts.html"
+                          class="absolute bottom-9 left-5 text-blue-500 font-medium text-sm hover:underline rounded-full py-1 px-2 transition"
+                          >See all</a
                         >
-                          <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Autem tenetur, tempora recusandae animi neque
-                            ducimus. Nisi, consectetur et natus earum reiciendis
-                            recusandae officia velit architecto vel neque magni
-                            aut ipsam?
-                          </p>
-                        </div>
-                        <div
-                          class="p-6 min-h-40 max-h-48 overflow-auto text-gray-700 text-sm"
-                        >
-                          <p>Lorem ipsum dolorto vel neque magni aut ipsam?</p>
-                        </div>
-                        <div
-                          class="p-6 min-h-40 max-h-48 overflow-auto text-gray-700 text-sm"
-                        >
-                          <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Autem tenetur, tempora recusandae animi neque
-                            ducimus. Nisi, consectetur et natus earum reiciendis
-                            recusandae officia velit architecto vel neque magni
-                            aut ipsam?
-                          </p>
-                          <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Autem tenetur, tempora recusandae animi neque
-                            ducimus. Nisi, consectetur et natus earum reiciendis
-                            recusandae officia velit architecto vel neque magni
-                            aut ipsam?
-                          </p>
-                        </div>
                       </div>
-                      <a href="./scripts.html" class="absolute bottom-9 left-5 text-blue-500 font-medium text-sm hover:underline rounded-full py-1 px-2 transition">See all</a>
                     </div>
                   </div>
                 </div>
@@ -377,9 +716,9 @@
             <!-- Project-left-sidebar -->
             <div
               id="project-sidebar"
-              class="w-full max-w-0 lg:max-w-0 relative origin-left transition-all duration-300 ease-out h-[calc(100vh-(var(--header-height)))] overflow-auto border-r shadow-lg"
+              class="w-full max-w-0 lg:max-w-0 relative origin-left transition-all duration-300 ease-in h-full rounded-r-lg overflow-auto border-r shadow-lg"
             >
-              <!-- Add to Favorite btn -->
+              <!-- Add to Favorite button -->
               <button
                 onclick="addToFavorites(this)"
                 class="absolute z-10 left-3 top-3 bg-white/80 border rounded-full size-8 flex-1 flex items-center justify-center"
@@ -431,69 +770,151 @@
                   </div>
                 </div>
               </div>
-              <!-- favorite -->
-              <!-- <div class="w-full flex justify-end mt-10">
-                <button
-                  onclick="addToFavorites(this)"
-                  class="p-2 size-10 bg-gray-100 max-w-fit flex-1 flex items-center justify-center"
-                >
-                  <ion-icon
-                    class="size-6 text-red-600"
-                    name="heart-outline"
-                  ></ion-icon>
-                </button>
-              </div> -->
               <!-- Title and description -->
               <div class="p-2 mt-4">
                 <h2
                   title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
             veritatis earum recusandae culpa,"
-                  class="font-semibold text-base text-center leading-5 line-clamp-2"
+                  class="font-semibold text-2xl text-center line-clamp-2"
                 >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Deleniti veritatis earum recusandae culpa,
+                  Lorem ipsum dolor sit amet.
                 </h2>
-                <p class="text-gray-600 text-sm mt-2">
+                <p id="" class="text-gray-600 text-sm mt-2">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Deleniti veritatis earum recusandae culpa, laboriosam nihil
-                  eveniet unde rerum itaque natus eaque ea rem, consectetur quod
-                  voluptas laborum. Provident, necessitatibus dignissimos.
+                  Deleniti veritatis earum recusandae culpa<span id="dots"
+                    >...</span
+                  ><span id="more" class="hidden">
+                    laboriosam nihil eveniet unde rerum itaque natus eaque ea
+                    rem, consectetur quod voluptas laborum. Provident,
+                    necessitatibus dignissimos.</span
+                  >
+                  <span
+                    ><button
+                      class="inline font-semibold text-blue-500"
+                      onclick="toggleReadMore()"
+                      id="read-more-btn"
+                    >
+                      Read more
+                    </button></span
+                  >
                 </p>
               </div>
+
+              <!-- Actions -->
+              <div
+                class="inline-flex rounded-lg divide-x-2 divide-white mt-2 shadow-sm px-4 w-full"
+              >
+                <button
+                  type="button"
+                  class="group flex-1 py-3 px-4 inline-flex items-center justify-center font-semibold gap-x-2 bg-gray-200 text-gray-800 hover:bg-gray-200/80 focus:outline-none focus:bg-gray-200/80 rounded"
+                >
+                  Add to Catalog
+                  <ion-icon
+                    class="size-6 text-gray-800 group-hover:scale-105 transition-all"
+                    name="add-circle-outline"
+                  ></ion-icon>
+                </button>
+              </div>
+
+              <!-- filter -->
+              <div class="relative mt-4 px-2 h-14 flex items-center">
+                <div
+                  class="project-sidebar-filters flex items-center gap-x-2 w-full overflow-auto"
+                >
+                  <button
+                    class="py-1.5 px-3 font-medium whitespace-nowrap text-sm text-white bg-gray-600 border rounded-full"
+                  >
+                    Overview
+                  </button>
+                  <button
+                    class="py-1.5 px-3 font-medium whitespace-nowrap text-sm text-gray-800 bg-gray-100 border rounded-full"
+                  >
+                    Units
+                  </button>
+                  <button
+                    class="py-1.5 px-3 font-medium whitespace-nowrap text-sm text-gray-800 bg-gray-100 border rounded-full"
+                  >
+                    Amenities
+                  </button>
+                  <button
+                    class="py-1.5 px-3 font-medium whitespace-nowrap text-sm text-gray-800 bg-gray-100 border rounded-full"
+                  >
+                    Payment Plans
+                  </button>
+                  <button
+                    class="py-1.5 px-3 font-medium whitespace-nowrap text-sm text-gray-800 bg-gray-100 border rounded-full"
+                  >
+                    Documents
+                  </button>
+                  <button
+                    class="py-1.5 px-3 font-medium whitespace-nowrap text-sm text-gray-800 bg-gray-100 border rounded-full"
+                  >
+                    Developer
+                  </button>
+                </div>
+
+                <!-- back & forward btns -->
+                <button
+                  id="scroll-back-filter"
+                  class="hidden absolute top-0 left-0 w-16 h-full items-center justify-center bg-gradient-to-tr from-white via-white/20 to-transparent"
+                >
+                  <span
+                    class="bg-gray-600 rounded-full flex items-center justify-center size-9"
+                  >
+                    <ion-icon
+                      class="size-8 text-gray-100"
+                      name="arrow-back-circle-outline"
+                    ></ion-icon>
+                  </span>
+                </button>
+                <button
+                  id="scroll-forward-filter"
+                  class="absolute top-0 right-0 w-16 h-full flex items-center justify-center bg-gradient-to-tr from-white via-white/20 to-transparent"
+                >
+                  <span
+                    class="bg-gray-600 rounded-full flex items-center justify-center size-9"
+                  >
+                    <ion-icon
+                      class="size-8 text-gray-100"
+                      name="arrow-forward-circle-outline"
+                    ></ion-icon>
+                  </span>
+                </button>
+              </div>
+
               <!-- Details -->
               <div class="w-full">
-                <h2 class="mt-4 mb-2 text-base font-semibold px-4">Details</h2>
                 <div class="bg-gray-100 divide-y divide-gray-300">
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-500 font-medium">Developer</h3>
-                    <p class="text-gray-700 text-sm">Dubai Properties</p>
+                    <h3 class="text-gray-600 font-medium">Developer</h3>
+                    <p class="text-gray-900 text-sm">Dubai Properties</p>
                   </div>
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-500 font-medium">District</h3>
-                    <p class="text-gray-700 text-sm">Dubai Properties</p>
+                    <h3 class="text-gray-600 font-medium">District</h3>
+                    <p class="text-gray-900 text-sm">Dubai Properties</p>
                   </div>
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-500 font-medium">Price</h3>
-                    <p class="text-gray-700 text-sm">Dubai Properties</p>
+                    <h3 class="text-gray-600 font-medium">Price</h3>
+                    <p class="text-gray-900 text-sm">Dubai Properties</p>
                   </div>
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-500 font-medium">Size</h3>
-                    <p class="text-gray-700 text-sm">Dubai Properties</p>
+                    <h3 class="text-gray-600 font-medium">Size</h3>
+                    <p class="text-gray-900 text-sm">Dubai Properties</p>
                   </div>
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-500 font-medium">Handover</h3>
-                    <p class="text-gray-700 text-sm">Dubai Properties</p>
+                    <h3 class="text-gray-600 font-medium">Handover</h3>
+                    <p class="text-gray-900 text-sm">Dubai Properties</p>
                   </div>
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-500 font-medium">Unit type</h3>
-                    <p class="text-gray-700 text-sm">Dubai Properties</p>
+                    <h3 class="text-gray-600 font-medium">Unit type</h3>
+                    <p class="text-gray-900 text-sm">Dubai Properties</p>
                   </div>
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-500 font-medium">Furnishing</h3>
-                    <p class="text-gray-700 text-sm">Dubai Properties</p>
+                    <h3 class="text-gray-600 font-medium">Furnishing</h3>
+                    <p class="text-gray-900 text-sm">Dubai Properties</p>
                   </div>
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-500 font-medium">
+                    <h3 class="text-gray-600 font-medium">
                       Resale allowed after
                     </h3>
                     <p class="text-gray-700 text-sm">Dubai Properties</p>
@@ -504,23 +925,26 @@
 
             <!-- project-right-sidebar -->
             <div
-              class="absolute bottom-3 right-4 z-10 w-full max-w-72 h-[calc(100vh-21rem)] shadow-lg bg-blue-300 rounded-xl pt-2 size-full transition-all duration-300 ease-out"
+              class="absolute bottom-3 right-4 z-10 w-full max-w-72 h-[calc(100vh-19rem)] shadow-lg bg-blue-300 rounded-xl pt-2 size-full transition-all duration-300 ease-out"
             >
-            <!-- close btn -->
-              <button onclick="closeRightSidebar(this)" class="absolute -left-[2rem] top-4 bg-blue-200 rounded-l-full size-8 flex items-center justify-center">
+              <!-- close btn -->
+              <button
+                onclick="closeRightSidebar(this)"
+                class="absolute -left-[2rem] top-4 bg-blue-200 rounded-l-full size-8 flex items-center justify-center"
+              >
                 <ion-icon name="chevron-forward"></ion-icon>
               </button>
               <div class="size-full bg-white ring-2 shadow-lg rounded-lg">
                 <!-- districts list -->
                 <div
-                  class=" flex flex-col h-1/2 pl-3 pt-3 pb-1 border-b"
+                  class="projects-list overflow-auto flex flex-col h-1/2 pl-3 pt-3 pb-1 border-b"
                 >
                   <h3 class="font-medium text-gray-700">Projects</h3>
                   <p class="text-xs leading-3 text-gray-500">
                     Selected district
                   </p>
                   <hr class="mt-2" />
-                  <div class="flex-1 mt-2 overflow-auto projects-list">
+                  <div class="flex-1 mt-2">
                     <ul class="flex flex-col gap-y-2">
                       <li>
                         <div class="flex items-center gap-x-2">
@@ -654,11 +1078,11 @@
                   </h3>
                   <div
                     id="grid-container"
-                    class="grid gap-4 lg:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+                    class="grid gap-3 lg:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5"
                   >
-                    <div class="grid-card">
+                    <div class="grid-card group">
                       <div
-                        class="relative hover:shadow-xl transition-all duration-300 shadow-[0px_1px_4px_#00000029] rounded-lg overflow-hidden bg-white"
+                        class="relative hover:shadow-xl transition-all duration-300 ring-1 rounded-lg overflow-hidden bg-white"
                       >
                         <!-- bage -->
                         <div class="absolute top-4 left-4">
@@ -686,71 +1110,98 @@
                             Et quidem faciunt, ut de voluptate ponit, quod
                             summum bonum sit aut rerum et quidem…
                           </p>
-                          <h4 class="font-semibold text-gray-800 text-sm mb-2">
+                          <h4 class="font-semibold text-gray-800 text-xs mb-2">
                             Developer:
                           </h4>
                           <div
                             class="flex flex-wrap gap-2 items-center text-xs mb-3"
                           >
                             <p
-                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
                             >
                               Studio
                             </p>
                             <p
-                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
                             >
                               1BR
                             </p>
                             <p
-                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
                             >
                               2BR
                             </p>
                           </div>
-                          <p class="text-sm text-gray-700">
-                            <span class="font-semibold">Location:</span> Sharjah
+                          <p class="text-xs text-gray-600">
+                            <span class="font-semibold text-gray-700"
+                              >Location:</span
+                            >
+                            Sharjah
                           </p>
-                          <p class="text-sm text-gray-700">
-                            <span class="font-semibold">Price from:</span>
+                          <p class="text-xs text-gray-600">
+                            <span class="font-semibold text-gray-700"
+                              >Price from:</span
+                            >
                             AEDXXX,XXX
                           </p>
+                          <div class="mt-2 flex items-center gap-x-3">
+                            <!-- phopp -->
+                            <div
+                              class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                            >
+                              <ion-icon
+                                class="size-4 text-blue-500"
+                                name="prism"
+                              ></ion-icon>
+                              <div
+                                class="text-[8px] flex flex-col items-center"
+                              >
+                                <span class="text-gray-600">PHOPP</span>
+                                <span class="font-semibold">N/A</span>
+                              </div>
+                            </div>
+                            <!-- discount -->
+                            <div
+                              class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                            >
+                              <ion-icon
+                                class="size-4 text-blue-500"
+                                name="pricetags"
+                              ></ion-icon>
+                              <div
+                                class="text-[8px] flex flex-col items-center"
+                              >
+                                <span class="text-gray-600">Discount</span>
+                                <span class="font-semibold">X%</span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
+                        <!-- card footer -->
                         <div class="bg-gray-100">
                           <div
                             class="flex justify-between divide-x text-[10px]"
                           >
+                            <span class="p-2">
+                              <span class="font-semibold">Handover Date: </span>
+                              <span class="text-gray-700"> MM/YYYY</span>
+                            </span>
                             <button
                               onclick="addToFavorites(this)"
-                              class="p-2 flex-1 flex items-center justify-center"
+                              class="p-2 flex items-center justify-center"
                             >
                               <ion-icon
-                                class="size-6 text-red-600"
+                                class="size-4 text-red-600 mr-1"
                                 name="heart-outline"
                               ></ion-icon>
                             </button>
-                            <button
-                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
-                            >
-                              PHOPP <span class="font-normal">Y/N</span>
-                            </button>
-                            <span
-                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
-                              >Discount
-                              <span class="font-normal">X%</span></span
-                            >
-                            <span
-                              class="text-gray-700 p-2 font-semibold flex-2 flex flex-col items-center justify-center"
-                              >Handover Date
-                              <span class="font-normal"> MM/YYYY</span></span
-                            >
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="grid-card">
+                    <div class="grid-card group">
                       <div
-                        class="relative hover:shadow-xl transition-all duration-300 shadow-[0px_1px_4px_#00000029] rounded-lg overflow-hidden bg-white"
+                        class="relative hover:shadow-xl transition-all duration-300 ring-1 rounded-lg overflow-hidden bg-white"
                       >
                         <!-- bage -->
                         <div class="absolute top-4 right-4">
@@ -777,71 +1228,98 @@
                             Et quidem faciunt, ut de voluptate ponit, quod
                             summum bonum sit aut rerum et quidem…
                           </p>
-                          <h4 class="font-semibold text-gray-800 text-sm mb-2">
+                          <h4 class="font-semibold text-gray-800 text-xs mb-2">
                             Developer:
                           </h4>
                           <div
                             class="flex flex-wrap gap-2 items-center text-xs mb-3"
                           >
                             <p
-                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
                             >
                               Studio
                             </p>
                             <p
-                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
                             >
                               1BR
                             </p>
                             <p
-                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
                             >
                               2BR
                             </p>
                           </div>
-                          <p class="text-sm text-gray-700">
-                            <span class="font-semibold">Location:</span> Sharjah
+                          <p class="text-xs text-gray-600">
+                            <span class="font-semibold text-gray-700"
+                              >Location:</span
+                            >
+                            Sharjah
                           </p>
-                          <p class="text-sm text-gray-700">
-                            <span class="font-semibold">Price from:</span>
+                          <p class="text-xs text-gray-600">
+                            <span class="font-semibold text-gray-700"
+                              >Price from:</span
+                            >
                             AEDXXX,XXX
                           </p>
+                          <div class="mt-2 flex items-center gap-x-3">
+                            <!-- phopp -->
+                            <div
+                              class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                            >
+                              <ion-icon
+                                class="size-4 text-blue-500"
+                                name="prism"
+                              ></ion-icon>
+                              <div
+                                class="text-[8px] flex flex-col items-center"
+                              >
+                                <span class="text-gray-600">PHOPP</span>
+                                <span class="font-semibold">N/A</span>
+                              </div>
+                            </div>
+                            <!-- discount -->
+                            <div
+                              class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                            >
+                              <ion-icon
+                                class="size-4 text-blue-500"
+                                name="pricetags"
+                              ></ion-icon>
+                              <div
+                                class="text-[8px] flex flex-col items-center"
+                              >
+                                <span class="text-gray-600">Discount</span>
+                                <span class="font-semibold">X%</span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
+                        <!-- card footer -->
                         <div class="bg-gray-100">
                           <div
                             class="flex justify-between divide-x text-[10px]"
                           >
+                            <span class="p-2">
+                              <span class="font-semibold">Handover Date: </span>
+                              <span class="text-gray-700"> MM/YYYY</span>
+                            </span>
                             <button
                               onclick="addToFavorites(this)"
-                              class="p-2 flex-1 flex items-center justify-center"
+                              class="p-2 flex items-center justify-center"
                             >
                               <ion-icon
-                                class="size-6 text-red-600"
+                                class="size-4 text-red-600 mr-1"
                                 name="heart-outline"
                               ></ion-icon>
                             </button>
-                            <button
-                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
-                            >
-                              PHOPP <span class="font-normal">Y/N</span>
-                            </button>
-                            <span
-                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
-                              >Discount
-                              <span class="font-normal">X%</span></span
-                            >
-                            <span
-                              class="text-gray-700 p-2 font-semibold flex-2 flex flex-col items-center justify-center"
-                              >Handover Date
-                              <span class="font-normal"> MM/YYYY</span></span
-                            >
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="grid-card">
+                    <div class="grid-card group">
                       <div
-                        class="hover:shadow-xl transition-all duration-300 shadow-[0px_1px_4px_#00000029] rounded-lg overflow-hidden bg-white"
+                        class="hover:shadow-xl transition-all duration-300 ring-1 rounded-lg overflow-hidden bg-white"
                       >
                         <div class="aspect-video p-2">
                           <img
@@ -860,71 +1338,98 @@
                             Et quidem faciunt, ut de voluptate ponit, quod
                             summum bonum sit aut rerum et quidem…
                           </p>
-                          <h4 class="font-semibold text-gray-800 text-sm mb-2">
+                          <h4 class="font-semibold text-gray-800 text-xs mb-2">
                             Developer:
                           </h4>
                           <div
                             class="flex flex-wrap gap-2 items-center text-xs mb-3"
                           >
                             <p
-                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
                             >
                               Studio
                             </p>
                             <p
-                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
                             >
                               1BR
                             </p>
                             <p
-                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
                             >
                               2BR
                             </p>
                           </div>
-                          <p class="text-sm text-gray-700">
-                            <span class="font-semibold">Location:</span> Sharjah
+                          <p class="text-xs text-gray-600">
+                            <span class="font-semibold text-gray-700"
+                              >Location:</span
+                            >
+                            Sharjah
                           </p>
-                          <p class="text-sm text-gray-700">
-                            <span class="font-semibold">Price from:</span>
+                          <p class="text-xs text-gray-600">
+                            <span class="font-semibold text-gray-700"
+                              >Price from:</span
+                            >
                             AEDXXX,XXX
                           </p>
+                          <div class="mt-2 flex items-center gap-x-3">
+                            <!-- phopp -->
+                            <div
+                              class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                            >
+                              <ion-icon
+                                class="size-4 text-blue-500"
+                                name="prism"
+                              ></ion-icon>
+                              <div
+                                class="text-[8px] flex flex-col items-center"
+                              >
+                                <span class="text-gray-600">PHOPP</span>
+                                <span class="font-semibold">N/A</span>
+                              </div>
+                            </div>
+                            <!-- discount -->
+                            <div
+                              class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                            >
+                              <ion-icon
+                                class="size-4 text-blue-500"
+                                name="pricetags"
+                              ></ion-icon>
+                              <div
+                                class="text-[8px] flex flex-col items-center"
+                              >
+                                <span class="text-gray-600">Discount</span>
+                                <span class="font-semibold">X%</span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
+                        <!-- card footer -->
                         <div class="bg-gray-100">
                           <div
                             class="flex justify-between divide-x text-[10px]"
                           >
+                            <span class="p-2">
+                              <span class="font-semibold">Handover Date: </span>
+                              <span class="text-gray-700"> MM/YYYY</span>
+                            </span>
                             <button
                               onclick="addToFavorites(this)"
-                              class="p-2 flex-1 flex items-center justify-center"
+                              class="p-2 flex items-center justify-center"
                             >
                               <ion-icon
-                                class="size-6 text-red-600"
+                                class="size-4 text-red-600 mr-1"
                                 name="heart-outline"
                               ></ion-icon>
                             </button>
-                            <button
-                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
-                            >
-                              PHOPP <span class="font-normal">Y/N</span>
-                            </button>
-                            <span
-                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
-                              >Discount
-                              <span class="font-normal">X%</span></span
-                            >
-                            <span
-                              class="text-gray-700 p-2 font-semibold flex-2 flex flex-col items-center justify-center"
-                              >Handover Date
-                              <span class="font-normal"> MM/YYYY</span></span
-                            >
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="grid-card">
+                    <div class="grid-card group">
                       <div
-                        class="hover:shadow-xl transition-all duration-300 shadow-[0px_1px_4px_#00000029] rounded-lg overflow-hidden bg-white"
+                        class="hover:shadow-xl transition-all duration-300 ring-1 rounded-lg overflow-hidden bg-white"
                       >
                         <div class="aspect-video p-2">
                           <img
@@ -943,64 +1448,311 @@
                             Et quidem faciunt, ut de voluptate ponit, quod
                             summum bonum sit aut rerum et quidem…
                           </p>
-                          <h4 class="font-semibold text-gray-800 text-sm mb-2">
+                          <h4 class="font-semibold text-gray-800 text-xs mb-2">
                             Developer:
                           </h4>
                           <div
                             class="flex flex-wrap gap-2 items-center text-xs mb-3"
                           >
                             <p
-                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
                             >
                               Studio
                             </p>
                             <p
-                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
                             >
                               1BR
                             </p>
                             <p
-                              class="py-1 px-2 text-gray-800 bg-blue-100 rounded-xl"
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
                             >
                               2BR
                             </p>
                           </div>
-                          <p class="text-sm text-gray-700">
-                            <span class="font-semibold">Location:</span> Sharjah
+                          <p class="text-xs text-gray-600">
+                            <span class="font-semibold text-gray-700"
+                              >Location:</span
+                            >
+                            Sharjah
                           </p>
-                          <p class="text-sm text-gray-700">
-                            <span class="font-semibold">Price from:</span>
+                          <p class="text-xs text-gray-600">
+                            <span class="font-semibold text-gray-700"
+                              >Price from:</span
+                            >
                             AEDXXX,XXX
                           </p>
+                          <div class="mt-2 flex items-center gap-x-3">
+                            <!-- phopp -->
+                            <div
+                              class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                            >
+                              <ion-icon
+                                class="size-4 text-blue-500"
+                                name="prism"
+                              ></ion-icon>
+                              <div
+                                class="text-[8px] flex flex-col items-center"
+                              >
+                                <span class="text-gray-600">PHOPP</span>
+                                <span class="font-semibold">N/A</span>
+                              </div>
+                            </div>
+                            <!-- discount -->
+                            <div
+                              class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                            >
+                              <ion-icon
+                                class="size-4 text-blue-500"
+                                name="pricetags"
+                              ></ion-icon>
+                              <div
+                                class="text-[8px] flex flex-col items-center"
+                              >
+                                <span class="text-gray-600">Discount</span>
+                                <span class="font-semibold">X%</span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
+                        <!-- card footer -->
                         <div class="bg-gray-100">
                           <div
                             class="flex justify-between divide-x text-[10px]"
                           >
+                            <span class="p-2">
+                              <span class="font-semibold">Handover Date: </span>
+                              <span class="text-gray-700"> MM/YYYY</span>
+                            </span>
                             <button
                               onclick="addToFavorites(this)"
-                              class="p-2 flex-1 flex items-center justify-center"
+                              class="p-2 flex items-center justify-center"
                             >
                               <ion-icon
-                                class="size-6 text-red-600"
+                                class="size-4 text-red-600 mr-1"
                                 name="heart-outline"
                               ></ion-icon>
                             </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid-card group">
+                      <div
+                        class="hover:shadow-xl transition-all duration-300 ring-1 rounded-lg overflow-hidden bg-white"
+                      >
+                        <div class="aspect-video p-2">
+                          <img
+                            class="w-full h-full object-cover object-center rounded"
+                            src="https://cdn.britannica.com/82/156482-131-AEEBFEFC/New-York-York.jpg?w=840&h=460&c=crop"
+                            alt="thumbnail"
+                          />
+                        </div>
+                        <div class="shadow p-4">
+                          <div class="flex items-center justify-between mb-1">
+                            <h5 class="text-lg font-bold text-gray-800">
+                              Rhonda Doe
+                            </h5>
+                          </div>
+                          <p class="text-xs text-gray-600 mb-2">
+                            Et quidem faciunt, ut de voluptate ponit, quod
+                            summum bonum sit aut rerum et quidem…
+                          </p>
+                          <h4 class="font-semibold text-gray-800 text-xs mb-2">
+                            Developer:
+                          </h4>
+                          <div
+                            class="flex flex-wrap gap-2 items-center text-xs mb-3"
+                          >
+                            <p
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
+                            >
+                              Studio
+                            </p>
+                            <p
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
+                            >
+                              1BR
+                            </p>
+                            <p
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
+                            >
+                              2BR
+                            </p>
+                          </div>
+                          <p class="text-xs text-gray-600">
+                            <span class="font-semibold text-gray-700"
+                              >Location:</span
+                            >
+                            Sharjah
+                          </p>
+                          <p class="text-xs text-gray-600">
+                            <span class="font-semibold text-gray-700"
+                              >Price from:</span
+                            >
+                            AEDXXX,XXX
+                          </p>
+                          <div class="mt-2 flex items-center gap-x-3">
+                            <!-- phopp -->
+                            <div
+                              class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                            >
+                              <ion-icon
+                                class="size-4 text-blue-500"
+                                name="prism"
+                              ></ion-icon>
+                              <div
+                                class="text-[8px] flex flex-col items-center"
+                              >
+                                <span class="text-gray-600">PHOPP</span>
+                                <span class="font-semibold">N/A</span>
+                              </div>
+                            </div>
+                            <!-- discount -->
+                            <div
+                              class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                            >
+                              <ion-icon
+                                class="size-4 text-blue-500"
+                                name="pricetags"
+                              ></ion-icon>
+                              <div
+                                class="text-[8px] flex flex-col items-center"
+                              >
+                                <span class="text-gray-600">Discount</span>
+                                <span class="font-semibold">X%</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- card footer -->
+                        <div class="bg-gray-100">
+                          <div
+                            class="flex justify-between divide-x text-[10px]"
+                          >
+                            <span class="p-2">
+                              <span class="font-semibold">Handover Date: </span>
+                              <span class="text-gray-700"> MM/YYYY</span>
+                            </span>
                             <button
-                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
+                              onclick="addToFavorites(this)"
+                              class="p-2 flex items-center justify-center"
                             >
-                              PHOPP <span class="font-normal">Y/N</span>
+                              <ion-icon
+                                class="size-4 text-red-600 mr-1"
+                                name="heart-outline"
+                              ></ion-icon>
                             </button>
-                            <span
-                              class="text-gray-700 p-2 font-semibold flex-1 flex flex-col items-center justify-center"
-                              >Discount
-                              <span class="font-normal">X%</span></span
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid-card group">
+                      <div
+                        class="hover:shadow-xl transition-all duration-300 ring-1 rounded-lg overflow-hidden bg-white"
+                      >
+                        <div class="aspect-video p-2">
+                          <img
+                            class="w-full h-full object-cover object-center rounded"
+                            src="https://cdn.britannica.com/82/156482-131-AEEBFEFC/New-York-York.jpg?w=840&h=460&c=crop"
+                            alt="thumbnail"
+                          />
+                        </div>
+                        <div class="shadow p-4">
+                          <div class="flex items-center justify-between mb-1">
+                            <h5 class="text-lg font-bold text-gray-800">
+                              Rhonda Doe
+                            </h5>
+                          </div>
+                          <p class="text-xs text-gray-600 mb-2">
+                            Et quidem faciunt, ut de voluptate ponit, quod
+                            summum bonum sit aut rerum et quidem…
+                          </p>
+                          <h4 class="font-semibold text-gray-800 text-xs mb-2">
+                            Developer:
+                          </h4>
+                          <div
+                            class="flex flex-wrap gap-2 items-center text-xs mb-3"
+                          >
+                            <p
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
                             >
-                            <span
-                              class="text-gray-700 p-2 font-semibold flex-2 flex flex-col items-center justify-center"
-                              >Handover Date
-                              <span class="font-normal"> MM/YYYY</span></span
+                              Studio
+                            </p>
+                            <p
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
                             >
+                              1BR
+                            </p>
+                            <p
+                              class="py-0.5 px-1.5 text-[10px] text-gray-800 bg-blue-100 rounded-xl"
+                            >
+                              2BR
+                            </p>
+                          </div>
+                          <p class="text-xs text-gray-600">
+                            <span class="font-semibold text-gray-700"
+                              >Location:</span
+                            >
+                            Sharjah
+                          </p>
+                          <p class="text-xs text-gray-600">
+                            <span class="font-semibold text-gray-700"
+                              >Price from:</span
+                            >
+                            AEDXXX,XXX
+                          </p>
+                          <div class="mt-2 flex items-center gap-x-3">
+                            <!-- phopp -->
+                            <div
+                              class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                            >
+                              <ion-icon
+                                class="size-4 text-blue-500"
+                                name="prism"
+                              ></ion-icon>
+                              <div
+                                class="text-[8px] flex flex-col items-center"
+                              >
+                                <span class="text-gray-600">PHOPP</span>
+                                <span class="font-semibold">N/A</span>
+                              </div>
+                            </div>
+                            <!-- discount -->
+                            <div
+                              class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                            >
+                              <ion-icon
+                                class="size-4 text-blue-500"
+                                name="pricetags"
+                              ></ion-icon>
+                              <div
+                                class="text-[8px] flex flex-col items-center"
+                              >
+                                <span class="text-gray-600">Discount</span>
+                                <span class="font-semibold">X%</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- card footer -->
+                        <div class="bg-gray-100">
+                          <div
+                            class="flex justify-between divide-x text-[10px]"
+                          >
+                            <span class="p-2">
+                              <span class="font-semibold">Handover Date: </span>
+                              <span class="text-gray-700"> MM/YYYY</span>
+                            </span>
+                            <button
+                              onclick="addToFavorites(this)"
+                              class="p-2 flex items-center justify-center"
+                            >
+                              <ion-icon
+                                class="size-4 text-red-600 mr-1"
+                                name="heart-outline"
+                              ></ion-icon>
+                            </button>
                           </div>
                         </div>
                       </div>

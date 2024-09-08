@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/*", "./src/**/*"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ["'Poppins', sysytem-ui"],
+      }
+    },
   },
   plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
 };
