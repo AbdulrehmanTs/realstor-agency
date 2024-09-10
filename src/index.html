@@ -15,11 +15,11 @@
   </head>
   <body class="bg-slate-900 overflow-x-hidden">
     <!-- Layout >>> everything shold be inside this layout -->
-    <div class="w-full h-full flex">
+    <div class="w-full h-full flex relative md:static">
       <!-- sidebar-nav -->
       <div
         id="navbar"
-        class="max-w-16 w-full h-screen overflow-y-auto overflow-x-hidden bg-slate-900 transition-all"
+        class="max-w-0 md:max-w-16 absolute z-20 md:static top-0 left-0 w-full h-screen overflow-y-auto overflow-x-hidden bg-slate-900 rounded-r md:rounded-r-xl transition-all"
       >
         <div class="h-full">
           <!-- Logo -->
@@ -105,74 +105,147 @@
       </div>
 
       <!-- Main body -->
-      <div class="w-full bg-slate-900 rounded-l-xl overflow-hidden">
+      <div class="w-full bg-slate-900 md:rounded-l-xl overflow-hidden">
         <div class="bg-white size-full">
           <!-- Header -->
-          <div class="h-[--header-height] pb-4 p-2 border-b border-gray-600/20">
+          <div
+            class="h-[--header-height] px-2 py-2 md:py-3 border-b border-gray-600/20"
+          >
             <div class="lg:px-2">
               <div class="w-full flex items-center">
-                <!-- Searchbar -->
-                <div class="max-w-xs lg:w-full mr-4">
-                  <div class="relative">
+                <div class="md:hidden">
+                  <div
+                    class="size-8 flex items-center justify-center rounded-full bg-white"
+                  >
+                    <ion-icon
+                      class="size-8 text-blue-800"
+                      name="invert-mode-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+                <!-- Searchbar desktop -->
+                <div
+                  class="hidden md:block max-w-xs md:w-full ml-2 md:ml-0 mr-4"
+                >
+                  <form class="relative bg-gray-200 rounded-full">
                     <label for="Search" class="sr-only"> Search </label>
                     <input
                       type="text"
                       id="Search"
                       placeholder="Search something..."
                       autocomplete="off"
-                      class="w-full rounded-full bg-gray-200 border-none text-gray-700 text-lg py-2 sm:text-sm"
+                      class="md:w-full opacity-0 md:opacity-100 rounded-full bg-transparent border-none text-gray-700 text-sm md:text-sm py-1 md:py-2 sm:text-sm"
                     />
-                    <span class="absolute inset-y-0 end-0 w-10">
+                    <span class="absolute inset-y-0 right-2 md:left-auto">
                       <button
-                        type="button"
+                        type="submit"
                         class="text-gray-600 hover:text-gray-700 h-full grid place-content-center"
                       >
                         <span class="sr-only">Search</span>
                         <ion-icon
-                          class="size-6 text-gray-600"
+                          class="size-4 md:size-6 text-blue-800 md:text-gray-600"
                           name="search-outline"
                         ></ion-icon>
                       </button>
                     </span>
-                  </div>
+                  </form>
+                </div>
+
+                <!-- Searchbar mobile -->
+                <div
+                  id="mobile-search"
+                  class="relative max-w-7 md:hidden ml-2 mr-4 transition-all"
+                >
+                  <span
+                    id="search-expand-btn"
+                    class="absolute inset-0 left-0 top-0 z-[2] text-gray-600 hover:text-gray-700 h-full grid place-content-center"
+                  >
+                    <ion-icon
+                      class="size-4 md:size-6 text-blue-800 md:text-gray-600"
+                      name="search-outline"
+                    ></ion-icon>
+                  </span>
+                  <form class="relative bg-gray-200 rounded-full">
+                    <label for="Search" class="sr-only"> Search </label>
+                    <input
+                      type="text"
+                      id="Search"
+                      placeholder="Search something..."
+                      autocomplete="off"
+                      class="w-full opacity-0 md:opacity-100 rounded-full bg-transparent border-none text-gray-700 text-xs md:text-sm py-1 md:py-2 sm:text-sm"
+                    />
+                    <span
+                      class="flex gap-x-2 items-center absolute inset-y-0 right-0"
+                    >
+                      <button
+                        type="submit"
+                        onclick="(e)=> e.preventDefault()"
+                        class="hidden text-gray-600 hover:text-gray-700 h-full place-content-center"
+                      >
+                        <span class="sr-only">Search</span>
+                        <ion-icon
+                          class="size-4 md:size-6 text-blue-800 md:text-gray-600"
+                          name="search-outline"
+                        ></ion-icon>
+                      </button>
+                      <button
+                        type="button"
+                        onclick="closeExpandSearch()"
+                        class="hidden text-gray-600 px-1 hover:text-gray-700 h-full place-content-center"
+                      >
+                        <span class="sr-only">close</span>
+                        <ion-icon
+                          class="size-4 md:size-6 text-red-800 md:text-gray-600"
+                          name="close-outline"
+                        ></ion-icon>
+                      </button>
+                    </span>
+                  </form>
                 </div>
 
                 <!-- Filters -->
                 <div class="relative">
                   <button
                     id="filters-button"
-                    class="flex gap-x-1 items-center bg-blue-500 text-white rounded-lg shadow-sm p-1.5"
+                    class="flex gap-x-1 items-center bg-blue-500 text-white rounded md:rounded-lg shadow-sm p-1 md:p-1.5"
                   >
-                    <ion-icon name="funnel-outline"></ion-icon>
-                    <p class="text-sm">Filters</p>
+                    <ion-icon
+                      class="size-3 md:size-4"
+                      name="funnel-outline"
+                    ></ion-icon>
+                    <p class="text-[10px] md:text-sm">Filters</p>
                     <div
-                      class="size-4 bg-white rounded-full flex items-center justify-center"
+                      class="size-3 md:size-4 bg-white rounded-full flex items-center justify-center"
                     >
-                      <p class="text-[8px] font-medium text-blue-500">2</p>
+                      <p
+                        class="text-[6px] md:text-[8px] font-medium text-blue-500"
+                      >
+                        2
+                      </p>
                     </div>
                   </button>
 
                   <div
                     id="filters-wrapper"
-                    class="absolute z-10 top-10 left-0 w-72 md:w-96 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
+                    class="absolute z-20 top-8 md:top-10 -left-8 md:left-0 w-64 md:w-96 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
                   >
                     <div
                       class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"
                     >
-                      <div class="p-4 bg-white ring-2 rounded-xl size-full">
+                      <div class="p-3 md:p-4 bg-white ring-2 rounded-xl size-full">
                         <div class="flex items-center justify-between">
-                          <h4 class="font-semibold text-gray-800 text-lg">
+                          <h4 class="font-semibold text-gray-800 md:text-lg">
                             Filters
                           </h4>
                           <button
-                            class="text-blue-500 text-sm disabled:text-gray-300"
+                            class="text-blue-500 text-xs md:text-sm disabled:text-gray-300"
                           >
                             clear all
                           </button>
                         </div>
 
-                        <div class="mt-6">
-                          <div class="bg-white border rounded-lg p-4">
+                        <div class="mt-4">
+                          <div class="bg-white border rounded-lg p-3 md:p-4">
                             <!-- Emirate Dropdown -->
                             <div class="relative">
                               <input
@@ -186,77 +259,82 @@
                                 for="emirate"
                                 class="cursor-pointer flex items-center"
                               >
-                                <span class="font-semibold text-lg"
+                                <span class="font-semibold text-sm md:text-lg"
                                   >Emirate</span
                                 >
-                                <span class="size-4 flex items-center justify-center bg-blue-500 text-white rounded-full text-[8px] ml-1">2</span>
+                                <span
+                                  class="size-4 flex items-center justify-center bg-blue-500 text-white rounded-full text-[8px] ml-1"
+                                  >2</span
+                                >
                               </label>
                               <ion-icon
-                                class="absolute right-0 top-0 size-5 peer-checked:rotate-90 transition-all"
+                                class="absolute right-0 top-0 size-4 md:size-5 peer-checked:rotate-90 transition-all"
                                 name="chevron-forward"
                               ></ion-icon>
-                              <div class="mt-2 hidden peer-checked:block">
+                              <div
+                                class="mt-2 max-h-0 peer-checked:max-h-[280px] transition-all duration-300 overflow-auto"
+                              >
                                 <input
                                   type="text"
                                   placeholder="Search emirate"
-                                  class="w-full p-2 border rounded-md mb-2 focus:outline-none"
+                                  class="w-full p-1 md:p-2 border border-gray-500 text-xs md:text-sm rounded-md mb-2 focus:outline-none"
                                 />
 
-                                <div class="filter-dropdwon-container my-4 max-h-96 overflow-auto">
+                                <div class="my-4 overflow-auto flex flex-col gap-y-1">
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Abu Dhabi</span>
+                                    <span class="text-xs md:text-sm">Abu Dhabi</span>
                                   </label>
 
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Ajman</span>
+                                    <span class="text-xs md:text-sm">Ajman</span>
                                   </label>
 
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Al Fujairah</span>
+                                    <span class="text-xs md:text-sm">Al Fujairah</span>
                                   </label>
 
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Dubai</span>
+                                    <span class="text-xs md:text-sm">Dubai</span>
                                   </label>
 
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Ras Al Khaimah</span>
+                                    <span class="text-xs md:text-sm">Ras Al Khaimah</span>
                                   </label>
 
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Sharjah</span>
+                                    <span class="text-xs md:text-sm">Sharjah</span>
                                   </label>
 
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Umm Al Quwain</span>
+                                    <span class="text-xs md:text-sm">Umm Al Quwain</span>
                                   </label>
                                 </div>
                               </div>
@@ -274,202 +352,204 @@
                                 for="states"
                                 class="cursor-pointer flex justify-between items-center"
                               >
-                                <span class="font-semibold text-lg"
+                                <span class="font-semibold text-sm md:text-lg"
                                   >States</span
                                 >
                               </label>
                               <ion-icon
-                                class="absolute right-0 top-0 size-5 peer-checked:rotate-90 transition-all"
+                                class="absolute right-0 top-0 size-4 md:size-5 peer-checked:rotate-90 transition-all"
                                 name="chevron-forward"
                               ></ion-icon>
-                              <div class="mt-2 hidden peer-checked:block">
+                              <div
+                                class="mt-2 max-h-0 peer-checked:max-h-[280px] transition-all duration-300 overflow-auto"
+                              >
                                 <input
                                   type="text"
                                   placeholder="Search states"
-                                  class="w-full p-2 border rounded-md mb-2 focus:outline-none"
+                                  class="w-full p-1 md:p-2 border border-gray-500 text-xs md:text-sm rounded-md mb-2 focus:outline-none"
                                 />
 
-                                <div class="filter-dropdwon-container my-4 max-h-96 overflow-auto">
+                                <div class="my-4 overflow-auto flex flex-col gap-y-1">
                                   <!-- Abu Dhabi -->
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Abu Dhabi</span>
+                                    <span class="text-xs md:text-sm">Abu Dhabi</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Al Ain</span>
+                                    <span class="text-xs md:text-sm">Al Ain</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Madinat Zayed</span>
+                                    <span class="text-xs md:text-sm">Madinat Zayed</span>
                                   </label>
 
                                   <!-- Ajman -->
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Ajman</span>
+                                    <span class="text-xs md:text-sm">Ajman</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Masfout</span>
+                                    <span class="text-xs md:text-sm">Masfout</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Manama</span>
+                                    <span class="text-xs md:text-sm">Manama</span>
                                   </label>
 
                                   <!-- Al Fujairah -->
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Fujairah</span>
+                                    <span class="text-xs md:text-sm">Fujairah</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Dibba Al-Fujairah</span>
+                                    <span class="text-xs md:text-sm">Dibba Al-Fujairah</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Masafi</span>
+                                    <span class="text-xs md:text-sm">Masafi</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Qidfa</span>
+                                    <span class="text-xs md:text-sm">Qidfa</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Al Bithnah</span>
+                                    <span class="text-xs md:text-sm">Al Bithnah</span>
                                   </label>
 
                                   <!-- Dubai -->
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Dubai</span>
+                                    <span class="text-xs md:text-sm">Dubai</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Hatta</span>
+                                    <span class="text-xs md:text-sm">Hatta</span>
                                   </label>
 
                                   <!-- Ras Al Khaimah -->
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Ras Al Khaimah</span>
+                                    <span class="text-xs md:text-sm">Ras Al Khaimah</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Al Jazirah Al Hamra</span>
+                                    <span class="text-xs md:text-sm">Al Jazirah Al Hamra</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Rams</span>
+                                    <span class="text-xs md:text-sm">Rams</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Al Hamra</span>
+                                    <span class="text-xs md:text-sm">Al Hamra</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Al Riffa</span>
+                                    <span class="text-xs md:text-sm">Al Riffa</span>
                                   </label>
 
                                   <!-- Sharjah -->
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Sharjah</span>
+                                    <span class="text-xs md:text-sm">Sharjah</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Khor Fakkan</span>
+                                    <span class="text-xs md:text-sm">Khor Fakkan</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Kalba</span>
+                                    <span class="text-xs md:text-sm">Kalba</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Al Dhaid</span>
+                                    <span class="text-xs md:text-sm">Al Dhaid</span>
                                   </label>
 
                                   <!-- Umm Al Quwain -->
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Umm Al Quwain</span>
+                                    <span class="text-xs md:text-sm">Umm Al Quwain</span>
                                   </label>
                                   <label class="flex items-center space-x-2">
                                     <input
                                       type="checkbox"
-                                      class="form-checkbox"
+                                      class="focus:ring-0"
                                     />
-                                    <span>Falaj Al Mualla</span>
+                                    <span class="text-xs md:text-sm">Falaj Al Mualla</span>
                                   </label>
                                 </div>
                               </div>
@@ -487,16 +567,16 @@
                   <div class="flex relative items-center">
                     <button
                       id="currency-button"
-                      class="bg-gray-200 min-w-24 rounded-lg hover:bg-gray-200/80 flex items-center justify-center gap-x-2 shadow-sm px-3 py-1.5"
+                      class="bg-gray-200 md:min-w-24 rounded md:rounded-lg hover:bg-gray-200/80 flex items-center justify-center gap-x-2 shadow-sm px-1.5 md:px-3 py-1 md:py-1.5"
                     >
                       <p
-                        class="currency text-gray-600 font-medium text-sm transition-all ease-linear duration-200"
+                        class="currency text-gray-600 font-medium text-[10px] md:text-sm transition-all ease-linear duration-200"
                       >
                         USD
                       </p>
-                      <div class="h-4 w-[1.5px] bg-gray-400"></div>
+                      <div class="h-4 w-px md:w-[1.5px] bg-gray-400"></div>
                       <p
-                        class="measure text-gray-600 font-medium text-sm transition-all ease-linear duration-200"
+                        class="measure text-gray-600 font-medium text-[10px] md:text-sm transition-all ease-linear duration-200"
                       >
                         ft<sup>2</sup>
                       </p>
@@ -504,52 +584,52 @@
 
                     <div
                       id="currencies"
-                      class="absolute z-10 top-10 left-0 w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
+                      class="absolute z-20 top-8 md:top-10 -left-24 md:left-0 w-60 md:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
                     >
                       <div
                         class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"
                       >
                         <div class="p-4 bg-white ring-2 rounded-xl size-full">
-                          <h2 class="text-lg text-gray-800 font-semibold mb-2">
+                          <h2 class="text-sm md:text-lg text-gray-800 font-semibold mb-2">
                             Currency
                           </h2>
                           <div class="flex flex-wrap items-center gap-2">
                             <button
                               onClick="selectCurrency(this)"
-                              class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
+                              class="bg-gray-200 hover:shadow-md px-4 md:px-7 py-1 md:py-1.5 rounded-lg shadow-sm"
                             >
                               <p
-                                class="currency font-medium text-sm text-gray-600"
+                                class="currency font-medium text-[10px] md:text-sm text-gray-600"
                               >
                                 AED
                               </p>
                             </button>
                             <button
                               onClick="selectCurrency(this)"
-                              class="bg-blue-500 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
+                              class="bg-blue-500 hover:shadow-md px-4 md:px-7 py-1 md:py-1.5 rounded-lg shadow-sm"
                             >
                               <p
-                                class="currency font-medium text-sm text-gray-100"
+                                class="currency font-medium text-[10px] md:text-sm text-gray-100"
                               >
                                 USD
                               </p>
                             </button>
                             <button
                               onClick="selectCurrency(this)"
-                              class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
+                              class="bg-gray-200 hover:shadow-md px-4 md:px-7 py-1 md:py-1.5 rounded-lg shadow-sm"
                             >
                               <p
-                                class="currency font-medium text-sm text-gray-600"
+                                class="currency font-medium text-[10px] md:text-sm text-gray-600"
                               >
                                 EUR
                               </p>
                             </button>
                             <button
                               onClick="selectCurrency(this)"
-                              class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
+                              class="bg-gray-200 hover:shadow-md px-4 md:px-7 py-1 md:py-1.5 rounded-lg shadow-sm"
                             >
                               <p
-                                class="currency font-medium text-sm text-gray-600"
+                                class="currency font-medium text-[10px] md:text-sm text-gray-600"
                               >
                                 CAD
                               </p>
@@ -557,27 +637,27 @@
                           </div>
                           <!-- Sizes -->
                           <h2
-                            class="text-lg text-gray-800 font-semibold mt-4 mb-2"
+                            class="text-sm md:text-lg text-gray-800 font-semibold mt-4 mb-2"
                           >
                             Measures
                           </h2>
                           <div class="flex flex-wrap items-center gap-2">
                             <button
                               onClick="selectMeasure(this)"
-                              class="bg-blue-500 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
+                              class="bg-blue-500 hover:shadow-md px-4 md:px-7 py-1 md:py-1.5 rounded-lg shadow-sm"
                             >
                               <p
-                                class="measure font-medium text-sm text-gray-100"
+                                class="measure font-medium text-[10px] md:text-sm text-gray-100"
                               >
                                 ft<sup>2</sup>
                               </p>
                             </button>
                             <button
                               onClick="selectMeasure(this)"
-                              class="bg-gray-200 hover:shadow-md px-7 py-1.5 rounded-lg shadow-sm"
+                              class="bg-gray-200 hover:shadow-md px-4 md:px-7 py-1 md:py-1.5 rounded-lg shadow-sm"
                             >
                               <p
-                                class="measure font-medium text-sm text-gray-600"
+                                class="measure font-medium text-[10px] md:text-sm text-gray-600"
                               >
                                 m<sup>2</sup>
                               </p>
@@ -588,25 +668,25 @@
                     </div>
                   </div>
 
-                  <!-- map-and-grid -->
+                  <!-- map-and-grid toggler -->
                   <div
-                    class="flex gap-x-1 items-center bg-gray-200 rounded-lg shadow-sm p-1"
+                    class="flex gap-x-1 items-center bg-gray-200 rounded md:rounded-lg shadow-sm p-0.5 md:p-1"
                   >
                     <button
                       id="map-switch"
-                      class="bg-blue-500 rounded shadow-sm py-1 px-1.5 flex items-center justify-center"
+                      class="bg-blue-500 rounded shadow-sm py-1 px-1 md:px-1.5 flex items-center justify-center"
                     >
                       <ion-icon
-                        class="text-white size-4"
+                        class="text-white size-3 md:size-4"
                         name="map-outline"
                       ></ion-icon>
                     </button>
                     <button
                       id="grid-switch"
-                      class="rounded py-1 px-1.5 flex items-center justify-center"
+                      class="rounded py-1 px-1 md:px-1.5 flex items-center justify-center"
                     >
                       <ion-icon
-                        class="text-gray-600 size-4"
+                        class="text-gray-600 size-3 md:size-4"
                         name="grid-outline"
                       ></ion-icon>
                     </button>
@@ -614,7 +694,7 @@
                 </div>
 
                 <!-- right items -->
-                <div class="ml-auto flex items-center gap-x-2">
+                <div class="ml-auto hidden md:flex items-center gap-x-2">
                   <!-- toggle -->
                   <label
                     class="relative inline-flex cursor-pointer items-center"
@@ -642,7 +722,7 @@
 
                     <div
                       id="scripts-panel"
-                      class="absolute top-10 right-0 z-20 w-72 pointer-events-none opacity-0 -translate-y-4 transition-all duration-300"
+                      class="absolute top-10 right-0 z-10 w-72 pointer-events-none opacity-0 -translate-y-4 transition-all duration-300"
                     >
                       <div
                         class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"
@@ -651,7 +731,7 @@
                           class="scripts-slider pt-4 pb-10 bg-white ring-2 rounded-xl size-full"
                         >
                           <div
-                            class="p-6 min-h-32 max-h-40 overflow-auto text-gray-700 text-sm"
+                            class="p-6 min-h-24 max-h-28 overflow-auto text-gray-700 text-sm"
                           >
                             <p>
                               Lorem ipsum dolor sit amet consectetur,
@@ -662,7 +742,7 @@
                             </p>
                           </div>
                           <div
-                            class="p-6 min-h-32 max-h-40 overflow-auto text-gray-700 text-sm"
+                            class="p-6 min-h-24 max-h-28 overflow-auto text-gray-700 text-sm"
                           >
                             <p>
                               Lorem ipsum dolor sit amet consectetur,
@@ -673,14 +753,14 @@
                             </p>
                           </div>
                           <div
-                            class="p-6 min-h-32 max-h-40 overflow-auto text-gray-700 text-sm"
+                            class="p-6 min-h-24 max-h-28 overflow-auto text-gray-700 text-sm"
                           >
                             <p>
                               Lorem ipsum dolorto vel neque magni aut ipsam?
                             </p>
                           </div>
                           <div
-                            class="p-6 min-h-32 max-h-40 overflow-auto text-gray-700 text-sm"
+                            class="p-6 min-h-24 max-h-28 overflow-auto text-gray-700 text-sm"
                           >
                             <p>
                               Lorem ipsum dolor sit amet consectetur,
@@ -707,16 +787,27 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- nav-btn-mobile -->
+                <button
+                  id="nav-btn-mobile"
+                  class="flex items-center ml-auto md:hidden"
+                >
+                  <ion-icon
+                    class="text-blue-800 size-5 bg-blue-50 rounded px-1 py-0.5"
+                    name="reorder-three"
+                  ></ion-icon>
+                </button>
               </div>
             </div>
           </div>
 
           <!-- Main -->
-          <div class="flex h-[calc(100vh-(var(--header-height)))]">
+          <div class="flex h-[calc(100vh-(var(--header-height)))] border border-red-500">
             <!-- Project-left-sidebar -->
             <div
               id="project-sidebar"
-              class="w-full max-w-0 lg:max-w-0 relative origin-left transition-all duration-300 ease-in h-full rounded-r-lg overflow-auto border-r shadow-lg"
+              class="w-full max-w-0 lg:max-w-0 absolute left-0 md:left-auto top-[var(--header-height)] md:top-auto z-20 md:relative origin-left transition-all duration-300 ease-in h-full rounded-r-lg overflow-auto border-r shadow-lg bg-white"
             >
               <!-- Add to Favorite button -->
               <button
@@ -775,11 +866,11 @@
                 <h2
                   title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
             veritatis earum recusandae culpa,"
-                  class="font-semibold text-2xl text-center line-clamp-2"
+                  class="font-semibold text-base md:text-2xl text-center line-clamp-2"
                 >
                   Lorem ipsum dolor sit amet.
                 </h2>
-                <p id="" class="text-gray-600 text-sm mt-2">
+                <p id="" class="text-gray-600 text-xs md:text-sm mt-2">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Deleniti veritatis earum recusandae culpa<span id="dots"
                     >...</span
@@ -801,16 +892,14 @@
               </div>
 
               <!-- Actions -->
-              <div
-                class="inline-flex rounded-lg divide-x-2 divide-white mt-2 shadow-sm px-4 w-full"
-              >
+              <div class="inline-flex divide-x-2 divide-white mt-2 px-4 w-full">
                 <button
                   type="button"
-                  class="group flex-1 py-3 px-4 inline-flex items-center justify-center font-semibold gap-x-2 bg-gray-200 text-gray-800 hover:bg-gray-200/80 focus:outline-none focus:bg-gray-200/80 rounded"
+                  class="group flex-1 py-1.5 md:py-3 px-2 text-xs md:text-base md:px-4 inline-flex items-center justify-center font-semibold gap-x-2 bg-gray-200 text-gray-800 hover:bg-gray-200/80 focus:outline-none focus:bg-gray-200/80 rounded"
                 >
                   Add to Catalog
                   <ion-icon
-                    class="size-6 text-gray-800 group-hover:scale-105 transition-all"
+                    class="size-4 md:size-6 text-gray-800 group-hover:scale-105 transition-all"
                     name="add-circle-outline"
                   ></ion-icon>
                 </button>
@@ -822,32 +911,32 @@
                   class="project-sidebar-filters flex items-center gap-x-2 w-full overflow-auto"
                 >
                   <button
-                    class="py-1.5 px-3 font-medium whitespace-nowrap text-sm text-white bg-gray-600 border rounded-full"
+                    class="py-1 md:py-1.5 px-1.5 md:px-3 font-medium whitespace-nowrap text-xs md:text-sm text-white bg-gray-600 border rounded-full"
                   >
                     Overview
                   </button>
                   <button
-                    class="py-1.5 px-3 font-medium whitespace-nowrap text-sm text-gray-800 bg-gray-100 border rounded-full"
+                    class="py-1 md:py-1.5 px-1.5 md:px-3 font-medium whitespace-nowrap text-xs md:text-sm text-gray-800 bg-gray-100 border rounded-full"
                   >
                     Units
                   </button>
                   <button
-                    class="py-1.5 px-3 font-medium whitespace-nowrap text-sm text-gray-800 bg-gray-100 border rounded-full"
+                    class="py-1 md:py-1.5 px-1.5 md:px-3 font-medium whitespace-nowrap text-xs md:text-sm text-gray-800 bg-gray-100 border rounded-full"
                   >
                     Amenities
                   </button>
                   <button
-                    class="py-1.5 px-3 font-medium whitespace-nowrap text-sm text-gray-800 bg-gray-100 border rounded-full"
+                    class="py-1 md:py-1.5 px-1.5 md:px-3 font-medium whitespace-nowrap text-xs md:text-sm text-gray-800 bg-gray-100 border rounded-full"
                   >
                     Payment Plans
                   </button>
                   <button
-                    class="py-1.5 px-3 font-medium whitespace-nowrap text-sm text-gray-800 bg-gray-100 border rounded-full"
+                    class="py-1 md:py-1.5 px-1.5 md:px-3 font-medium whitespace-nowrap text-xs md:text-sm text-gray-800 bg-gray-100 border rounded-full"
                   >
                     Documents
                   </button>
                   <button
-                    class="py-1.5 px-3 font-medium whitespace-nowrap text-sm text-gray-800 bg-gray-100 border rounded-full"
+                    class="py-1 md:py-1.5 px-1.5 md:px-3 font-medium whitespace-nowrap text-xs md:text-sm text-gray-800 bg-gray-100 border rounded-full"
                   >
                     Developer
                   </button>
@@ -856,26 +945,26 @@
                 <!-- back & forward btns -->
                 <button
                   id="scroll-back-filter"
-                  class="hidden absolute top-0 left-0 w-16 h-full items-center justify-center bg-gradient-to-tr from-white via-white/20 to-transparent"
+                  class="hidden absolute top-0 left-0 w-10 md:w-16 h-full items-center justify-center bg-gradient-to-tr from-white via-white/20 to-transparent"
                 >
                   <span
-                    class="bg-gray-600 rounded-full flex items-center justify-center size-9"
+                    class="bg-gray-600 rounded-full flex items-center justify-center size-7 md:size-9"
                   >
                     <ion-icon
-                      class="size-8 text-gray-100"
+                      class="size-6 md:size-8 text-gray-100"
                       name="arrow-back-circle-outline"
                     ></ion-icon>
                   </span>
                 </button>
                 <button
                   id="scroll-forward-filter"
-                  class="absolute top-0 right-0 w-16 h-full flex items-center justify-center bg-gradient-to-tr from-white via-white/20 to-transparent"
+                  class="absolute top-0 right-0 w-10 md:w-16 h-full flex items-center justify-center bg-gradient-to-tr from-white via-white/20 to-transparent"
                 >
                   <span
-                    class="bg-gray-600 rounded-full flex items-center justify-center size-9"
+                    class="bg-gray-600 rounded-full flex items-center justify-center size-7 md:size-9"
                   >
                     <ion-icon
-                      class="size-8 text-gray-100"
+                      class="size-6 md:size-8 text-gray-100"
                       name="arrow-forward-circle-outline"
                     ></ion-icon>
                   </span>
@@ -886,38 +975,38 @@
               <div class="w-full">
                 <div class="bg-gray-100 divide-y divide-gray-300">
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-600 font-medium">Developer</h3>
-                    <p class="text-gray-900 text-sm">Dubai Properties</p>
+                    <h3 class="text-gray-600 text-sm md:text-base font-medium">Developer</h3>
+                    <p class="text-gray-900 text-xs md:text-sm">Dubai Properties</p>
                   </div>
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-600 font-medium">District</h3>
-                    <p class="text-gray-900 text-sm">Dubai Properties</p>
+                    <h3 class="text-gray-600 text-sm md:text-base font-medium">District</h3>
+                    <p class="text-gray-900 text-xs md:text-sm">Dubai Properties</p>
                   </div>
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-600 font-medium">Price</h3>
-                    <p class="text-gray-900 text-sm">Dubai Properties</p>
+                    <h3 class="text-gray-600 text-sm md:text-base font-medium">Price</h3>
+                    <p class="text-gray-900 text-xs md:text-sm">Dubai Properties</p>
                   </div>
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-600 font-medium">Size</h3>
-                    <p class="text-gray-900 text-sm">Dubai Properties</p>
+                    <h3 class="text-gray-600 text-sm md:text-base font-medium">Size</h3>
+                    <p class="text-gray-900 text-xs md:text-sm">Dubai Properties</p>
                   </div>
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-600 font-medium">Handover</h3>
-                    <p class="text-gray-900 text-sm">Dubai Properties</p>
+                    <h3 class="text-gray-600 text-sm md:text-base font-medium">Handover</h3>
+                    <p class="text-gray-900 text-xs md:text-sm">Dubai Properties</p>
                   </div>
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-600 font-medium">Unit type</h3>
-                    <p class="text-gray-900 text-sm">Dubai Properties</p>
+                    <h3 class="text-gray-600 text-sm md:text-base font-medium">Unit type</h3>
+                    <p class="text-gray-900 text-xs md:text-sm">Dubai Properties</p>
                   </div>
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-600 font-medium">Furnishing</h3>
-                    <p class="text-gray-900 text-sm">Dubai Properties</p>
+                    <h3 class="text-gray-600 text-sm md:text-base font-medium">Furnishing</h3>
+                    <p class="text-gray-900 text-xs md:text-sm">Dubai Properties</p>
                   </div>
                   <div class="px-4 py-3 flex justify-between">
-                    <h3 class="text-gray-600 font-medium">
+                    <h3 class="text-gray-600 text-sm md:text-base font-medium">
                       Resale allowed after
                     </h3>
-                    <p class="text-gray-700 text-sm">Dubai Properties</p>
+                    <p class="text-gray-700 text-xs md:text-sm">Dubai Properties</p>
                   </div>
                 </div>
               </div>
@@ -925,16 +1014,16 @@
 
             <!-- project-right-sidebar -->
             <div
-              class="absolute bottom-3 right-4 z-10 w-full max-w-72 h-[calc(100vh-19rem)] shadow-lg bg-blue-300 rounded-xl pt-2 size-full transition-all duration-300 ease-out"
+              class="absolute bottom-3 right-0 md:right-4 z-10 w-full max-w-0 md:max-w-72 h-[calc(100vh-16rem)] shadow-lg bg-blue-300 rounded-xl pt-2 size-full transition-all duration-300 ease-out"
             >
-              <!-- close btn -->
+              <!-- toggle btn -->
               <button
-                onclick="closeRightSidebar(this)"
-                class="absolute -left-[2rem] top-4 bg-blue-200 rounded-l-full size-8 flex items-center justify-center"
+                onclick="toggleRightSidebar(this)"
+                class="absolute -left-[2rem] top-4 bg-blue-300 rounded-l-full size-8 flex items-center justify-center"
               >
                 <ion-icon name="chevron-forward"></ion-icon>
               </button>
-              <div class="size-full bg-white ring-2 shadow-lg rounded-lg">
+              <div class="size-full bg-white ring-2 shadow-lg rounded-lg overflow-hidden">
                 <!-- districts list -->
                 <div
                   class="projects-list overflow-auto flex flex-col h-1/2 pl-3 pt-3 pb-1 border-b"
@@ -1188,7 +1277,7 @@
                             </span>
                             <button
                               onclick="addToFavorites(this)"
-                              class="p-2 flex items-center justify-center"
+                              class="p-2 flex items-center justify-center hover:scale-105 transition-all hover:bg-gray-200"
                             >
                               <ion-icon
                                 class="size-4 text-red-600 mr-1"
@@ -1306,7 +1395,7 @@
                             </span>
                             <button
                               onclick="addToFavorites(this)"
-                              class="p-2 flex items-center justify-center"
+                              class="p-2 flex items-center justify-center hover:scale-105 transition-all hover:bg-gray-200"
                             >
                               <ion-icon
                                 class="size-4 text-red-600 mr-1"
@@ -1416,7 +1505,7 @@
                             </span>
                             <button
                               onclick="addToFavorites(this)"
-                              class="p-2 flex items-center justify-center"
+                              class="p-2 flex items-center justify-center hover:scale-105 transition-all hover:bg-gray-200"
                             >
                               <ion-icon
                                 class="size-4 text-red-600 mr-1"
@@ -1526,7 +1615,7 @@
                             </span>
                             <button
                               onclick="addToFavorites(this)"
-                              class="p-2 flex items-center justify-center"
+                              class="p-2 flex items-center justify-center hover:scale-105 transition-all hover:bg-gray-200"
                             >
                               <ion-icon
                                 class="size-4 text-red-600 mr-1"
@@ -1636,7 +1725,7 @@
                             </span>
                             <button
                               onclick="addToFavorites(this)"
-                              class="p-2 flex items-center justify-center"
+                              class="p-2 flex items-center justify-center hover:scale-105 transition-all hover:bg-gray-200"
                             >
                               <ion-icon
                                 class="size-4 text-red-600 mr-1"
@@ -1746,7 +1835,7 @@
                             </span>
                             <button
                               onclick="addToFavorites(this)"
-                              class="p-2 flex items-center justify-center"
+                              class="p-2 flex items-center justify-center hover:scale-105 transition-all hover:bg-gray-200"
                             >
                               <ion-icon
                                 class="size-4 text-red-600 mr-1"

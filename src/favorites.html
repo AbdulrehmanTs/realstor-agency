@@ -15,11 +15,11 @@
   </head>
   <body class="bg-slate-900">
     <!-- Layout >>> everything shold be inside this layout -->
-    <div class="w-full h-full flex">
+    <div class="w-full h-full flex relative md:static">
       <!-- sidebar-nav -->
       <div
         id="navbar"
-        class="max-w-16 w-full h-screen overflow-y-auto overflow-x-hidden bg-slate-900 transition-all"
+        class="max-w-0 md:max-w-16 absolute z-20 md:static top-0 left-0 w-full h-screen overflow-y-auto overflow-x-hidden bg-slate-900 rounded-r md:rounded-r-xl transition-all"
       >
         <div class="h-full">
           <!-- Logo -->
@@ -98,7 +98,6 @@
                     </p>
                   </a>
                 </li>
-                
               </ul>
             </div>
           </div>
@@ -106,43 +105,122 @@
       </div>
 
       <!-- Main body -->
-      <div class="w-full bg-slate-900 rounded-l-xl overflow-x-hidden">
+      <div class="w-full bg-slate-900 md:rounded-l-xl overflow-x-hidden">
         <div class="bg-white size-full">
           <!-- Header -->
-          <div class="h-[--header-height] pb-4 p-2 border-b border-gray-600/20">
+          <div
+            class="h-[--header-height] px-2 py-2 md:py-3 border-b border-gray-600/20"
+          >
             <div class="lg:px-2">
               <div class="w-full flex items-center">
-                <!-- Searchbar -->
-                <div class="max-w-xs lg:w-full mr-4">
-                  <div class="relative">
+                <div class="md:hidden">
+                  <div
+                    class="size-8 flex items-center justify-center rounded-full bg-white"
+                  >
+                    <ion-icon
+                      class="size-8 text-blue-800"
+                      name="invert-mode-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+                <!-- Searchbar desktop -->
+                <div
+                  class="hidden md:block max-w-xs md:w-full ml-2 md:ml-0 mr-4"
+                >
+                  <form class="relative bg-gray-200 rounded-full">
                     <label for="Search" class="sr-only"> Search </label>
                     <input
                       type="text"
                       id="Search"
                       placeholder="Search something..."
                       autocomplete="off"
-                      class="w-full rounded-full bg-gray-200 border-none text-gray-700 py-2 text-xs sm:text-sm"
+                      class="md:w-full opacity-0 md:opacity-100 rounded-full bg-transparent border-none text-gray-700 text-sm md:text-sm py-1 md:py-2 sm:text-sm"
                     />
-                    <span class="absolute inset-y-0 end-0 w-10">
+                    <span class="absolute inset-y-0 right-2 md:left-auto">
                       <button
-                        type="button"
+                        type="submit"
                         class="text-gray-600 hover:text-gray-700 h-full grid place-content-center"
                       >
                         <span class="sr-only">Search</span>
                         <ion-icon
-                          class="size-6 text-gray-600"
+                          class="size-4 md:size-6 text-blue-800 md:text-gray-600"
                           name="search-outline"
                         ></ion-icon>
                       </button>
                     </span>
-                  </div>
+                  </form>
                 </div>
+
+                <!-- Searchbar mobile -->
+                <div
+                  id="mobile-search"
+                  class="relative max-w-7 md:hidden ml-2 mr-4 transition-all"
+                >
+                  <span
+                    id="search-expand-btn"
+                    class="absolute inset-0 left-0 top-0 z-[2] text-gray-600 hover:text-gray-700 h-full grid place-content-center"
+                  >
+                    <ion-icon
+                      class="size-4 md:size-6 text-blue-800 md:text-gray-600"
+                      name="search-outline"
+                    ></ion-icon>
+                  </span>
+                  <form class="relative bg-gray-200 rounded-full">
+                    <label for="Search" class="sr-only"> Search </label>
+                    <input
+                      type="text"
+                      id="Search"
+                      placeholder="Search something..."
+                      autocomplete="off"
+                      class="w-full opacity-0 md:opacity-100 rounded-full bg-transparent border-none text-gray-700 text-xs md:text-sm py-1 md:py-2 sm:text-sm"
+                    />
+                    <span
+                      class="flex gap-x-2 items-center absolute inset-y-0 right-0"
+                    >
+                      <button
+                        type="submit"
+                        onclick="(e)=> e.preventDefault()"
+                        class="hidden text-gray-600 hover:text-gray-700 h-full place-content-center"
+                      >
+                        <span class="sr-only">Search</span>
+                        <ion-icon
+                          class="size-4 md:size-6 text-blue-800 md:text-gray-600"
+                          name="search-outline"
+                        ></ion-icon>
+                      </button>
+                      <button
+                        type="button"
+                        onclick="closeExpandSearch()"
+                        class="hidden text-gray-600 px-1 hover:text-gray-700 h-full place-content-center"
+                      >
+                        <span class="sr-only">close</span>
+                        <ion-icon
+                          class="size-4 md:size-6 text-red-800 md:text-gray-600"
+                          name="close-outline"
+                        ></ion-icon>
+                      </button>
+                    </span>
+                  </form>
+                </div>
+
+                <!-- nav-btn-mobile -->
+                <button
+                  id="nav-btn-mobile"
+                  class="flex items-center ml-auto md:hidden"
+                >
+                  <ion-icon
+                    class="text-blue-800 size-5 bg-blue-50 rounded px-1 py-0.5"
+                    name="reorder-three"
+                  ></ion-icon>
+                </button>
               </div>
             </div>
           </div>
 
           <!-- Main -->
-          <div class="flex md:px-40 h-[calc(100vh-(var(--header-height)))] overflow-auto">
+          <div
+            class="flex md:px-40 h-[calc(100vh-(var(--header-height)))] overflow-auto"
+          >
             <!-- Grid -->
             <div class="px-4 md:px-8">
               <h3 class="font-semibold text-xl text-blue-800 mt-8 mb-6">
@@ -174,13 +252,11 @@
                     </div>
                     <div class="shadow p-4">
                       <div class="flex items-center justify-between mb-1">
-                        <h5 class=" font-semibold text-gray-800">
-                          Rhonda Doe
-                        </h5>
+                        <h5 class="font-semibold text-gray-800">Rhonda Doe</h5>
                       </div>
                       <p class="text-xs text-gray-600 mb-2">
-                        Et quidem faciunt, ut de voluptate ponit, quod
-                        summum bonum sit aut rerum et quidem…
+                        Et quidem faciunt, ut de voluptate ponit, quod summum
+                        bonum sit aut rerum et quidem…
                       </p>
                       <h4 class="font-semibold text-gray-800 text-xs mb-2">
                         Developer:
@@ -205,35 +281,40 @@
                         </p>
                       </div>
                       <p class="text-xs text-gray-600">
-                        <span class="font-semibold text-gray-700">Location:</span> Sharjah
+                        <span class="font-semibold text-gray-700"
+                          >Location:</span
+                        >
+                        Sharjah
                       </p>
                       <p class="text-xs text-gray-600">
-                        <span class="font-semibold text-gray-700">Price from:</span>
+                        <span class="font-semibold text-gray-700"
+                          >Price from:</span
+                        >
                         AEDXXX,XXX
                       </p>
                       <div class="mt-2 flex items-center gap-x-3">
                         <!-- phopp -->
-                        <div class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1">
+                        <div
+                          class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                        >
                           <ion-icon
                             class="size-4 text-blue-500"
                             name="prism"
                           ></ion-icon>
-                          <div
-                            class="text-[8px] flex flex-col items-center"
-                          >
+                          <div class="text-[8px] flex flex-col items-center">
                             <span class="text-gray-600">PHOPP</span>
                             <span class="font-semibold">N/A</span>
                           </div>
                         </div>
                         <!-- discount -->
-                        <div class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1">
+                        <div
+                          class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                        >
                           <ion-icon
                             class="size-4 text-blue-500"
                             name="pricetags"
                           ></ion-icon>
-                          <div
-                            class="text-[8px] flex flex-col items-center"
-                          >
+                          <div class="text-[8px] flex flex-col items-center">
                             <span class="text-gray-600">Discount</span>
                             <span class="font-semibold">X%</span>
                           </div>
@@ -242,13 +323,9 @@
                     </div>
                     <!-- card footer -->
                     <div class="bg-gray-100">
-                      <div
-                        class="flex justify-between divide-x text-[10px]"
-                      >
+                      <div class="flex justify-between divide-x text-[10px]">
                         <span class="p-2">
-                          <span class="font-semibold"
-                            >Handover Date:
-                          </span>
+                          <span class="font-semibold">Handover Date: </span>
                           <span class="text-gray-700"> MM/YYYY</span>
                         </span>
                         <button
@@ -285,13 +362,11 @@
                     </div>
                     <div class="shadow p-4">
                       <div class="flex items-center justify-between mb-1">
-                        <h5 class=" font-semibold text-gray-800">
-                          Rhonda Doe
-                        </h5>
+                        <h5 class="font-semibold text-gray-800">Rhonda Doe</h5>
                       </div>
                       <p class="text-xs text-gray-600 mb-2">
-                        Et quidem faciunt, ut de voluptate ponit, quod
-                        summum bonum sit aut rerum et quidem…
+                        Et quidem faciunt, ut de voluptate ponit, quod summum
+                        bonum sit aut rerum et quidem…
                       </p>
                       <h4 class="font-semibold text-gray-800 text-xs mb-2">
                         Developer:
@@ -316,35 +391,40 @@
                         </p>
                       </div>
                       <p class="text-xs text-gray-600">
-                        <span class="font-semibold text-gray-700">Location:</span> Sharjah
+                        <span class="font-semibold text-gray-700"
+                          >Location:</span
+                        >
+                        Sharjah
                       </p>
                       <p class="text-xs text-gray-600">
-                        <span class="font-semibold text-gray-700">Price from:</span>
+                        <span class="font-semibold text-gray-700"
+                          >Price from:</span
+                        >
                         AEDXXX,XXX
                       </p>
                       <div class="mt-2 flex items-center gap-x-3">
                         <!-- phopp -->
-                        <div class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1">
+                        <div
+                          class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                        >
                           <ion-icon
                             class="size-4 text-blue-500"
                             name="prism"
                           ></ion-icon>
-                          <div
-                            class="text-[8px] flex flex-col items-center"
-                          >
+                          <div class="text-[8px] flex flex-col items-center">
                             <span class="text-gray-600">PHOPP</span>
                             <span class="font-semibold">N/A</span>
                           </div>
                         </div>
                         <!-- discount -->
-                        <div class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1">
+                        <div
+                          class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                        >
                           <ion-icon
                             class="size-4 text-blue-500"
                             name="pricetags"
                           ></ion-icon>
-                          <div
-                            class="text-[8px] flex flex-col items-center"
-                          >
+                          <div class="text-[8px] flex flex-col items-center">
                             <span class="text-gray-600">Discount</span>
                             <span class="font-semibold">X%</span>
                           </div>
@@ -353,13 +433,9 @@
                     </div>
                     <!-- card footer -->
                     <div class="bg-gray-100">
-                      <div
-                        class="flex justify-between divide-x text-[10px]"
-                      >
+                      <div class="flex justify-between divide-x text-[10px]">
                         <span class="p-2">
-                          <span class="font-semibold"
-                            >Handover Date:
-                          </span>
+                          <span class="font-semibold">Handover Date: </span>
                           <span class="text-gray-700"> MM/YYYY</span>
                         </span>
                         <button
@@ -388,13 +464,11 @@
                     </div>
                     <div class="shadow p-4">
                       <div class="flex items-center justify-between mb-1">
-                        <h5 class=" font-semibold text-gray-800">
-                          Rhonda Doe
-                        </h5>
+                        <h5 class="font-semibold text-gray-800">Rhonda Doe</h5>
                       </div>
                       <p class="text-xs text-gray-600 mb-2">
-                        Et quidem faciunt, ut de voluptate ponit, quod
-                        summum bonum sit aut rerum et quidem…
+                        Et quidem faciunt, ut de voluptate ponit, quod summum
+                        bonum sit aut rerum et quidem…
                       </p>
                       <h4 class="font-semibold text-gray-800 text-xs mb-2">
                         Developer:
@@ -419,35 +493,40 @@
                         </p>
                       </div>
                       <p class="text-xs text-gray-600">
-                        <span class="font-semibold text-gray-700">Location:</span> Sharjah
+                        <span class="font-semibold text-gray-700"
+                          >Location:</span
+                        >
+                        Sharjah
                       </p>
                       <p class="text-xs text-gray-600">
-                        <span class="font-semibold text-gray-700">Price from:</span>
+                        <span class="font-semibold text-gray-700"
+                          >Price from:</span
+                        >
                         AEDXXX,XXX
                       </p>
-                    <div class="mt-2 flex items-center gap-x-3">
+                      <div class="mt-2 flex items-center gap-x-3">
                         <!-- phopp -->
-                        <div class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1">
+                        <div
+                          class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                        >
                           <ion-icon
                             class="size-4 text-blue-500"
                             name="prism"
                           ></ion-icon>
-                          <div
-                            class="text-[8px] flex flex-col items-center"
-                          >
+                          <div class="text-[8px] flex flex-col items-center">
                             <span class="text-gray-600">PHOPP</span>
                             <span class="font-semibold">N/A</span>
                           </div>
                         </div>
                         <!-- discount -->
-                        <div class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1">
+                        <div
+                          class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                        >
                           <ion-icon
                             class="size-4 text-blue-500"
                             name="pricetags"
                           ></ion-icon>
-                          <div
-                            class="text-[8px] flex flex-col items-center"
-                          >
+                          <div class="text-[8px] flex flex-col items-center">
                             <span class="text-gray-600">Discount</span>
                             <span class="font-semibold">X%</span>
                           </div>
@@ -456,13 +535,9 @@
                     </div>
                     <!-- card footer -->
                     <div class="bg-gray-100">
-                      <div
-                        class="flex justify-between divide-x text-[10px]"
-                      >
+                      <div class="flex justify-between divide-x text-[10px]">
                         <span class="p-2">
-                          <span class="font-semibold"
-                            >Handover Date:
-                          </span>
+                          <span class="font-semibold">Handover Date: </span>
                           <span class="text-gray-700"> MM/YYYY</span>
                         </span>
                         <button
@@ -491,13 +566,11 @@
                     </div>
                     <div class="shadow p-4">
                       <div class="flex items-center justify-between mb-1">
-                        <h5 class=" font-semibold text-gray-800">
-                          Rhonda Doe
-                        </h5>
+                        <h5 class="font-semibold text-gray-800">Rhonda Doe</h5>
                       </div>
                       <p class="text-xs text-gray-600 mb-2">
-                        Et quidem faciunt, ut de voluptate ponit, quod
-                        summum bonum sit aut rerum et quidem…
+                        Et quidem faciunt, ut de voluptate ponit, quod summum
+                        bonum sit aut rerum et quidem…
                       </p>
                       <h4 class="font-semibold text-gray-800 text-xs mb-2">
                         Developer:
@@ -522,35 +595,40 @@
                         </p>
                       </div>
                       <p class="text-xs text-gray-600">
-                        <span class="font-semibold text-gray-700">Location:</span> Sharjah
+                        <span class="font-semibold text-gray-700"
+                          >Location:</span
+                        >
+                        Sharjah
                       </p>
                       <p class="text-xs text-gray-600">
-                        <span class="font-semibold text-gray-700">Price from:</span>
+                        <span class="font-semibold text-gray-700"
+                          >Price from:</span
+                        >
                         AEDXXX,XXX
                       </p>
-                    <div class="mt-2 flex items-center gap-x-3">
+                      <div class="mt-2 flex items-center gap-x-3">
                         <!-- phopp -->
-                        <div class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1">
+                        <div
+                          class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                        >
                           <ion-icon
                             class="size-4 text-blue-500"
                             name="prism"
                           ></ion-icon>
-                          <div
-                            class="text-[8px] flex flex-col items-center"
-                          >
+                          <div class="text-[8px] flex flex-col items-center">
                             <span class="text-gray-600">PHOPP</span>
                             <span class="font-semibold">N/A</span>
                           </div>
                         </div>
                         <!-- discount -->
-                        <div class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1">
+                        <div
+                          class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                        >
                           <ion-icon
                             class="size-4 text-blue-500"
                             name="pricetags"
                           ></ion-icon>
-                          <div
-                            class="text-[8px] flex flex-col items-center"
-                          >
+                          <div class="text-[8px] flex flex-col items-center">
                             <span class="text-gray-600">Discount</span>
                             <span class="font-semibold">X%</span>
                           </div>
@@ -559,13 +637,9 @@
                     </div>
                     <!-- card footer -->
                     <div class="bg-gray-100">
-                      <div
-                        class="flex justify-between divide-x text-[10px]"
-                      >
+                      <div class="flex justify-between divide-x text-[10px]">
                         <span class="p-2">
-                          <span class="font-semibold"
-                            >Handover Date:
-                          </span>
+                          <span class="font-semibold">Handover Date: </span>
                           <span class="text-gray-700"> MM/YYYY</span>
                         </span>
                         <button
@@ -594,13 +668,11 @@
                     </div>
                     <div class="shadow p-4">
                       <div class="flex items-center justify-between mb-1">
-                        <h5 class=" font-semibold text-gray-800">
-                          Rhonda Doe
-                        </h5>
+                        <h5 class="font-semibold text-gray-800">Rhonda Doe</h5>
                       </div>
                       <p class="text-xs text-gray-600 mb-2">
-                        Et quidem faciunt, ut de voluptate ponit, quod
-                        summum bonum sit aut rerum et quidem…
+                        Et quidem faciunt, ut de voluptate ponit, quod summum
+                        bonum sit aut rerum et quidem…
                       </p>
                       <h4 class="font-semibold text-gray-800 text-xs mb-2">
                         Developer:
@@ -625,35 +697,40 @@
                         </p>
                       </div>
                       <p class="text-xs text-gray-600">
-                        <span class="font-semibold text-gray-700">Location:</span> Sharjah
+                        <span class="font-semibold text-gray-700"
+                          >Location:</span
+                        >
+                        Sharjah
                       </p>
                       <p class="text-xs text-gray-600">
-                        <span class="font-semibold text-gray-700">Price from:</span>
+                        <span class="font-semibold text-gray-700"
+                          >Price from:</span
+                        >
                         AEDXXX,XXX
                       </p>
-                    <div class="mt-2 flex items-center gap-x-3">
+                      <div class="mt-2 flex items-center gap-x-3">
                         <!-- phopp -->
-                        <div class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1">
+                        <div
+                          class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                        >
                           <ion-icon
                             class="size-4 text-blue-500"
                             name="prism"
                           ></ion-icon>
-                          <div
-                            class="text-[8px] flex flex-col items-center"
-                          >
+                          <div class="text-[8px] flex flex-col items-center">
                             <span class="text-gray-600">PHOPP</span>
                             <span class="font-semibold">N/A</span>
                           </div>
                         </div>
                         <!-- discount -->
-                        <div class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1">
+                        <div
+                          class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                        >
                           <ion-icon
                             class="size-4 text-blue-500"
                             name="pricetags"
                           ></ion-icon>
-                          <div
-                            class="text-[8px] flex flex-col items-center"
-                          >
+                          <div class="text-[8px] flex flex-col items-center">
                             <span class="text-gray-600">Discount</span>
                             <span class="font-semibold">X%</span>
                           </div>
@@ -662,13 +739,9 @@
                     </div>
                     <!-- card footer -->
                     <div class="bg-gray-100">
-                      <div
-                        class="flex justify-between divide-x text-[10px]"
-                      >
+                      <div class="flex justify-between divide-x text-[10px]">
                         <span class="p-2">
-                          <span class="font-semibold"
-                            >Handover Date:
-                          </span>
+                          <span class="font-semibold">Handover Date: </span>
                           <span class="text-gray-700"> MM/YYYY</span>
                         </span>
                         <button
@@ -697,13 +770,11 @@
                     </div>
                     <div class="shadow p-4">
                       <div class="flex items-center justify-between mb-1">
-                        <h5 class=" font-semibold text-gray-800">
-                          Rhonda Doe
-                        </h5>
+                        <h5 class="font-semibold text-gray-800">Rhonda Doe</h5>
                       </div>
                       <p class="text-xs text-gray-600 mb-2">
-                        Et quidem faciunt, ut de voluptate ponit, quod
-                        summum bonum sit aut rerum et quidem…
+                        Et quidem faciunt, ut de voluptate ponit, quod summum
+                        bonum sit aut rerum et quidem…
                       </p>
                       <h4 class="font-semibold text-gray-800 text-xs mb-2">
                         Developer:
@@ -728,35 +799,40 @@
                         </p>
                       </div>
                       <p class="text-xs text-gray-600">
-                        <span class="font-semibold text-gray-700">Location:</span> Sharjah
+                        <span class="font-semibold text-gray-700"
+                          >Location:</span
+                        >
+                        Sharjah
                       </p>
                       <p class="text-xs text-gray-600">
-                        <span class="font-semibold text-gray-700">Price from:</span>
+                        <span class="font-semibold text-gray-700"
+                          >Price from:</span
+                        >
                         AEDXXX,XXX
                       </p>
-                    <div class="mt-2 flex items-center gap-x-3">
+                      <div class="mt-2 flex items-center gap-x-3">
                         <!-- phopp -->
-                        <div class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1">
+                        <div
+                          class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                        >
                           <ion-icon
                             class="size-4 text-blue-500"
                             name="prism"
                           ></ion-icon>
-                          <div
-                            class="text-[8px] flex flex-col items-center"
-                          >
+                          <div class="text-[8px] flex flex-col items-center">
                             <span class="text-gray-600">PHOPP</span>
                             <span class="font-semibold">N/A</span>
                           </div>
                         </div>
                         <!-- discount -->
-                        <div class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1">
+                        <div
+                          class="flex items-center py-1 px-2 rounded bg-gray-50 gap-x-1"
+                        >
                           <ion-icon
                             class="size-4 text-blue-500"
                             name="pricetags"
                           ></ion-icon>
-                          <div
-                            class="text-[8px] flex flex-col items-center"
-                          >
+                          <div class="text-[8px] flex flex-col items-center">
                             <span class="text-gray-600">Discount</span>
                             <span class="font-semibold">X%</span>
                           </div>
@@ -765,13 +841,9 @@
                     </div>
                     <!-- card footer -->
                     <div class="bg-gray-100">
-                      <div
-                        class="flex justify-between divide-x text-[10px]"
-                      >
+                      <div class="flex justify-between divide-x text-[10px]">
                         <span class="p-2">
-                          <span class="font-semibold"
-                            >Handover Date:
-                          </span>
+                          <span class="font-semibold">Handover Date: </span>
                           <span class="text-gray-700"> MM/YYYY</span>
                         </span>
                         <button

@@ -1,4 +1,5 @@
 const navBtn = document.getElementById("nav-btn");
+const navBtnMobile = document.getElementById("nav-btn-mobile");
 const navbar = document.getElementById("navbar");
 const navitemTitles = document.getElementsByClassName("navitem-title");
 
@@ -21,42 +22,45 @@ const projectSidebarFilters = document.querySelector(
   ".project-sidebar-filters"
 );
 
-const filtersBtn = document.getElementById("filters-button")
-const filtersWrapper = document.getElementById("filters-wrapper")
+const filtersBtn = document.getElementById("filters-button");
+const filtersWrapper = document.getElementById("filters-wrapper");
 
-navBtn.addEventListener("click", toggleNavbar);
-currencyButton.addEventListener("click", handleCurrencyChange);
-mapSwitch.addEventListener("click", handleMapswitch);
-gridSwitch.addEventListener("click", handleGridswitch);
-map.addEventListener("click", openProjectSidebar);
-gridCardsArray.forEach((item) =>
+navBtn?.addEventListener("click", toggleNavbar);
+navBtnMobile?.addEventListener("click", toggleNavbar);
+currencyButton?.addEventListener("click", handleCurrencyChange);
+mapSwitch?.addEventListener("click", handleMapswitch);
+gridSwitch?.addEventListener("click", handleGridswitch);
+map?.addEventListener("click", openProjectSidebar);
+gridCardsArray?.forEach((item) =>
   item.addEventListener("click", openProjectSidebar)
 );
-scriptsButton.addEventListener("click", toggleScriptsPanel);
+scriptsButton?.addEventListener("click", toggleScriptsPanel);
 
-filtersBtn.addEventListener("click", toggleFilterWrapper)
+filtersBtn?.addEventListener("click", toggleFilterWrapper);
 
 function toggleNavbar() {
-  if (navbar.classList.contains("max-w-16")) {
-    navbar.classList.remove("max-w-16");
-    navbar.classList.add("max-w-52");
+  if (navbar.classList.contains("md:max-w-16")) {
+    navbar.classList.remove("max-w-0", "md:max-w-16");
+    navbar.classList.add("max-w-64", "md:max-w-52");
     navBtn.firstElementChild.setAttribute("name", "chevron-back");
+    navBtnMobile.firstElementChild.setAttribute("name", "close-outline");
     setTimeout(() => {
       Array.from(navitemTitles).forEach((item) => {
         item.classList.remove("hidden");
       });
     }, 150);
   } else {
-    navbar.classList.remove("max-w-52");
-    navbar.classList.add("max-w-16");
+    navbar.classList.remove("max-w-64", "md:max-w-52");
+    navbar.classList.add("max-w-0", "md:max-w-16");
     navBtn.firstElementChild.setAttribute("name", "reorder-three");
+    navBtnMobile.firstElementChild.setAttribute("name", "reorder-three");
     Array.from(navitemTitles).forEach((item) => {
       item.classList.add("hidden");
     });
   }
 }
 
-function toggleFilterWrapper () {
+function toggleFilterWrapper() {
   if (filtersWrapper.classList.contains("opacity-0")) {
     filtersWrapper.classList.remove(
       "-translate-y-2",
@@ -142,7 +146,6 @@ function handleGridswitch() {
   }
 }
 
-
 function selectCurrency(element) {
   const selectedCurrency = element.querySelector(".currency");
   currencyButton.querySelector(".currency").innerHTML =
@@ -183,6 +186,43 @@ function selectMeasure(element) {
       item.classList.remove("text-gray-100");
     }
   });
+}
+const mobileSearch = document.querySelector("#mobile-search");
+const searchExpandBtn = document.querySelector("#search-expand-btn")
+// mobileSearch.addEventListener("click", expandSearch);
+searchExpandBtn.addEventListener("click", expandSearch);
+
+function expandSearch() {
+  if (mobileSearch.classList.contains("max-w-7")){
+    searchExpandBtn.classList.add("hidden");
+    mobileSearch.classList.remove("max-w-7");
+    mobileSearch.classList.add("min-w-72");
+    const input = mobileSearch.querySelector("input");
+    input.classList.remove("opacity-0");
+    input.focus()
+    const submitBtn = mobileSearch.querySelector("button[type='submit']");
+    const closeBtn = mobileSearch.querySelector("button[type='button']");
+    submitBtn.classList.remove("hidden")
+    submitBtn.classList.add("grid")
+    closeBtn.classList.remove("hidden");
+    closeBtn.classList.add("grid");
+  } else {
+    closeExpandSearch()
+  }
+}
+
+function closeExpandSearch() {
+  searchExpandBtn.classList.remove("hidden");
+  mobileSearch.classList.remove("min-w-72");
+  mobileSearch.classList.add("max-w-7");
+  const input = mobileSearch.querySelector("input");
+  input.classList.add("opacity-0");
+  const submitBtn = mobileSearch.querySelector("button[type='submit']");
+  submitBtn.classList.remove("grid")
+  submitBtn.classList.add("hidden")
+  const closeBtn = mobileSearch.querySelector("button[type='button']");
+  closeBtn.classList.remove("grid");
+  closeBtn.classList.add("hidden");
 }
 
 // Project Sidebar
@@ -260,9 +300,14 @@ function toggleScriptsPanel() {
   }
 }
 
-//
-function closeRightSidebar(element) {
-  element.parentElement.classList.toggle("translate-x-full");
+function toggleRightSidebar(element) {
+  if (element.parentElement.classList.contains("max-w-0")) {
+    element.parentElement.classList.remove("max-w-0", "md:max-w-72", "right-0", "md:right-4")
+    element.parentElement.classList.add("max-w-72", "md:max-w-0", "right-4", "md:right-0")
+  } else {
+    element.parentElement.classList.remove("max-w-72", "md:max-w-0", "right-4", "md:right-0")
+    element.parentElement.classList.add("max-w-0", "md:max-w-72", "right-0", "md:right-4")
+  }
   element.firstElementChild.classList.toggle("rotate-180");
 }
 
@@ -287,65 +332,71 @@ function toggleReadMore() {
 
 const backScrollbtn = document.querySelector("#scroll-back-filter");
 const forwardScrollbtn = document.querySelector("#scroll-forward-filter");
-const projectSidebarFiltersWidth = projectSidebarFilters.clientWidth;
 
-backScrollbtn.addEventListener("click", () => {
-  projectSidebarFilters.scrollBy({ left: -200, behavior: "smooth" });
+backScrollbtn?.addEventListener("click", () => {
+  let container = projectSidebarFilters;
+  container.scrollBy({
+    left: -(container.scrollLeft + 100),
+    behavior: "smooth",
+  });
 });
-forwardScrollbtn.addEventListener("click", () => {
-  projectSidebarFilters.scrollBy({ left: 200, behavior: "smooth" });
+forwardScrollbtn?.addEventListener("click", () => {
+  let container = projectSidebarFilters;
+  container.scrollBy({ left: container.scrollLeft + 100, behavior: "smooth" });
 });
 
 // side-bar-filters
-projectSidebarFilters.addEventListener("scroll", () => {
-  if (projectSidebarFilters.scrollLeft === 0) {
+projectSidebarFilters?.addEventListener("scroll", () => {
+  let container = projectSidebarFilters;
+  if (container.scrollLeft === 0) {
     backScrollbtn.style.display = "none";
-    forwardScrollbtn.style.display = "flex";
-  } else if (projectSidebarFilters.scrollLeft > 10) {
+  } else {
     backScrollbtn.style.display = "flex";
+  }
+  if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
     forwardScrollbtn.style.display = "none";
+  } else {
+    forwardScrollbtn.style.display = "flex";
   }
 });
 
 // selectProjectFilter
 
-Array.from(projectSidebarFilters.children).forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    btn.classList.add("text-white", "bg-gray-600");
-    btn.classList.remove("text-gray-800", "bg-gray-100");
-
-    Array.from(projectSidebarFilters.children)
-      .filter((item) => item.innerHTML !== btn.innerHTML)
-      .forEach((element) => {
-        element.classList.add("text-gray-800", "bg-gray-100");
-        element.classList.remove("text-white", "bg-gray-600");
-      });
+if (projectSidebarFilters) {
+  Array.from(projectSidebarFilters.children).forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      btn.classList.add("text-white", "bg-gray-600");
+      btn.classList.remove("text-gray-800", "bg-gray-100");
+  
+      Array.from(projectSidebarFilters.children)
+        .filter((item) => item.innerHTML !== btn.innerHTML)
+        .forEach((element) => {
+          element.classList.add("text-gray-800", "bg-gray-100");
+          element.classList.remove("text-white", "bg-gray-600");
+        });
+    });
   });
-});
-
+}
 
 // Clicking outside close currenySelector
 window.addEventListener("click", (e) => {
   // currency dropdwon
   if (
-    !currencyButton.contains(e.target) &&
-    !currenciesContainer.contains(e.target)
+    !currencyButton?.contains(e.target) &&
+    !currenciesContainer?.contains(e.target)
   ) {
-    if (currenciesContainer.classList.contains("opacity-100")) {
+    if (currenciesContainer?.classList.contains("opacity-100")) {
       handleCurrencyChange();
     }
   }
 
   // close filters container
-  if (
-    !filtersBtn.contains(e.target) &&
-    !filtersWrapper.contains(e.target)
-  ) {
-    if (filtersWrapper.classList.contains("opacity-100")) {
+  if (!filtersBtn?.contains(e.target) && !filtersWrapper?.contains(e.target)) {
+    if (filtersWrapper?.classList.contains("opacity-100")) {
       toggleFilterWrapper();
     }
   }
-  
+
   // close scripts panel
   // if (!scriptsButton.contains(e.target) && !scriptsPanel.contains(e.target)) {
   //   if (scriptsPanel.classList.contains("opacity-100")) {

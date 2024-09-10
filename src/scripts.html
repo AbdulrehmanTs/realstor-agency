@@ -19,7 +19,7 @@
       <!-- sidebar-nav -->
       <div
         id="navbar"
-        class="max-w-16 w-full h-screen overflow-y-auto overflow-x-hidden bg-slate-900 transition-all"
+        class="max-w-0 md:max-w-16 absolute z-20 md:static top-0 left-0 w-full h-screen overflow-y-auto overflow-x-hidden bg-slate-900 rounded-r md:rounded-r-xl transition-all"
       >
         <div class="h-full">
           <!-- Logo -->
@@ -98,7 +98,6 @@
                     </p>
                   </a>
                 </li>
-                
               </ul>
             </div>
           </div>
@@ -106,43 +105,122 @@
       </div>
 
       <!-- Main body -->
-      <div class="w-full bg-slate-900 rounded-l-xl overflow-x-hidden">
+      <div class="w-full bg-slate-900 md:rounded-l-xl overflow-x-hidden">
         <div class="bg-white size-full">
           <!-- Header -->
-          <div class="h-[--header-height] pb-4 p-2 border-b border-gray-600/20">
+          <div
+            class="h-[--header-height] px-2 py-2 md:py-3 border-b border-gray-600/20"
+          >
             <div class="lg:px-2">
               <div class="w-full flex items-center">
-                <!-- Searchbar -->
-                <div class="max-w-xs lg:w-full mr-4">
-                  <div class="relative">
+                <div class="md:hidden">
+                  <div
+                    class="size-8 flex items-center justify-center rounded-full bg-white"
+                  >
+                    <ion-icon
+                      class="size-8 text-blue-800"
+                      name="invert-mode-outline"
+                    ></ion-icon>
+                  </div>
+                </div>
+                <!-- Searchbar desktop -->
+                <div
+                  class="hidden md:block max-w-xs md:w-full ml-2 md:ml-0 mr-4"
+                >
+                  <form class="relative bg-gray-200 rounded-full">
                     <label for="Search" class="sr-only"> Search </label>
                     <input
                       type="text"
                       id="Search"
                       placeholder="Search something..."
                       autocomplete="off"
-                      class="w-full rounded-full bg-gray-200 border-none text-gray-700 py-2 text-xs sm:text-sm"
+                      class="md:w-full opacity-0 md:opacity-100 rounded-full bg-transparent border-none text-gray-700 text-sm md:text-sm py-1 md:py-2 sm:text-sm"
                     />
-                    <span class="absolute inset-y-0 end-0 w-10">
+                    <span class="absolute inset-y-0 right-2 md:left-auto">
                       <button
-                        type="button"
+                        type="submit"
                         class="text-gray-600 hover:text-gray-700 h-full grid place-content-center"
                       >
                         <span class="sr-only">Search</span>
                         <ion-icon
-                          class="size-6 text-gray-600"
+                          class="size-4 md:size-6 text-blue-800 md:text-gray-600"
                           name="search-outline"
                         ></ion-icon>
                       </button>
                     </span>
-                  </div>
+                  </form>
                 </div>
+
+                <!-- Searchbar mobile -->
+                <div
+                  id="mobile-search"
+                  class="relative max-w-7 md:hidden ml-2 mr-4 transition-all"
+                >
+                  <span
+                    id="search-expand-btn"
+                    class="absolute inset-0 left-0 top-0 z-[2] text-gray-600 hover:text-gray-700 h-full grid place-content-center"
+                  >
+                    <ion-icon
+                      class="size-4 md:size-6 text-blue-800 md:text-gray-600"
+                      name="search-outline"
+                    ></ion-icon>
+                  </span>
+                  <form class="relative bg-gray-200 rounded-full">
+                    <label for="Search" class="sr-only"> Search </label>
+                    <input
+                      type="text"
+                      id="Search"
+                      placeholder="Search something..."
+                      autocomplete="off"
+                      class="w-full opacity-0 md:opacity-100 rounded-full bg-transparent border-none text-gray-700 text-xs md:text-sm py-1 md:py-2 sm:text-sm"
+                    />
+                    <span
+                      class="flex gap-x-2 items-center absolute inset-y-0 right-0"
+                    >
+                      <button
+                        type="submit"
+                        onclick="(e)=> e.preventDefault()"
+                        class="hidden text-gray-600 hover:text-gray-700 h-full place-content-center"
+                      >
+                        <span class="sr-only">Search</span>
+                        <ion-icon
+                          class="size-4 md:size-6 text-blue-800 md:text-gray-600"
+                          name="search-outline"
+                        ></ion-icon>
+                      </button>
+                      <button
+                        type="button"
+                        onclick="closeExpandSearch()"
+                        class="hidden text-gray-600 px-1 hover:text-gray-700 h-full place-content-center"
+                      >
+                        <span class="sr-only">close</span>
+                        <ion-icon
+                          class="size-4 md:size-6 text-red-800 md:text-gray-600"
+                          name="close-outline"
+                        ></ion-icon>
+                      </button>
+                    </span>
+                  </form>
+                </div>
+
+                <!-- nav-btn-mobile -->
+                <button
+                  id="nav-btn-mobile"
+                  class="flex items-center ml-auto md:hidden"
+                >
+                  <ion-icon
+                    class="text-blue-800 size-5 bg-blue-50 rounded px-1 py-0.5"
+                    name="reorder-three"
+                  ></ion-icon>
+                </button>
               </div>
             </div>
           </div>
 
           <!-- Main -->
-          <div class="flex h-[calc(100vh-(var(--header-height)))] overflow-auto">
+          <div
+            class="flex h-[calc(100vh-(var(--header-height)))] overflow-auto"
+          >
             <div
               class="flex flex-col md:flex-row mx-auto gap-x-10 md:divide-x-2"
             >
@@ -150,21 +228,18 @@
                 <div class="flex items-center justify-between gap-x-4">
                   <h2 class="font-bold text-gray-700">My scripts</h2>
                   <button
-                  class="p-1 rounded flex items-center gap-x-1 bg-green-50 hover:bg-green-100/80 hover:scale-105 transition-all"
-                >
-                  <ion-icon
-                    class="text-green-600 size-4"
-                    name="add-outline"
-                  ></ion-icon>
-                  <span
-                    class="text-green-600 text-[10px] font-semibold"
-                    >Add New</span
+                    class="p-1 rounded flex items-center gap-x-1 bg-green-50 hover:bg-green-100/80 hover:scale-105 transition-all"
                   >
-                </button>
+                    <ion-icon
+                      class="text-green-600 size-4"
+                      name="add-outline"
+                    ></ion-icon>
+                    <span class="text-green-600 text-[10px] font-semibold"
+                      >Add New</span
+                    >
+                  </button>
                 </div>
-                <div
-                  class="mt-8 grid gap-6"
-                >
+                <div class="mt-8 grid gap-6">
                   <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
                     <div class="bg-white rounded-xl ring-2">
                       <div
@@ -185,7 +260,9 @@
                           natus earum
                         </p>
                       </div>
-                      <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
+                      <div
+                        class="px-4 py-2 border-t mt-4 flex items-center gap-x-3"
+                      >
                         <button
                           class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
                         >
@@ -193,8 +270,7 @@
                             class="text-gray-600 size-4"
                             name="create-outline"
                           ></ion-icon>
-                          <span
-                            class="text-gray-500 text-[10px] font-semibold"
+                          <span class="text-gray-500 text-[10px] font-semibold"
                             >Edit</span
                           >
                         </button>
@@ -206,8 +282,7 @@
                             class="text-red-600 size-4"
                             name="trash-outline"
                           ></ion-icon>
-                          <span
-                            class="text-red-500 text-[10px] font-semibold"
+                          <span class="text-red-500 text-[10px] font-semibold"
                             >Delete</span
                           >
                         </button>
@@ -228,7 +303,9 @@
                           ducimus.
                         </p>
                       </div>
-                      <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
+                      <div
+                        class="px-4 py-2 border-t mt-4 flex items-center gap-x-3"
+                      >
                         <button
                           class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
                         >
@@ -236,8 +313,7 @@
                             class="text-gray-600 size-4"
                             name="create-outline"
                           ></ion-icon>
-                          <span
-                            class="text-gray-500 text-[10px] font-semibold"
+                          <span class="text-gray-500 text-[10px] font-semibold"
                             >Edit</span
                           >
                         </button>
@@ -249,8 +325,7 @@
                             class="text-red-600 size-4"
                             name="trash-outline"
                           ></ion-icon>
-                          <span
-                            class="text-red-500 text-[10px] font-semibold"
+                          <span class="text-red-500 text-[10px] font-semibold"
                             >Delete</span
                           >
                         </button>
@@ -277,7 +352,9 @@
                           natus earum
                         </p>
                       </div>
-                      <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
+                      <div
+                        class="px-4 py-2 border-t mt-4 flex items-center gap-x-3"
+                      >
                         <button
                           class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
                         >
@@ -285,8 +362,7 @@
                             class="text-gray-600 size-4"
                             name="create-outline"
                           ></ion-icon>
-                          <span
-                            class="text-gray-500 text-[10px] font-semibold"
+                          <span class="text-gray-500 text-[10px] font-semibold"
                             >Edit</span
                           >
                         </button>
@@ -298,8 +374,7 @@
                             class="text-red-600 size-4"
                             name="trash-outline"
                           ></ion-icon>
-                          <span
-                            class="text-red-500 text-[10px] font-semibold"
+                          <span class="text-red-500 text-[10px] font-semibold"
                             >Delete</span
                           >
                         </button>
@@ -331,236 +406,233 @@
                 <div class="flex items-center justify-between gap-x-4">
                   <h2 class="font-bold text-gray-700">Manager's scripts</h2>
                   <button
-                  class="p-1 rounded flex items-center gap-x-1 bg-green-50 hover:bg-green-100/80 hover:scale-105 transition-all"
-                >
-                  <ion-icon
-                    class="text-green-600 size-4"
-                    name="add-outline"
-                  ></ion-icon>
-                  <span
-                    class="text-green-600 text-[10px] font-semibold"
-                    >Add New</span
+                    class="p-1 rounded flex items-center gap-x-1 bg-green-50 hover:bg-green-100/80 hover:scale-105 transition-all"
                   >
-                </button>
-                </div>
-                <div
-                  class="mt-8 grid gap-6"
-                >
-                <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
-                  <div class="bg-white rounded-xl ring-2">
-                    <div
-                      class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
+                    <ion-icon
+                      class="text-green-600 size-4"
+                      name="add-outline"
+                    ></ion-icon>
+                    <span class="text-green-600 text-[10px] font-semibold"
+                      >Add New</span
                     >
-                      <h3 class="font-semibold text-gray-800 mb-2">
-                        Script title
-                      </h3>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus.
-                      </p>
-                    </div>
-                    <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
-                      <button
-                        class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
+                  </button>
+                </div>
+                <div class="mt-8 grid gap-6">
+                  <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
+                    <div class="bg-white rounded-xl ring-2">
+                      <div
+                        class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
                       >
-                        <ion-icon
-                          class="text-gray-600 size-4"
-                          name="create-outline"
-                        ></ion-icon>
-                        <span
-                          class="text-gray-500 text-[10px] font-semibold"
-                          >Edit</span
+                        <h3 class="font-semibold text-gray-800 mb-2">
+                          Script title
+                        </h3>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Autem tenetur, tempora recusandae animi neque
+                          ducimus.
+                        </p>
+                      </div>
+                      <div
+                        class="px-4 py-2 border-t mt-4 flex items-center gap-x-3"
+                      >
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
                         >
-                      </button>
+                          <ion-icon
+                            class="text-gray-600 size-4"
+                            name="create-outline"
+                          ></ion-icon>
+                          <span class="text-gray-500 text-[10px] font-semibold"
+                            >Edit</span
+                          >
+                        </button>
 
-                      <button
-                        class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
-                      >
-                        <ion-icon
-                          class="text-red-600 size-4"
-                          name="trash-outline"
-                        ></ion-icon>
-                        <span
-                          class="text-red-500 text-[10px] font-semibold"
-                          >Delete</span
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
                         >
-                      </button>
+                          <ion-icon
+                            class="text-red-600 size-4"
+                            name="trash-outline"
+                          ></ion-icon>
+                          <span class="text-red-500 text-[10px] font-semibold"
+                            >Delete</span
+                          >
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
-                  <div class="bg-white rounded-xl ring-2">
-                    <div
-                      class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
-                    >
-                      <h3 class="font-semibold text-gray-800 mb-2">
-                        Script title
-                      </h3>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus.
-                      </p>
-                    </div>
-                    <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
-                      <button
-                        class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
+                  <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
+                    <div class="bg-white rounded-xl ring-2">
+                      <div
+                        class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
                       >
-                        <ion-icon
-                          class="text-gray-600 size-4"
-                          name="create-outline"
-                        ></ion-icon>
-                        <span
-                          class="text-gray-500 text-[10px] font-semibold"
-                          >Edit</span
+                        <h3 class="font-semibold text-gray-800 mb-2">
+                          Script title
+                        </h3>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Autem tenetur, tempora recusandae animi neque
+                          ducimus.
+                        </p>
+                      </div>
+                      <div
+                        class="px-4 py-2 border-t mt-4 flex items-center gap-x-3"
+                      >
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
                         >
-                      </button>
+                          <ion-icon
+                            class="text-gray-600 size-4"
+                            name="create-outline"
+                          ></ion-icon>
+                          <span class="text-gray-500 text-[10px] font-semibold"
+                            >Edit</span
+                          >
+                        </button>
 
-                      <button
-                        class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
-                      >
-                        <ion-icon
-                          class="text-red-600 size-4"
-                          name="trash-outline"
-                        ></ion-icon>
-                        <span
-                          class="text-red-500 text-[10px] font-semibold"
-                          >Delete</span
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
                         >
-                      </button>
+                          <ion-icon
+                            class="text-red-600 size-4"
+                            name="trash-outline"
+                          ></ion-icon>
+                          <span class="text-red-500 text-[10px] font-semibold"
+                            >Delete</span
+                          >
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
-                  <div class="bg-white rounded-xl ring-2">
-                    <div
-                      class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
-                    >
-                      <h3 class="font-semibold text-gray-800 mb-2">
-                        Script title
-                      </h3>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus.
-                      </p>
-                    </div>
-                    <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
-                      <button
-                        class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
+                  <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
+                    <div class="bg-white rounded-xl ring-2">
+                      <div
+                        class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
                       >
-                        <ion-icon
-                          class="text-gray-600 size-4"
-                          name="create-outline"
-                        ></ion-icon>
-                        <span
-                          class="text-gray-500 text-[10px] font-semibold"
-                          >Edit</span
+                        <h3 class="font-semibold text-gray-800 mb-2">
+                          Script title
+                        </h3>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Autem tenetur, tempora recusandae animi neque
+                          ducimus.
+                        </p>
+                      </div>
+                      <div
+                        class="px-4 py-2 border-t mt-4 flex items-center gap-x-3"
+                      >
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
                         >
-                      </button>
+                          <ion-icon
+                            class="text-gray-600 size-4"
+                            name="create-outline"
+                          ></ion-icon>
+                          <span class="text-gray-500 text-[10px] font-semibold"
+                            >Edit</span
+                          >
+                        </button>
 
-                      <button
-                        class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
-                      >
-                        <ion-icon
-                          class="text-red-600 size-4"
-                          name="trash-outline"
-                        ></ion-icon>
-                        <span
-                          class="text-red-500 text-[10px] font-semibold"
-                          >Delete</span
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
                         >
-                      </button>
+                          <ion-icon
+                            class="text-red-600 size-4"
+                            name="trash-outline"
+                          ></ion-icon>
+                          <span class="text-red-500 text-[10px] font-semibold"
+                            >Delete</span
+                          >
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
-                  <div class="bg-white rounded-xl ring-2">
-                    <div
-                      class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
-                    >
-                      <h3 class="font-semibold text-gray-800 mb-2">
-                        Script title
-                      </h3>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus.
-                      </p>
-                    </div>
-                    <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
-                      <button
-                        class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
+                  <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
+                    <div class="bg-white rounded-xl ring-2">
+                      <div
+                        class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
                       >
-                        <ion-icon
-                          class="text-gray-600 size-4"
-                          name="create-outline"
-                        ></ion-icon>
-                        <span
-                          class="text-gray-500 text-[10px] font-semibold"
-                          >Edit</span
+                        <h3 class="font-semibold text-gray-800 mb-2">
+                          Script title
+                        </h3>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Autem tenetur, tempora recusandae animi neque
+                          ducimus.
+                        </p>
+                      </div>
+                      <div
+                        class="px-4 py-2 border-t mt-4 flex items-center gap-x-3"
+                      >
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
                         >
-                      </button>
+                          <ion-icon
+                            class="text-gray-600 size-4"
+                            name="create-outline"
+                          ></ion-icon>
+                          <span class="text-gray-500 text-[10px] font-semibold"
+                            >Edit</span
+                          >
+                        </button>
 
-                      <button
-                        class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
-                      >
-                        <ion-icon
-                          class="text-red-600 size-4"
-                          name="trash-outline"
-                        ></ion-icon>
-                        <span
-                          class="text-red-500 text-[10px] font-semibold"
-                          >Delete</span
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
                         >
-                      </button>
+                          <ion-icon
+                            class="text-red-600 size-4"
+                            name="trash-outline"
+                          ></ion-icon>
+                          <span class="text-red-500 text-[10px] font-semibold"
+                            >Delete</span
+                          >
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
-                  <div class="bg-white rounded-xl ring-2">
-                    <div
-                      class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
-                    >
-                      <h3 class="font-semibold text-gray-800 mb-2">
-                        Script title
-                      </h3>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus.
-                      </p>
-                    </div>
-                    <div class="px-4 py-2 border-t mt-4 flex items-center gap-x-3">
-                      <button
-                        class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
+                  <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
+                    <div class="bg-white rounded-xl ring-2">
+                      <div
+                        class="script-box p-6 size-full min-h-28 max-h-40 overflow-auto text-gray-700 text-sm"
                       >
-                        <ion-icon
-                          class="text-gray-600 size-4"
-                          name="create-outline"
-                        ></ion-icon>
-                        <span
-                          class="text-gray-500 text-[10px] font-semibold"
-                          >Edit</span
+                        <h3 class="font-semibold text-gray-800 mb-2">
+                          Script title
+                        </h3>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Autem tenetur, tempora recusandae animi neque
+                          ducimus.
+                        </p>
+                      </div>
+                      <div
+                        class="px-4 py-2 border-t mt-4 flex items-center gap-x-3"
+                      >
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-gray-100 hover:bg-gray-200/80 hover:scale-105 transition-all"
                         >
-                      </button>
+                          <ion-icon
+                            class="text-gray-600 size-4"
+                            name="create-outline"
+                          ></ion-icon>
+                          <span class="text-gray-500 text-[10px] font-semibold"
+                            >Edit</span
+                          >
+                        </button>
 
-                      <button
-                        class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
-                      >
-                        <ion-icon
-                          class="text-red-600 size-4"
-                          name="trash-outline"
-                        ></ion-icon>
-                        <span
-                          class="text-red-500 text-[10px] font-semibold"
-                          >Delete</span
+                        <button
+                          class="p-1 rounded flex items-center gap-x-1 bg-red-100 hover:bg-red-200/80 hover:scale-105 transition-all"
                         >
-                      </button>
+                          <ion-icon
+                            class="text-red-600 size-4"
+                            name="trash-outline"
+                          ></ion-icon>
+                          <span class="text-red-500 text-[10px] font-semibold"
+                            >Delete</span
+                          >
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
                 </div>
               </div>
             </div>
