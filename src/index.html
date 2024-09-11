@@ -19,7 +19,7 @@
       <!-- sidebar-nav -->
       <div
         id="navbar"
-        class="max-w-0 md:max-w-16 absolute z-20 md:static top-0 left-0 w-full h-screen overflow-y-auto overflow-x-hidden bg-slate-900 rounded-r md:rounded-r-xl transition-all"
+        class="max-w-0 md:max-w-16 absolute z-30 md:static top-0 left-0 w-full h-screen overflow-y-auto overflow-x-hidden bg-slate-900 rounded-r md:rounded-r-xl transition-all"
       >
         <div class="h-full">
           <!-- Logo -->
@@ -203,8 +203,11 @@
                   </form>
                 </div>
 
-                <!-- Filters -->
-                <div class="relative">
+                <!-- divider -->
+                <span class="hidden md:block mr-4 w-[2px] h-4 bg-gray-300"></span>
+
+                <!-- Filters all -->
+                <div class="relative md:hidden mr-2">
                   <button
                     id="filters-button"
                     class="flex gap-x-1 items-center bg-blue-500 text-white rounded md:rounded-lg shadow-sm p-1 md:p-1.5"
@@ -213,7 +216,7 @@
                       class="size-3 md:size-4"
                       name="funnel-outline"
                     ></ion-icon>
-                    <p class="text-[10px] md:text-sm">Filters</p>
+                    <p class="text-nowrap text-[10px] md:text-sm">Filters All</p>
                     <div
                       class="size-3 md:size-4 bg-white rounded-full flex items-center justify-center"
                     >
@@ -560,9 +563,595 @@
                     </div>
                   </div>
                 </div>
+                <!-- states filter -->
+                <div class="relative hidden md:block mr-2">
+                  <button
+                    id="states-button"
+                    class="flex gap-x-1 items-center bg-blue-500 text-white rounded md:rounded-lg shadow-sm p-1 md:p-1.5"
+                  >
+                    <ion-icon
+                      class="size-3 md:size-4"
+                      name="funnel-outline"
+                    ></ion-icon>
+                    <p class="text-[10px] md:text-sm">Districts</p>
+                    <div
+                      class="size-3 md:size-4 bg-white rounded-full flex items-center justify-center"
+                    >
+                      <p
+                        class="text-[6px] md:text-[8px] font-medium text-blue-500"
+                      >
+                        3
+                      </p>
+                    </div>
+                  </button>
+
+                  <div
+                    id="states-wrapper"
+                    class="absolute z-20 top-8 md:top-10 -left-8 md:left-0 w-64 md:w-96 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
+                  >
+                    <div
+                      class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"
+                    >
+                      <div class="p-3 md:p-4 bg-white ring-2 rounded-xl size-full">
+                        <div class="flex items-center justify-between">
+                          <h4 class="font-semibold text-gray-800 md:text-lg">
+                            Filters
+                          </h4>
+                          <button
+                            class="text-blue-500 text-xs md:text-sm disabled:text-gray-300"
+                          >
+                            clear all
+                          </button>
+                        </div>
+
+                        <div class="mt-4">
+                          <div class="bg-white border rounded-lg p-3 md:p-4">
+                            <!-- States Dropdown -->
+                            <div class="relative">
+                              <div
+                                class="mt-2 max-h-[280px] transition-all duration-300 overflow-auto"
+                              >
+                                <input
+                                  type="text"
+                                  placeholder="Search District"
+                                  class="w-full p-1 md:p-2 border border-gray-500 text-xs md:text-sm rounded-md mb-2 focus:outline-none"
+                                />
+
+                                <div class="my-4 overflow-auto flex flex-col gap-y-1">
+                                  <!-- Abu Dhabi -->
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Abu Dhabi</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Al Ain</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Madinat Zayed</span>
+                                  </label>
+
+                                  <!-- Ajman -->
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Ajman</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Masfout</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Manama</span>
+                                  </label>
+
+                                  <!-- Al Fujairah -->
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Fujairah</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Dibba Al-Fujairah</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Masafi</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Qidfa</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Al Bithnah</span>
+                                  </label>
+
+                                  <!-- Dubai -->
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Dubai</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Hatta</span>
+                                  </label>
+
+                                  <!-- Ras Al Khaimah -->
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Ras Al Khaimah</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Al Jazirah Al Hamra</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Rams</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Al Hamra</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Al Riffa</span>
+                                  </label>
+
+                                  <!-- Sharjah -->
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Sharjah</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Khor Fakkan</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Kalba</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Al Dhaid</span>
+                                  </label>
+
+                                  <!-- Umm Al Quwain -->
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Umm Al Quwain</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Falaj Al Mualla</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Emirates filter -->
+                <div class="relative hidden md:block mr-2">
+                  <button
+                    id="emirates-button"
+                    class="flex gap-x-1 items-center bg-blue-500 text-white rounded md:rounded-lg shadow-sm p-1 md:p-1.5"
+                  >
+                    <ion-icon
+                      class="size-3 md:size-4"
+                      name="funnel-outline"
+                    ></ion-icon>
+                    <p class="text-[10px] md:text-sm">Emirates</p>
+                    <div
+                      class="size-3 md:size-4 bg-white rounded-full flex items-center justify-center"
+                    >
+                      <p
+                        class="text-[6px] md:text-[8px] font-medium text-blue-500"
+                      >
+                        1
+                      </p>
+                    </div>
+                  </button>
+
+                  <div
+                    id="emirates-wrapper"
+                    class="absolute z-20 top-8 md:top-10 -left-8 md:left-0 w-64 md:w-96 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
+                  >
+                    <div
+                      class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"
+                    >
+                      <div class="p-3 md:p-4 bg-white ring-2 rounded-xl size-full">
+                        <div class="flex items-center justify-between">
+                          <h4 class="font-semibold text-gray-800 md:text-lg">
+                            Filters
+                          </h4>
+                          <button
+                            class="text-blue-500 text-xs md:text-sm disabled:text-gray-300"
+                          >
+                            clear all
+                          </button>
+                        </div>
+
+                        <div class="mt-4">
+                          <div class="bg-white border rounded-lg p-3 md:p-4">
+
+                            <!-- Emirate Dropdown -->
+                            <div class="relative">
+                              <div
+                                class="mt-2 max-h-[280px] transition-all duration-300 overflow-auto"
+                              >
+                                <input
+                                  type="text"
+                                  placeholder="Search emirate"
+                                  class="w-full p-1 md:p-2 border border-gray-500 text-xs md:text-sm rounded-md mb-2 focus:outline-none"
+                                />
+
+                                <div class="my-4 overflow-auto flex flex-col gap-y-1">
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Abu Dhabi</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Ajman</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Al Fujairah</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Dubai</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Ras Al Khaimah</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Sharjah</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Umm Al Quwain</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Developer filter -->
+                <div class="relative hidden md:block mr-2">
+                  <button
+                    id="developers-button"
+                    class="flex gap-x-1 items-center bg-blue-500 text-white rounded md:rounded-lg shadow-sm p-1 md:p-1.5"
+                  >
+                    <ion-icon
+                      class="size-3 md:size-4"
+                      name="funnel-outline"
+                    ></ion-icon>
+                    <p class="text-[10px] md:text-sm">Developers</p>
+                    <!-- display: flex when there is a filter selected -->
+                    <div
+                      class="hidden size-3 md:size-4 bg-white rounded-full items-center justify-center"
+                    >
+                      <p
+                        class="text-[6px] md:text-[8px] font-medium text-blue-500"
+                      >
+                        0
+                      </p>
+                    </div>
+                  </button>
+
+                  <div
+                    id="developers-wrapper"
+                    class="absolute z-20 top-8 md:top-10 -left-8 md:left-0 w-64 md:w-96 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
+                  >
+                    <div
+                      class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"
+                    >
+                      <div class="p-3 md:p-4 bg-white ring-2 rounded-xl size-full">
+                        <div class="flex items-center justify-between">
+                          <h4 class="font-semibold text-gray-800 md:text-lg">
+                            Filters
+                          </h4>
+                          <button
+                            class="text-blue-500 text-xs md:text-sm disabled:text-gray-300"
+                          >
+                            clear all
+                          </button>
+                        </div>
+
+                        <div class="mt-4">
+                          <div class="bg-white border rounded-lg p-3 md:p-4">
+
+                            <!-- Emirate Dropdown -->
+                            <div class="relative">
+                              <div
+                                class="mt-2 max-h-[280px] transition-all duration-300 overflow-auto"
+                              >
+                                <input
+                                  type="text"
+                                  placeholder="Search developer"
+                                  class="w-full p-1 md:p-2 border border-gray-500 text-xs md:text-sm rounded-md mb-2 focus:outline-none"
+                                />
+
+                                <div class="my-4 overflow-auto flex flex-col gap-y-1">
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Developer 1</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Developer 2</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Developer 3</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Developer 4</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Developer 5</span>
+                                  </label>
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Developer 6</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Clear filter -->
+                <div class="relative hidden md:block">
+                  <button
+                    id="emirates-button"
+                    class="flex gap-x-1 items-center bg-blue-600 text-white rounded md:rounded-lg shadow-sm p-1 md:p-1.5"
+                  >
+                    <ion-icon
+                      class="size-3 md:size-4"
+                      name="refresh-outline"
+                    ></ion-icon>
+                    <p class="text-[10px] md:text-sm">Clear all</p>
+                  </button>
+
+                  <div
+                    id="emirates-wrapper"
+                    class="absolute z-20 top-8 md:top-10 -left-8 md:left-0 w-64 md:w-96 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
+                  >
+                    <div
+                      class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"
+                    >
+                      <div class="p-3 md:p-4 bg-white ring-2 rounded-xl size-full">
+                        <div class="flex items-center justify-between">
+                          <h4 class="font-semibold text-gray-800 md:text-lg">
+                            Filters
+                          </h4>
+                          <button
+                            class="text-blue-500 text-xs md:text-sm disabled:text-gray-300"
+                          >
+                            clear all
+                          </button>
+                        </div>
+
+                        <div class="mt-4">
+                          <div class="bg-white border rounded-lg p-3 md:p-4">
+
+                            <!-- Emirate Dropdown -->
+                            <div class="relative">
+                              <div
+                                class="mt-2 max-h-[280px] transition-all duration-300 overflow-auto"
+                              >
+                                <input
+                                  type="text"
+                                  placeholder="Search emirate"
+                                  class="w-full p-1 md:p-2 border border-gray-500 text-xs md:text-sm rounded-md mb-2 focus:outline-none"
+                                />
+
+                                <div class="my-4 overflow-auto flex flex-col gap-y-1">
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Abu Dhabi</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Ajman</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Al Fujairah</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Dubai</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Ras Al Khaimah</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Sharjah</span>
+                                  </label>
+
+                                  <label class="flex items-center space-x-2">
+                                    <input
+                                      type="checkbox"
+                                      class="focus:ring-0"
+                                    />
+                                    <span class="text-xs md:text-sm">Umm Al Quwain</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- divider -->
+                <span class="ml-2 md:ml-4 w-[2px] h-4 bg-gray-300"></span>
 
                 <!-- Switches -->
-                <div class="ml-2 flex items-center gap-x-2">
+                <div class="ml-4 flex items-center gap-x-2">
                   <!-- currency changer -->
                   <div class="flex relative items-center">
                     <button
@@ -803,11 +1392,11 @@
           </div>
 
           <!-- Main -->
-          <div class="flex h-[calc(100vh-(var(--header-height)))] border border-red-500">
+          <div class="flex h-[calc(100vh-(var(--header-height)))]">
             <!-- Project-left-sidebar -->
             <div
               id="project-sidebar"
-              class="w-full max-w-0 lg:max-w-0 absolute left-0 md:left-auto top-[var(--header-height)] md:top-auto z-20 md:relative origin-left transition-all duration-300 ease-in h-full rounded-r-lg overflow-auto border-r shadow-lg bg-white"
+              class="w-full h-[calc(100vh-(var(--header-height)))] max-w-0 lg:max-w-0 absolute left-0 md:left-auto top-[var(--header-height)] md:top-auto z-20 md:relative transition-all duration-300 ease-in rounded-r-lg overflow-auto border-r shadow-lg bg-white"
             >
               <!-- Add to Favorite button -->
               <button
@@ -866,7 +1455,7 @@
                 <h2
                   title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
             veritatis earum recusandae culpa,"
-                  class="font-semibold text-base md:text-2xl text-center line-clamp-2"
+                  class="font-semibold text-base md:text-lg text-center line-clamp-2"
                 >
                   Lorem ipsum dolor sit amet.
                 </h2>
@@ -1147,7 +1736,7 @@
               </div>
             </div>
             <!-- main -->
-            <main id="main-container" class="w-full">
+            <main id="main-container" class="w-full h-[calc(100vh-(var(--header-height)))]">
               <div class="h-full overflow-auto">
                 <!-- Map -->
                 <div id="map" class="overflow-hidden bg-gray-100 h-full">
@@ -1167,7 +1756,7 @@
                   </h3>
                   <div
                     id="grid-container"
-                    class="grid gap-3 lg:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5"
+                    class="grid gap-3 lg:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5"
                   >
                     <div class="grid-card group">
                       <div

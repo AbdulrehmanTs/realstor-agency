@@ -24,6 +24,12 @@ const projectSidebarFilters = document.querySelector(
 
 const filtersBtn = document.getElementById("filters-button");
 const filtersWrapper = document.getElementById("filters-wrapper");
+const statesBtn = document.getElementById("states-button");
+const statesWrapper = document.getElementById("states-wrapper");
+const emiratesBtn = document.getElementById("emirates-button");
+const emiratesWrapper = document.getElementById("emirates-wrapper");
+const developersBtn = document.getElementById("developers-button");
+const developersWrapper = document.getElementById("developers-wrapper");
 
 navBtn?.addEventListener("click", toggleNavbar);
 navBtnMobile?.addEventListener("click", toggleNavbar);
@@ -37,6 +43,9 @@ gridCardsArray?.forEach((item) =>
 scriptsButton?.addEventListener("click", toggleScriptsPanel);
 
 filtersBtn?.addEventListener("click", toggleFilterWrapper);
+statesBtn?.addEventListener("click", toggleStatesWrapper);
+emiratesBtn?.addEventListener("click", toggleEmiratesWrapper);
+developersBtn?.addEventListener("click", toggleDevelopersWrapper);
 
 function toggleNavbar() {
   if (navbar.classList.contains("md:max-w-16")) {
@@ -79,6 +88,84 @@ function toggleFilterWrapper() {
       "pointer-events-auto"
     );
     filtersWrapper.classList.add(
+      "-translate-y-2",
+      "opacity-0",
+      "pointer-events-none"
+    );
+  }
+}
+
+function toggleStatesWrapper() {
+  if (statesWrapper.classList.contains("opacity-0")) {
+    statesWrapper.classList.remove(
+      "-translate-y-2",
+      "opacity-0",
+      "pointer-events-none"
+    );
+    statesWrapper.classList.add(
+      "translate-y-0",
+      "opacity-100",
+      "pointer-events-auto"
+    );
+  } else {
+    statesWrapper.classList.remove(
+      "translate-y-0",
+      "opacity-100",
+      "pointer-events-auto"
+    );
+    statesWrapper.classList.add(
+      "-translate-y-2",
+      "opacity-0",
+      "pointer-events-none"
+    );
+  }
+}
+
+function toggleEmiratesWrapper() {
+  if (emiratesWrapper.classList.contains("opacity-0")) {
+    emiratesWrapper.classList.remove(
+      "-translate-y-2",
+      "opacity-0",
+      "pointer-events-none"
+    );
+    emiratesWrapper.classList.add(
+      "translate-y-0",
+      "opacity-100",
+      "pointer-events-auto"
+    );
+  } else {
+    emiratesWrapper.classList.remove(
+      "translate-y-0",
+      "opacity-100",
+      "pointer-events-auto"
+    );
+    emiratesWrapper.classList.add(
+      "-translate-y-2",
+      "opacity-0",
+      "pointer-events-none"
+    );
+  }
+}
+
+function toggleDevelopersWrapper() {
+  if (developersWrapper.classList.contains("opacity-0")) {
+    developersWrapper.classList.remove(
+      "-translate-y-2",
+      "opacity-0",
+      "pointer-events-none"
+    );
+    developersWrapper.classList.add(
+      "translate-y-0",
+      "opacity-100",
+      "pointer-events-auto"
+    );
+  } else {
+    developersWrapper.classList.remove(
+      "translate-y-0",
+      "opacity-100",
+      "pointer-events-auto"
+    );
+    developersWrapper.classList.add(
       "-translate-y-2",
       "opacity-0",
       "pointer-events-none"
@@ -232,20 +319,20 @@ function openProjectSidebar() {
   if (projectSidebar.classList.contains("max-w-xs")) return;
   projectSidebar.classList.remove("max-w-0", "lg:max-w-0", "opacity-0");
   projectSidebar.classList.add("max-w-xs", "lg:max-w-md", "opacity-100");
-  mainContainer.classList.add("hidden", "md:block");
+  // mainContainer.classList.add("hidden", "md:block");
   setTimeout(() => {
-    gridContainer.classList.remove("lg:grid-cols-5");
-    gridContainer.classList.add("lg:grid-cols-3");
+    gridContainer.classList.remove("md:grid-cols-2","lg:grid-cols-5");
+    gridContainer.classList.add("md:grid-cols-1","lg:grid-cols-3");
   }, 150);
 }
 
 function closeProjectSidebar() {
   projectSidebar.classList.add("max-w-0", "lg:max-w-0", "opacity-0");
   projectSidebar.classList.remove("max-w-xs", "lg:max-w-md", "opacity-100");
-  mainContainer.classList.remove("hidden", "md:block");
+  // mainContainer.classList.remove("hidden", "md:block");
   setTimeout(() => {
-    gridContainer.classList.add("lg:grid-cols-5");
-    gridContainer.classList.remove("lg:grid-cols-3");
+    gridContainer.classList.add("md:grid-cols-2", "lg:grid-cols-5");
+    gridContainer.classList.remove("md:grid-cols-1", "lg:grid-cols-3");
   }, 150);
 }
 //
@@ -394,6 +481,21 @@ window.addEventListener("click", (e) => {
   if (!filtersBtn?.contains(e.target) && !filtersWrapper?.contains(e.target)) {
     if (filtersWrapper?.classList.contains("opacity-100")) {
       toggleFilterWrapper();
+    }
+  }
+  if (!statesBtn?.contains(e.target) && !statesWrapper?.contains(e.target)) {
+    if (statesWrapper?.classList.contains("opacity-100")) {
+      toggleStatesWrapper();
+    }
+  }
+  if (!emiratesBtn?.contains(e.target) && !emiratesWrapper?.contains(e.target)) {
+    if (emiratesWrapper?.classList.contains("opacity-100")) {
+      toggleEmiratesWrapper();
+    }
+  }
+  if (!developersBtn?.contains(e.target) && !developersWrapper?.contains(e.target)) {
+    if (developersWrapper?.classList.contains("opacity-100")) {
+      toggleDevelopersWrapper();
     }
   }
 
