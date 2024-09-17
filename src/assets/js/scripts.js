@@ -316,23 +316,23 @@ function closeExpandSearch() {
 
 function openProjectSidebar() {
   // checking only one class is enough
-  if (projectSidebar.classList.contains("max-w-xs")) return;
-  projectSidebar.classList.remove("max-w-0", "lg:max-w-0", "opacity-0");
-  projectSidebar.classList.add("max-w-xs", "lg:max-w-md", "opacity-100");
+  if (projectSidebar?.classList?.contains("max-w-xs")) return;
+  projectSidebar?.classList.remove("max-w-0", "lg:max-w-0", "opacity-0");
+  projectSidebar?.classList.add("max-w-xs", "lg:max-w-md", "opacity-100");
   // mainContainer.classList.add("hidden", "md:block");
   setTimeout(() => {
-    gridContainer.classList.remove("md:grid-cols-2","lg:grid-cols-5");
-    gridContainer.classList.add("md:grid-cols-1","lg:grid-cols-3");
+    gridContainer?.classList.remove("md:grid-cols-2","lg:grid-cols-5");
+    gridContainer?.classList.add("md:grid-cols-1","lg:grid-cols-3");
   }, 150);
 }
 
 function closeProjectSidebar() {
-  projectSidebar.classList.add("max-w-0", "lg:max-w-0", "opacity-0");
-  projectSidebar.classList.remove("max-w-xs", "lg:max-w-md", "opacity-100");
+  projectSidebar?.classList.add("max-w-0", "lg:max-w-0", "opacity-0");
+  projectSidebar?.classList.remove("max-w-xs", "lg:max-w-md", "opacity-100");
   // mainContainer.classList.remove("hidden", "md:block");
   setTimeout(() => {
-    gridContainer.classList.add("md:grid-cols-2", "lg:grid-cols-5");
-    gridContainer.classList.remove("md:grid-cols-1", "lg:grid-cols-3");
+    gridContainer?.classList.add("md:grid-cols-2", "lg:grid-cols-5");
+    gridContainer?.classList.remove("md:grid-cols-1", "lg:grid-cols-3");
   }, 150);
 }
 //
