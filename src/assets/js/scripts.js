@@ -48,9 +48,11 @@ emiratesBtn?.addEventListener("click", toggleEmiratesWrapper);
 developersBtn?.addEventListener("click", toggleDevelopersWrapper);
 
 function toggleNavbar() {
-  if (navbar.classList.contains("md:max-w-16")) {
-    navbar.classList.remove("max-w-0", "md:max-w-16");
-    navbar.classList.add("max-w-64", "md:max-w-52");
+  if (navbar.classList.contains("lg:w-16")) {
+    navbar.classList.remove("w-0", "lg:w-16");
+    navbar.classList.add("w-64", "lg:w-72");
+    navbar.firstElementChild.classList.remove("rounded-full")
+    navbar.firstElementChild.classList.add("rounded","sm:rounded-3xl")
     navBtn.firstElementChild.setAttribute("name", "chevron-back");
     navBtnMobile.firstElementChild.setAttribute("name", "close-outline");
     setTimeout(() => {
@@ -59,13 +61,17 @@ function toggleNavbar() {
       });
     }, 150);
   } else {
-    navbar.classList.remove("max-w-64", "md:max-w-52");
-    navbar.classList.add("max-w-0", "md:max-w-16");
+    navbar.classList.remove("w-64", "lg:w-72");
+    navbar.classList.add("w-0", "lg:w-16");
     navBtn.firstElementChild.setAttribute("name", "reorder-three");
     navBtnMobile.firstElementChild.setAttribute("name", "reorder-three");
     Array.from(navitemTitles).forEach((item) => {
       item.classList.add("hidden");
     });
+    setTimeout(()=> {
+      navbar.firstElementChild.classList.remove("rounded","sm:rounded-3xl");
+      navbar.firstElementChild.classList.add("rounded-full");
+    }, 100)
   }
 }
 
@@ -207,10 +213,14 @@ function handleMapswitch() {
     gridSwitch.classList.remove("bg-blue-500", "shadow-sm");
     mapSwitch.firstElementChild.classList.remove("text-gray-600");
     mapSwitch.firstElementChild.classList.add("text-white");
+    mapSwitch.querySelector("ion-icon").classList.remove("text-gray-600")
+    mapSwitch.querySelector("ion-icon").classList.add("text-white")
     gridSwitch.firstElementChild.classList.remove("text-white");
     gridSwitch.firstElementChild.classList.add("text-gray-600");
-    if (map.classList.contains("hidden")) {
-      map.classList.remove("hidden");
+    gridSwitch.querySelector("ion-icon").classList.remove("text-white")
+    gridSwitch.querySelector("ion-icon").classList.add("text-gray-600")
+    if (!grid.classList.contains("hidden")) {
+      // map.classList.remove("hidden");
       grid.classList.add("hidden");
     }
   }
@@ -220,15 +230,19 @@ function handleGridswitch() {
   if (gridSwitch.classList.contains("bg-blue-500")) {
     return;
   } else {
-    gridSwitch.classList.add("bg-blue-500", "shadow-sm");
     mapSwitch.classList.remove("bg-blue-500", "shadow-sm");
+    gridSwitch.classList.add("bg-blue-500", "shadow-sm");
     gridSwitch.firstElementChild.classList.remove("text-gray-600");
     gridSwitch.firstElementChild.classList.add("text-white");
+    gridSwitch.querySelector("ion-icon").classList.remove("text-gray-600");
+    gridSwitch.querySelector("ion-icon").classList.add("text-white");
     mapSwitch.firstElementChild.classList.remove("text-white");
     mapSwitch.firstElementChild.classList.add("text-gray-600");
+    mapSwitch.querySelector("ion-icon").classList.remove("text-white");
+    mapSwitch.querySelector("ion-icon").classList.add("text-gray-600");
     if (grid.classList.contains("hidden")) {
       grid.classList.remove("hidden");
-      map.classList.add("hidden");
+      // map.classList.add("hidden");
     }
   }
 }
@@ -283,7 +297,7 @@ function expandSearch() {
   if (mobileSearch.classList.contains("max-w-7")){
     searchExpandBtn.classList.add("hidden");
     mobileSearch.classList.remove("max-w-7");
-    mobileSearch.classList.add("min-w-72");
+    mobileSearch.classList.add("min-w-64");
     const input = mobileSearch.querySelector("input");
     input.classList.remove("opacity-0");
     input.focus()
@@ -300,7 +314,7 @@ function expandSearch() {
 
 function closeExpandSearch() {
   searchExpandBtn.classList.remove("hidden");
-  mobileSearch.classList.remove("min-w-72");
+  mobileSearch.classList.remove("min-w-64");
   mobileSearch.classList.add("max-w-7");
   const input = mobileSearch.querySelector("input");
   input.classList.add("opacity-0");
@@ -319,20 +333,23 @@ function openProjectSidebar() {
   if (projectSidebar?.classList?.contains("max-w-xs")) return;
   projectSidebar?.classList.remove("max-w-0", "lg:max-w-0", "opacity-0");
   projectSidebar?.classList.add("max-w-xs", "lg:max-w-md", "opacity-100");
-  // mainContainer.classList.add("hidden", "md:block");
+  
+  // mainContainer.classList.add("hidden", "lg:block");
   setTimeout(() => {
-    gridContainer?.classList.remove("md:grid-cols-2","lg:grid-cols-5");
-    gridContainer?.classList.add("md:grid-cols-1","lg:grid-cols-3");
+    gridContainer?.classList.remove("lg:grid-cols-5");
+    gridContainer?.classList.add("lg:grid-cols-3");
+    document.querySelector(".fav-wrapper")?.classList?.remove("lg:px-60")
   }, 150);
 }
 
 function closeProjectSidebar() {
   projectSidebar?.classList.add("max-w-0", "lg:max-w-0", "opacity-0");
   projectSidebar?.classList.remove("max-w-xs", "lg:max-w-md", "opacity-100");
-  // mainContainer.classList.remove("hidden", "md:block");
+  // mainContainer.classList.remove("hidden", "lg:block");
   setTimeout(() => {
-    gridContainer?.classList.add("md:grid-cols-2", "lg:grid-cols-5");
-    gridContainer?.classList.remove("md:grid-cols-1", "lg:grid-cols-3");
+    gridContainer?.classList.add("lg:grid-cols-5");
+    gridContainer?.classList.remove("lg:grid-cols-3");
+    document.querySelector(".fav-wrapper")?.classList?.add("lg:px-60")
   }, 150);
 }
 //
@@ -389,11 +406,11 @@ function toggleScriptsPanel() {
 
 function toggleRightSidebar(element) {
   if (element.parentElement.classList.contains("max-w-0")) {
-    element.parentElement.classList.remove("max-w-0", "md:max-w-72", "right-0", "md:right-4")
-    element.parentElement.classList.add("max-w-72", "md:max-w-0", "right-4", "md:right-0")
+    element.parentElement.classList.remove("max-w-0", "lg:max-w-72", "right-0", "lg:right-4")
+    element.parentElement.classList.add("max-w-72", "lg:max-w-0", "right-4", "lg:right-0")
   } else {
-    element.parentElement.classList.remove("max-w-72", "md:max-w-0", "right-4", "md:right-0")
-    element.parentElement.classList.add("max-w-0", "md:max-w-72", "right-0", "md:right-4")
+    element.parentElement.classList.remove("max-w-72", "lg:max-w-0", "right-4", "lg:right-0")
+    element.parentElement.classList.add("max-w-0", "lg:max-w-72", "right-0", "lg:right-4")
   }
   element.firstElementChild.classList.toggle("rotate-180");
 }
@@ -452,18 +469,103 @@ projectSidebarFilters?.addEventListener("scroll", () => {
 if (projectSidebarFilters) {
   Array.from(projectSidebarFilters.children).forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      btn.classList.add("text-white", "bg-gray-600");
-      btn.classList.remove("text-gray-800", "bg-gray-100");
+      btn.classList.remove("text-gray-800", "bg-gray-100/40");
+      btn.classList.add("text-white", "bg-gray-600/40");
   
       Array.from(projectSidebarFilters.children)
         .filter((item) => item.innerHTML !== btn.innerHTML)
         .forEach((element) => {
-          element.classList.add("text-gray-800", "bg-gray-100");
-          element.classList.remove("text-white", "bg-gray-600");
+          element.classList.remove("text-white", "bg-gray-600/40");
+          element.classList.add("text-gray-800", "bg-gray-100/40");
         });
     });
   });
 }
+
+
+// list-view-n-map-view
+const listViewBtn = document.getElementById("list-view")
+const mapViewBtn = document.getElementById("map-view")
+const listViewContainer = document.getElementById("list-view-container")
+const mapViewContainer = document.getElementById("map-view-container")
+
+listViewBtn?.addEventListener("click", (e)=> {
+  if (listViewBtn.classList.contains("bg-white")){
+    return;
+  } else {
+    // btn style
+    mapViewBtn.classList.remove("bg-white")
+    mapViewBtn.firstElementChild.classList.remove("text-gray-800")
+    mapViewBtn.firstElementChild.classList.add("text-gray-500")
+    // 
+    listViewBtn.classList.add("bg-white")
+    listViewBtn.firstElementChild.classList.remove("text-gray-500")
+    listViewBtn.firstElementChild.classList.add("text-gray-800")
+    // container style
+    listViewContainer.classList.remove("hidden");
+    mapViewContainer.classList.add("hidden")
+  }
+})
+
+mapViewBtn?.addEventListener("click", (e)=> {
+  if (mapViewBtn.classList.contains("bg-white")){
+    return;
+  } else {
+    // btn style
+    listViewBtn.classList.remove("bg-white")
+    listViewBtn.firstElementChild.classList.remove("text-gray-800")
+    listViewBtn.firstElementChild.classList.add("text-gray-500")
+    // 
+    mapViewBtn.classList.add("bg-white")
+    mapViewBtn.firstElementChild.classList.remove("text-gray-500")
+    mapViewBtn.firstElementChild.classList.add("text-gray-800")
+    // container style
+    mapViewContainer.classList.remove("hidden")
+    listViewContainer.classList.add("hidden");
+  }
+})
+
+// my-scripts-n-managers-scripts
+const myScriptsBtn = document.getElementById("my-scripts-btn")
+const managersScriptBtn = document.getElementById("managers-scripts-btn")
+const myScriptsPanel = document.getElementById("my-scripts-panel")
+const managersScriptsPanel = document.getElementById("managers-scripts-panel")
+
+myScriptsBtn?.addEventListener("click", (e)=> {
+  if (myScriptsBtn.classList.contains("bg-white")){
+    return;
+  } else {
+    // btn style
+    managersScriptBtn.classList.remove("bg-white")
+    managersScriptBtn.firstElementChild.classList.remove("text-gray-800")
+    managersScriptBtn.firstElementChild.classList.add("text-gray-500")
+    // 
+    myScriptsBtn.classList.add("bg-white")
+    myScriptsBtn.firstElementChild.classList.remove("text-gray-500")
+    myScriptsBtn.firstElementChild.classList.add("text-gray-800")
+    // container style
+    myScriptsPanel.classList.remove("hidden");
+    managersScriptsPanel.classList.add("hidden")
+  }
+})
+
+managersScriptBtn?.addEventListener("click", (e)=> {
+  if (managersScriptBtn.classList.contains("bg-white")){
+    return;
+  } else {
+    // btn style
+    myScriptsBtn.classList.remove("bg-white")
+    myScriptsBtn.firstElementChild.classList.remove("text-gray-800")
+    myScriptsBtn.firstElementChild.classList.add("text-gray-500")
+    // 
+    managersScriptBtn.classList.add("bg-white")
+    managersScriptBtn.firstElementChild.classList.remove("text-gray-500")
+    managersScriptBtn.firstElementChild.classList.add("text-gray-800")
+    // container style
+    managersScriptsPanel.classList.remove("hidden")
+    myScriptsPanel.classList.add("hidden");
+  }
+})
 
 // Clicking outside close currenySelector
 window.addEventListener("click", (e) => {

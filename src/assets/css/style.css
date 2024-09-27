@@ -5,12 +5,13 @@
 @tailwind utilities;
 
 :root {
-  --header-height: 3.5rem;
+  --header-height: 4.5rem;
+  --navbar-width: 4rem;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   :root {
-    --header-height: 3rem;
+    --header-height: 3.5rem;
   }
 }
 
@@ -111,7 +112,7 @@ body {
 }
 
 .projects-list::-webkit-scrollbar-thumb {
-  background-color: #93c5fd;
+  background-color: lightgray;
   border-radius: 20px;
 }
 
@@ -120,7 +121,7 @@ body {
 }
 
 .data-stories::-webkit-scrollbar-thumb {
-  background-color: #93c5fd;
+  background-color: lightgray;
   border-radius: 20px;
 }
 
@@ -129,7 +130,7 @@ body {
 }
 
 .script-box::-webkit-scrollbar-thumb {
-  background-color: #93c5fd;
+  background-color: lightgray;
   border-radius: 20px;
 }
 .filter-dropdwon-container::-webkit-scrollbar {
@@ -137,7 +138,16 @@ body {
 }
 
 .filter-dropdwon-container::-webkit-scrollbar-thumb {
-  background-color: #93c5fd;
+  background-color: lightgray;
+  border-radius: 20px;
+}
+
+.custom-scroller::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scroller::-webkit-scrollbar-thumb {
+  background-color: gray;
   border-radius: 20px;
 }
 
