@@ -31,8 +31,10 @@ const emiratesWrapper = document.getElementById("emirates-wrapper");
 const developersBtn = document.getElementById("developers-button");
 const developersWrapper = document.getElementById("developers-wrapper");
 
+
 navBtn?.addEventListener("click", toggleNavbar);
 navBtnMobile?.addEventListener("click", toggleNavbar);
+
 currencyButton?.addEventListener("click", handleCurrencyChange);
 mapSwitch?.addEventListener("click", handleMapswitch);
 gridSwitch?.addEventListener("click", handleGridswitch);
@@ -616,10 +618,17 @@ $(document).ready(function () {
     dots: true,
     autoplay: true,
   });
-});
 
-$(document).ready(function () {
   $(".scripts-slider").slick({
+    dots: true,
+    autoplay: false,
+    adaptiveHeight: true,
+    prevArrow:
+      '<button class="z-10 absolute right-12 bottom-2 bg-blue-200 rounded-full size-6 flex items-center justify-center hover:bg-blue-100"><ion-icon name="chevron-back"></ion-icon></button>',
+    nextArrow:
+      '<button class="z-10 absolute right-4 bottom-2 bg-blue-200 rounded-full size-6 flex items-center justify-center hover:bg-blue-100"><ion-icon name="chevron-forward"></ion-icon></button>',
+  });
+  $(".dashboard-slider").slick({
     dots: true,
     autoplay: false,
     adaptiveHeight: true,

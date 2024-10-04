@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Realtors Pilot | Dashboard</title>
+    <link href="./assets/css/tailwind.css" rel="stylesheet" />
+    <link rel="icon" href="assets/images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="./assets/slick/slick.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/slick/slick-theme.css"
+    />
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- fullsize-map -->
+    <div class="absolute inset-0 size-full">
+      <div id="map" class="overflow-hidden bg-gray-100 h-full">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d36014.92721428063!2d54.350579929568454!3d24.471830375557406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e440f723ef2b9%3A0xc7cc2e9341971108!2sAbu%20Dhabi%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1724091904495!5m2!1sen!2s"
+          class="size-full outline-0 border-none border-0"
+          allowfullscreen=""
+          loading="lazy"
+          frameborder="0"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <div class="absolute inset-0 bg-white/50 backdrop-blur-sm"></div>
+    </div>
+
+    <!-- header -->
+    <div class="sm:py-2 sm:px-4 w-full h-[--header-height] relative z-30">
+      <div
+        class="px-1 lg:px-2 bg-white/60 shadow-md flex items-center backdrop-blur-sm size-full sm:rounded-full"
+      >
+        <div class="w-full flex items-center">
+          <!-- logo -->
+          <div class="lg:hidden">
+            <div
+              class="size-6 flex items-center justify-center rounded-full bg-white"
+            >
+              <ion-icon
+                class="size-6 text-blue-800"
+                name="invert-mode-outline"
+              ></ion-icon>
+            </div>
+          </div>
+          <!-- Searchbar desktop -->
+          <div class="hidden lg:block max-w-xs lg:w-full ml-2 lg:ml-0 mr-4">
+            <form class="relative bg-transparent backdrop-blur-md rounded-full">
+              <label for="Search" class="sr-only"> Search </label>
+              <input
+                type="text"
+                id="Search"
+                placeholder="Search something..."
+                autocomplete="off"
+                class="lg:w-full opacity-0 lg:opacity-100 rounded-full bg-gray-200 border-none text-blue-950 placeholder:text-blue-800 text-sm lg:text-sm py-1 lg:py-2 sm:text-sm"
+              />
+              <span class="absolute inset-y-0 right-2 lg:left-auto">
+                <button
+                  type="submit"
+                  class="text-gray-600 hover:text-gray-700 h-full grid place-content-center"
+                >
+                  <span class="sr-only">Search</span>
+                  <ion-icon
+                    class="size-4 lg:size-6 text-blue-800 lg:text-gray-600"
+                    name="search-outline"
+                  ></ion-icon>
+                </button>
+              </span>
+            </form>
+          </div>
+
+          <!-- Searchbar mobile -->
+          <div
+            id="mobile-search"
+            class="relative max-w-7 lg:hidden ml-2 mr-4 transition-all"
+          >
+            <span
+              id="search-expand-btn"
+              class="absolute inset-0 left-0 top-0 z-[2] text-gray-600 hover:text-gray-700 h-full grid place-content-center"
+            >
+              <ion-icon
+                class="size-4 lg:size-6 text-blue-800 lg:text-gray-600"
+                name="search-outline"
+              ></ion-icon>
+            </span>
+            <form class="relative bg-gray-200 rounded-full">
+              <label for="Search" class="sr-only"> Search </label>
+              <input
+                type="text"
+                id="Search"
+                placeholder="Search something..."
+                autocomplete="off"
+                class="w-full opacity-0 lg:opacity-100 rounded-full bg-transparent border-none text-gray-700 text-xs lg:text-sm py-1 lg:py-2 sm:text-sm"
+              />
+              <span
+                class="flex gap-x-2 items-center absolute inset-y-0 right-0"
+              >
+                <button
+                  type="submit"
+                  onclick="(e)=> e.preventDefault()"
+                  class="hidden text-gray-600 hover:text-gray-700 h-full place-content-center"
+                >
+                  <span class="sr-only">Search</span>
+                  <ion-icon
+                    class="size-4 lg:size-6 text-blue-800 lg:text-gray-600"
+                    name="search-outline"
+                  ></ion-icon>
+                </button>
+                <button
+                  type="button"
+                  onclick="closeExpandSearch()"
+                  class="hidden text-gray-600 px-1 hover:text-gray-700 h-full place-content-center"
+                >
+                  <span class="sr-only">close</span>
+                  <ion-icon
+                    class="size-4 lg:size-6 text-red-800 lg:text-gray-600"
+                    name="close-outline"
+                  ></ion-icon>
+                </button>
+              </span>
+            </form>
+          </div>
+
+          <!-- right items -->
+          <div class="ml-auto hidden lg:flex items-center gap-x-2">
+            <!-- toggle -->
+            <label class="relative inline-flex cursor-pointer items-center">
+              <input id="switch" type="checkbox" class="peer sr-only" />
+              <label for="switch" class="hidden"></label>
+              <div
+                class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+              ></div>
+            </label>
+
+            <!-- scripts -->
+            <div class="relative">
+              <button
+                id="scripts-button"
+                class="bg-gray-200 backdrop-blur-sm rounded-full text-gray-600 flex items-center gap-x-1 shadow-sm px-3 py-1.5"
+              >
+                <ion-icon
+                  class="size-5 text-gray-600"
+                  name="barcode-outline"
+                ></ion-icon>
+                <span class="text-sm">Scripts</span>
+                <ion-icon class="size-4" name="chevron-down"></ion-icon>
+              </button>
+
+              <div
+                id="scripts-panel"
+                class="opacity-0 absolute top-10 right-0 z-10 w-72 pointer-events-none -translate-y-4 transition-all duration-300"
+              >
+                <!-- <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"> -->
+                <div
+                  class="scripts-slider pt-4 pb-10 bg-white/90 backdrop-blur-md shadow-lg rounded-xl size-full"
+                >
+                  <div class="p-6 min-h-24 max-h-[15vh] text-gray-700 text-sm">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                  </div>
+                  <div
+                    class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                  </div>
+                  <div
+                    class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm"
+                  >
+                    <p>Lorem ipsum dolorto vel neque magni aut ipsam?</p>
+                  </div>
+                  <div
+                    class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href="./scripts.html"
+                  class="absolute bottom-9 left-5 text-blue-500 font-medium text-sm hover:underline rounded-full py-1 px-2 transition"
+                  >See all</a
+                >
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- nav-btn-mobile -->
+          <button
+            id="nav-btn-mobile"
+            class="flex items-center ml-auto lg:hidden"
+          >
+            <ion-icon
+              class="text-blue-800 size-5 bg-blue-50 rounded sm:rounded-full p-1"
+              name="reorder-three"
+            ></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Starts here -->
+    <main
+      class="relative sm:mt-2 sm:pl-4 lg:pl-[calc(var(--navbar-width)+2rem)] sm:pr-4"
+    >
+      <!-- navbar -->
+      <div
+        id="navbar"
+        class="w-0 lg:w-16 z-30 h-[calc(100vh-var(--header-height)-1rem)] absolute sm:left-4 top-0 overflow-y-auto overflow-x-hidden transition-all"
+      >
+        <div
+          class="bg-white/80 backdrop-blur-sm h-full transition-all rounded-full border border-gray-300 duration-0"
+        >
+          <!-- Logo -->
+          <div
+            class="flex justify-start px-4 h-[var(--header-height)] border-b border-gray-600/20"
+          >
+            <div class="flex items-center">
+              <div
+                class="size-8 hidden lg:flex items-center justify-center rounded-full bg-white"
+              >
+                <ion-icon
+                  class="size-8 text-blue-800"
+                  name="invert-mode-outline"
+                ></ion-icon>
+              </div>
+              <p
+                class="brand-name font-medium whitespace-nowrap lg:ml-4 text-blue-800"
+              >
+                Realtors Pilot
+              </p>
+            </div>
+          </div>
+          <div class="mt-3 px-3 flex flex-col items-start">
+            <!-- menu icon -->
+            <div class="size-full flex items-center justify-end">
+              <button
+                id="nav-btn"
+                class="flex rounded p-2 hover:bg-blue-600/10"
+              >
+                <ion-icon
+                  class="text-blue-800 size-5"
+                  name="reorder-three"
+                ></ion-icon>
+              </button>
+            </div>
+            <!-- Navitems -->
+            <div class="w-full mt-8">
+              <ul class="flex flex-col gap-y-4">
+                <li class="transition">
+                  <a
+                    href="./index.html"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-700 size-5"
+                      name="home"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                      Home
+                    </p>
+                  </a>
+                </li>
+                <li class="transition">
+                  <a
+                    href="./favorites.html"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-700 size-5"
+                      name="heart"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                      Favorites
+                    </p>
+                  </a>
+                </li>
+                <li class="transition">
+                  <a
+                    href="./scripts.html"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-700 size-5"
+                      name="barcode"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                      Scripts
+                    </p>
+                  </a>
+                </li>
+                <li class="transition">
+                  <a
+                    href="./dashboard.html"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-700 size-5"
+                      name="cube"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                      Dashboard
+                    </p>
+                  </a>
+                </li>
+                <li class="transition">
+                  <a
+                    href="./my-clients.html"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-700 size-5"
+                      name="school"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                      My Clients
+                    </p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="flex justify-center gap-x-2 w-full sm:rounded-3xl overflow-hidden shadow-lg"
+      >
+        <!-- section -->
+        <div
+          class="lg:px-8 h-[calc(100vh-var(--header-height)-1rem)] w-full overflow-auto py-4 pb-10 bg-white/60 backdrop-blur-md"
+        >
+          <div class="w-full">
+            <!-- Stats -->
+            <div class="">
+              <h2 class="mt-4 font-semibold text-2xl text-gray-700">Main Dashboard</h2>
+              <div
+                class="mt-4 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-4"
+              >
+                <div
+                  class="relative rounded bg-white flex items-center justify-between px-6 py-4 shadow"
+                >
+                  <div
+                    class="bg-blue-400 h-1/2 w-2 absolute top-1/2 -translate-y-1/2 left-0"
+                  ></div>
+                  <p class="text-sm text-gray-600">Total Projects</p>
+                  <span class="text-2xl text-gray-700">25</span>
+                </div>
+                <div
+                  class="relative rounded bg-white flex items-center justify-between px-6 py-4 shadow"
+                >
+                  <div
+                    class="bg-blue-400 h-1/2 w-2 absolute top-1/2 -translate-y-1/2 left-0"
+                  ></div>
+                  <p class="text-sm text-gray-600">Favorite Projects</p>
+                  <span class="text-2xl text-gray-700">04</span>
+                </div>
+                <div
+                  class="relative rounded bg-white flex items-center justify-between px-6 py-4 shadow"
+                >
+                  <div
+                    class="bg-blue-400 h-1/2 w-2 absolute top-1/2 -translate-y-1/2 left-0"
+                  ></div>
+                  <p class="text-sm text-gray-600">Total Clients</p>
+                  <span class="text-2xl text-gray-700">200</span>
+                </div>
+                <div
+                  class="relative rounded bg-white flex items-center justify-between px-6 py-4 shadow"
+                >
+                  <div
+                    class="bg-blue-400 h-1/2 w-2 absolute top-1/2 -translate-y-1/2 left-0"
+                  ></div>
+                  <p class="text-sm text-gray-600">Proposals shared</p>
+                  <span class="text-2xl text-gray-700">521</span>
+                </div>
+                <div
+                  class="relative rounded bg-white flex items-center justify-between px-6 py-4 shadow"
+                >
+                  <div
+                    class="bg-blue-400 h-1/2 w-2 absolute top-1/2 -translate-y-1/2 left-0"
+                  ></div>
+                  <p class="text-sm text-gray-600">Meeting completed</p>
+                  <span class="text-2xl text-gray-700">241</span>
+                </div>
+                <div
+                  class="relative rounded bg-white flex items-center justify-between px-6 py-4 shadow"
+                >
+                  <div
+                    class="bg-blue-400 h-1/2 w-2 absolute top-1/2 -translate-y-1/2 left-0"
+                  ></div>
+                  <p class="text-sm text-gray-600">Upcoming Meetings</p>
+                  <span class="text-2xl text-gray-700">15</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col xl:flex-row gap-4">
+              <!-- Calendar with meetings -->
+              <div class="mt-10 xl:w-1/2">
+                <h3 class="text-gray-700">Meetings</h3>
+                <div
+                  class="mt-3 bg-white rounded-2xl shadow  p-8"
+                  id="calendar"
+                ></div>
+              </div>
+              <!-- Knowledge base -->
+              <div class="mt-10 xl:w-1/2">
+                <h3 class="text-gray-700">Knowledge Base</h3>
+                <div
+                  class="mt-3 bg-white rounded-3xl shadow"
+                >
+                <div
+                  class="dashboard-slider pt-4 pb-10 bg-white/90 backdrop-blur-md rounded-3xl shadow-lg size-full"
+                >
+                  <div class="p-6 min-h-80 max-h-96 overflow-auto text-gray-700 text-sm">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                  </div>
+                  <div
+                    class="p-6 min-h-80 max-h-96 overflow-auto text-gray-700 text-sm"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                  </div>
+                  <div
+                    class="p-6 min-h-80 max-h-96 overflow-auto text-gray-700 text-sm"
+                  >
+                    <p>Lorem ipsum dolorto vel neque magni aut ipsam?</p>
+                  </div>
+                  <div
+                    class="p-6 min-h-80 max-h-96 overflow-auto text-gray-700 text-sm"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <script type="text/javascript" src="./assets/slick/slick.min.js"></script>
+    <script src="./assets/js/scripts.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="
+      https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js
+      "></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var calendarEl = document.getElementById("calendar");
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: "dayGridWeek",
+          selectable: true,
+          selectMorrir: true,
+          events: [
+            {
+              title: "Meeting with Amanda",
+              start: "2024-10-03",
+              allDay: true
+            },
+            {
+              title: "Meeting with Amor",
+              start: "2024-10-02",
+            },
+            {
+              title: "Meeting with Ahmed",
+              start: "2024-10-06",
+            },
+            // other events here
+          ],
+        });
+        calendar.render();
+      });
+    </script>
+  </body>
+</html>
