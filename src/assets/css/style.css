@@ -188,14 +188,16 @@ body {
 
 /* dashboard calendar */
 .fc .fc-toolbar-title {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .fc .fc-button {
   border-radius: 50px;
+  font-size: 10px;
 }
+
 .fc .fc-col-header-cell-cushion {
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 400;
 }
 
