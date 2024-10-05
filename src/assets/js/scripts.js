@@ -31,7 +31,6 @@ const emiratesWrapper = document.getElementById("emirates-wrapper");
 const developersBtn = document.getElementById("developers-button");
 const developersWrapper = document.getElementById("developers-wrapper");
 
-
 navBtn?.addEventListener("click", toggleNavbar);
 navBtnMobile?.addEventListener("click", toggleNavbar);
 
@@ -53,8 +52,8 @@ function toggleNavbar() {
   if (navbar.classList.contains("lg:w-16")) {
     navbar.classList.remove("w-0", "lg:w-16");
     navbar.classList.add("w-64", "lg:w-72");
-    navbar.firstElementChild.classList.remove("rounded-full")
-    navbar.firstElementChild.classList.add("rounded","sm:rounded-3xl")
+    navbar.firstElementChild.classList.remove("rounded-full");
+    navbar.firstElementChild.classList.add("sm:rounded-3xl");
     navBtn.firstElementChild.setAttribute("name", "chevron-back");
     navBtnMobile.firstElementChild.setAttribute("name", "close-outline");
     setTimeout(() => {
@@ -70,10 +69,10 @@ function toggleNavbar() {
     Array.from(navitemTitles).forEach((item) => {
       item.classList.add("hidden");
     });
-    setTimeout(()=> {
-      navbar.firstElementChild.classList.remove("rounded","sm:rounded-3xl");
+    setTimeout(() => {
+      navbar.firstElementChild.classList.remove("sm:rounded-3xl");
       navbar.firstElementChild.classList.add("rounded-full");
-    }, 100)
+    }, 100);
   }
 }
 
@@ -215,12 +214,12 @@ function handleMapswitch() {
     gridSwitch.classList.remove("bg-blue-500", "shadow-sm");
     mapSwitch.firstElementChild.classList.remove("text-gray-600");
     mapSwitch.firstElementChild.classList.add("text-white");
-    mapSwitch.querySelector("ion-icon").classList.remove("text-gray-600")
-    mapSwitch.querySelector("ion-icon").classList.add("text-white")
+    mapSwitch.querySelector("ion-icon").classList.remove("text-gray-600");
+    mapSwitch.querySelector("ion-icon").classList.add("text-white");
     gridSwitch.firstElementChild.classList.remove("text-white");
     gridSwitch.firstElementChild.classList.add("text-gray-600");
-    gridSwitch.querySelector("ion-icon").classList.remove("text-white")
-    gridSwitch.querySelector("ion-icon").classList.add("text-gray-600")
+    gridSwitch.querySelector("ion-icon").classList.remove("text-white");
+    gridSwitch.querySelector("ion-icon").classList.add("text-gray-600");
     if (!grid.classList.contains("hidden")) {
       // map.classList.remove("hidden");
       grid.classList.add("hidden");
@@ -291,26 +290,26 @@ function selectMeasure(element) {
   });
 }
 const mobileSearch = document.querySelector("#mobile-search");
-const searchExpandBtn = document.querySelector("#search-expand-btn")
+const searchExpandBtn = document.querySelector("#search-expand-btn");
 // mobileSearch.addEventListener("click", expandSearch);
 searchExpandBtn.addEventListener("click", expandSearch);
 
 function expandSearch() {
-  if (mobileSearch.classList.contains("max-w-7")){
+  if (mobileSearch.classList.contains("max-w-7")) {
     searchExpandBtn.classList.add("hidden");
     mobileSearch.classList.remove("max-w-7");
     mobileSearch.classList.add("min-w-64");
     const input = mobileSearch.querySelector("input");
     input.classList.remove("opacity-0");
-    input.focus()
+    input.focus();
     const submitBtn = mobileSearch.querySelector("button[type='submit']");
     const closeBtn = mobileSearch.querySelector("button[type='button']");
-    submitBtn.classList.remove("hidden")
-    submitBtn.classList.add("grid")
+    submitBtn.classList.remove("hidden");
+    submitBtn.classList.add("grid");
     closeBtn.classList.remove("hidden");
     closeBtn.classList.add("grid");
   } else {
-    closeExpandSearch()
+    closeExpandSearch();
   }
 }
 
@@ -321,8 +320,8 @@ function closeExpandSearch() {
   const input = mobileSearch.querySelector("input");
   input.classList.add("opacity-0");
   const submitBtn = mobileSearch.querySelector("button[type='submit']");
-  submitBtn.classList.remove("grid")
-  submitBtn.classList.add("hidden")
+  submitBtn.classList.remove("grid");
+  submitBtn.classList.add("hidden");
   const closeBtn = mobileSearch.querySelector("button[type='button']");
   closeBtn.classList.remove("grid");
   closeBtn.classList.add("hidden");
@@ -335,12 +334,12 @@ function openProjectSidebar() {
   if (projectSidebar?.classList?.contains("max-w-xs")) return;
   projectSidebar?.classList.remove("max-w-0", "lg:max-w-0", "opacity-0");
   projectSidebar?.classList.add("max-w-xs", "lg:max-w-md", "opacity-100");
-  
+
   // mainContainer.classList.add("hidden", "lg:block");
   setTimeout(() => {
     gridContainer?.classList.remove("lg:grid-cols-5");
     gridContainer?.classList.add("lg:grid-cols-3");
-    document.querySelector(".fav-wrapper")?.classList?.remove("lg:px-60")
+    document.querySelector(".fav-wrapper")?.classList?.remove("lg:px-60");
   }, 150);
 }
 
@@ -351,7 +350,7 @@ function closeProjectSidebar() {
   setTimeout(() => {
     gridContainer?.classList.add("lg:grid-cols-5");
     gridContainer?.classList.remove("lg:grid-cols-3");
-    document.querySelector(".fav-wrapper")?.classList?.add("lg:px-60")
+    document.querySelector(".fav-wrapper")?.classList?.add("lg:px-60");
   }, 150);
 }
 //
@@ -408,11 +407,31 @@ function toggleScriptsPanel() {
 
 function toggleRightSidebar(element) {
   if (element.parentElement.classList.contains("max-w-0")) {
-    element.parentElement.classList.remove("max-w-0", "lg:max-w-72", "right-0", "lg:right-4")
-    element.parentElement.classList.add("max-w-72", "lg:max-w-0", "right-4", "lg:right-0")
+    element.parentElement.classList.remove(
+      "max-w-0",
+      "lg:max-w-72",
+      "right-0",
+      "lg:right-4"
+    );
+    element.parentElement.classList.add(
+      "max-w-72",
+      "lg:max-w-0",
+      "right-4",
+      "lg:right-0"
+    );
   } else {
-    element.parentElement.classList.remove("max-w-72", "lg:max-w-0", "right-4", "lg:right-0")
-    element.parentElement.classList.add("max-w-0", "lg:max-w-72", "right-0", "lg:right-4")
+    element.parentElement.classList.remove(
+      "max-w-72",
+      "lg:max-w-0",
+      "right-4",
+      "lg:right-0"
+    );
+    element.parentElement.classList.add(
+      "max-w-0",
+      "lg:max-w-72",
+      "right-0",
+      "lg:right-4"
+    );
   }
   element.firstElementChild.classList.toggle("rotate-180");
 }
@@ -473,7 +492,7 @@ if (projectSidebarFilters) {
     btn.addEventListener("click", (e) => {
       btn.classList.remove("text-gray-800", "bg-gray-100/40");
       btn.classList.add("text-white", "bg-gray-600/40");
-  
+
       Array.from(projectSidebarFilters.children)
         .filter((item) => item.innerHTML !== btn.innerHTML)
         .forEach((element) => {
@@ -484,90 +503,89 @@ if (projectSidebarFilters) {
   });
 }
 
-
 // list-view-n-map-view
-const listViewBtn = document.getElementById("list-view")
-const mapViewBtn = document.getElementById("map-view")
-const listViewContainer = document.getElementById("list-view-container")
-const mapViewContainer = document.getElementById("map-view-container")
+const listViewBtn = document.getElementById("list-view");
+const mapViewBtn = document.getElementById("map-view");
+const listViewContainer = document.getElementById("list-view-container");
+const mapViewContainer = document.getElementById("map-view-container");
 
-listViewBtn?.addEventListener("click", (e)=> {
-  if (listViewBtn.classList.contains("bg-white")){
+listViewBtn?.addEventListener("click", (e) => {
+  if (listViewBtn.classList.contains("bg-white")) {
     return;
   } else {
     // btn style
-    mapViewBtn.classList.remove("bg-white")
-    mapViewBtn.firstElementChild.classList.remove("text-gray-800")
-    mapViewBtn.firstElementChild.classList.add("text-gray-500")
-    // 
-    listViewBtn.classList.add("bg-white")
-    listViewBtn.firstElementChild.classList.remove("text-gray-500")
-    listViewBtn.firstElementChild.classList.add("text-gray-800")
+    mapViewBtn.classList.remove("bg-white");
+    mapViewBtn.firstElementChild.classList.remove("text-gray-800");
+    mapViewBtn.firstElementChild.classList.add("text-gray-500");
+    //
+    listViewBtn.classList.add("bg-white");
+    listViewBtn.firstElementChild.classList.remove("text-gray-500");
+    listViewBtn.firstElementChild.classList.add("text-gray-800");
     // container style
     listViewContainer.classList.remove("hidden");
-    mapViewContainer.classList.add("hidden")
+    mapViewContainer.classList.add("hidden");
   }
-})
+});
 
-mapViewBtn?.addEventListener("click", (e)=> {
-  if (mapViewBtn.classList.contains("bg-white")){
+mapViewBtn?.addEventListener("click", (e) => {
+  if (mapViewBtn.classList.contains("bg-white")) {
     return;
   } else {
     // btn style
-    listViewBtn.classList.remove("bg-white")
-    listViewBtn.firstElementChild.classList.remove("text-gray-800")
-    listViewBtn.firstElementChild.classList.add("text-gray-500")
-    // 
-    mapViewBtn.classList.add("bg-white")
-    mapViewBtn.firstElementChild.classList.remove("text-gray-500")
-    mapViewBtn.firstElementChild.classList.add("text-gray-800")
+    listViewBtn.classList.remove("bg-white");
+    listViewBtn.firstElementChild.classList.remove("text-gray-800");
+    listViewBtn.firstElementChild.classList.add("text-gray-500");
+    //
+    mapViewBtn.classList.add("bg-white");
+    mapViewBtn.firstElementChild.classList.remove("text-gray-500");
+    mapViewBtn.firstElementChild.classList.add("text-gray-800");
     // container style
-    mapViewContainer.classList.remove("hidden")
+    mapViewContainer.classList.remove("hidden");
     listViewContainer.classList.add("hidden");
   }
-})
+});
 
 // my-scripts-n-managers-scripts
-const myScriptsBtn = document.getElementById("my-scripts-btn")
-const managersScriptBtn = document.getElementById("managers-scripts-btn")
-const myScriptsPanel = document.getElementById("my-scripts-panel")
-const managersScriptsPanel = document.getElementById("managers-scripts-panel")
+const myScriptsBtn = document.getElementById("my-scripts-btn");
+const managersScriptBtn = document.getElementById("managers-scripts-btn");
+const myScriptsPanel = document.getElementById("my-scripts-panel");
+const managersScriptsPanel = document.getElementById("managers-scripts-panel");
 
-myScriptsBtn?.addEventListener("click", (e)=> {
-  if (myScriptsBtn.classList.contains("bg-white")){
+myScriptsBtn?.addEventListener("click", (e) => {
+  if (myScriptsBtn.classList.contains("bg-white")) {
     return;
   } else {
     // btn style
-    managersScriptBtn.classList.remove("bg-white")
-    managersScriptBtn.firstElementChild.classList.remove("text-gray-800")
-    managersScriptBtn.firstElementChild.classList.add("text-gray-500")
-    // 
-    myScriptsBtn.classList.add("bg-white")
-    myScriptsBtn.firstElementChild.classList.remove("text-gray-500")
-    myScriptsBtn.firstElementChild.classList.add("text-gray-800")
+    managersScriptBtn.classList.remove("bg-white");
+    managersScriptBtn.firstElementChild.classList.remove("text-gray-800");
+    managersScriptBtn.firstElementChild.classList.add("text-gray-500");
+    //
+    myScriptsBtn.classList.add("bg-white");
+    myScriptsBtn.firstElementChild.classList.remove("text-gray-500");
+    myScriptsBtn.firstElementChild.classList.add("text-gray-800");
     // container style
     myScriptsPanel.classList.remove("hidden");
-    managersScriptsPanel.classList.add("hidden")
+    managersScriptsPanel.classList.add("hidden");
   }
-})
+});
 
-managersScriptBtn?.addEventListener("click", (e)=> {
-  if (managersScriptBtn.classList.contains("bg-white")){
+managersScriptBtn?.addEventListener("click", (e) => {
+  if (managersScriptBtn.classList.contains("bg-white")) {
     return;
   } else {
     // btn style
-    myScriptsBtn.classList.remove("bg-white")
-    myScriptsBtn.firstElementChild.classList.remove("text-gray-800")
-    myScriptsBtn.firstElementChild.classList.add("text-gray-500")
-    // 
-    managersScriptBtn.classList.add("bg-white")
-    managersScriptBtn.firstElementChild.classList.remove("text-gray-500")
-    managersScriptBtn.firstElementChild.classList.add("text-gray-800")
+    myScriptsBtn.classList.remove("bg-white");
+    myScriptsBtn.firstElementChild.classList.remove("text-gray-800");
+    myScriptsBtn.firstElementChild.classList.add("text-gray-500");
+    //
+    managersScriptBtn.classList.add("bg-white");
+    managersScriptBtn.firstElementChild.classList.remove("text-gray-500");
+    managersScriptBtn.firstElementChild.classList.add("text-gray-800");
     // container style
-    managersScriptsPanel.classList.remove("hidden")
+    managersScriptsPanel.classList.remove("hidden");
     myScriptsPanel.classList.add("hidden");
   }
-})
+});
 
 // Clicking outside close currenySelector
 window.addEventListener("click", (e) => {
@@ -592,12 +610,18 @@ window.addEventListener("click", (e) => {
       toggleStatesWrapper();
     }
   }
-  if (!emiratesBtn?.contains(e.target) && !emiratesWrapper?.contains(e.target)) {
+  if (
+    !emiratesBtn?.contains(e.target) &&
+    !emiratesWrapper?.contains(e.target)
+  ) {
     if (emiratesWrapper?.classList.contains("opacity-100")) {
       toggleEmiratesWrapper();
     }
   }
-  if (!developersBtn?.contains(e.target) && !developersWrapper?.contains(e.target)) {
+  if (
+    !developersBtn?.contains(e.target) &&
+    !developersWrapper?.contains(e.target)
+  ) {
     if (developersWrapper?.classList.contains("opacity-100")) {
       toggleDevelopersWrapper();
     }
@@ -609,7 +633,107 @@ window.addEventListener("click", (e) => {
   //     toggleScriptsPanel()
   //   }
   // }
+
+  if (!developerInput.contains(e.target) && !developerList.contains(e.target)) {
+    closeDeveloperList();
+  }
 });
+
+const developers = [
+  "Developer 1",
+  "Developer 2",
+  "Developer 3",
+  "Developer 4",
+  "Developer 5",
+  "Developer 6",
+  "Developer 7",
+  "Developer 8",
+  "Developer 9",
+  "Developer 10",
+  "Developer 11",
+  "Developer 12",
+  "Developer 13",
+  "Developer 14",
+  "Developer 15",
+  "Developer 16",
+];
+
+const developerInput = document.getElementById("developer-name");
+const developerList = document.getElementById("developer-names-list");
+const formsList = document.getElementById("forms-list");
+
+function populateDeveloperList(list) {
+  if (developerList) {
+    developerList.innerHTML = "";
+    list?.forEach((developer) => {
+      const li = document.createElement("li");
+      li.className = "hover:bg-gray-100 rounded p-2 cursor-pointer";
+      const p = document.createElement("p");
+      p.textContent = developer;
+      li.appendChild(p);
+      li.addEventListener("click", () => selectDeveloper(developer));
+      developerList.appendChild(li);
+    });
+  }
+}
+populateDeveloperList(developers);
+
+developerInput?.addEventListener("focus", openDeveloperList);
+
+function openDeveloperList() {
+  developerList.style.display = "block";
+}
+function closeDeveloperList() {
+  developerList.style.display = "none";
+}
+function selectDeveloper(developer) {
+  developerInput.value = developer;
+  closeDeveloperList();
+}
+
+developerInput?.addEventListener("input", handleDeveloperSearch);
+
+function handleDeveloperSearch(e) {
+  let filteredDevelopers = developers.filter((developer) =>
+    developer.toLowerCase().includes(e.target.value.toLowerCase())
+  );
+  populateDeveloperList(filteredDevelopers);
+}
+
+const formSteps = document.getElementById("form-steps");
+const stepsProgress = document.getElementById("steps-progress");
+
+if (formsList?.children){
+  Array.from(formsList?.children)?.forEach((form, index)=> {
+    if (index>0) {
+      form.style.display = "none";
+    }
+  })
+}
+
+function nextStep(stepNumber) {
+  const percentageMap = {
+    1: 25,
+    2: 50,
+    3: 75,
+    4: 100,
+  };
+  Array.from(formSteps?.children)?.forEach((item, index) => {
+    if (stepNumber === index + 1) {
+      item.classList.add("text-blue-600")
+    } else {
+      item.classList.remove("text-blue-600")
+    }
+    stepsProgress.style.width = `${percentageMap[stepNumber]}%`
+  });
+  Array.from(formsList?.children)?.forEach((form, index)=> {
+    if (stepNumber === index + 1) {
+      form.style.display = "block";
+    } else {
+      form.style.display = "none";
+    }
+  })
+}
 
 // Image Slider
 
