@@ -234,19 +234,21 @@
                 <!-- </div> -->
               </div>
             </div>
-
           </div>
 
           <!-- right items -->
           <div class="ml-auto hidden lg:flex items-center gap-x-2">
             <!-- toggle -->
-            <label class="relative inline-flex cursor-pointer items-center">
-              <input id="switch" type="checkbox" class="peer sr-only" />
-              <label for="switch" class="hidden"></label>
-              <div
-                class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
-              ></div>
-            </label>
+            <div class="flex items-center gap-x-2">
+              <p class="text-sm">Meeting mode:</p>
+              <label class="relative inline-flex cursor-pointer items-center">
+                <input id="switch" type="checkbox" class="peer sr-only" />
+                <label for="switch" class="hidden"></label>
+                <div
+                  class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                ></div>
+              </label>
+            </div>
 
             <!-- scripts -->
             <div class="relative">
@@ -335,7 +337,9 @@
     </div>
 
     <!-- Main Starts here -->
-    <main class="relative lg:mt-2 lg:pl-[calc(var(--navbar-width)+2rem)] lg:pr-4">
+    <main
+      class="relative lg:mt-2 lg:pl-[calc(var(--navbar-width)+2rem)] lg:pr-4"
+    >
       <!-- navbar -->
       <div
         id="navbar"
@@ -366,11 +370,10 @@
           </div>
           <div class="px-3">
             <!-- menu icon -->
-            <div class="absolute z-10 top-[4.5rem] -right-10 size-10 flex items-center rounded-r-full shadow-xl bg-white/90 hover:bg-gray-50">
-              <button
-                id="nav-btn"
-                class="flex rounded p-2 "
-              >
+            <div
+              class="absolute z-10 top-[4.5rem] -right-10 size-10 flex items-center rounded-r-full shadow-xl bg-white/90 hover:bg-gray-50"
+            >
+              <button id="nav-btn" class="flex rounded p-2">
                 <ion-icon
                   class="text-blue-800 size-5"
                   name="chevron-forward"
@@ -480,7 +483,9 @@
           <div class="w-full">
             <!-- Place your content here -->
             <section class="">
-              <h1 class="mt-4 font-semibold text-2xl text-gray-700">Add new project</h1>
+              <h1 class="mt-4 font-semibold text-2xl text-gray-700">
+                Add new project
+              </h1>
               <div class="max-w-2xl px-4 py-8 mx-auto lg:py-16">
                 <div>
                   <h2 class="sr-only">Steps</h2>
@@ -797,81 +802,90 @@
                       </button>
                     </div>
                   </form>
-                  <form class="mt-8" action="#">
-                    <div
-                      class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5"
-                    >
-                      <div class="relative">
-                        <ion-icon
-                          class="absolute right-2 top-10 text-gray-500"
-                          name="chevron-down"
-                        ></ion-icon>
-                        <label
-                          for="name"
-                          class="block mb-2 text-sm font-medium text-gray-900"
-                          >Developer Name</label
-                        >
-                        <input
-                          type="text"
-                          name="developer-name"
-                          id="developer-name"
-                          autocomplete="off"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                          placeholder="Type developer name"
-                          required
-                        />
-                        <ui
-                          id="developer-names-list"
-                          class="hidden bg-white rounded-t-lg list-none p-4 rounded-b-2xl shadow-lg absolute left-0 max-h-80 overflow-auto w-full"
-                        >
-                          <!-- here developer list will populate dynamically -->
-                        </ui>
-                      </div>
-                      <div>
-                        <label
-                          for="status"
-                          class="block mb-2 text-sm font-medium text-gray-900"
-                          >Status</label
-                        >
-                        <select
-                          id="status"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
-                        >
-                          <option value="Off Plan">Off Plan</option>
-                          <option value="TV">New Launch</option>
-                          <option value="PC">Resale</option>
-                          <option value="GA">Rather Not Mentioned</option>
-                        </select>
-                      </div>
-                      <div class="w-full sm:col-span-2">
-                        <label
+                  <form class="my-8" action="#">
+                    <div class="w-full">
+                      <span
                           for="title"
                           class="block mb-2 text-sm font-medium text-gray-900"
-                          >Project Title</label
+                          >Project Renders</span
                         >
-                        <input
-                          type="text"
-                          name="title"
-                          id="title"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                          placeholder="Project title"
-                          required=""
-                        />
-                      </div>
-                      <div class="sm:col-span-2">
-                        <label
-                          for="description"
-                          class="block mb-2 text-sm font-medium text-gray-900"
-                          >Description</label
+                      <label
+                        for="dropzone-file"
+                        class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50"
+                      >
+                        <div
+                          class="flex flex-col items-center justify-center pt-5 pb-6"
                         >
-                        <textarea
-                          id="description"
-                          rows="8"
-                          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
-                          placeholder="Write a project description here..."
-                        ></textarea>
-                      </div>
+                          <svg
+                            class="w-8 h-8 mb-4 text-gray-500"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 20 16"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                            />
+                          </svg>
+                          <p
+                            class="mb-2 text-sm text-gray-500"
+                          >
+                            <span class="font-semibold">Click to upload</span>
+                            or drag and drop
+                          </p>
+                          <p class="text-xs text-gray-500">
+                            SVG, PNG, JPG or GIF (MAX. 800x400px)
+                          </p>
+                        </div>
+                        <input id="dropzone-file" type="file" class="hidden" />
+                      </label>
                     </div>
+                    <div class="my-4 w-full">
+                      <span
+                          for="title"
+                          class="block mb-2 text-sm font-medium text-gray-900"
+                          >Project Documents</span
+                        >
+                      <label
+                        for="dropzone-file"
+                        class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50"
+                      >
+                        <div
+                          class="flex flex-col items-center justify-center pt-5 pb-6"
+                        >
+                          <svg
+                            class="w-8 h-8 mb-4 text-gray-500"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 20 16"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                            />
+                          </svg>
+                          <p
+                            class="mb-2 text-sm text-gray-500"
+                          >
+                            <span class="font-semibold">Click to upload</span>
+                            or drag and drop
+                          </p>
+                          <p class="text-xs text-gray-500">
+                            SVG, PNG, JPG or GIF (MAX. 800x400px)
+                          </p>
+                        </div>
+                        <input id="dropzone-file" type="file" class="hidden" />
+                      </label>
+                    </div>
+
                     <div class="flex float-right items-center space-x-4">
                       <button
                         type="button"

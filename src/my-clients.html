@@ -234,19 +234,21 @@
                 <!-- </div> -->
               </div>
             </div>
-
           </div>
 
           <!-- right items -->
           <div class="ml-auto hidden lg:flex items-center gap-x-2">
             <!-- toggle -->
-            <label class="relative inline-flex cursor-pointer items-center">
-              <input id="switch" type="checkbox" class="peer sr-only" />
-              <label for="switch" class="hidden"></label>
-              <div
-                class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
-              ></div>
-            </label>
+            <div class="flex items-center gap-x-2">
+              <p class="text-sm">Meeting mode:</p>
+              <label class="relative inline-flex cursor-pointer items-center">
+                <input id="switch" type="checkbox" class="peer sr-only" />
+                <label for="switch" class="hidden"></label>
+                <div
+                  class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                ></div>
+              </label>
+            </div>
 
             <!-- scripts -->
             <div class="relative">
@@ -335,7 +337,9 @@
     </div>
 
     <!-- Main Starts here -->
-    <main class="relative lg:mt-2 lg:pl-[calc(var(--navbar-width)+2rem)] lg:pr-4">
+    <main
+      class="relative lg:mt-2 lg:pl-[calc(var(--navbar-width)+2rem)] lg:pr-4"
+    >
       <!-- navbar -->
       <div
         id="navbar"
@@ -366,11 +370,10 @@
           </div>
           <div class="px-3">
             <!-- menu icon -->
-            <div class="absolute z-10 top-[4.5rem] -right-10 size-10 flex items-center rounded-r-full shadow-xl bg-white/90 hover:bg-gray-50">
-              <button
-                id="nav-btn"
-                class="flex rounded p-2 "
-              >
+            <div
+              class="absolute z-10 top-[4.5rem] -right-10 size-10 flex items-center rounded-r-full shadow-xl bg-white/90 hover:bg-gray-50"
+            >
+              <button id="nav-btn" class="flex rounded p-2">
                 <ion-icon
                   class="text-blue-800 size-5"
                   name="chevron-forward"
@@ -482,234 +485,325 @@
             <div class="px-5 md:px-10 py-10">
               <p class="text-gray-800 font-semibold">My Clients</p>
 
-              <div class="container mx-auto grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-8 gap-4">
-                  <div class="rounded-xl bg-white shadow-xl p-4">
-                      <div class="flex justify-between">
-                          <img class="w-12 rounded-full" src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_5.png" alt="" />
-                          <div class="mb-4 md:mb-0 bg-green-100 h-6 px-5 rounded-full flex items-center justify-center">
-                              <span class="text-xs text-green-700 font-normal">Project: Digital Design</span>
-                          </div>
-                      </div>
-                      <p class="text-gray-800 font-semibold">Samuel Jackson</p>
-                      <p class="text-gray-600 text-xs">9130***120</p>
-                      <p class="text-gray-600 text-xs">jack*******rth.com</p>
-                      <div class="bg-green-100 mt-3 flex justify-between text-center">
-                          <div class="w-1/3 px-1 py-2">
-                              <p class="text-green-600 text-xs">Projects</p>
-                              <p class="text-green-600 text-xl">03</p>
-                          </div>
-                          <div class="w-1/3 border-l border-green-200 px-1 py-2">
-                              <p class="text-green-600 text-xs">Members working</p>
-                              <p class="text-green-600 text-xl">03</p>
-                          </div>
-                          <div class="w-1/3 border-l border-green-200 px-1 py-2">
-                              <p class="text-green-600 text-xs">Deliverables</p>
-                              <p class="text-green-600 text-xl">23/30</p>
-                          </div>
-                      </div>
-
-                      <div class="container mx-auto mt-5">
-                          <div class="mx-auto">
-                              <p class="text-xs pb-1 text-gray-500 font-bold">Progress</p>
-                              <div class="flex justify-between items-center pb-1">
-                                  <p class="text-sm text-green-400 font-bold">3/10 Tasks</p>
-                              </div>
-                              <div class="h-2 bg-gray-200 rounded">
-                                  <div class="w-7/12 bg-green-400 h-2 rounded relative"></div>
-                              </div>
-                          </div>
-                      </div>
+              <div
+                class="container mx-auto grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-8 gap-4"
+              >
+                <div class="rounded-xl bg-white shadow-xl p-4">
+                  <div class="flex justify-between">
+                    <img
+                      class="w-12 rounded-full"
+                      src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_5.png"
+                      alt=""
+                    />
+                    <div
+                      class="mb-4 md:mb-0 bg-blue-100 h-6 px-5 rounded-full flex items-center justify-center"
+                    >
+                      <span class="text-xs text-blue-700 font-normal"
+                        >Project: Digital Design</span
+                      >
+                    </div>
                   </div>
-                  <div class="rounded-xl bg-white shadow-xl p-4">
-                      <div class="flex justify-between">
-                          <img class="w-12 rounded-full" src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_6.png" alt="" />
-                          <div class="mb-4 md:mb-0 bg-pink-100 h-6 px-5 rounded-full flex items-center justify-center">
-                              <span class="text-xs text-pink-700 font-normal">Project: Digital Design</span>
-                          </div>
-                      </div>
-                      <p class="text-gray-800 font-semibold">John Teller</p>
-                      <p class="text-gray-600 text-xs">9130***120</p>
-                      <p class="text-gray-600 text-xs">jack*******rth.com</p>
-                      <div class="bg-pink-100 mt-3 flex justify-between text-center">
-                          <div class="w-1/3 px-1 py-2">
-                              <p class="text-pink-500 text-xs">Projects</p>
-                              <p class="text-pink-500 text-xl">03</p>
-                          </div>
-                          <div class="w-1/3 border-l border-pink-200 px-1 py-2">
-                              <p class="text-pink-500 text-xs">Members working</p>
-                              <p class="text-pink-500 text-xl">03</p>
-                          </div>
-                          <div class="w-1/3 border-l border-pink-200 px-1 py-2">
-                              <p class="text-pink-500 text-xs">Deliverables</p>
-                              <p class="text-pink-500 text-xl">23/30</p>
-                          </div>
-                      </div>
-
-                      <div class="container mx-auto mt-5">
-                          <div class="mx-auto">
-                              <p class="text-xs pb-1 text-gray-500 font-bold">Progress</p>
-                              <div class="flex justify-between items-center pb-1">
-                                  <p class="text-sm text-pink-500 font-bold">3/10 Tasks</p>
-                              </div>
-                              <div class="h-2 bg-gray-200 rounded">
-                                  <div class="w-7/12 bg-pink-500 h-2 rounded relative"></div>
-                              </div>
-                          </div>
-                      </div>
+                  <p class="text-gray-800 font-semibold">Samuel Jackson</p>
+                  <p class="text-gray-600 text-xs">9130***120</p>
+                  <p class="text-gray-600 text-xs">jack*******rth.com</p>
+                  <div
+                    class="bg-blue-100 mt-3 flex justify-between text-center"
+                  >
+                    <div class="w-1/3 px-1 py-2">
+                      <p class="text-blue-600 text-xs">Projects</p>
+                      <p class="text-blue-600 text-xl">03</p>
+                    </div>
+                    <div class="w-1/3 border-l border-blue-200 px-1 py-2">
+                      <p class="text-blue-600 text-xs">Members working</p>
+                      <p class="text-blue-600 text-xl">03</p>
+                    </div>
+                    <div class="w-1/3 border-l border-blue-200 px-1 py-2">
+                      <p class="text-blue-600 text-xs">Deliverables</p>
+                      <p class="text-blue-600 text-xl">23/30</p>
+                    </div>
                   </div>
-                  <div class="rounded-xl bg-white shadow-xl p-4">
-                      <div class="flex justify-between">
-                          <img class="w-12 rounded-full" src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_7.png" alt="" />
-                          <div class="mb-4 md:mb-0 bg-blue-100 h-6 px-5 rounded-full flex items-center justify-center">
-                              <span class="text-xs text-blue-600 font-normal">Project: CRM Implementation</span>
-                          </div>
-                      </div>
-                      <p class="text-gray-800 font-semibold">John Teller</p>
-                      <p class="text-gray-600 text-xs">9130***120</p>
-                      <p class="text-gray-600 text-xs">jack*******rth.com</p>
-                      <div class="bg-blue-100 mt-3 flex justify-between text-center">
-                          <div class="w-1/3 px-1 py-2">
-                              <p class="text-blue-600 text-xs">Projects</p>
-                              <p class="text-blue-600 text-xl">03</p>
-                          </div>
-                          <div class="w-1/3 border-l border-blue-200 px-1 py-2">
-                              <p class="text-blue-600 text-xs">Members working</p>
-                              <p class="text-blue-600 text-xl">03</p>
-                          </div>
-                          <div class="w-1/3 border-l border-blue-200 px-1 py-2">
-                              <p class="text-blue-600 text-xs">Deliverables</p>
-                              <p class="text-blue-600 text-xl">23/30</p>
-                          </div>
-                      </div>
 
-                      <div class="container mx-auto mt-5">
-                          <div class="mx-auto">
-                              <p class="text-xs pb-1 text-gray-500 font-bold">Progress</p>
-                              <div class="flex justify-between items-center pb-1">
-                                  <p class="text-sm text-blue-600 font-bold">3/10 Tasks</p>
-                              </div>
-                              <div class="h-2 bg-gray-200 rounded">
-                                  <div class="w-7/12 bg-blue-600 h-2 rounded relative"></div>
-                              </div>
-                          </div>
+                  <div class="container mx-auto mt-5">
+                    <div class="mx-auto">
+                      <p class="text-xs pb-1 text-gray-500 font-bold">
+                        Progress
+                      </p>
+                      <div class="flex justify-between items-center pb-1">
+                        <p class="text-sm text-blue-600 font-bold">
+                          3/10 Tasks
+                        </p>
                       </div>
+                      <div class="h-2 bg-gray-200 rounded">
+                        <div
+                          class="w-7/12 bg-blue-600 h-2 rounded relative"
+                        ></div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="rounded-xl bg-white shadow-xl p-4">
-                      <div class="flex justify-between">
-                          <img class="w-12 rounded-full" src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_8.png" alt="" />
-                          <div class="mb-4 md:mb-0 bg-red-100 h-6 px-5 rounded-full flex items-center justify-center">
-                              <span class="text-xs text-red-700 font-normal">Project: Social Media Management</span>
-                          </div>
-                      </div>
-                      <p class="text-gray-800 font-semibold">Robert Larrson</p>
-                      <p class="text-gray-600 text-xs">9130***120</p>
-                      <p class="text-gray-600 text-xs">jack*******rth.com</p>
-                      <div class="bg-red-100 mt-3 flex justify-between text-center">
-                          <div class="w-1/3 px-1 py-2">
-                              <p class="text-red-500 text-xs">Projects</p>
-                              <p class="text-red-500 text-xl">03</p>
-                          </div>
-                          <div class="w-1/3 border-l border-red-200 px-1 py-2">
-                              <p class="text-red-500 text-xs">Members working</p>
-                              <p class="text-red-500 text-xl">03</p>
-                          </div>
-                          <div class="w-1/3 border-l border-red-200 px-1 py-2">
-                              <p class="text-red-500 text-xs">Deliverables</p>
-                              <p class="text-red-500 text-xl">23/30</p>
-                          </div>
-                      </div>
+                </div>
+                <div class="rounded-xl bg-white shadow-xl p-4">
+                  <div class="flex justify-between">
+                    <img
+                      class="w-12 rounded-full"
+                      src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_6.png"
+                      alt=""
+                    />
+                    <div
+                      class="mb-4 md:mb-0 bg-blue-100 h-6 px-5 rounded-full flex items-center justify-center"
+                    >
+                      <span class="text-xs text-blue-700 font-normal"
+                        >Project: Digital Design</span
+                      >
+                    </div>
+                  </div>
+                  <p class="text-gray-800 font-semibold">John Teller</p>
+                  <p class="text-gray-600 text-xs">9130***120</p>
+                  <p class="text-gray-600 text-xs">jack*******rth.com</p>
+                  <div
+                    class="bg-blue-100 mt-3 flex justify-between text-center"
+                  >
+                    <div class="w-1/3 px-1 py-2">
+                      <p class="text-blue-500 text-xs">Projects</p>
+                      <p class="text-blue-500 text-xl">03</p>
+                    </div>
+                    <div class="w-1/3 border-l border-blue-200 px-1 py-2">
+                      <p class="text-blue-500 text-xs">Members working</p>
+                      <p class="text-blue-500 text-xl">03</p>
+                    </div>
+                    <div class="w-1/3 border-l border-blue-200 px-1 py-2">
+                      <p class="text-blue-500 text-xs">Deliverables</p>
+                      <p class="text-blue-500 text-xl">23/30</p>
+                    </div>
+                  </div>
 
-                      <div class="container mx-auto mt-5">
-                          <div class="mx-auto">
-                              <p class="text-xs pb-1 text-gray-500 font-bold">Progress</p>
-                              <div class="flex justify-between items-center pb-1">
-                                  <p class="text-sm text-red-500 font-bold">4/8 Tasks</p>
-                              </div>
-                              <div class="h-2 bg-gray-200 rounded">
-                                  <div class="w-7/12 bg-red-500 h-2 rounded relative"></div>
-                              </div>
-                          </div>
+                  <div class="container mx-auto mt-5">
+                    <div class="mx-auto">
+                      <p class="text-xs pb-1 text-gray-500 font-bold">
+                        Progress
+                      </p>
+                      <div class="flex justify-between items-center pb-1">
+                        <p class="text-sm text-blue-600 font-bold">
+                          5/10 Tasks
+                        </p>
                       </div>
+                      <div class="h-2 bg-gray-200 rounded">
+                        <div
+                          class="w-7/12 bg-blue-600 h-2 rounded relative"
+                        ></div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="rounded-xl bg-white shadow-xl p-4">
-                      <div class="flex justify-between">
-                          <img class="w-12 rounded-full" src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_9.png" alt="" />
-                          <div class="mb-4 md:mb-0 bg-indigo-100 h-6 px-5 rounded-full flex items-center justify-center">
-                              <span class="text-xs text-indigo-600 font-normal">Project: Video Production</span>
-                          </div>
-                      </div>
-                      <p class="text-gray-800 font-semibold">Carrie Mathison</p>
-                      <p class="text-gray-600 text-xs">9130***120</p>
-                      <p class="text-gray-600 text-xs">jack*******rth.com</p>
-                      <div class="bg-blue-100 mt-3 flex justify-between text-center">
-                          <div class="w-1/3 px-1 py-2">
-                              <p class="text-indigo-600 text-xs">Projects</p>
-                              <p class="text-indigo-600 text-xl">03</p>
-                          </div>
-                          <div class="w-1/3 border-l border-indigo-200 px-1 py-2">
-                              <p class="text-indigo-600 text-xs">Members working</p>
-                              <p class="text-indigo-600 text-xl">03</p>
-                          </div>
-                          <div class="w-1/3 border-l border-indigo-200 px-1 py-2">
-                              <p class="text-indigo-600 text-xs">Deliverables</p>
-                              <p class="text-indigo-600 text-xl">23/30</p>
-                          </div>
-                      </div>
+                </div>
+                <div class="rounded-xl bg-white shadow-xl p-4">
+                  <div class="flex justify-between">
+                    <img
+                      class="w-12 rounded-full"
+                      src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_7.png"
+                      alt=""
+                    />
+                    <div
+                      class="mb-4 md:mb-0 bg-blue-100 h-6 px-5 rounded-full flex items-center justify-center"
+                    >
+                      <span class="text-xs text-blue-600 font-normal"
+                        >Project: CRM Implementation</span
+                      >
+                    </div>
+                  </div>
+                  <p class="text-gray-800 font-semibold">John Teller</p>
+                  <p class="text-gray-600 text-xs">9130***120</p>
+                  <p class="text-gray-600 text-xs">jack*******rth.com</p>
+                  <div
+                    class="bg-blue-100 mt-3 flex justify-between text-center"
+                  >
+                    <div class="w-1/3 px-1 py-2">
+                      <p class="text-blue-600 text-xs">Projects</p>
+                      <p class="text-blue-600 text-xl">03</p>
+                    </div>
+                    <div class="w-1/3 border-l border-blue-200 px-1 py-2">
+                      <p class="text-blue-600 text-xs">Members working</p>
+                      <p class="text-blue-600 text-xl">03</p>
+                    </div>
+                    <div class="w-1/3 border-l border-blue-200 px-1 py-2">
+                      <p class="text-blue-600 text-xs">Deliverables</p>
+                      <p class="text-blue-600 text-xl">23/30</p>
+                    </div>
+                  </div>
 
-                      <div class="container mx-auto mt-5">
-                          <div class="mx-auto">
-                              <p class="text-xs pb-1 text-gray-500 font-bold">Progress</p>
-                              <div class="flex justify-between items-center pb-1">
-                                  <p class="text-sm text-indigo-600 font-bold">2/8 Tasks</p>
-                              </div>
-                              <div class="h-2 bg-gray-200 rounded">
-                                  <div class="w-7/12 bg-indigo-600 h-2 rounded relative"></div>
-                              </div>
-                          </div>
+                  <div class="container mx-auto mt-5">
+                    <div class="mx-auto">
+                      <p class="text-xs pb-1 text-gray-500 font-bold">
+                        Progress
+                      </p>
+                      <div class="flex justify-between items-center pb-1">
+                        <p class="text-sm text-blue-600 font-bold">
+                          3/10 Tasks
+                        </p>
                       </div>
+                      <div class="h-2 bg-gray-200 rounded">
+                        <div
+                          class="w-7/12 bg-blue-600 h-2 rounded relative"
+                        ></div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="rounded-xl bg-white shadow-xl p-4">
-                      <div class="flex justify-between">
-                          <img class="w-12 rounded-full" src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_10.png" alt="" />
-                          <div class="mb-4 md:mb-0 bg-purple-100 h-6 px-5 rounded-full flex items-center justify-center">
-                              <span class="text-xs text-purple-600 font-normal">Project: Data Analytics</span>
-                          </div>
-                      </div>
-                      <p class="text-gray-800 font-semibold">Jasmine Thompson</p>
-                      <p class="text-gray-600 text-xs">9130***120</p>
-                      <p class="text-gray-600 text-xs">jack*******rth.com</p>
-                      <div class="bg-purple-100 mt-3 flex justify-between text-center">
-                          <div class="w-1/3 px-1 py-2">
-                              <p class="text-purple-600 text-xs">Projects</p>
-                              <p class="text-purple-600 text-xl">03</p>
-                          </div>
-                          <div class="w-1/3 border-l border-purple-200 px-1 py-2">
-                              <p class="text-purple-600 text-xs">Members working</p>
-                              <p class="text-purple-600 text-xl">03</p>
-                          </div>
-                          <div class="w-1/3 border-l border-purple-200 px-1 py-2">
-                              <p class="text-purple-600 text-xs">Deliverables</p>
-                              <p class="text-purple-600 text-xl">23/30</p>
-                          </div>
-                      </div>
+                </div>
+                <div class="rounded-xl bg-white shadow-xl p-4">
+                  <div class="flex justify-between">
+                    <img
+                      class="w-12 rounded-full"
+                      src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_8.png"
+                      alt=""
+                    />
+                    <div
+                      class="mb-4 md:mb-0 bg-blue-100 h-6 px-5 rounded-full flex items-center justify-center"
+                    >
+                      <span class="text-xs text-blue-700 font-normal"
+                        >Project: Social Media Management</span
+                      >
+                    </div>
+                  </div>
+                  <p class="text-gray-800 font-semibold">Robert Larrson</p>
+                  <p class="text-gray-600 text-xs">9130***120</p>
+                  <p class="text-gray-600 text-xs">jack*******rth.com</p>
+                  <div class="bg-blue-100 mt-3 flex justify-between text-center">
+                    <div class="w-1/3 px-1 py-2">
+                      <p class="text-blue-500 text-xs">Projects</p>
+                      <p class="text-blue-500 text-xl">03</p>
+                    </div>
+                    <div class="w-1/3 border-l border-blue-200 px-1 py-2">
+                      <p class="text-blue-500 text-xs">Members working</p>
+                      <p class="text-blue-500 text-xl">03</p>
+                    </div>
+                    <div class="w-1/3 border-l border-blue-200 px-1 py-2">
+                      <p class="text-blue-500 text-xs">Deliverables</p>
+                      <p class="text-blue-500 text-xl">23/30</p>
+                    </div>
+                  </div>
 
-                      <div class="container mx-auto mt-5">
-                          <div class="mx-auto">
-                              <p class="text-xs pb-1 text-gray-500 font-bold">Progress</p>
-                              <div class="flex justify-between items-center pb-1">
-                                  <p class="text-sm text-purple-600 font-bold">5/12 Tasks</p>
-                              </div>
-                              <div class="h-2 bg-gray-200 rounded">
-                                  <div class="w-7/12 bg-purple-600 h-2 rounded relative"></div>
-                              </div>
-                          </div>
+                  <div class="container mx-auto mt-5">
+                    <div class="mx-auto">
+                      <p class="text-xs pb-1 text-gray-500 font-bold">
+                        Progress
+                      </p>
+                      <div class="flex justify-between items-center pb-1">
+                        <p class="text-sm text-blue-600 font-bold">4/8 Tasks</p>
                       </div>
+                      <div class="h-2 bg-gray-200 rounded">
+                        <div
+                          class="w-7/12 bg-blue-600 h-2 rounded relative"
+                        ></div>
+                      </div>
+                    </div>
                   </div>
+                </div>
+                <div class="rounded-xl bg-white shadow-xl p-4">
+                  <div class="flex justify-between">
+                    <img
+                      class="w-12 rounded-full"
+                      src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_9.png"
+                      alt=""
+                    />
+                    <div
+                      class="mb-4 md:mb-0 bg-blue-100 h-6 px-5 rounded-full flex items-center justify-center"
+                    >
+                      <span class="text-xs text-blue-600 font-normal"
+                        >Project: Video Production</span
+                      >
+                    </div>
+                  </div>
+                  <p class="text-gray-800 font-semibold">Carrie Mathison</p>
+                  <p class="text-gray-600 text-xs">9130***120</p>
+                  <p class="text-gray-600 text-xs">jack*******rth.com</p>
+                  <div
+                    class="bg-blue-100 mt-3 flex justify-between text-center"
+                  >
+                    <div class="w-1/3 px-1 py-2">
+                      <p class="text-blue-600 text-xs">Projects</p>
+                      <p class="text-blue-600 text-xl">03</p>
+                    </div>
+                    <div class="w-1/3 border-l border-blue-200 px-1 py-2">
+                      <p class="text-blue-600 text-xs">Members working</p>
+                      <p class="text-blue-600 text-xl">03</p>
+                    </div>
+                    <div class="w-1/3 border-l border-blue-200 px-1 py-2">
+                      <p class="text-blue-600 text-xs">Deliverables</p>
+                      <p class="text-blue-600 text-xl">23/30</p>
+                    </div>
+                  </div>
+
+                  <div class="container mx-auto mt-5">
+                    <div class="mx-auto">
+                      <p class="text-xs pb-1 text-gray-500 font-bold">
+                        Progress
+                      </p>
+                      <div class="flex justify-between items-center pb-1">
+                        <p class="text-sm text-blue-600 font-bold">
+                          2/8 Tasks
+                        </p>
+                      </div>
+                      <div class="h-2 bg-gray-200 rounded">
+                        <div
+                          class="w-7/12 bg-blue-600 h-2 rounded relative"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="rounded-xl bg-white shadow-xl p-4">
+                  <div class="flex justify-between">
+                    <img
+                      class="w-12 rounded-full"
+                      src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_10.png"
+                      alt=""
+                    />
+                    <div
+                      class="mb-4 md:mb-0 bg-blue-100 h-6 px-5 rounded-full flex items-center justify-center"
+                    >
+                      <span class="text-xs text-blue-600 font-normal"
+                        >Project: Data Analytics</span
+                      >
+                    </div>
+                  </div>
+                  <p class="text-gray-800 font-semibold">Jasmine Thompson</p>
+                  <p class="text-gray-600 text-xs">9130***120</p>
+                  <p class="text-gray-600 text-xs">jack*******rth.com</p>
+                  <div
+                    class="bg-blue-100 mt-3 flex justify-between text-center"
+                  >
+                    <div class="w-1/3 px-1 py-2">
+                      <p class="text-blue-600 text-xs">Projects</p>
+                      <p class="text-blue-600 text-xl">03</p>
+                    </div>
+                    <div class="w-1/3 border-l border-blue-200 px-1 py-2">
+                      <p class="text-blue-600 text-xs">Members working</p>
+                      <p class="text-blue-600 text-xl">03</p>
+                    </div>
+                    <div class="w-1/3 border-l border-blue-200 px-1 py-2">
+                      <p class="text-blue-600 text-xs">Deliverables</p>
+                      <p class="text-blue-600 text-xl">23/30</p>
+                    </div>
+                  </div>
+
+                  <div class="container mx-auto mt-5">
+                    <div class="mx-auto">
+                      <p class="text-xs pb-1 text-gray-500 font-bold">
+                        Progress
+                      </p>
+                      <div class="flex justify-between items-center pb-1">
+                        <p class="text-sm text-blue-600 font-bold">
+                          5/12 Tasks
+                        </p>
+                      </div>
+                      <div class="h-2 bg-gray-200 rounded">
+                        <div
+                          class="w-7/12 bg-blue-600 h-2 rounded relative"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-          </div>
-             
-          </div>
-
+            </div>
           </div>
         </div>
       </div>
@@ -748,7 +842,7 @@
             {
               title: "Meeting with Amanda",
               start: "2024-10-03",
-              allDay: true
+              allDay: true,
             },
             {
               title: "Meeting with Amor",
