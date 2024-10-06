@@ -50,27 +50,29 @@ developersBtn?.addEventListener("click", toggleDevelopersWrapper);
 
 function toggleNavbar() {
   if (navbar.classList.contains("lg:w-16")) {
-    navbar.classList.remove("w-0", "lg:w-16");
+    navbar.classList.remove("w-0", "lg:w-16",);
     navbar.classList.add("w-64", "lg:w-72");
     navbar.firstElementChild.classList.remove("rounded-full");
-    navbar.firstElementChild.classList.add("sm:rounded-3xl");
+    navbar.firstElementChild.classList.add("lg:rounded-3xl");
     navBtn.firstElementChild.setAttribute("name", "chevron-back");
     navBtnMobile.firstElementChild.setAttribute("name", "close-outline");
     setTimeout(() => {
+      document.querySelector(".brand-name").style.display = "block"
       Array.from(navitemTitles).forEach((item) => {
         item.classList.remove("hidden");
       });
     }, 150);
   } else {
     navbar.classList.remove("w-64", "lg:w-72");
-    navbar.classList.add("w-0", "lg:w-16");
-    navBtn.firstElementChild.setAttribute("name", "reorder-three");
+    navbar.classList.add("w-0", "lg:w-16",);
+    navBtn.firstElementChild.setAttribute("name", "chevron-forward");
     navBtnMobile.firstElementChild.setAttribute("name", "reorder-three");
     Array.from(navitemTitles).forEach((item) => {
       item.classList.add("hidden");
     });
     setTimeout(() => {
-      navbar.firstElementChild.classList.remove("sm:rounded-3xl");
+      document.querySelector(".brand-name").style.display = "none"
+      navbar.firstElementChild.classList.remove("lg:rounded-3xl");
       navbar.firstElementChild.classList.add("rounded-full");
     }, 100);
   }
@@ -755,10 +757,10 @@ $(document).ready(function () {
   $(".dashboard-slider").slick({
     dots: true,
     autoplay: false,
-    adaptiveHeight: true,
+    // adaptiveHeight: true,
     prevArrow:
-      '<button class="z-10 absolute right-12 bottom-2 bg-blue-200 rounded-full size-6 flex items-center justify-center hover:bg-blue-100"><ion-icon name="chevron-back"></ion-icon></button>',
+      '<button class="z-10 absolute right-12 lg:right-14 bottom-2 bg-blue-200 rounded-full size-6 lg:size-8 flex items-center justify-center hover:bg-blue-100"><ion-icon name="chevron-back"></ion-icon></button>',
     nextArrow:
-      '<button class="z-10 absolute right-4 bottom-2 bg-blue-200 rounded-full size-6 flex items-center justify-center hover:bg-blue-100"><ion-icon name="chevron-forward"></ion-icon></button>',
+      '<button class="z-10 absolute right-4 bottom-2 bg-blue-200 rounded-full size-6 lg:size-8 flex items-center justify-center hover:bg-blue-100"><ion-icon name="chevron-forward"></ion-icon></button>',
   });
 });

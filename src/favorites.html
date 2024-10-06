@@ -30,18 +30,18 @@
     </div>
 
     <!-- header -->
-    <div class="sm:py-2 sm:px-4 w-full h-[--header-height] relative z-30">
+    <div class="lg:py-2 lg:px-4 w-full h-[--header-height] relative z-30">
       <div
-        class="px-1 lg:px-2 bg-white/60 shadow-md flex items-center backdrop-blur-sm size-full sm:rounded-full"
+        class="px-2 sm:px-4 lg:px-2 bg-white/60 shadow-md flex items-center backdrop-blur-sm size-full lg:rounded-full"
       >
         <div class="w-full flex items-center">
           <!-- logo -->
           <div class="lg:hidden">
             <div
-              class="size-6 flex items-center justify-center rounded-full bg-white"
+              class="size-7 sm:size-10 flex items-center justify-center rounded-full bg-white"
             >
               <ion-icon
-                class="size-6 text-blue-800"
+                class="size-7 sm:size-10 text-blue-800"
                 name="invert-mode-outline"
               ></ion-icon>
             </div>
@@ -123,14 +123,11 @@
               </span>
             </form>
           </div>
-
           <!-- divider -->
-          <span
-            class="hidden lg:block mr-2 lg:mr-4 w-[2px] h-4 bg-gray-500"
-          ></span>
+          <span class="hidden lg:block ml-4 w-[2px] h-4 bg-gray-500"></span>
 
           <!-- Switches -->
-          <div class="lg:ml-2 flex items-center gap-x-2">
+          <div class="lg:ml-4 flex items-center gap-x-2">
             <!-- currency changer -->
             <div class="flex relative items-center">
               <button
@@ -152,11 +149,11 @@
 
               <div
                 id="currencies"
-                class="absolute z-20 top-8 lg:top-10 -left-16 lg:left-0 w-60 lg:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
+                class="absolute z-20 top-8 lg:top-10 -left-24 lg:left-0 w-60 lg:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
               >
                 <!-- <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"> -->
                 <div
-                  class="p-4 bg-white/90 backdrop-blur-md shadow-lg rounded-xl size-full"
+                  class="p-4 bg-white/90 backdrop-blur-md rounded-xl shadow-lg size-full"
                 >
                   <h2
                     class="text-sm lg:text-lg text-gray-800 font-semibold mb-2"
@@ -237,6 +234,7 @@
                 <!-- </div> -->
               </div>
             </div>
+
           </div>
 
           <!-- right items -->
@@ -328,7 +326,7 @@
             class="flex items-center ml-auto lg:hidden"
           >
             <ion-icon
-              class="text-blue-800 size-5 bg-blue-50 rounded sm:rounded-full p-1"
+              class="text-blue-800 size-6 lg:size-8 bg-gray-200 rounded lg:rounded-full p-1"
               name="reorder-three"
             ></ion-icon>
           </button>
@@ -337,14 +335,14 @@
     </div>
 
     <!-- Main Starts here -->
-    <main class="relative sm:mt-2 sm:pl-4 lg:pl-[calc(var(--navbar-width)+2rem)] sm:pr-4">
+    <main class="relative lg:mt-2 lg:pl-[calc(var(--navbar-width)+2rem)] lg:pr-4">
       <!-- navbar -->
       <div
         id="navbar"
-        class="w-0 lg:w-16 z-30 h-[calc(100vh-var(--header-height))] sm:h-[calc(100vh-var(--header-height)-1rem)] absolute sm:left-4 top-0 overflow-y-auto overflow-x-hidden transition-all"
+        class="w-0 lg:w-16 z-30 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] absolute lg:left-4 top-0 transition-all"
       >
         <div
-          class="bg-white/60 backdrop-blur-sm h-full rounded-full border border-gray-300 transition-all duration-0"
+          class="relative bg-white/60 backdrop-blur-sm h-full rounded-full lg:border lg:border-gray-300 transition-all duration-0"
         >
           <!-- Logo -->
           <div
@@ -360,22 +358,22 @@
                 ></ion-icon>
               </div>
               <p
-                class="brand-name font-medium whitespace-nowrap lg:ml-4 text-blue-800"
+                class="brand-name hidden font-medium whitespace-nowrap lg:ml-4 text-blue-800"
               >
                 Realtors Pilot
               </p>
             </div>
           </div>
-          <div class="mt-3 px-3 flex flex-col items-start">
+          <div class="px-3">
             <!-- menu icon -->
-            <div class="size-full flex items-center justify-end">
+            <div class="absolute z-10 top-[4.5rem] -right-10 size-10 flex items-center rounded-r-full shadow-xl bg-white/90 hover:bg-gray-50">
               <button
                 id="nav-btn"
-                class="flex rounded p-2 hover:bg-blue-600/10"
+                class="flex rounded p-2 "
               >
                 <ion-icon
                   class="text-blue-800 size-5"
-                  name="reorder-three"
+                  name="chevron-forward"
                 ></ion-icon>
               </button>
             </div>
@@ -472,7 +470,7 @@
         </div>
       </div>
 
-      <div class="flex justify-center w-full sm:rounded-3xl overflow-hidden shadow-md">
+      <div class="flex justify-center w-full lg:rounded-3xl overflow-hidden shadow-md">
         <!-- Project-left-sidebar -->
         <div
           id="project-sidebar"
@@ -719,7 +717,7 @@
         </div>
         <!-- section -->
         <div
-          class="px-4 sm:px-8 h-[calc(100vh-var(--header-height))] sm:h-[calc(100vh-var(--header-height)-1rem)] w-full overflow-auto py-4 bg-white/60 backdrop-blur-md "
+          class="px-4 sm:px-8 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] w-full overflow-auto py-4 bg-white/60 backdrop-blur-md "
         >
           <div class="fav-wrapper lg:px-60 w-full mx-auto">
             <h3 class="font-semibold text-xl text-blue-800 mt-8">
@@ -729,11 +727,11 @@
 
             <div class="mb-2">
               <div
-                class="flex gap-x-1 items-center w-max bg-gray-200 backdrop-blur-sm rounded shadow-sm p-0.5 lg:p-1"
+                class="flex gap-x-1 items-center w-max bg-gray-200 backdrop-blur-sm rounded-full shadow-sm py-0.5 px-1 lg:py-1 lg:px-1.5"
               >
                 <button
                   id="list-view"
-                  class="bg-white rounded py-1 px-1 lg:px-1.5 flex items-center justify-center"
+                  class="bg-white rounded-full py-1 px-1 lg:px-1.5 flex items-center justify-center"
                 >
                   <span
                     class="text-gray-800 font-medium text-[10px] lg:text-sm mr-1"
@@ -742,7 +740,7 @@
                 </button>
                 <button
                   id="map-view"
-                  class="rounded py-1 px-1 lg:px-1.5 font-medium flex items-center justify-center"
+                  class="rounded-full py-1 px-1 lg:px-1.5 font-medium flex items-center justify-center"
                 >
                   <span
                     class="text-gray-500 font-medium text-[10px] lg:text-sm mr-1"
@@ -753,10 +751,10 @@
             </div>
             <hr class="mb-2" />
             <!-- List -->
-            <div id="list-view-container" class="bg-white rounded-xl mb-10 flex flex-col divide-y-2 ">
+            <div id="list-view-container" class="rounded-xl mb-10 flex flex-col divide-y-2 ">
               <div onclick="openProjectSidebar()" class="mx-auto flex justify-center items-center cursor-pointer">
                 <div
-                  class="flex flex-col md:flex-row gap-x-4 bg-white w-full rounded-lg py-5 px-4"
+                  class="flex flex-col md:flex-row gap-x-4 w-full rounded-lg py-5 px-4"
                 >
                   <div class="mb-4 md:mb-0">
                     <img
@@ -810,7 +808,7 @@
               </div>
               <div onclick="openProjectSidebar()" class="mx-auto flex justify-center items-center cursor-pointer">
                 <div
-                  class="flex flex-col md:flex-row gap-x-4 bg-white w-full rounded-lg py-5 px-4"
+                  class="flex flex-col md:flex-row gap-x-4 w-full rounded-lg py-5 px-4"
                 >
                   <div class="mb-4 md:mb-0">
                     <img
@@ -864,7 +862,7 @@
               </div>
               <div onclick="openProjectSidebar()" class="mx-auto flex justify-center items-center cursor-pointer">
                 <div
-                  class="flex flex-col md:flex-row gap-x-4 bg-white w-full rounded-lg py-5 px-4"
+                  class="flex flex-col md:flex-row gap-x-4 w-full rounded-lg py-5 px-4"
                 >
                   <div class="mb-4 md:mb-0">
                     <img

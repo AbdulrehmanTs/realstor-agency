@@ -30,18 +30,18 @@
     </div>
 
     <!-- header -->
-    <div class="sm:py-2 sm:px-4 w-full h-[--header-height] relative z-30">
+    <div class="lg:py-2 lg:px-4 w-full h-[--header-height] relative z-30">
       <div
-        class="px-1 lg:px-2 bg-white/60 shadow-md flex items-center backdrop-blur-sm size-full sm:rounded-full"
+        class="px-2 sm:px-4 lg:px-2 bg-white/60 shadow-md flex items-center backdrop-blur-sm size-full lg:rounded-full"
       >
         <div class="w-full flex items-center">
           <!-- logo -->
           <div class="lg:hidden">
             <div
-              class="size-6 flex items-center justify-center rounded-full bg-white"
+              class="size-7 sm:size-10 flex items-center justify-center rounded-full bg-white"
             >
               <ion-icon
-                class="size-6 text-blue-800"
+                class="size-7 sm:size-10 text-blue-800"
                 name="invert-mode-outline"
               ></ion-icon>
             </div>
@@ -122,6 +122,119 @@
                 </button>
               </span>
             </form>
+          </div>
+          <!-- divider -->
+          <span class="hidden lg:block ml-4 w-[2px] h-4 bg-gray-500"></span>
+
+          <!-- Switches -->
+          <div class="lg:ml-4 flex items-center gap-x-2">
+            <!-- currency changer -->
+            <div class="flex relative items-center">
+              <button
+                id="currency-button"
+                class="bg-gray-200 backdrop-blur-sm lg:min-w-24 rounded lg:rounded-full hover:bg-gray-200/90 flex items-center justify-center gap-x-2 shadow-sm px-1.5 lg:px-3 py-1 lg:py-1.5"
+              >
+                <p
+                  class="currency text-gray-600 font-medium text-[10px] lg:text-sm transition-all ease-linear duration-200"
+                >
+                  USD
+                </p>
+                <div class="h-4 w-px lg:w-[1.5px] bg-gray-500"></div>
+                <p
+                  class="measure text-gray-600 font-medium text-[10px] lg:text-sm transition-all ease-linear duration-200"
+                >
+                  ft<sup>2</sup>
+                </p>
+              </button>
+
+              <div
+                id="currencies"
+                class="absolute z-20 top-8 lg:top-10 -left-24 lg:left-0 w-60 lg:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
+              >
+                <!-- <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"> -->
+                <div
+                  class="p-4 bg-white/90 backdrop-blur-md rounded-xl shadow-lg size-full"
+                >
+                  <h2
+                    class="text-sm lg:text-lg text-gray-800 font-semibold mb-2"
+                  >
+                    Currency
+                  </h2>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <button
+                      onClick="selectCurrency(this)"
+                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
+                    >
+                      <p
+                        class="currency font-medium text-[10px] lg:text-sm text-gray-600"
+                      >
+                        AED
+                      </p>
+                    </button>
+                    <button
+                      onClick="selectCurrency(this)"
+                      class="bg-blue-500 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
+                    >
+                      <p
+                        class="currency font-medium text-[10px] lg:text-sm text-gray-100"
+                      >
+                        USD
+                      </p>
+                    </button>
+                    <button
+                      onClick="selectCurrency(this)"
+                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
+                    >
+                      <p
+                        class="currency font-medium text-[10px] lg:text-sm text-gray-600"
+                      >
+                        EUR
+                      </p>
+                    </button>
+                    <button
+                      onClick="selectCurrency(this)"
+                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
+                    >
+                      <p
+                        class="currency font-medium text-[10px] lg:text-sm text-gray-600"
+                      >
+                        CAD
+                      </p>
+                    </button>
+                  </div>
+                  <!-- Sizes -->
+                  <h2
+                    class="text-sm lg:text-lg text-gray-800 font-semibold mt-4 mb-2"
+                  >
+                    Measures
+                  </h2>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <button
+                      onClick="selectMeasure(this)"
+                      class="bg-blue-500 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
+                    >
+                      <p
+                        class="measure font-medium text-[10px] lg:text-sm text-gray-100"
+                      >
+                        ft<sup>2</sup>
+                      </p>
+                    </button>
+                    <button
+                      onClick="selectMeasure(this)"
+                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
+                    >
+                      <p
+                        class="measure font-medium text-[10px] lg:text-sm text-gray-600"
+                      >
+                        m<sup>2</sup>
+                      </p>
+                    </button>
+                  </div>
+                </div>
+                <!-- </div> -->
+              </div>
+            </div>
+
           </div>
 
           <!-- right items -->
@@ -213,7 +326,7 @@
             class="flex items-center ml-auto lg:hidden"
           >
             <ion-icon
-              class="text-blue-800 size-5 bg-blue-50 rounded sm:rounded-full p-1"
+              class="text-blue-800 size-6 lg:size-8 bg-gray-200 rounded lg:rounded-full p-1"
               name="reorder-three"
             ></ion-icon>
           </button>
@@ -222,16 +335,14 @@
     </div>
 
     <!-- Main Starts here -->
-    <main
-      class="relative sm:mt-2 sm:pl-4 lg:pl-[calc(var(--navbar-width)+2rem)] sm:pr-4"
-    >
+    <main class="relative lg:mt-2 lg:pl-[calc(var(--navbar-width)+2rem)] lg:pr-4">
       <!-- navbar -->
       <div
         id="navbar"
-        class="w-0 lg:w-16 z-30 h-[calc(100vh-var(--header-height))] sm:h-[calc(100vh-var(--header-height)-1rem)] absolute sm:left-4 top-0 overflow-y-auto overflow-x-hidden transition-all"
+        class="w-0 lg:w-16 z-30 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] absolute lg:left-4 top-0 transition-all"
       >
         <div
-          class="bg-white/80 backdrop-blur-sm h-full transition-all rounded-full border border-gray-300 duration-0"
+          class="relative bg-white/60 backdrop-blur-sm h-full rounded-full lg:border lg:border-gray-300 transition-all duration-0"
         >
           <!-- Logo -->
           <div
@@ -247,22 +358,22 @@
                 ></ion-icon>
               </div>
               <p
-                class="brand-name font-medium whitespace-nowrap lg:ml-4 text-blue-800"
+                class="brand-name hidden font-medium whitespace-nowrap lg:ml-4 text-blue-800"
               >
                 Realtors Pilot
               </p>
             </div>
           </div>
-          <div class="mt-3 px-3 flex flex-col items-start">
+          <div class="px-3">
             <!-- menu icon -->
-            <div class="size-full flex items-center justify-end">
+            <div class="absolute z-10 top-[4.5rem] -right-10 size-10 flex items-center rounded-r-full shadow-xl bg-white/90 hover:bg-gray-50">
               <button
                 id="nav-btn"
-                class="flex rounded p-2 hover:bg-blue-600/10"
+                class="flex rounded p-2 "
               >
                 <ion-icon
                   class="text-blue-800 size-5"
-                  name="reorder-three"
+                  name="chevron-forward"
                 ></ion-icon>
               </button>
             </div>
@@ -360,28 +471,28 @@
       </div>
 
       <div
-        class="flex justify-center gap-x-2 w-full sm:rounded-3xl overflow-hidden shadow-lg"
+        class="flex justify-center gap-x-2 w-full lg:rounded-3xl overflow-hidden shadow-lg"
       >
         <!-- section -->
         <div
-          class="lg:px-8 h-[calc(100vh-var(--header-height))] sm:h-[calc(100vh-var(--header-height)-1rem)] w-full overflow-auto py-4 pb-10 bg-white/60 backdrop-blur-md"
+          class="lg:px-8 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] w-full overflow-auto py-4 pb-10 bg-white/60 backdrop-blur-md"
         >
           <div class="w-full">
             <!-- Place your content here -->
             <div class="px-5 md:px-10 py-10">
               <p class="text-gray-800 font-semibold">My Clients</p>
 
-              <div class="container mx-auto grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-8 row-gap-4 col-gap-4">
-                  <div class="rounded bg-white p-4">
+              <div class="container mx-auto grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-8 gap-4">
+                  <div class="rounded-xl bg-white shadow-xl p-4">
                       <div class="flex justify-between">
                           <img class="w-12 rounded-full" src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_5.png" alt="" />
                           <div class="mb-4 md:mb-0 bg-green-100 h-6 px-5 rounded-full flex items-center justify-center">
-                              <span class="text-xs text-green-700 font-normal">Digital Design</span>
+                              <span class="text-xs text-green-700 font-normal">Project: Digital Design</span>
                           </div>
                       </div>
                       <p class="text-gray-800 font-semibold">Samuel Jackson</p>
-                      <p class="text-gray-600 text-xs">Creative Director</p>
-                      <p class="text-gray-600 text-xs">jackson.samuel@thenorth.com</p>
+                      <p class="text-gray-600 text-xs">9130***120</p>
+                      <p class="text-gray-600 text-xs">jack*******rth.com</p>
                       <div class="bg-green-100 mt-3 flex justify-between text-center">
                           <div class="w-1/3 px-1 py-2">
                               <p class="text-green-600 text-xs">Projects</p>
@@ -401,7 +512,7 @@
                           <div class="mx-auto">
                               <p class="text-xs pb-1 text-gray-500 font-bold">Progress</p>
                               <div class="flex justify-between items-center pb-1">
-                                  <p class="text-sm text-green-400 font-bold">63% Complete</p>
+                                  <p class="text-sm text-green-400 font-bold">3/10 Tasks</p>
                               </div>
                               <div class="h-2 bg-gray-200 rounded">
                                   <div class="w-7/12 bg-green-400 h-2 rounded relative"></div>
@@ -409,16 +520,16 @@
                           </div>
                       </div>
                   </div>
-                  <div class="rounded bg-white p-4">
+                  <div class="rounded-xl bg-white shadow-xl p-4">
                       <div class="flex justify-between">
                           <img class="w-12 rounded-full" src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_6.png" alt="" />
                           <div class="mb-4 md:mb-0 bg-pink-100 h-6 px-5 rounded-full flex items-center justify-center">
-                              <span class="text-xs text-pink-700 font-normal">Digital Design</span>
+                              <span class="text-xs text-pink-700 font-normal">Project: Digital Design</span>
                           </div>
                       </div>
                       <p class="text-gray-800 font-semibold">John Teller</p>
-                      <p class="text-gray-600 text-xs">Chief Diversity Officer</p>
-                      <p class="text-gray-600 text-xs">teller.john@thenorth.com</p>
+                      <p class="text-gray-600 text-xs">9130***120</p>
+                      <p class="text-gray-600 text-xs">jack*******rth.com</p>
                       <div class="bg-pink-100 mt-3 flex justify-between text-center">
                           <div class="w-1/3 px-1 py-2">
                               <p class="text-pink-500 text-xs">Projects</p>
@@ -438,7 +549,7 @@
                           <div class="mx-auto">
                               <p class="text-xs pb-1 text-gray-500 font-bold">Progress</p>
                               <div class="flex justify-between items-center pb-1">
-                                  <p class="text-sm text-pink-500 font-bold">63% Complete</p>
+                                  <p class="text-sm text-pink-500 font-bold">3/10 Tasks</p>
                               </div>
                               <div class="h-2 bg-gray-200 rounded">
                                   <div class="w-7/12 bg-pink-500 h-2 rounded relative"></div>
@@ -446,16 +557,16 @@
                           </div>
                       </div>
                   </div>
-                  <div class="rounded bg-white p-4">
+                  <div class="rounded-xl bg-white shadow-xl p-4">
                       <div class="flex justify-between">
                           <img class="w-12 rounded-full" src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_7.png" alt="" />
                           <div class="mb-4 md:mb-0 bg-blue-100 h-6 px-5 rounded-full flex items-center justify-center">
-                              <span class="text-xs text-blue-600 font-normal">CRM Implementation</span>
+                              <span class="text-xs text-blue-600 font-normal">Project: CRM Implementation</span>
                           </div>
                       </div>
                       <p class="text-gray-800 font-semibold">John Teller</p>
-                      <p class="text-gray-600 text-xs">Head of CRM Implementation</p>
-                      <p class="text-gray-600 text-xs">teller.john@thenorth.com</p>
+                      <p class="text-gray-600 text-xs">9130***120</p>
+                      <p class="text-gray-600 text-xs">jack*******rth.com</p>
                       <div class="bg-blue-100 mt-3 flex justify-between text-center">
                           <div class="w-1/3 px-1 py-2">
                               <p class="text-blue-600 text-xs">Projects</p>
@@ -475,7 +586,7 @@
                           <div class="mx-auto">
                               <p class="text-xs pb-1 text-gray-500 font-bold">Progress</p>
                               <div class="flex justify-between items-center pb-1">
-                                  <p class="text-sm text-blue-600 font-bold">63% Complete</p>
+                                  <p class="text-sm text-blue-600 font-bold">3/10 Tasks</p>
                               </div>
                               <div class="h-2 bg-gray-200 rounded">
                                   <div class="w-7/12 bg-blue-600 h-2 rounded relative"></div>
@@ -483,16 +594,16 @@
                           </div>
                       </div>
                   </div>
-                  <div class="rounded bg-white p-4">
+                  <div class="rounded-xl bg-white shadow-xl p-4">
                       <div class="flex justify-between">
                           <img class="w-12 rounded-full" src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_8.png" alt="" />
                           <div class="mb-4 md:mb-0 bg-red-100 h-6 px-5 rounded-full flex items-center justify-center">
-                              <span class="text-xs text-red-700 font-normal">Social Media Management</span>
+                              <span class="text-xs text-red-700 font-normal">Project: Social Media Management</span>
                           </div>
                       </div>
                       <p class="text-gray-800 font-semibold">Robert Larrson</p>
-                      <p class="text-gray-600 text-xs">Head of Social Media Management</p>
-                      <p class="text-gray-600 text-xs">mathison.carrie@thenorth.com</p>
+                      <p class="text-gray-600 text-xs">9130***120</p>
+                      <p class="text-gray-600 text-xs">jack*******rth.com</p>
                       <div class="bg-red-100 mt-3 flex justify-between text-center">
                           <div class="w-1/3 px-1 py-2">
                               <p class="text-red-500 text-xs">Projects</p>
@@ -512,7 +623,7 @@
                           <div class="mx-auto">
                               <p class="text-xs pb-1 text-gray-500 font-bold">Progress</p>
                               <div class="flex justify-between items-center pb-1">
-                                  <p class="text-sm text-red-500 font-bold">63% Complete</p>
+                                  <p class="text-sm text-red-500 font-bold">4/8 Tasks</p>
                               </div>
                               <div class="h-2 bg-gray-200 rounded">
                                   <div class="w-7/12 bg-red-500 h-2 rounded relative"></div>
@@ -520,16 +631,16 @@
                           </div>
                       </div>
                   </div>
-                  <div class="rounded bg-white p-4">
+                  <div class="rounded-xl bg-white shadow-xl p-4">
                       <div class="flex justify-between">
                           <img class="w-12 rounded-full" src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_9.png" alt="" />
                           <div class="mb-4 md:mb-0 bg-indigo-100 h-6 px-5 rounded-full flex items-center justify-center">
-                              <span class="text-xs text-indigo-600 font-normal">Video Production</span>
+                              <span class="text-xs text-indigo-600 font-normal">Project: Video Production</span>
                           </div>
                       </div>
                       <p class="text-gray-800 font-semibold">Carrie Mathison</p>
-                      <p class="text-gray-600 text-xs">Chief of Video Production</p>
-                      <p class="text-gray-600 text-xs">mathison.carrie@thenorth.com</p>
+                      <p class="text-gray-600 text-xs">9130***120</p>
+                      <p class="text-gray-600 text-xs">jack*******rth.com</p>
                       <div class="bg-blue-100 mt-3 flex justify-between text-center">
                           <div class="w-1/3 px-1 py-2">
                               <p class="text-indigo-600 text-xs">Projects</p>
@@ -549,7 +660,7 @@
                           <div class="mx-auto">
                               <p class="text-xs pb-1 text-gray-500 font-bold">Progress</p>
                               <div class="flex justify-between items-center pb-1">
-                                  <p class="text-sm text-indigo-600 font-bold">63% Complete</p>
+                                  <p class="text-sm text-indigo-600 font-bold">2/8 Tasks</p>
                               </div>
                               <div class="h-2 bg-gray-200 rounded">
                                   <div class="w-7/12 bg-indigo-600 h-2 rounded relative"></div>
@@ -557,16 +668,16 @@
                           </div>
                       </div>
                   </div>
-                  <div class="rounded bg-white p-4">
+                  <div class="rounded-xl bg-white shadow-xl p-4">
                       <div class="flex justify-between">
                           <img class="w-12 rounded-full" src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_10.png" alt="" />
                           <div class="mb-4 md:mb-0 bg-purple-100 h-6 px-5 rounded-full flex items-center justify-center">
-                              <span class="text-xs text-purple-600 font-normal">Data Analytics</span>
+                              <span class="text-xs text-purple-600 font-normal">Project: Data Analytics</span>
                           </div>
                       </div>
                       <p class="text-gray-800 font-semibold">Jasmine Thompson</p>
-                      <p class="text-gray-600 text-xs">Chief Finance Offier</p>
-                      <p class="text-gray-600 text-xs">thompson.jasmine@thenorth.com</p>
+                      <p class="text-gray-600 text-xs">9130***120</p>
+                      <p class="text-gray-600 text-xs">jack*******rth.com</p>
                       <div class="bg-purple-100 mt-3 flex justify-between text-center">
                           <div class="w-1/3 px-1 py-2">
                               <p class="text-purple-600 text-xs">Projects</p>
@@ -586,7 +697,7 @@
                           <div class="mx-auto">
                               <p class="text-xs pb-1 text-gray-500 font-bold">Progress</p>
                               <div class="flex justify-between items-center pb-1">
-                                  <p class="text-sm text-purple-600 font-bold">63% Complete</p>
+                                  <p class="text-sm text-purple-600 font-bold">5/12 Tasks</p>
                               </div>
                               <div class="h-2 bg-gray-200 rounded">
                                   <div class="w-7/12 bg-purple-600 h-2 rounded relative"></div>
