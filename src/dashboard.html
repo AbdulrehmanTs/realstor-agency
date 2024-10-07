@@ -723,32 +723,5 @@
       https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js
       "></script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var calendarEl = document.getElementById("calendar");
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: "dayGridWeek",
-          selectable: true,
-          selectMorrir: true,
-          events: [
-            {
-              title: "Meeting with Amanda",
-              start: "2024-10-03",
-              allDay: true,
-            },
-            {
-              title: "Meeting with Amor",
-              start: "2024-10-02",
-            },
-            {
-              title: "Meeting with Ahmed",
-              start: "2024-10-06",
-            },
-            // other events here
-          ],
-        });
-        calendar.render();
-      });
-    </script>
   </body>
 </html>

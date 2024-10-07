@@ -336,6 +336,178 @@
       </div>
     </div>
 
+    <!-- Meeting Modal -->
+    <div
+      id="modal"
+      class="fixed inset-0 z-40 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden"
+    >
+      <div
+        class="relative top-20 mx-auto p-5 border md:max-w-2xl shadow-lg rounded-md bg-white"
+      >
+        <div class="mt-3 text-center">
+          <button id="modalCloseBtn" class="absolute right-4 top-4 size-8 flex items-center justify-center rounded-full ">
+            <ion-icon class="text-gray-800 size-8 md:size-10" name="close"></ion-icon>
+          </button>
+          <h3 class="text-lg leading-6 font-medium text-gray-900">
+            Create New Meeting
+          </h3>
+          <form id="meetingForm" class="mt-2 text-left">
+            <div class="mb-4">
+              <label for="title" class="block text-sm font-medium text-gray-700"
+                >Meeting Title</label
+              >
+              <input
+                type="text"
+                id="title"
+                name="title"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                for="description"
+                class="block text-sm font-medium text-gray-700"
+                >Description</label
+              >
+              <textarea
+                id="description"
+                name="description"
+                rows="3"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              ></textarea>
+            </div>
+            <div class="mb-4">
+              <label for="date" class="block text-sm font-medium text-gray-700"
+                >Date</label
+              >
+              <input
+                type="date"
+                id="date"
+                name="date"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              />
+            </div>
+            <div class="mb-4 grid grid-cols-2 gap-4">
+              <div>
+                <label
+                  for="startTime"
+                  class="block text-sm font-medium text-gray-700"
+                  >Start Time</label
+                >
+                <input
+                  type="time"
+                  id="startTime"
+                  name="startTime"
+                  required
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                />
+              </div>
+              <div>
+                <label
+                  for="endTime"
+                  class="block text-sm font-medium text-gray-700"
+                  >End Time</label
+                >
+                <input
+                  type="time"
+                  id="endTime"
+                  name="endTime"
+                  required
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                />
+              </div>
+            </div>
+            <div class="mb-4">
+              <label
+                for="attendees"
+                class="block text-sm font-medium text-gray-700"
+                >Attendees</label
+              >
+              <input
+                type="text"
+                id="attendees"
+                name="attendees"
+                placeholder="Enter email addresses, separated by commas"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                for="platform"
+                class="block text-sm font-medium text-gray-700"
+                >Platform</label
+              >
+              <select
+                id="platform"
+                name="platform"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              >
+                <option value="">Select platform</option>
+                <option value="zoom">Zoom</option>
+                <option value="google-meet">Google Meet</option>
+                <option value="offline">Offline</option>
+              </select>
+            </div>
+            <div id="locationField" class="mb-4 hidden">
+              <label
+                for="location"
+                class="block text-sm font-medium text-gray-700"
+                >Meeting Location</label
+              >
+              <input
+                type="text"
+                id="location"
+                name="location"
+                placeholder="Enter meeting location"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                for="reminderTime"
+                class="block text-sm font-medium text-gray-700"
+                >Reminder</label
+              >
+              <select
+                id="reminderTime"
+                name="reminderTime"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              >
+                <option value="">Select reminder time</option>
+                <option value="5">5 minutes before</option>
+                <option value="10">10 minutes before</option>
+                <option value="15">15 minutes before</option>
+                <option value="30">30 minutes before</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label
+                for="organizer"
+                class="block text-sm font-medium text-gray-700"
+                >Organizer</label
+              >
+              <input
+                type="text"
+                id="organizer"
+                name="organizer"
+                placeholder="Enter organizer's name"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              />
+            </div>
+            <div class="mt-5 sm:mt-6">
+              <button
+                type="submit"
+                class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm"
+              >
+                Create Meeting
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     <!-- Main Starts here -->
     <main
       class="relative lg:mt-2 lg:pl-[calc(var(--navbar-width)+2rem)] lg:pr-4"
@@ -497,37 +669,42 @@
           <div class="w-full">
             <!-- Meeting -->
             <div
-              class="h-80 rounded-3xl flex items-center justify-center bg-gradient-to-br from-purple-600 to-blue-500"
+              class="h-60 md:h-80 rounded-3xl flex items-center justify-center bg-gradient-to-br from-purple-600 to-blue-500"
             >
               <div class="text-center">
                 <h1
-                  class="text-4xl md:text-6xl font-bold text-white mb-8 animate-pulse"
+                  class="text-2xl md:text-6xl px-10 md:px-0 font-bold text-white mb-8 animate-pulse"
                 >
                   Schedule Your Next Big Idea
                 </h1>
                 <button
-                  class="bg-white text-purple-600 font-semibold py-3 px-6 rounded-full shadow-lg transform transition duration-300 ease-in-out hover:scale-110 hover:bg-purple-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
+                  id="openModalBtn"
+                  class="bg-white text-purple-600 text-sm md:text-base font-semibold py-3 px-6 rounded-full shadow-lg transform transition duration-300 ease-in-out hover:scale-110 hover:bg-purple-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
                 >
                   New Meeting +
                 </button>
               </div>
             </div>
 
+            <!-- modal ends here -->
+
             <!-- All Meetings -->
-            <div class="mt-10 bg-white rounded-3xl shadow p-6">
-              <h2 class="text-xl mb-4">All Meetings</h2>
-              <div class="grid grid-cols-1 md-grid-cols-2 lg:grid-cols-3 gap-5">
-                <div class="w-full max-w-md">
+            <div class="mt-10 md:bg-white md:rounded-3xl md:shadow md:p-6">
+              <h2 class="text-sm md:text-xl mb-4">All Meetings</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+                <div class="w-full">
                   <div
                     class="meetingCard bg-blue-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out"
                   >
-                    <div class="p-6">
+                    <div class="p-4 md:p-6">
                       <div class="flex justify-between items-start">
                         <div>
-                          <h2 class="text-2xl font-semibold text-blue-900">
+                          <h2
+                            class="text-sm md:text-2xl font-semibold text-blue-900"
+                          >
                             Meeting with James Brown
                           </h2>
-                          <p class="text-blue-700 mt-1">
+                          <p class="text-blue-700 text-xs md:text-sm mt-1">
                             8:00 AM - 9:00 AM (UTC)
                           </p>
                         </div>
@@ -535,7 +712,7 @@
                           class="expandBtn text-blue-700 hover:text-blue-900 focus:outline-none"
                         >
                           <svg
-                            class="w-6 h-6 transform transition-transform duration-300"
+                            class="size-5 md:size-6 transform transition-transform duration-300"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -554,27 +731,29 @@
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_8.png"
                           alt="Attendee 1"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_9.png"
                           alt="Attendee 2"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_10.png"
                           alt="Attendee 3"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <span
-                          class="bg-blue-200 text-blue-800 size-9 flex items-center justify-center rounded-full  text-sm"
+                          class="bg-blue-200 text-blue-800 size-7 md:size-9 flex items-center justify-center rounded-full text-xs md:text-sm"
                           >+2</span
                         >
                       </div>
                       <div class="mt-4 flex justify-between items-center">
-                        <p class="text-blue-800">on Google Meet</p>
+                        <p class="text-sm md:text-base text-blue-800">
+                          on Google Meet
+                        </p>
                         <span
-                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-sm font-semibold"
+                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-xs md:text-sm font-semibold"
                           >Marketing</span
                         >
                       </div>
@@ -690,7 +869,9 @@
                         Join Meeting
                       </button>
                       <div class="mt-4 text-center">
-                        <p class="text-gray-700 mb-2">Are you going to attend?</p>
+                        <p class="text-gray-700 mb-2">
+                          Are you going to attend?
+                        </p>
                         <div class="space-x-2">
                           <button
                             class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
@@ -707,17 +888,19 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full max-w-md">
+                <div class="w-full">
                   <div
                     class="meetingCard bg-blue-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out"
                   >
-                    <div class="p-6">
+                    <div class="p-4 md:p-6">
                       <div class="flex justify-between items-start">
                         <div>
-                          <h2 class="text-2xl font-semibold text-blue-900">
+                          <h2
+                            class="text-sm md:text-2xl font-semibold text-blue-900"
+                          >
                             Meeting with James Brown
                           </h2>
-                          <p class="text-blue-700 mt-1">
+                          <p class="text-blue-700 text-xs md:text-sm mt-1">
                             8:00 AM - 9:00 AM (UTC)
                           </p>
                         </div>
@@ -725,7 +908,7 @@
                           class="expandBtn text-blue-700 hover:text-blue-900 focus:outline-none"
                         >
                           <svg
-                            class="w-6 h-6 transform transition-transform duration-300"
+                            class="size-5 md:size-6 transform transition-transform duration-300"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -744,27 +927,29 @@
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_8.png"
                           alt="Attendee 1"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_9.png"
                           alt="Attendee 2"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_10.png"
                           alt="Attendee 3"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <span
-                          class="bg-blue-200 text-blue-800 size-9 flex items-center justify-center rounded-full  text-sm"
+                          class="bg-blue-200 text-blue-800 size-7 md:size-9 flex items-center justify-center rounded-full text-xs md:text-sm"
                           >+2</span
                         >
                       </div>
                       <div class="mt-4 flex justify-between items-center">
-                        <p class="text-blue-800">on Google Meet</p>
+                        <p class="text-sm md:text-base text-blue-800">
+                          on Google Meet
+                        </p>
                         <span
-                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-sm font-semibold"
+                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-xs md:text-sm font-semibold"
                           >Marketing</span
                         >
                       </div>
@@ -880,7 +1065,9 @@
                         Join Meeting
                       </button>
                       <div class="mt-4 text-center">
-                        <p class="text-gray-700 mb-2">Are you going to attend?</p>
+                        <p class="text-gray-700 mb-2">
+                          Are you going to attend?
+                        </p>
                         <div class="space-x-2">
                           <button
                             class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
@@ -897,17 +1084,19 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full max-w-md">
+                <div class="w-full">
                   <div
                     class="meetingCard bg-blue-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out"
                   >
-                    <div class="p-6">
+                    <div class="p-4 md:p-6">
                       <div class="flex justify-between items-start">
                         <div>
-                          <h2 class="text-2xl font-semibold text-blue-900">
+                          <h2
+                            class="text-sm md:text-2xl font-semibold text-blue-900"
+                          >
                             Meeting with James Brown
                           </h2>
-                          <p class="text-blue-700 mt-1">
+                          <p class="text-blue-700 text-xs md:text-sm mt-1">
                             8:00 AM - 9:00 AM (UTC)
                           </p>
                         </div>
@@ -915,7 +1104,7 @@
                           class="expandBtn text-blue-700 hover:text-blue-900 focus:outline-none"
                         >
                           <svg
-                            class="w-6 h-6 transform transition-transform duration-300"
+                            class="size-5 md:size-6 transform transition-transform duration-300"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -934,27 +1123,29 @@
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_8.png"
                           alt="Attendee 1"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_9.png"
                           alt="Attendee 2"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_10.png"
                           alt="Attendee 3"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <span
-                          class="bg-blue-200 text-blue-800 size-9 flex items-center justify-center rounded-full  text-sm"
+                          class="bg-blue-200 text-blue-800 size-7 md:size-9 flex items-center justify-center rounded-full text-xs md:text-sm"
                           >+2</span
                         >
                       </div>
                       <div class="mt-4 flex justify-between items-center">
-                        <p class="text-blue-800">on Google Meet</p>
+                        <p class="text-sm md:text-base text-blue-800">
+                          on Google Meet
+                        </p>
                         <span
-                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-sm font-semibold"
+                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-xs md:text-sm font-semibold"
                           >Marketing</span
                         >
                       </div>
@@ -1070,7 +1261,9 @@
                         Join Meeting
                       </button>
                       <div class="mt-4 text-center">
-                        <p class="text-gray-700 mb-2">Are you going to attend?</p>
+                        <p class="text-gray-700 mb-2">
+                          Are you going to attend?
+                        </p>
                         <div class="space-x-2">
                           <button
                             class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
@@ -1087,17 +1280,19 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full max-w-md">
+                <div class="w-full">
                   <div
                     class="meetingCard bg-blue-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out"
                   >
-                    <div class="p-6">
+                    <div class="p-4 md:p-6">
                       <div class="flex justify-between items-start">
                         <div>
-                          <h2 class="text-2xl font-semibold text-blue-900">
+                          <h2
+                            class="text-sm md:text-2xl font-semibold text-blue-900"
+                          >
                             Meeting with James Brown
                           </h2>
-                          <p class="text-blue-700 mt-1">
+                          <p class="text-blue-700 text-xs md:text-sm mt-1">
                             8:00 AM - 9:00 AM (UTC)
                           </p>
                         </div>
@@ -1105,7 +1300,7 @@
                           class="expandBtn text-blue-700 hover:text-blue-900 focus:outline-none"
                         >
                           <svg
-                            class="w-6 h-6 transform transition-transform duration-300"
+                            class="size-5 md:size-6 transform transition-transform duration-300"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -1124,27 +1319,29 @@
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_8.png"
                           alt="Attendee 1"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_9.png"
                           alt="Attendee 2"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_10.png"
                           alt="Attendee 3"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <span
-                          class="bg-blue-200 text-blue-800 size-9 flex items-center justify-center rounded-full  text-sm"
+                          class="bg-blue-200 text-blue-800 size-7 md:size-9 flex items-center justify-center rounded-full text-xs md:text-sm"
                           >+2</span
                         >
                       </div>
                       <div class="mt-4 flex justify-between items-center">
-                        <p class="text-blue-800">on Google Meet</p>
+                        <p class="text-sm md:text-base text-blue-800">
+                          on Google Meet
+                        </p>
                         <span
-                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-sm font-semibold"
+                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-xs md:text-sm font-semibold"
                           >Marketing</span
                         >
                       </div>
@@ -1260,7 +1457,9 @@
                         Join Meeting
                       </button>
                       <div class="mt-4 text-center">
-                        <p class="text-gray-700 mb-2">Are you going to attend?</p>
+                        <p class="text-gray-700 mb-2">
+                          Are you going to attend?
+                        </p>
                         <div class="space-x-2">
                           <button
                             class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
@@ -1277,17 +1476,19 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full max-w-md">
+                <div class="w-full">
                   <div
                     class="meetingCard bg-blue-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out"
                   >
-                    <div class="p-6">
+                    <div class="p-4 md:p-6">
                       <div class="flex justify-between items-start">
                         <div>
-                          <h2 class="text-2xl font-semibold text-blue-900">
+                          <h2
+                            class="text-sm md:text-2xl font-semibold text-blue-900"
+                          >
                             Meeting with James Brown
                           </h2>
-                          <p class="text-blue-700 mt-1">
+                          <p class="text-blue-700 text-xs md:text-sm mt-1">
                             8:00 AM - 9:00 AM (UTC)
                           </p>
                         </div>
@@ -1295,7 +1496,7 @@
                           class="expandBtn text-blue-700 hover:text-blue-900 focus:outline-none"
                         >
                           <svg
-                            class="w-6 h-6 transform transition-transform duration-300"
+                            class="size-5 md:size-6 transform transition-transform duration-300"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -1314,27 +1515,29 @@
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_8.png"
                           alt="Attendee 1"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_9.png"
                           alt="Attendee 2"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <img
                           src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_10.png"
                           alt="Attendee 3"
-                          class="w-8 h-8 rounded-full"
+                          class="size-6 md:size-8 rounded-full"
                         />
                         <span
-                          class="bg-blue-200 text-blue-800 size-9 flex items-center justify-center rounded-full  text-sm"
+                          class="bg-blue-200 text-blue-800 size-7 md:size-9 flex items-center justify-center rounded-full text-xs md:text-sm"
                           >+2</span
                         >
                       </div>
                       <div class="mt-4 flex justify-between items-center">
-                        <p class="text-blue-800">on Google Meet</p>
+                        <p class="text-sm md:text-base text-blue-800">
+                          on Google Meet
+                        </p>
                         <span
-                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-sm font-semibold"
+                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-xs md:text-sm font-semibold"
                           >Marketing</span
                         >
                       </div>
@@ -1450,7 +1653,9 @@
                         Join Meeting
                       </button>
                       <div class="mt-4 text-center">
-                        <p class="text-gray-700 mb-2">Are you going to attend?</p>
+                        <p class="text-gray-700 mb-2">
+                          Are you going to attend?
+                        </p>
                         <div class="space-x-2">
                           <button
                             class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
@@ -1499,37 +1704,57 @@
     <script>
       const meetingCards = document.getElementsByClassName("meetingCard");
       const expandBtns = document.getElementsByClassName("expandBtn");
-      const expandedContents = document.getElementsByClassName("expandedContent");
+      const expandedContents =
+        document.getElementsByClassName("expandedContent");
+      const modalCloseBtn = document.getElementById("modalCloseBtn")
 
-      Array.from(expandBtns).forEach((btn, index) => btn.addEventListener("click", () => {
-        Array.from(expandedContents)[index].classList.toggle("hidden");
-        Array.from(expandBtns)[index].querySelector("svg").classList.toggle("rotate-180");
-      }))
+      Array.from(expandBtns).forEach((btn, index) =>
+        btn.addEventListener("click", () => {
+          Array.from(expandedContents)[index].classList.toggle("hidden");
+          Array.from(expandBtns)
+            [index].querySelector("svg")
+            .classList.toggle("rotate-180");
+        })
+      );
 
-      document.addEventListener("DOMContentLoaded", function () {
-        var calendarEl = document.getElementById("calendar");
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: "dayGridWeek",
-          selectable: true,
-          selectMorrir: true,
-          events: [
-            {
-              title: "Meeting with Amanda",
-              start: "2024-10-03",
-              allDay: true,
-            },
-            {
-              title: "Meeting with Amor",
-              start: "2024-10-02",
-            },
-            {
-              title: "Meeting with Ahmed",
-              start: "2024-10-06",
-            },
-            // other events here
-          ],
-        });
-        calendar.render();
+      const modal = document.getElementById("modal");
+      const openModalBtn = document.getElementById("openModalBtn");
+      const meetingForm = document.getElementById("meetingForm");
+
+      openModalBtn.addEventListener("click", () => {
+        modal.classList.remove("hidden");
+      });
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.add("hidden");
+        }
+      });
+
+      modalCloseBtn.addEventListener("click", (e)=> {
+        modal.classList.add("hidden");
+      })
+
+      meetingForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(meetingForm);
+        const meetingData = Object.fromEntries(formData.entries());
+        console.log("Form submitted:", meetingData);
+        // Here you would typically send the data to your backend
+        modal.classList.add("hidden");
+        locationField.classList.add('hidden');
+        meetingForm.reset();
+      });
+
+      const platformSelect = document.getElementById("platform");
+      const locationField = document.getElementById("locationField");
+
+      platformSelect.addEventListener("change", (e) => {
+        if (e.target.value === "offline") {
+          locationField.classList.remove("hidden");
+        } else {
+          locationField.classList.add("hidden");
+        }
       });
     </script>
   </body>
