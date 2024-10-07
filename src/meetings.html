@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Realtors Pilot | Meetings</title>
+    <link href="./assets/css/tailwind.css" rel="stylesheet" />
+    <link rel="icon" href="assets/images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="./assets/slick/slick.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/slick/slick-theme.css"
+    />
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- fullsize-map -->
+    <div class="absolute inset-0 size-full">
+      <div id="map" class="overflow-hidden bg-gray-100 h-full">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d36014.92721428063!2d54.350579929568454!3d24.471830375557406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e440f723ef2b9%3A0xc7cc2e9341971108!2sAbu%20Dhabi%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1724091904495!5m2!1sen!2s"
+          class="size-full outline-0 border-none border-0"
+          allowfullscreen=""
+          loading="lazy"
+          frameborder="0"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <div class="absolute inset-0 bg-white/50 backdrop-blur-sm"></div>
+    </div>
+
+    <!-- header -->
+    <div class="lg:py-2 lg:px-4 w-full h-[--header-height] relative z-30">
+      <div
+        class="px-2 sm:px-4 lg:px-2 bg-white/60 shadow-md flex items-center backdrop-blur-sm size-full lg:rounded-full"
+      >
+        <div class="w-full flex items-center">
+          <!-- logo -->
+          <div class="lg:hidden">
+            <div
+              class="size-7 sm:size-10 flex items-center justify-center rounded-full bg-white"
+            >
+              <ion-icon
+                class="size-7 sm:size-10 text-blue-800"
+                name="invert-mode-outline"
+              ></ion-icon>
+            </div>
+          </div>
+          <!-- Searchbar desktop -->
+          <div class="hidden lg:block max-w-xs lg:w-full ml-2 lg:ml-0 mr-4">
+            <form class="relative bg-transparent backdrop-blur-md rounded-full">
+              <label for="Search" class="sr-only"> Search </label>
+              <input
+                type="text"
+                id="Search"
+                placeholder="Search something..."
+                autocomplete="off"
+                class="lg:w-full opacity-0 lg:opacity-100 rounded-full bg-gray-200 border-none text-blue-950 placeholder:text-blue-800 text-sm lg:text-sm py-1 lg:py-2 sm:text-sm"
+              />
+              <span class="absolute inset-y-0 right-2 lg:left-auto">
+                <button
+                  type="submit"
+                  class="text-gray-600 hover:text-gray-700 h-full grid place-content-center"
+                >
+                  <span class="sr-only">Search</span>
+                  <ion-icon
+                    class="size-4 lg:size-6 text-blue-800 lg:text-gray-600"
+                    name="search-outline"
+                  ></ion-icon>
+                </button>
+              </span>
+            </form>
+          </div>
+
+          <!-- Searchbar mobile -->
+          <div
+            id="mobile-search"
+            class="relative max-w-7 lg:hidden ml-2 mr-4 transition-all"
+          >
+            <span
+              id="search-expand-btn"
+              class="absolute inset-0 left-0 top-0 z-[2] text-gray-600 hover:text-gray-700 h-full grid place-content-center"
+            >
+              <ion-icon
+                class="size-4 lg:size-6 text-blue-800 lg:text-gray-600"
+                name="search-outline"
+              ></ion-icon>
+            </span>
+            <form class="relative bg-gray-200 rounded-full">
+              <label for="Search" class="sr-only"> Search </label>
+              <input
+                type="text"
+                id="Search"
+                placeholder="Search something..."
+                autocomplete="off"
+                class="w-full opacity-0 lg:opacity-100 rounded-full bg-transparent border-none text-gray-700 text-xs lg:text-sm py-1 lg:py-2 sm:text-sm"
+              />
+              <span
+                class="flex gap-x-2 items-center absolute inset-y-0 right-0"
+              >
+                <button
+                  type="submit"
+                  onclick="(e)=> e.preventDefault()"
+                  class="hidden text-gray-600 hover:text-gray-700 h-full place-content-center"
+                >
+                  <span class="sr-only">Search</span>
+                  <ion-icon
+                    class="size-4 lg:size-6 text-blue-800 lg:text-gray-600"
+                    name="search-outline"
+                  ></ion-icon>
+                </button>
+                <button
+                  type="button"
+                  onclick="closeExpandSearch()"
+                  class="hidden text-gray-600 px-1 hover:text-gray-700 h-full place-content-center"
+                >
+                  <span class="sr-only">close</span>
+                  <ion-icon
+                    class="size-4 lg:size-6 text-red-800 lg:text-gray-600"
+                    name="close-outline"
+                  ></ion-icon>
+                </button>
+              </span>
+            </form>
+          </div>
+          <!-- divider -->
+          <span class="hidden lg:block ml-4 w-[2px] h-4 bg-gray-500"></span>
+
+          <!-- Switches -->
+          <div class="lg:ml-4 flex items-center gap-x-2">
+            <!-- currency changer -->
+            <div class="flex relative items-center">
+              <button
+                id="currency-button"
+                class="bg-gray-200 backdrop-blur-sm lg:min-w-24 rounded lg:rounded-full hover:bg-gray-200/90 flex items-center justify-center gap-x-2 shadow-sm px-1.5 lg:px-3 py-1 lg:py-1.5"
+              >
+                <p
+                  class="currency text-gray-600 font-medium text-[10px] lg:text-sm transition-all ease-linear duration-200"
+                >
+                  USD
+                </p>
+                <div class="h-4 w-px lg:w-[1.5px] bg-gray-500"></div>
+                <p
+                  class="measure text-gray-600 font-medium text-[10px] lg:text-sm transition-all ease-linear duration-200"
+                >
+                  ft<sup>2</sup>
+                </p>
+              </button>
+
+              <div
+                id="currencies"
+                class="absolute z-20 top-8 lg:top-10 -left-24 lg:left-0 w-60 lg:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
+              >
+                <!-- <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"> -->
+                <div
+                  class="p-4 bg-white/90 backdrop-blur-md rounded-xl shadow-lg size-full"
+                >
+                  <h2
+                    class="text-sm lg:text-lg text-gray-800 font-semibold mb-2"
+                  >
+                    Currency
+                  </h2>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <button
+                      onClick="selectCurrency(this)"
+                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
+                    >
+                      <p
+                        class="currency font-medium text-[10px] lg:text-sm text-gray-600"
+                      >
+                        AED
+                      </p>
+                    </button>
+                    <button
+                      onClick="selectCurrency(this)"
+                      class="bg-blue-500 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
+                    >
+                      <p
+                        class="currency font-medium text-[10px] lg:text-sm text-gray-100"
+                      >
+                        USD
+                      </p>
+                    </button>
+                    <button
+                      onClick="selectCurrency(this)"
+                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
+                    >
+                      <p
+                        class="currency font-medium text-[10px] lg:text-sm text-gray-600"
+                      >
+                        EUR
+                      </p>
+                    </button>
+                    <button
+                      onClick="selectCurrency(this)"
+                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
+                    >
+                      <p
+                        class="currency font-medium text-[10px] lg:text-sm text-gray-600"
+                      >
+                        CAD
+                      </p>
+                    </button>
+                  </div>
+                  <!-- Sizes -->
+                  <h2
+                    class="text-sm lg:text-lg text-gray-800 font-semibold mt-4 mb-2"
+                  >
+                    Measures
+                  </h2>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <button
+                      onClick="selectMeasure(this)"
+                      class="bg-blue-500 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
+                    >
+                      <p
+                        class="measure font-medium text-[10px] lg:text-sm text-gray-100"
+                      >
+                        ft<sup>2</sup>
+                      </p>
+                    </button>
+                    <button
+                      onClick="selectMeasure(this)"
+                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
+                    >
+                      <p
+                        class="measure font-medium text-[10px] lg:text-sm text-gray-600"
+                      >
+                        m<sup>2</sup>
+                      </p>
+                    </button>
+                  </div>
+                </div>
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- right items -->
+          <div class="ml-auto hidden lg:flex items-center gap-x-2">
+            <!-- toggle -->
+            <div class="flex items-center gap-x-2">
+              <p class="text-sm">Meeting mode:</p>
+              <label class="relative inline-flex cursor-pointer items-center">
+                <input id="switch" type="checkbox" class="peer sr-only" />
+                <label for="switch" class="hidden"></label>
+                <div
+                  class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                ></div>
+              </label>
+            </div>
+
+            <!-- scripts -->
+            <div class="relative">
+              <button
+                id="scripts-button"
+                class="bg-gray-200 backdrop-blur-sm rounded-full text-gray-600 flex items-center gap-x-1 shadow-sm px-3 py-1.5"
+              >
+                <ion-icon
+                  class="size-5 text-gray-600"
+                  name="barcode-outline"
+                ></ion-icon>
+                <span class="text-sm">Scripts</span>
+                <ion-icon class="size-4" name="chevron-down"></ion-icon>
+              </button>
+
+              <div
+                id="scripts-panel"
+                class="opacity-0 absolute top-10 right-0 z-10 w-72 pointer-events-none -translate-y-4 transition-all duration-300"
+              >
+                <!-- <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"> -->
+                <div
+                  class="scripts-slider pt-4 pb-10 bg-white/90 backdrop-blur-md shadow-lg rounded-xl size-full"
+                >
+                  <div class="p-6 min-h-24 max-h-[15vh] text-gray-700 text-sm">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                  </div>
+                  <div
+                    class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                  </div>
+                  <div
+                    class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm"
+                  >
+                    <p>Lorem ipsum dolorto vel neque magni aut ipsam?</p>
+                  </div>
+                  <div
+                    class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href="./scripts.html"
+                  class="absolute bottom-9 left-5 text-blue-500 font-medium text-sm hover:underline rounded-full py-1 px-2 transition"
+                  >See all</a
+                >
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- nav-btn-mobile -->
+          <button
+            id="nav-btn-mobile"
+            class="flex items-center ml-auto lg:hidden"
+          >
+            <ion-icon
+              class="text-blue-800 size-6 lg:size-8 bg-gray-200 rounded lg:rounded-full p-1"
+              name="reorder-three"
+            ></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Starts here -->
+    <main
+      class="relative lg:mt-2 lg:pl-[calc(var(--navbar-width)+2rem)] lg:pr-4"
+    >
+      <!-- navbar -->
+      <div
+        id="navbar"
+        class="w-0 lg:w-16 z-30 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] absolute lg:left-4 top-0 transition-all"
+      >
+        <div
+          class="relative bg-white/60 backdrop-blur-sm h-full rounded-full lg:border lg:border-gray-300 transition-all duration-0"
+        >
+          <!-- Logo -->
+          <div
+            class="flex justify-start px-4 h-[var(--header-height)] border-b border-gray-600/20"
+          >
+            <div class="flex items-center">
+              <div
+                class="size-8 hidden lg:flex items-center justify-center rounded-full bg-white"
+              >
+                <ion-icon
+                  class="size-8 text-blue-800"
+                  name="invert-mode-outline"
+                ></ion-icon>
+              </div>
+              <p
+                class="brand-name hidden font-medium whitespace-nowrap lg:ml-4 text-blue-800"
+              >
+                Realtors Pilot
+              </p>
+            </div>
+          </div>
+          <div class="px-3">
+            <!-- menu icon -->
+            <div
+              class="absolute z-10 top-[4.5rem] -right-10 size-10 flex items-center rounded-r-full shadow-xl bg-white/90 hover:bg-gray-50"
+            >
+              <button id="nav-btn" class="flex rounded p-2">
+                <ion-icon
+                  class="text-blue-800 size-5"
+                  name="chevron-forward"
+                ></ion-icon>
+              </button>
+            </div>
+            <!-- Navitems -->
+            <div class="w-full mt-8">
+              <ul class="flex flex-col gap-y-4">
+                <li class="transition">
+                  <a
+                    href="./index.html"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-700 size-5"
+                      name="home"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                      Home
+                    </p>
+                  </a>
+                </li>
+                <li class="transition">
+                  <a
+                    href="./favorites.html"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-700 size-5"
+                      name="heart"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                      Favorites
+                    </p>
+                  </a>
+                </li>
+                <li class="transition">
+                  <a
+                    href="./scripts.html"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-700 size-5"
+                      name="barcode"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                      Scripts
+                    </p>
+                  </a>
+                </li>
+                <li class="transition">
+                  <a
+                    href="./dashboard.html"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-700 size-5"
+                      name="cube"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                      Dashboard
+                    </p>
+                  </a>
+                </li>
+                <li class="transition">
+                  <a
+                    href="./my-clients.html"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-700 size-5"
+                      name="people"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                      My Clients
+                    </p>
+                  </a>
+                </li>
+                <li class="transition">
+                  <a
+                    href="./add-project.html"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-700 size-5"
+                      name="add-circle"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                      Add Project
+                    </p>
+                  </a>
+                </li>
+                <li class="transition">
+                  <a
+                    href="./meetings.html"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
+                  >
+                    <ion-icon
+                      class="text-blue-700 size-5"
+                      name="calendar"
+                    ></ion-icon>
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                      Meetings
+                    </p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="flex justify-center gap-x-2 w-full lg:rounded-3xl overflow-hidden shadow-lg"
+      >
+        <!-- section -->
+        <div
+          class="px-4 lg:px-8 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] w-full overflow-auto py-4 pb-10 bg-white/60 backdrop-blur-md"
+        >
+          <div class="w-full">
+            <!-- Meeting -->
+            <div
+              class="h-80 rounded-3xl flex items-center justify-center bg-gradient-to-br from-purple-600 to-blue-500"
+            >
+              <div class="text-center">
+                <h1
+                  class="text-4xl md:text-6xl font-bold text-white mb-8 animate-pulse"
+                >
+                  Schedule Your Next Big Idea
+                </h1>
+                <button
+                  class="bg-white text-purple-600 font-semibold py-3 px-6 rounded-full shadow-lg transform transition duration-300 ease-in-out hover:scale-110 hover:bg-purple-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
+                >
+                  New Meeting +
+                </button>
+              </div>
+            </div>
+
+            <!-- All Meetings -->
+            <div class="mt-10 bg-white rounded-3xl shadow p-6">
+              <h2 class="text-xl mb-4">All Meetings</h2>
+              <div class="grid grid-cols-1 md-grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="w-full max-w-md">
+                  <div
+                    class="meetingCard bg-blue-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="p-6">
+                      <div class="flex justify-between items-start">
+                        <div>
+                          <h2 class="text-2xl font-semibold text-blue-900">
+                            Meeting with James Brown
+                          </h2>
+                          <p class="text-blue-700 mt-1">
+                            8:00 AM - 9:00 AM (UTC)
+                          </p>
+                        </div>
+                        <button
+                          class="expandBtn text-blue-700 hover:text-blue-900 focus:outline-none"
+                        >
+                          <svg
+                            class="w-6 h-6 transform transition-transform duration-300"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 9l-7 7-7-7"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="flex items-center mt-4 space-x-2">
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_8.png"
+                          alt="Attendee 1"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_9.png"
+                          alt="Attendee 2"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_10.png"
+                          alt="Attendee 3"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <span
+                          class="bg-blue-200 text-blue-800 size-9 flex items-center justify-center rounded-full  text-sm"
+                          >+2</span
+                        >
+                      </div>
+                      <div class="mt-4 flex justify-between items-center">
+                        <p class="text-blue-800">on Google Meet</p>
+                        <span
+                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-sm font-semibold"
+                          >Marketing</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="expandedContent hidden p-6 bg-white border-t border-blue-200 fade-in"
+                    >
+                      <p class="text-gray-600 mb-4">
+                        Horizon Shift marketing first meeting.
+                      </p>
+                      <div class="space-y-2">
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700"
+                            >8:00 AM - 9:00 AM (UTC)</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700"
+                            >5 attendees (4 confirmed)</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">10 min before</span>
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">Laura Perez</span>
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">Google Meet</span>
+                        </div>
+                      </div>
+                      <div class="mt-4">
+                        <input
+                          type="text"
+                          value="meet.google.com/bsa-ojgn-gms"
+                          class="w-full bg-gray-100 text-gray-800 px-3 py-2 rounded-md"
+                          readonly
+                        />
+                      </div>
+                      <button
+                        class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md mt-4 hover:bg-blue-700 transition duration-300"
+                      >
+                        Join Meeting
+                      </button>
+                      <div class="mt-4 text-center">
+                        <p class="text-gray-700 mb-2">Are you going to attend?</p>
+                        <div class="space-x-2">
+                          <button
+                            class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
+                          >
+                            No
+                          </button>
+                          <button
+                            class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
+                          >
+                            Yes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full max-w-md">
+                  <div
+                    class="meetingCard bg-blue-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="p-6">
+                      <div class="flex justify-between items-start">
+                        <div>
+                          <h2 class="text-2xl font-semibold text-blue-900">
+                            Meeting with James Brown
+                          </h2>
+                          <p class="text-blue-700 mt-1">
+                            8:00 AM - 9:00 AM (UTC)
+                          </p>
+                        </div>
+                        <button
+                          class="expandBtn text-blue-700 hover:text-blue-900 focus:outline-none"
+                        >
+                          <svg
+                            class="w-6 h-6 transform transition-transform duration-300"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 9l-7 7-7-7"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="flex items-center mt-4 space-x-2">
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_8.png"
+                          alt="Attendee 1"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_9.png"
+                          alt="Attendee 2"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_10.png"
+                          alt="Attendee 3"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <span
+                          class="bg-blue-200 text-blue-800 size-9 flex items-center justify-center rounded-full  text-sm"
+                          >+2</span
+                        >
+                      </div>
+                      <div class="mt-4 flex justify-between items-center">
+                        <p class="text-blue-800">on Google Meet</p>
+                        <span
+                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-sm font-semibold"
+                          >Marketing</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="expandedContent hidden p-6 bg-white border-t border-blue-200 fade-in"
+                    >
+                      <p class="text-gray-600 mb-4">
+                        Horizon Shift marketing first meeting.
+                      </p>
+                      <div class="space-y-2">
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700"
+                            >8:00 AM - 9:00 AM (UTC)</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700"
+                            >5 attendees (4 confirmed)</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">10 min before</span>
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">Laura Perez</span>
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">Google Meet</span>
+                        </div>
+                      </div>
+                      <div class="mt-4">
+                        <input
+                          type="text"
+                          value="meet.google.com/bsa-ojgn-gms"
+                          class="w-full bg-gray-100 text-gray-800 px-3 py-2 rounded-md"
+                          readonly
+                        />
+                      </div>
+                      <button
+                        class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md mt-4 hover:bg-blue-700 transition duration-300"
+                      >
+                        Join Meeting
+                      </button>
+                      <div class="mt-4 text-center">
+                        <p class="text-gray-700 mb-2">Are you going to attend?</p>
+                        <div class="space-x-2">
+                          <button
+                            class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
+                          >
+                            No
+                          </button>
+                          <button
+                            class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
+                          >
+                            Yes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full max-w-md">
+                  <div
+                    class="meetingCard bg-blue-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="p-6">
+                      <div class="flex justify-between items-start">
+                        <div>
+                          <h2 class="text-2xl font-semibold text-blue-900">
+                            Meeting with James Brown
+                          </h2>
+                          <p class="text-blue-700 mt-1">
+                            8:00 AM - 9:00 AM (UTC)
+                          </p>
+                        </div>
+                        <button
+                          class="expandBtn text-blue-700 hover:text-blue-900 focus:outline-none"
+                        >
+                          <svg
+                            class="w-6 h-6 transform transition-transform duration-300"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 9l-7 7-7-7"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="flex items-center mt-4 space-x-2">
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_8.png"
+                          alt="Attendee 1"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_9.png"
+                          alt="Attendee 2"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_10.png"
+                          alt="Attendee 3"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <span
+                          class="bg-blue-200 text-blue-800 size-9 flex items-center justify-center rounded-full  text-sm"
+                          >+2</span
+                        >
+                      </div>
+                      <div class="mt-4 flex justify-between items-center">
+                        <p class="text-blue-800">on Google Meet</p>
+                        <span
+                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-sm font-semibold"
+                          >Marketing</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="expandedContent hidden p-6 bg-white border-t border-blue-200 fade-in"
+                    >
+                      <p class="text-gray-600 mb-4">
+                        Horizon Shift marketing first meeting.
+                      </p>
+                      <div class="space-y-2">
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700"
+                            >8:00 AM - 9:00 AM (UTC)</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700"
+                            >5 attendees (4 confirmed)</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">10 min before</span>
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">Laura Perez</span>
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">Google Meet</span>
+                        </div>
+                      </div>
+                      <div class="mt-4">
+                        <input
+                          type="text"
+                          value="meet.google.com/bsa-ojgn-gms"
+                          class="w-full bg-gray-100 text-gray-800 px-3 py-2 rounded-md"
+                          readonly
+                        />
+                      </div>
+                      <button
+                        class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md mt-4 hover:bg-blue-700 transition duration-300"
+                      >
+                        Join Meeting
+                      </button>
+                      <div class="mt-4 text-center">
+                        <p class="text-gray-700 mb-2">Are you going to attend?</p>
+                        <div class="space-x-2">
+                          <button
+                            class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
+                          >
+                            No
+                          </button>
+                          <button
+                            class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
+                          >
+                            Yes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full max-w-md">
+                  <div
+                    class="meetingCard bg-blue-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="p-6">
+                      <div class="flex justify-between items-start">
+                        <div>
+                          <h2 class="text-2xl font-semibold text-blue-900">
+                            Meeting with James Brown
+                          </h2>
+                          <p class="text-blue-700 mt-1">
+                            8:00 AM - 9:00 AM (UTC)
+                          </p>
+                        </div>
+                        <button
+                          class="expandBtn text-blue-700 hover:text-blue-900 focus:outline-none"
+                        >
+                          <svg
+                            class="w-6 h-6 transform transition-transform duration-300"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 9l-7 7-7-7"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="flex items-center mt-4 space-x-2">
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_8.png"
+                          alt="Attendee 1"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_9.png"
+                          alt="Attendee 2"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_10.png"
+                          alt="Attendee 3"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <span
+                          class="bg-blue-200 text-blue-800 size-9 flex items-center justify-center rounded-full  text-sm"
+                          >+2</span
+                        >
+                      </div>
+                      <div class="mt-4 flex justify-between items-center">
+                        <p class="text-blue-800">on Google Meet</p>
+                        <span
+                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-sm font-semibold"
+                          >Marketing</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="expandedContent hidden p-6 bg-white border-t border-blue-200 fade-in"
+                    >
+                      <p class="text-gray-600 mb-4">
+                        Horizon Shift marketing first meeting.
+                      </p>
+                      <div class="space-y-2">
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700"
+                            >8:00 AM - 9:00 AM (UTC)</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700"
+                            >5 attendees (4 confirmed)</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">10 min before</span>
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">Laura Perez</span>
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">Google Meet</span>
+                        </div>
+                      </div>
+                      <div class="mt-4">
+                        <input
+                          type="text"
+                          value="meet.google.com/bsa-ojgn-gms"
+                          class="w-full bg-gray-100 text-gray-800 px-3 py-2 rounded-md"
+                          readonly
+                        />
+                      </div>
+                      <button
+                        class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md mt-4 hover:bg-blue-700 transition duration-300"
+                      >
+                        Join Meeting
+                      </button>
+                      <div class="mt-4 text-center">
+                        <p class="text-gray-700 mb-2">Are you going to attend?</p>
+                        <div class="space-x-2">
+                          <button
+                            class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
+                          >
+                            No
+                          </button>
+                          <button
+                            class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
+                          >
+                            Yes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full max-w-md">
+                  <div
+                    class="meetingCard bg-blue-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="p-6">
+                      <div class="flex justify-between items-start">
+                        <div>
+                          <h2 class="text-2xl font-semibold text-blue-900">
+                            Meeting with James Brown
+                          </h2>
+                          <p class="text-blue-700 mt-1">
+                            8:00 AM - 9:00 AM (UTC)
+                          </p>
+                        </div>
+                        <button
+                          class="expandBtn text-blue-700 hover:text-blue-900 focus:outline-none"
+                        >
+                          <svg
+                            class="w-6 h-6 transform transition-transform duration-300"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 9l-7 7-7-7"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="flex items-center mt-4 space-x-2">
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_8.png"
+                          alt="Attendee 1"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_9.png"
+                          alt="Attendee 2"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_10.png"
+                          alt="Attendee 3"
+                          class="w-8 h-8 rounded-full"
+                        />
+                        <span
+                          class="bg-blue-200 text-blue-800 size-9 flex items-center justify-center rounded-full  text-sm"
+                          >+2</span
+                        >
+                      </div>
+                      <div class="mt-4 flex justify-between items-center">
+                        <p class="text-blue-800">on Google Meet</p>
+                        <span
+                          class="inline-block bg-blue-200 text-blue-800 rounded-full px-3 py-1 text-sm font-semibold"
+                          >Marketing</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="expandedContent hidden p-6 bg-white border-t border-blue-200 fade-in"
+                    >
+                      <p class="text-gray-600 mb-4">
+                        Horizon Shift marketing first meeting.
+                      </p>
+                      <div class="space-y-2">
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700"
+                            >8:00 AM - 9:00 AM (UTC)</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700"
+                            >5 attendees (4 confirmed)</span
+                          >
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">10 min before</span>
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">Laura Perez</span>
+                        </div>
+                        <div class="flex items-center">
+                          <svg
+                            class="w-5 h-5 mr-2 text-blue-700"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                            ></path>
+                          </svg>
+                          <span class="text-gray-700">Google Meet</span>
+                        </div>
+                      </div>
+                      <div class="mt-4">
+                        <input
+                          type="text"
+                          value="meet.google.com/bsa-ojgn-gms"
+                          class="w-full bg-gray-100 text-gray-800 px-3 py-2 rounded-md"
+                          readonly
+                        />
+                      </div>
+                      <button
+                        class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md mt-4 hover:bg-blue-700 transition duration-300"
+                      >
+                        Join Meeting
+                      </button>
+                      <div class="mt-4 text-center">
+                        <p class="text-gray-700 mb-2">Are you going to attend?</p>
+                        <div class="space-x-2">
+                          <button
+                            class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
+                          >
+                            No
+                          </button>
+                          <button
+                            class="bg-white text-blue-800 border border-blue-300 font-semibold py-1 px-4 rounded-full hover:bg-blue-100 transition duration-300"
+                          >
+                            Yes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <script type="text/javascript" src="./assets/slick/slick.min.js"></script>
+    <script src="./assets/js/scripts.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="
+      https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js
+      "></script>
+
+    <script>
+      const meetingCards = document.getElementsByClassName("meetingCard");
+      const expandBtns = document.getElementsByClassName("expandBtn");
+      const expandedContents = document.getElementsByClassName("expandedContent");
+
+      Array.from(expandBtns).forEach((btn, index) => btn.addEventListener("click", () => {
+        Array.from(expandedContents)[index].classList.toggle("hidden");
+        Array.from(expandBtns)[index].querySelector("svg").classList.toggle("rotate-180");
+      }))
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var calendarEl = document.getElementById("calendar");
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: "dayGridWeek",
+          selectable: true,
+          selectMorrir: true,
+          events: [
+            {
+              title: "Meeting with Amanda",
+              start: "2024-10-03",
+              allDay: true,
+            },
+            {
+              title: "Meeting with Amor",
+              start: "2024-10-02",
+            },
+            {
+              title: "Meeting with Ahmed",
+              start: "2024-10-06",
+            },
+            // other events here
+          ],
+        });
+        calendar.render();
+      });
+    </script>
+  </body>
+</html>
