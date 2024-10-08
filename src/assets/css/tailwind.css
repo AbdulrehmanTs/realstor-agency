@@ -5861,6 +5861,14 @@ body {
   font-family: "Poppins", system-ui;
 }
 
+.nav-active {
+  background-color: rgb(37 99 235 / 0.1);
+}
+
+.nav2-active {
+  background-color: rgb(37 99 235 / 0.1);
+}
+
 .slick-prev {
   z-index: 1;
   left: 1rem !important;
@@ -6219,6 +6227,11 @@ input[type=number] {
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-blue-800:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-blue-800\/60:hover{
   background-color: rgb(30 64 175 / 0.6);
 }
@@ -6274,11 +6287,6 @@ input[type=number] {
 
 .hover\:bg-white\/70:hover{
   background-color: rgb(255 255 255 / 0.7);
-}
-
-.hover\:bg-blue-800:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
 }
 
 .hover\:text-blue-600:hover{
@@ -6380,9 +6388,19 @@ input[type=number] {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
+.focus\:ring-blue-300:focus{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(147 197 253 / var(--tw-ring-opacity));
+}
+
 .focus\:ring-blue-500:focus{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
+}
+
+.focus\:ring-blue-600:focus{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(37 99 235 / var(--tw-ring-opacity));
 }
 
 .focus\:ring-purple-600:focus{
@@ -6393,16 +6411,6 @@ input[type=number] {
 .focus\:ring-red-300:focus{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(252 165 165 / var(--tw-ring-opacity));
-}
-
-.focus\:ring-blue-300:focus{
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(147 197 253 / var(--tw-ring-opacity));
-}
-
-.focus\:ring-blue-600:focus{
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(37 99 235 / var(--tw-ring-opacity));
 }
 
 .focus\:ring-opacity-50:focus{
@@ -7007,6 +7015,10 @@ input[type=number] {
     min-width: 6rem;
   }
 
+  .lg\:min-w-20{
+    min-width: 5rem;
+  }
+
   .lg\:max-w-0{
     max-width: 0px;
   }
@@ -7150,6 +7162,11 @@ input[type=number] {
     padding-bottom: 0.75rem;
   }
 
+  .lg\:px-1{
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
   .lg\:pl-\[calc\(var\(--navbar-width\)\+2rem\)\]{
     padding-left: calc(var(--navbar-width) + 2rem);
   }
@@ -7177,6 +7194,11 @@ input[type=number] {
     line-height: 1.25rem;
   }
 
+  .lg\:text-xs{
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
   .lg\:text-gray-600{
     --tw-text-opacity: 1;
     color: rgb(75 85 99 / var(--tw-text-opacity));
@@ -7202,5 +7224,15 @@ input[type=number] {
 
   .xl\:flex-row{
     flex-direction: row;
+  }
+
+  .xl\:p-8{
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1536px){
+  .\32xl\:p-8{
+    padding: 2rem;
   }
 }

@@ -21,6 +21,13 @@ body {
   font-family: "Poppins", system-ui;
 }
 
+.nav-active {
+  background-color: rgb(37 99 235 / 0.1);
+}
+.nav2-active {
+  background-color: rgb(37 99 235 / 0.1);
+}
+
 .slick-prev {
   z-index: 1;
   left: 1rem !important;
