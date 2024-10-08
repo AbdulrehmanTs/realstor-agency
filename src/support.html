@@ -3,15 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Realtors Pilot | Dashboard</title>
+    <title>Realtors Pilot | Support</title>
     <link href="./assets/css/tailwind.css" rel="stylesheet" />
     <link rel="icon" href="assets/images/favicon.png" />
-    <link rel="stylesheet" type="text/css" href="./assets/slick/slick.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="./assets/slick/slick-theme.css"
-    />
   </head>
   <body class="overflow-x-hidden">
     <!-- fullsize-map -->
@@ -336,6 +330,134 @@
       </div>
     </div>
 
+    <!-- Ticket Modal -->
+    <div
+      class="modal opacity-0 pointer-events-none fixed z-40 w-full h-full top-0 left-0 flex items-center justify-center"
+    >
+      <div
+        class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"
+      ></div>
+
+      <div
+        class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto"
+      >
+        <div
+          class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50"
+        >
+          <ion-icon class="white size-10" name="close"></ion-icon>
+        </div>
+
+        <div class="modal-content py-4 text-left px-6">
+          <div class="flex justify-between items-center pb-3">
+            <p class="text-2xl font-bold">Raise a New Ticket</p>
+            <div class="modal-close cursor-pointer z-50">
+              <svg
+                class="fill-current text-black"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <form>
+            <div class="mb-4">
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="name"
+              >
+                Name
+              </label>
+              <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="name"
+                type="text"
+                placeholder="Your Name"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="email"
+              >
+                Email
+              </label>
+              <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="email"
+                type="email"
+                placeholder="your@email.com"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="subject"
+              >
+                Subject
+              </label>
+              <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="subject"
+                type="text"
+                placeholder="Ticket Subject"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="priority"
+              >
+                Priority
+              </label>
+              <select
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="priority"
+              >
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+                <option>Urgent</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="message"
+              >
+                Message
+              </label>
+              <textarea
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="message"
+                rows="4"
+                placeholder="Describe your issue"
+              ></textarea>
+            </div>
+            <div class="flex items-center justify-between">
+              <button
+                class="modal-close text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                type="button"
+              >
+                Cancel
+              </button>
+              <button
+                class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                type="submit"
+              >
+                Submit Ticket
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <!-- Main Starts here -->
     <main
       class="relative lg:mt-2 lg:pl-[calc(var(--navbar-width)+2rem)] lg:pr-4"
@@ -522,213 +644,333 @@
         <div
           class="px-4 lg:px-8 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] w-full overflow-auto py-4 pb-10 bg-white/60 backdrop-blur-md"
         >
-          <div class="w-full">
-            <!-- Stats -->
-            <div class="">
-              <h2 class="mt-4 font-semibold text-2xl text-gray-700">
-                Main Dashboard
-              </h2>
-              <div
-                class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-4"
-              >
-                <div class="rounded-3xl shadow bg-blue-100 p-8">
-                  <ion-icon
-                    class="size-10 text-blue-600"
-                    name="bookmarks-outline"
-                  ></ion-icon>
-                  <div class="my-2">
-                    <h2 class="text-4xl font-bold"><span>260</span></h2>
-                  </div>
+          <div class="w-full py-10">
+            <header class="text-center mt-10 mb-16">
+              <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+                Welcome! How can we help?
+              </h1>
+              <p class="md:text-xl text-gray-600 px-4 max-w-2xl mx-auto">
+                Hi there, stuck somewhere? Don't worry we're here to help. Check
+                out our step by step documentation and browse the video
+                tutorials.
+              </p>
+            </header>
 
-                  <div>
-                    <p
-                      class="mt-2 font-sans text-base font-medium text-gray-500"
-                    >
-                      Total Projects
-                    </p>
-                  </div>
-                </div>
-                <div class="rounded-3xl shadow bg-blue-100 p-8">
-                  <ion-icon
-                    class="size-10 text-blue-600"
-                    name="diamond-outline"
-                  ></ion-icon>
-                  <div class="my-2">
-                    <h2 class="text-4xl font-bold"><span>20</span></h2>
-                  </div>
-
-                  <div>
-                    <p
-                      class="mt-2 font-sans text-base font-medium text-gray-500"
-                    >
-                      Favorite Projects
-                    </p>
-                  </div>
-                </div>
-                <div class="rounded-3xl shadow bg-blue-100 p-8">
-                  <ion-icon
-                    class="size-10 text-blue-600"
-                    name="people-outline"
-                  ></ion-icon>
-                  <div class="my-2">
-                    <h2 class="text-4xl font-bold"><span>42</span></h2>
-                  </div>
-
-                  <div>
-                    <p
-                      class="mt-2 font-sans text-base font-medium text-gray-500"
-                    >
-                      Total Clients
-                    </p>
-                  </div>
-                </div>
-                <div class="rounded-3xl shadow bg-blue-100 p-8">
-                  <ion-icon
-                    class="size-10 text-blue-600"
-                    name="rocket-outline"
-                  ></ion-icon>
-                  <div class="my-2">
-                    <h2 class="text-4xl font-bold"><span>423</span></h2>
-                  </div>
-
-                  <div>
-                    <p
-                      class="mt-2 font-sans text-base font-medium text-gray-500"
-                    >
-                      Proposals shared
-                    </p>
-                  </div>
-                </div>
-                <div class="rounded-3xl shadow bg-blue-100 p-8">
-                  <ion-icon
-                    class="size-10 text-blue-600"
-                    name="briefcase-outline"
-                  ></ion-icon>
-                  <div class="my-2">
-                    <h2 class="text-4xl font-bold"><span>123</span></h2>
-                  </div>
-
-                  <div>
-                    <p
-                      class="mt-2 font-sans text-base font-medium text-gray-500"
-                    >
-                      Meetings completed
-                    </p>
-                  </div>
-                </div>
-                <div class="rounded-3xl shadow bg-blue-100 p-8">
-                  <ion-icon
-                    class="size-10 text-blue-600"
-                    name="calendar-outline"
-                  ></ion-icon>
-                  <div class="my-2">
-                    <h2 class="text-4xl font-bold"><span>12</span></h2>
-                  </div>
-
-                  <div>
-                    <p
-                      class="mt-2 font-sans text-base font-medium text-gray-500"
-                    >
-                      Upcoming Meetings
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div class="mb-20">
+              <img
+                src="./assets/images/undraw_contact_us.svg"
+                alt="Support illustration"
+                class="w-full max-w-lg mx-auto"
+              />
             </div>
-            <div class="flex flex-col xl:flex-row gap-4">
-              <!-- Calendar with meetings -->
-              <div class="mt-10 xl:w-1/2">
-                <h3 class="text-gray-700">Meetings</h3>
-                <div class="mt-3 bg-white rounded-2xl shadow p-8">
-                  <img
-                    class="mx-auto"
-                    src="./assets/images/calendar-with-meetings.png"
-                    alt="calendar-with-meetings"
-                  />
+
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:mx-8"
+            >
+              <div class="support-card bg-white p-6 rounded-lg shadow-md">
+                <div class="text-teal-500 mb-4">
+                  <ion-icon class="size-12" name="newspaper"></ion-icon>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                  Knowledgebase
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Getting Started? Read our getting started guidelines and learn
+                  more.
+                </p>
+                <a
+                  href="#"
+                  class="text-teal-500 hover:text-teal-600 font-medium"
+                  >Browse all documentations</a
+                >
+              </div>
+
+              <div class="support-card bg-white p-6 rounded-lg shadow-md">
+                <div class="text-blue-500 mb-4">
+                  <ion-icon class="size-12" name="chatbubbles"></ion-icon>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                  Free Support Forum
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  If you are using our free version, please let us know your
+                  query here.
+                </p>
+                <a
+                  href="#"
+                  class="text-blue-500 hover:text-blue-600 font-medium"
+                  >Post your query</a
+                >
+              </div>
+
+              <div class="support-card bg-white p-6 rounded-lg shadow-md">
+                <div class="text-purple-500 mb-4">
+                  <ion-icon class="size-12" name="headset"></ion-icon>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                  Premium Support
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  If you have upgraded our product to the premium plan, raise a
+                  ticket here.
+                </p>
+                <button
+                  class="modal-open text-purple-500 hover:text-purple-600 font-medium"
+                >
+                  Raise a new ticket
+                </button>
+              </div>
+
+              <!-- <div class="support-card bg-white p-6 rounded-lg shadow-md">
+                <div class="text-green-500 mb-4">
+                  <ion-icon class="size-12" name="chatbox-ellipses"></ion-icon>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                  Sales Queries
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Do you have any sales related questions? Don't worry we're
+                  here to help.
+                </p>
+                <a
+                  href="#"
+                  class="text-green-500 hover:text-green-600 font-medium"
+                  >Contact our sales team</a
+                >
+              </div> -->
+            </div>
+          </div>
+
+          <!-- Faqs -->
+          <div class="mt-20 container max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">
+              Frequently Asked Questions
+            </h2>
+            <div class="space-y-4 gap-x-4 mx-auto">
+              <div
+                class="faq-item bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <button
+                  class="faq-question w-full text-left px-6 py-4 focus:outline-none"
+                >
+                  <div class="flex justify-between items-center">
+                    <span class="text-lg font-semibold text-gray-700"
+                      >How do I create an account?</span
+                    >
+                    <svg
+                      class="faq-icon w-6 h-6 text-gray-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      ></path>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-answer px-6">
+                  <p class="text-gray-600 pb-4">
+                    To create an account, click on the "Sign Up" button in the
+                    top right corner of our homepage. Fill in your details,
+                    including your email address and a strong password. Once
+                    you've completed the form, click "Create Account" and follow
+                    the verification steps sent to your email.
+                  </p>
                 </div>
               </div>
-              <!-- Knowledge base -->
-              <div class="mt-10 xl:w-1/2">
-                <h3 class="text-gray-700">Knowledge Base</h3>
-                <div class="mt-3 bg-white rounded-3xl shadow">
-                  <div
-                    class="dashboard-slider pt-4 pb-14 bg-white/90 backdrop-blur-md rounded-2xl shadow size-full"
-                  >
-                    <div
-                      class="p-6 max-h-40 overflow-auto text-gray-700 text-sm"
+              <div
+                class="faq-item bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <button
+                  class="faq-question w-full text-left px-6 py-4 focus:outline-none"
+                >
+                  <div class="flex justify-between items-center">
+                    <span class="text-lg font-semibold text-gray-700"
+                      >What payment methods do you accept?</span
                     >
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut
-                        ipsam?
-                      </p>
-                    </div>
-                    <div
-                      class="p-6 max-h-40 overflow-auto text-gray-700 text-sm"
+                    <svg
+                      class="faq-icon w-6 h-6 text-gray-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut
-                        ipsam?
-                      </p>
-                    </div>
-                    <div
-                      class="p-6 max-h-40 overflow-auto text-gray-700 text-sm"
-                    >
-                      <p>Lorem ipsum dolorto vel neque magni aut ipsam?</p>
-                    </div>
-                    <div
-                      class="p-6 max-h-40 overflow-auto text-gray-700 text-sm"
-                    >
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut
-                        ipsam?
-                      </p>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut
-                        ipsam?
-                      </p>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut
-                        ipsam?
-                      </p>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut
-                        ipsam?
-                      </p>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut
-                        ipsam?
-                      </p>
-                    </div>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      ></path>
+                    </svg>
                   </div>
+                </button>
+                <div class="faq-answer px-6">
+                  <p class="text-gray-600 pb-4">
+                    We accept a variety of payment methods including credit
+                    cards (Visa, MasterCard, American Express), PayPal, and bank
+                    transfers. For certain regions, we also support local
+                    payment options. Check our payment page for a full list of
+                    available methods in your area.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="faq-item bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <button
+                  class="faq-question w-full text-left px-6 py-4 focus:outline-none"
+                >
+                  <div class="flex justify-between items-center">
+                    <span class="text-lg font-semibold text-gray-700"
+                      >How can I reset my password?</span
+                    >
+                    <svg
+                      class="faq-icon w-6 h-6 text-gray-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      ></path>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-answer px-6">
+                  <p class="text-gray-600 pb-4">
+                    To reset your password, go to the login page and click on
+                    the "Forgot Password" link. Enter the email address
+                    associated with your account, and we'll send you
+                    instructions on how to create a new password. Follow the
+                    link in the email to set up a new, secure password for your
+                    account.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="faq-item bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <button
+                  class="faq-question w-full text-left px-6 py-4 focus:outline-none"
+                >
+                  <div class="flex justify-between items-center">
+                    <span class="text-lg font-semibold text-gray-700"
+                      >What is your refund policy?</span
+                    >
+                    <svg
+                      class="faq-icon w-6 h-6 text-gray-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      ></path>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-answer px-6">
+                  <p class="text-gray-600 pb-4">
+                    We offer a 30-day money-back guarantee on most of our
+                    products. If you're not satisfied with your purchase, you
+                    can request a full refund within 30 days of the purchase
+                    date. Some restrictions may apply to certain promotional
+                    items or custom orders. Please refer to our detailed refund
+                    policy page for more information.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
+
+          <!-- contact Info -->
+          <div class="mt-40 mx-4 md:mx-10 gap-x-8 flex flex-col md:flex-row justify-between items-start">
+            <div class="w-full md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold text-navy-900 mb-4">Get In Touch</h1>
+                <p class="text-gray-600 text-lg mb-6">
+                    We'd love to hear from you! Whether you have questions, need support, or want to learn more about our services, our team is here to help.
+                </p>
+            </div>
+            <div class="w-full md:w-1/2 flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center mb-2">
+                        <div class="bg-blue-100 flex items-center justify-center size-10 rounded-full mr-4">
+                            <ion-icon name="location-outline" class="text-2xl text-blue-500"></ion-icon>
+                        </div>
+                        <h2 class="text-xl font-semibold text-gray-800">Our Address</h2>
+                    </div>
+                    <p class="text-gray-600 ml-12">Asklepios Tower</p>
+                    <p class="text-gray-600 ml-12">Makima Street 251</p>
+                </div>
+                <div>
+                    <div class="flex items-center mb-2">
+                        <div class="bg-blue-100 flex items-center justify-center size-10 rounded-full mr-4">
+                            <ion-icon name="call-outline" class="text-2xl text-blue-500"></ion-icon>
+                        </div>
+                        <h2 class="text-xl font-semibold text-gray-800">Our Contact Info</h2>
+                    </div>
+                    <p class="text-gray-600 ml-12">+123 456 789</p>
+                    <p class="text-gray-600 ml-12">help@nightingale.com</p>
+                </div>
+            </div>
+        </div>
         </div>
       </div>
     </main>
+    <script>
+      var openmodal = document.querySelectorAll(".modal-open");
+      for (var i = 0; i < openmodal.length; i++) {
+        openmodal[i].addEventListener("click", function (event) {
+          event.preventDefault();
+          toggleModal();
+        });
+      }
 
+      const overlay = document.querySelector(".modal-overlay");
+      overlay.addEventListener("click", toggleModal);
+
+      var closemodal = document.querySelectorAll(".modal-close");
+      for (var i = 0; i < closemodal.length; i++) {
+        closemodal[i].addEventListener("click", toggleModal);
+      }
+
+      function toggleModal() {
+        const body = document.querySelector("body");
+        const modal = document.querySelector(".modal");
+        modal.classList.toggle("opacity-0");
+        modal.classList.toggle("pointer-events-none");
+        body.classList.toggle("modal-active");
+      }
+
+
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        faqItems.forEach((item) => {
+          const question = item.querySelector(".faq-question");
+          question.addEventListener("click", () => {
+            const currentlyActiveItem =
+              document.querySelector(".faq-item.active");
+            if (currentlyActiveItem && currentlyActiveItem !== item) {
+              currentlyActiveItem.classList.remove("active");
+            }
+            item.classList.toggle("active");
+          });
+        });
+
+    </script>
     <script
       type="text/javascript"
       src="//code.jquery.com/jquery-1.11.0.min.js"
@@ -737,7 +979,6 @@
       type="text/javascript"
       src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
     ></script>
-    <script type="text/javascript" src="./assets/slick/slick.min.js"></script>
     <script src="./assets/js/scripts.js"></script>
     <script
       type="module"
@@ -747,9 +988,5 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-    <script src="
-      https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js
-      "></script>
-
   </body>
 </html>

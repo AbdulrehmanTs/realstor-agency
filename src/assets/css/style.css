@@ -214,6 +214,32 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+/* suport page designs */
+.support-card {
+  transition: all 0.3s ease;
+}
+.support-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Faqs */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+.faq-item.active .faq-answer {
+  max-height: 1000px; /* Adjust this value based on your content */
+  transition: max-height 0.5s ease-in;
+}
+.faq-icon {
+  transition: transform 0.3s ease;
+}
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
 /* Keyframes */
 
 @keyframes fadeIn {
