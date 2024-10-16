@@ -351,9 +351,8 @@ function openProjectSidebar() {
 
   // mainContainer.classList.add("hidden", "lg:block");
   setTimeout(() => {
-    gridContainer?.classList.remove("lg:grid-cols-5");
+    gridContainer?.classList.remove("lg:grid-cols-4");
     gridContainer?.classList.add("lg:grid-cols-3");
-    document.querySelector(".fav-wrapper")?.classList?.remove("lg:px-60");
   }, 150);
 }
 
@@ -362,9 +361,8 @@ function closeProjectSidebar() {
   projectSidebar?.classList.remove("max-w-xs", "lg:max-w-md", "opacity-100");
   // mainContainer.classList.remove("hidden", "lg:block");
   setTimeout(() => {
-    gridContainer?.classList.add("lg:grid-cols-5");
+    gridContainer?.classList.add("lg:grid-cols-4");
     gridContainer?.classList.remove("lg:grid-cols-3");
-    document.querySelector(".fav-wrapper")?.classList?.add("lg:px-60");
   }, 150);
 }
 //
@@ -779,12 +777,11 @@ $(document).ready(function () {
       '<button class="z-10 absolute right-4 bottom-2 bg-blue-200 rounded-full size-6 flex items-center justify-center hover:bg-blue-100"><ion-icon name="chevron-forward"></ion-icon></button>',
   });
   $(".dashboard-slider").slick({
-    dots: true,
     autoplay: false,
-    // adaptiveHeight: true,
+    fade: true,
     prevArrow:
-      '<button class="z-10 absolute right-12 lg:right-14 bottom-2 bg-blue-200 rounded-full size-6 lg:size-8 flex items-center justify-center hover:bg-blue-100"><ion-icon name="chevron-back"></ion-icon></button>',
+      '<button class="z-10 absolute right-12 lg:right-14 -bottom-10 bg-blue-200 rounded-full size-6 lg:size-8 flex items-center justify-center hover:bg-blue-100"><ion-icon name="chevron-back"></ion-icon></button>',
     nextArrow:
-      '<button class="z-10 absolute right-4 bottom-2 bg-blue-200 rounded-full size-6 lg:size-8 flex items-center justify-center hover:bg-blue-100"><ion-icon name="chevron-forward"></ion-icon></button>',
+      '<button class="z-10 absolute right-4 -bottom-10 bg-blue-200 rounded-full size-6 lg:size-8 flex items-center justify-center hover:bg-blue-100"><ion-icon name="chevron-forward"></ion-icon></button>',
   });
 });

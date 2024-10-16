@@ -47,7 +47,9 @@
             </div>
           </div>
           <!-- Searchbar desktop -->
-          <div class="hidden lg:block max-w-[18rem] lg:w-full ml-2 lg:ml-0 mr-4">
+          <div
+            class="hidden lg:block max-w-[18rem] lg:w-full ml-2 lg:ml-0 mr-4"
+          >
             <form class="relative bg-transparent backdrop-blur-md rounded-full">
               <label for="Search" class="sr-only"> Search </label>
               <input
@@ -147,15 +149,31 @@
                 </p>
               </button>
 
-              <div id="currencies" class="absolute z-20 top-2 lg:top-10 -left-24 lg:left-0 w-60 lg:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+              <div
+                id="currencies"
+                class="absolute z-20 top-2 lg:top-10 -left-24 lg:left-0 w-60 lg:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
+              >
                 <div class="p-8">
-                  <div class="uppercase tracking-wide text-sm text-blue-500 font-semibold mb-4">Select Options</div>
-                  
+                  <div
+                    class="uppercase tracking-wide text-sm text-blue-500 font-semibold mb-4"
+                  >
+                    Select Options
+                  </div>
+
                   <!-- Currency Selection -->
                   <div class="mb-6">
-                    <label for="currency" class="block text-sm font-medium text-gray-700 mb-2">Currency</label>
+                    <label
+                      for="currency"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                      >Currency</label
+                    >
                     <div class="relative">
-                      <select onchange="selectCurrency(this)" id="currency" name="currency" class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                      <select
+                        onchange="selectCurrency(this)"
+                        id="currency"
+                        name="currency"
+                        class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      >
                         <option value="USD">USD</option>
                         <option value="EUR">EUR</option>
                         <option value="AED">AED</option>
@@ -163,15 +181,27 @@
                       </select>
                     </div>
                   </div>
-                  
+
                   <!-- Measurement Selection -->
                   <div>
-                    <label for="measurement" class="block text-sm font-medium text-gray-700 mb-2">Measurement</label>
+                    <label
+                      for="measurement"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                      >Measurement</label
+                    >
                     <div class="flex space-x-2">
-                      <button onClick="selectMeasure(this)" id="ft-btn" class="flex-1 bg-blue-100 text-blue-700 py-2 px-4 rounded-lg font-medium hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out">
+                      <button
+                        onClick="selectMeasure(this)"
+                        id="ft-btn"
+                        class="flex-1 bg-blue-100 text-blue-700 py-2 px-4 rounded-lg font-medium hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out"
+                      >
                         ft<sup>2</sup>
                       </button>
-                      <button onClick="selectMeasure(this)" id="m-btn" class="flex-1 bg-white text-gray-700 py-2 px-4 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out">
+                      <button
+                        onClick="selectMeasure(this)"
+                        id="m-btn"
+                        class="flex-1 bg-white text-gray-700 py-2 px-4 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out"
+                      >
                         m<sup>2</sup>
                       </button>
                     </div>
@@ -195,7 +225,7 @@
               </label>
             </div>
 
-             <!-- scripts -->
+            <!-- scripts -->
             <div class="relative">
               <button
                 id="scripts-button"
@@ -213,7 +243,9 @@
                 <div
                   class="scripts-slider pb-10 bg-white/90 backdrop-blur-md shadow-lg rounded-xl size-full"
                 >
-                  <div class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm">
+                  <div
+                    class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm"
+                  >
                     <p>
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                       Autem tenetur, tempora recusandae animi neque ducimus.
@@ -465,7 +497,9 @@
               </p>
             </div>
           </div>
-          <div class="px-3 h-[calc(100%-var(--header-height))] overflow-y-auto custom-scroller">
+          <div
+            class="px-3 h-[calc(100%-var(--header-height))] overflow-y-auto custom-scroller"
+          >
             <!-- menu icon -->
             <div
               class="absolute z-10 top-[4.5rem] -right-10 size-10 flex items-center rounded-r-full shadow-xl bg-white/90 hover:bg-gray-50"
@@ -631,43 +665,484 @@
       >
         <!-- section -->
         <div
-          class="px-4 lg:px-8 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] w-full overflow-auto py-4 pb-10 bg-white/60 backdrop-blur-md"
+          class="h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] w-full lg:p-4 bg-white/60 backdrop-blur-md"
         >
-          <!-- Create -->
-          <div
-            id="createPortfolioComponent"
-            class="h-60 md:h-80 rounded-3xl flex items-center justify-center bg-gradient-to-br from-purple-600 to-blue-500"
-          >
-            <div class="text-center">
-              <h1
-                class="text-2xl md:text-6xl px-10 md:px-0 font-bold text-white mb-8 animate-pulse"
-              >
-                Showcase Your Real Estate Expertise
-              </h1>
-              <button
-                onclick="openModal()"
-                class="bg-white text-purple-600 text-sm md:text-base font-semibold py-3 px-6 rounded-full shadow-lg transform transition duration-300 ease-in-out hover:scale-110 hover:bg-purple-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
-              >
-                Create Your Portfolio
-              </button>
-            </div>
-          </div>
-          <!-- <div id="createPortfolioComponent" class="text-center animate-fade-in">
-            <button
-              onclick="openModal()"
-              class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          <!-- Profile Container -->
+          <div class="h-full flex flex-col lg:flex-row lg:items-start gap-x-4">
+            <!-- Sidebar -->
+            <div
+              class="lg:w-1/5 bg-gray-800 ring-2 ring-gray-400 text-white p-8 lg:rounded-3xl"
             >
-              Create Your Portfolio
-            </button>
-          </div> -->
+              <div class="text-center mt-4 mb-4">
+                <div
+                  class="mx-auto size-24 rounded-3xl overflow-hidden cursor-pointer relative group"
+                >
+                  <!-- <input id="photo" type="file" class="invisible" /> -->
+                  <span
+                    class="size-full object-cover text-7xl"
+                    class="rounded-3xl mx-auto"
+                    >🧔‍♂️</span
+                  >
+                  <div
+                    class="hidden group-hover:block cursor-pointer absolute inset-0 size-full rounded-3xl bg-blue-600/80"
+                  >
+                    <label
+                      for="photo"
+                      class="size-full flex items-center justify-center text-[10px] text-center text-gray-300"
+                      >Upload +</label
+                    >
+                  </div>
+                </div>
+                <div class="relative">
+                  <h2 class="mt-2 font-medium text-sm">Username</h2>
+                  <p class="text-xs text-gray-200">title</p>
+                  <button
+                    onclick=""
+                    title="edit"
+                    class="absolute right-0 top-0"
+                  >
+                    <ion-icon
+                      class="text-white size-4"
+                      name="create-outline"
+                    ></ion-icon>
+                  </button>
+                </div>
+              </div>
+              <hr class="border-t-2 border-blue-200/20" />
+              <div class="mt-4">
+                <div class="flex items-center gap-x-2">
+                  <div
+                    class="rounded-lg bg-gray-600 shadow shadow-gray-400 p-1.5 flex items-center justify-center"
+                  >
+                    <ion-icon
+                      class="text-yellow-500 size-4"
+                      name="mail"
+                    ></ion-icon>
+                  </div>
+                  <div class="">
+                    <p class="text-xs font-medium text-gray-300">EMAIL</p>
+                    <p class="text-[10px] text-white/70">example@test.com</p>
+                  </div>
+                </div>
+                <div class="mt-5 flex items-center gap-x-2">
+                  <div
+                    class="rounded-lg bg-gray-600 shadow shadow-gray-400 p-1.5 flex items-center justify-center"
+                  >
+                    <ion-icon
+                      class="text-yellow-500 size-4"
+                      name="phone-portrait"
+                    ></ion-icon>
+                  </div>
+                  <div class="">
+                    <p class="text-xs font-medium text-gray-300">PHONE</p>
+                    <p class="text-[10px] text-white/70">+92 321 0193202</p>
+                  </div>
+                </div>
+                <div class="mt-5 flex items-center gap-x-2">
+                  <div
+                    class="rounded-lg bg-gray-600 shadow shadow-gray-400 p-1.5 flex items-center justify-center"
+                  >
+                    <ion-icon
+                      class="text-yellow-500 size-4"
+                      name="calendar-number"
+                    ></ion-icon>
+                  </div>
+                  <div class="">
+                    <p class="text-xs font-medium text-gray-300">BIRTHDAY</p>
+                    <p class="text-[10px] text-white/70">4, DEC 2000</p>
+                  </div>
+                </div>
+                <div class="mt-5 flex items-center gap-x-2">
+                  <div
+                    class="rounded-lg bg-gray-600 shadow shadow-gray-400 p-1.5 flex items-center justify-center"
+                  >
+                    <ion-icon
+                      class="text-yellow-500 size-4"
+                      name="navigate-circle"
+                    ></ion-icon>
+                  </div>
+                  <div class="">
+                    <p class="text-xs font-medium text-gray-300">LOCATION</p>
+                    <p class="text-[10px] text-white/70">Pune, India</p>
+                  </div>
+                </div>
+                <div class="mt-8 flex gap-4 items-center justify-center">
+                  <a href="#">
+                    <ion-icon
+                      class="text-white/80 size-4"
+                      name="logo-facebook"
+                    ></ion-icon>
+                  </a>
+                  <a href="#">
+                    <ion-icon
+                      class="text-white/80 size-4"
+                      name="logo-twitter"
+                    ></ion-icon>
+                  </a>
+                  <a href="#">
+                    <ion-icon
+                      class="text-white/80 size-4"
+                      name="logo-instagram"
+                    ></ion-icon>
+                  </a>
+                </div>
+              </div>
+            </div>
 
-          <div id="portfolioContent" class="hidden w-full max-w-6xl mx-auto">
-            <!-- Portfolio content will be dynamically inserted here -->
+            <!-- Main Content -->
+            <div
+              class="h-full lg:w-4/5 overflow-auto bg-gray-800 ring-2 ring-gray-400 text-white lg:rounded-3xl"
+            >
+              <!-- Tabs Navigation -->
+              <div
+                class="ml-auto w-max p-4 mb-4 rounded-bl-3xl lg:rounded-tr-3xl bg-gray-700"
+              >
+                <button class="tab-button text-yellow-400" data-tab="about">
+                  About
+                </button>
+                <button class="tab-button ml-4" data-tab="resume">
+                  Resume
+                </button>
+                <button class="tab-button ml-4" data-tab="contact">
+                  Contact
+                </button>
+              </div>
+
+              <!-- Tab Content -->
+              <div id="about" class="p-6 tab-content block">
+                <h2 class="text-lg font-medium">About Me</h2>
+                <div class="w-10 h-[2px] rounded-full bg-yellow-400"></div>
+                <p class="mt-4 text-sm text-gray-300">
+                  I bring over 10 years of experience in helping clients buy,
+                  sell, and invest in properties. Known for my market knowledge
+                  and strong negotiation skills, I am committed to providing
+                  personalized service for every client. Whether you're looking
+                  for a new home or an investment opportunity, I am here to
+                  guide you every step of the way.
+                </p>
+                <h3 class="text-lg font-medium mt-6">What I'm Doing</h3>
+                <div class="w-10 h-[2px] rounded-full bg-yellow-400"></div>
+                <div class="mt-4 grid grid-cols-2 gap-4">
+                  <div
+                    class="p-4 bg-gray-700 rounded-lg flex items-center gap-4"
+                  >
+                    <div class="size-20">
+                      <img src="assets/images/helmet.png" alt="" />
+                    </div>
+                    <div class="">
+                      <h4 class="font-semibold text-sm">
+                        Neighborhood Explorer
+                      </h4>
+                      <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                        An online tool providing market trends and local
+                        insights to help clients choose the right area.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="p-4 bg-gray-700 rounded-lg flex items-center gap-4"
+                  >
+                    <div class="size-20">
+                      <img src="assets/images/set-square.png" alt="" />
+                    </div>
+                    <div class="">
+                      <h4 class="font-semibold text-sm">Virtual Tours Hub</h4>
+                      <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                        A platform offering 360-degree property tours for remote
+                        viewing and decision-making.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="p-4 bg-gray-700 rounded-lg flex items-center gap-4"
+                  >
+                    <div class="size-20">
+                      <img src="assets/images/crane.png" alt="" />
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-sm">Agent CRM</h4>
+                      <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                        A system for managing client interactions, tracking
+                        leads, and organizing schedules.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="p-4 bg-gray-700 rounded-lg flex items-center gap-4"
+                  >
+                    <div class="size-20">
+                      <img src="assets/images/fence.png" alt="" />
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-sm">Investment Analyzer</h4>
+                      <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                        A tool to evaluate property investments with ROI and
+                        rental yield calculations.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 class="text-lg font-medium mt-6">Testimonials</h3>
+                <div
+                  class="w-10 h-[2px] rounded-full bg-yellow-400 mb-10"
+                ></div>
+                <div class="mt-4 grid grid-cols-2 gap-x-4 gap-y-8">
+                  <div
+                    class="relative p-4 bg-gray-700 rounded-lg flex items-center gap-4"
+                  >
+                    <div
+                      class="absolute -top-6 size-16 p-2 bg-gray-600 rounded-xl flex items-center justify-center"
+                    >
+                      <p class="text-4xl">👨‍🦱</p>
+                    </div>
+                    <div class="mt-8">
+                      <h4 class="font-semibold text-sm">John Doe</h4>
+                      <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. A, explicabo? Perspiciatis enim nostrum
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="relative p-4 bg-gray-700 rounded-lg flex items-center gap-4"
+                  >
+                    <div
+                      class="absolute -top-6 size-16 p-2 bg-gray-600 rounded-xl flex items-center justify-center"
+                    >
+                      <p class="text-4xl">👨‍🦱</p>
+                    </div>
+                    <div class="mt-8">
+                      <h4 class="font-semibold text-sm">John Doe</h4>
+                      <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. A, explicabo? Perspiciatis enim nostrum
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="relative p-4 bg-gray-700 rounded-lg flex items-center gap-4"
+                  >
+                    <div
+                      class="absolute -top-6 size-16 p-2 bg-gray-600 rounded-xl flex items-center justify-center"
+                    >
+                      <p class="text-4xl">👨‍🦱</p>
+                    </div>
+                    <div class="mt-8">
+                      <h4 class="font-semibold text-sm">John Doe</h4>
+                      <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. A, explicabo? Perspiciatis enim nostrum
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="relative p-4 bg-gray-700 rounded-lg flex items-center gap-4"
+                  >
+                    <div
+                      class="absolute -top-6 size-16 p-2 bg-gray-600 rounded-xl flex items-center justify-center"
+                    >
+                      <p class="text-4xl">👨‍🦱</p>
+                    </div>
+                    <div class="mt-8">
+                      <h4 class="font-semibold text-sm">John Doe</h4>
+                      <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. A, explicabo? Perspiciatis enim nostrum
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Resume Section -->
+              <div id="resume" class="p-6 tab-content hidden">
+                <h2 class="text-lg font-medium">Resume</h2>
+                <div class="w-10 h-[2px] rounded-full bg-yellow-400"></div>
+
+                <!-- Education Section -->
+                <div class="mt-6 mb-3 flex items-center gap-x-2">
+                  <div
+                    class="rounded-lg bg-gray-700 shadow shadow-gray-400 p-1.5 flex items-center justify-center"
+                  >
+                    <ion-icon
+                      class="text-white-400 size-4 text-yellow-400"
+                      name="book-outline"
+                    ></ion-icon>
+                  </div>
+                  <h3 class="font-medium text-yellow-400">Education</h3>
+                </div>
+                
+                <div class="space-y-4">
+                  <div>
+                    <h4 class="font-semibold text-sm">University Of Engineering Pune</h4>
+                    <p class="text-[10px] text-gray-400">2021 – 2024</p>
+                    <p class="mt-2 text-sm text-gray-200">
+                      Nemo enim ipsam voluptatem blanditiis praesentium
+                      voluptatum delenit atque corrupti quos dolores et quas
+                      molestias exceptur.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-sm">New York Academy Of Texas</h4>
+                    <p class="text-[10px] text-gray-400">2018 – 2024</p>
+                    <p class="mt-2 text-sm text-gray-200">
+                      Ratione voluptatem sequi nesciunt facere quisquam facere
+                      menda assimus omnis voluptas assumenda est omnis.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-sm">High School Of Art And Design</h4>
+                    <p class="text-[10px] text-gray-400">2017 – 2018</p>
+                    <p class="mt-2 text-sm text-gray-200">
+                      Duis aute irure dolor in reprehenderit in voluptate quila
+                      voluptas mag adit aut fugit sed consequuntur magni dolores
+                      eos.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Experience Section -->
+                <div class="mt-6 mb-3 flex items-center gap-x-2">
+                  <div
+                    class="rounded-lg bg-gray-700 shadow shadow-gray-400 p-1.5 flex items-center justify-center"
+                  >
+                    <ion-icon
+                      class="text-white-400 size-4 text-yellow-400"
+                      name="medal-outline"
+                    ></ion-icon>
+                  </div>
+                  <h3 class="font-medium text-yellow-400">Experience</h3>
+                </div>
+                <div class="space-y-4">
+                  <div>
+                    <h4 class="font-semibold text-sm">Creative Director</h4>
+                    <p class="text-[10px] text-gray-400">2015 – Present</p>
+                    <p class="mt-2 text-sm text-gray-200">
+                      Nemo enim ipsam voluptatem blanditiis praesentium
+                      voluptatum delenit atque corrupti quos dolores et quas
+                      molestias exceptur.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-sm">Art Director</h4>
+                    <p class="text-[10px] text-gray-400">2013 – 2015</p>
+                    <p class="mt-2 text-sm text-gray-200">
+                      Nemo enim ipsam voluptatem blanditiis praesentium
+                      voluptatum delenit atque corrupti quos dolores et quas
+                      molestias exceptur.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-sm">Web Designer</h4>
+                    <p class="text-[10px] text-gray-400">2011 – 2013</p>
+                    <p class="mt-2 text-sm text-gray-200">
+                      Nemo enim ipsam voluptatem blanditiis praesentium
+                      voluptatum delenit atque corrupti quos dolores et quas
+                      molestias exceptur.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="contact" class="p-6 tab-content hidden">
+                <h2 class="text-lg font-medium">Contact</h2>
+                <div class="w-10 h-[2px] rounded-full bg-yellow-400"></div>
+              
+                <!-- Google Map Embed -->
+                <div class="mt-4 mb-6">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31640.57825568995!2d-121.4943991!3d38.5815719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808529a0ac1285df%3A0xb1964b1b75fd71cb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1697550164249!5m2!1sen!2s"
+                    width="100%"
+                    height="350"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    class="rounded-2xl"
+                  ></iframe>
+                </div>
+              
+                <!-- Contact Form -->
+                <div class="bg-gray-800 p-4 rounded-lg">
+                  <h3 class="text-lg font-medium mb-4 text-yellow-400">Contact Form</h3>
+                  <form>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <!-- Full Name -->
+                      <div>
+                        <label class="block text-sm font-medium mb-1" for="full-name">Full Name</label>
+                        <input
+                          type="text"
+                          id="full-name"
+                          class="w-full p-2 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                          placeholder="Full name"
+                        />
+                      </div>
+              
+                      <!-- Email Address -->
+                      <div>
+                        <label class="block text-sm font-medium mb-1" for="email-address">Email Address</label>
+                        <input
+                          type="email"
+                          id="email-address"
+                          class="w-full p-2 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                          placeholder="Email address"
+                        />
+                      </div>
+                    </div>
+              
+                    <!-- Message -->
+                    <div class="mt-4">
+                      <label class="block text-sm font-medium mb-1" for="message">Your Message</label>
+                      <textarea
+                        id="message"
+                        class="w-full p-2 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                        placeholder="Your message"
+                        rows="4"
+                      ></textarea>
+                    </div>
+              
+                    <!-- Send Button -->
+                    <div class="mt-6 text-right">
+                      <button
+                        type="submit"
+                        class="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-700"
+                      >
+                        Send Message
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </main>
     <script>
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          // Remove active class from all buttons
+          tabButtons.forEach((btn) => btn.classList.remove("text-yellow-400"));
+
+          // Hide all tab contents
+          tabContents.forEach((content) => content.classList.add("hidden"));
+          tabContents.forEach((content) => content.classList.remove("block"));
+
+          // Add active class to the clicked button
+          this.classList.add("text-yellow-400");
+
+          // Show the clicked tab content
+          const tabId = this.getAttribute("data-tab");
+          const activeTabContent = document.getElementById(tabId);
+          activeTabContent.classList.remove("hidden");
+          activeTabContent.classList.add("block");
+        });
+      });
+
       function openModal() {
         document.getElementById("modal").classList.remove("hidden");
       }
@@ -746,7 +1221,7 @@
                         <div class="flex flex-col md:flex-row justify-between items-center">
                           <button class="mb-4 md:mb-0 flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                             <ion-icon class="mr-2" name="document"></ion-icon>
-                              <span class="font-semibold">Share Profile (PDF)</span>
+                              <span class="font-semibold text-sm">Share Profile (PDF)</span>
                           </button>
                           <button onclick="openModal()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                               Update Profile

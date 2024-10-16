@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Realtors Pilot | Favorites</title>
+    <title>Realtors Pilot | Agent Portfolio</title>
     <link href="./assets/css/tailwind.css" rel="stylesheet" />
     <link rel="icon" href="assets/images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="./assets/slick/slick.css" />
@@ -179,7 +179,6 @@
                 </div>
               </div>
             </div>
-
           </div>
 
           <!-- right items -->
@@ -278,8 +277,166 @@
       </div>
     </div>
 
+    <!-- Modal -->
+    <div
+      id="modal"
+      class="fixed inset-0 z-40 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden animate-fade-in"
+    >
+      <div
+        class="relative top-20 mx-auto p-5 border w-full max-w-md md:max-w-xl shadow-lg rounded-md bg-white"
+      >
+        <div class="mt-3">
+          <h3 class="text-lg font-medium leading-6 text-gray-900 mb-2">
+            Create Your Portfolio
+          </h3>
+          <form id="portfolioForm" class="space-y-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              />
+            </div>
+            <div>
+              <label for="title" class="block text-sm font-medium text-gray-700"
+                >Job Title</label
+              >
+              <input
+                type="text"
+                id="title"
+                name="title"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700"
+                >Phone</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              />
+            </div>
+            <div>
+              <label
+                for="agency"
+                class="block text-sm font-medium text-gray-700"
+                >Agency</label
+              >
+              <input
+                type="text"
+                id="agency"
+                name="agency"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              />
+            </div>
+            <div>
+              <label
+                for="reraNumber"
+                class="block text-sm font-medium text-gray-700"
+                >RERA Number</label
+              >
+              <input
+                type="text"
+                id="reraNumber"
+                name="reraNumber"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              />
+            </div>
+            <div>
+              <label
+                for="experience"
+                class="block text-sm font-medium text-gray-700"
+                >Years of Experience</label
+              >
+              <input
+                type="number"
+                id="experience"
+                name="experience"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              />
+            </div>
+            <div>
+              <label
+                for="specializations"
+                class="block text-sm font-medium text-gray-700"
+                >Specializations</label
+              >
+              <input
+                type="text"
+                id="specializations"
+                name="specializations"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              />
+            </div>
+            <div>
+              <label
+                for="languages"
+                class="block text-sm font-medium text-gray-700"
+                >Languages</label
+              >
+              <input
+                type="text"
+                id="languages"
+                name="languages"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              />
+            </div>
+            <div>
+              <label for="bio" class="block text-sm font-medium text-gray-700"
+                >Bio</label
+              >
+              <textarea
+                id="bio"
+                name="bio"
+                rows="3"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              ></textarea>
+            </div>
+            <div class="flex justify-end">
+              <button
+                type="submit"
+                class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              >
+                Create Portfolio
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <!-- Main Starts here -->
-    <main class="relative lg:mt-2 lg:pl-[calc(var(--navbar-width)+2rem)] lg:pr-4">
+    <main
+      class="relative lg:mt-2 lg:pl-[calc(var(--navbar-width)+2rem)] lg:pr-4"
+    >
       <!-- navbar -->
       <div
         id="navbar"
@@ -469,468 +626,152 @@
         </div>
       </div>
 
-      <div class="flex justify-center w-full lg:rounded-3xl overflow-hidden shadow-md">
-        <!-- Project-left-sidebar -->
-        <div
-          id="project-sidebar"
-          class="relative flex flex-col w-full h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] opacity-0 max-w-0 lg:max-w-0 transition-all duration-300 ease-in rounded lg:rounded-3xl border-r shadow-lg backdrop-blur-md"
-        >
-          <!-- Add to Favorite button -->
-          <button
-            onclick="addToFavorites(this)"
-            class="absolute z-10 left-3 top-3 bg-white/80 border rounded-full size-8 flex-1 flex items-center justify-center"
-          >
-            <ion-icon
-              class="size-5 text-red-700"
-              name="heart-outline"
-            ></ion-icon>
-          </button>
-
-          <!-- close button -->
-          <button
-            type="button"
-            onclick="closeProjectSidebar()"
-            class="absolute z-10 right-2 top-4 bg-white shadow-md hover:bg-white/70 rounded-full size-6 p-0.5 flex items-center justify-center"
-          >
-            <ion-icon class="size-full" name="close-outline"></ion-icon>
-          </button>
-          <!-- image slider -->
-          <div
-            class="aspect-video relative transition-none rounded-t md:rounded-t-3xl overflow-hidden shadow-white"
-          >
-            <div class="slider size-full">
-              <div class="size-full aspect-video slider-image">
-                <img
-                  class="transition-none size-full lazy"
-                  src="https://www.propertyfinder.ae/blog/wp-content/uploads/2023/08/ondrej-bocek-3Q17UE2FZM4-unsplash.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="size-full aspect-video slider-image">
-                <img
-                  class="transition-none size-full lazy"
-                  src="https://airfixture.com/hubfs/Imported_Blog_Media/What-to-know-when-designing-high-rise-buildings-1.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="size-full aspect-video slider-image">
-                <img
-                  class="transition-none size-full lazy"
-                  src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/152229/slider-img-1.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="size-full aspect-video slider-image">
-                <img
-                  class="transition-none size-full lazy"
-                  src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/152229/slider-img-3.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="custom-scroller flex-1 overflow-auto py-4">
-            <!-- Title and description -->
-            <div class="p-2">
-              <h2
-                title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-                        veritatis earum recusandae culpa,"
-                class="font-semibold text-base lg:text-lg text-center line-clamp-2"
-              >
-                Lorem ipsum dolor sit amet.
-              </h2>
-              <p id="" class="text-gray-600 text-xs lg:text-sm mt-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti veritatis earum recusandae culpa<span id="dots"
-                  >...</span
-                ><span id="more" class="hidden">
-                  laboriosam nihil eveniet unde rerum itaque natus eaque ea rem,
-                  consectetur quod voluptas laborum. Provident, necessitatibus
-                  dignissimos.</span
-                >
-                <span
-                  ><button
-                    class="inline font-semibold text-blue-500"
-                    onclick="toggleReadMore()"
-                    id="read-more-btn"
-                  >
-                    Read more
-                  </button></span
-                >
-              </p>
-            </div>
-
-            <!-- Actions -->
-            <div class="inline-flex divide-x-2 divide-white mt-2 px-4 w-full">
-              <button
-                type="button"
-                class="group flex-1 py-1.5 lg:py-3 px-2 text-xs lg:text-base lg:px-4 inline-flex items-center justify-center font-semibold gap-x-2 bg-blue-800/40 text-gray-800 hover:bg-blue-800/60 focus:outline-none rounded-full"
-              >
-                <span class="group-hover:scale-105 transition"
-                  >Add to Catalog</span
-                >
-                <ion-icon
-                  class="size-4 lg:size-6 text-gray-800 group-hover:scale-105 transition"
-                  name="add-circle-outline"
-                ></ion-icon>
-              </button>
-            </div>
-
-            <!-- filter -->
-            <div class="relative mt-4 px-2 h-14 flex items-center">
-              <div
-                class="project-sidebar-filters flex items-center gap-x-2 w-full overflow-auto"
-              >
-                <button
-                  class="py-1 lg:py-1.5 px-1.5 lg:px-3 font-medium whitespace-nowrap text-xs lg:text-sm text-white bg-gray-600/40 rounded-full"
-                >
-                  Overview
-                </button>
-                <button
-                  class="py-1 lg:py-1.5 px-1.5 lg:px-3 font-medium whitespace-nowrap text-xs lg:text-sm text-gray-800 bg-gray-100/40 rounded-full"
-                >
-                  Units
-                </button>
-                <button
-                  class="py-1 lg:py-1.5 px-1.5 lg:px-3 font-medium whitespace-nowrap text-xs lg:text-sm text-gray-800 bg-gray-100/40 rounded-full"
-                >
-                  Amenities
-                </button>
-                <button
-                  class="py-1 lg:py-1.5 px-1.5 lg:px-3 font-medium whitespace-nowrap text-xs lg:text-sm text-gray-800 bg-gray-100/40 rounded-full"
-                >
-                  Payment Plans
-                </button>
-                <button
-                  class="py-1 lg:py-1.5 px-1.5 lg:px-3 font-medium whitespace-nowrap text-xs lg:text-sm text-gray-800 bg-gray-100/40 rounded-full"
-                >
-                  Documents
-                </button>
-                <button
-                  class="py-1 lg:py-1.5 px-1.5 lg:px-3 font-medium whitespace-nowrap text-xs lg:text-sm text-gray-800 bg-gray-100/40 rounded-full"
-                >
-                  Developer
-                </button>
-              </div>
-
-              <!-- back & forward btns -->
-              <button
-                id="scroll-back-filter"
-                class="hidden absolute top-0 left-0 w-10 lg:w-16 h-full items-center justify-center bg-gradient-to-tr from-white/20 via-white/20 to-transparent"
-              >
-                <span
-                  class="bg-gray-600 rounded-full flex items-center justify-center size-6 lg:size-8"
-                >
-                  <ion-icon
-                    class="size-6 lg:size-8 text-gray-100"
-                    name="arrow-back-circle-outline"
-                  ></ion-icon>
-                </span>
-              </button>
-              <button
-                id="scroll-forward-filter"
-                class="absolute top-0 right-0 w-10 lg:w-16 h-full flex items-center justify-center bg-gradient-to-tl from-white/20 via-white/20 to-transparent"
-              >
-                <span
-                  class="bg-gray-600 rounded-full flex items-center justify-center size-6 lg:size-8"
-                >
-                  <ion-icon
-                    class="size-6 lg:size-8 text-gray-100"
-                    name="arrow-forward-circle-outline"
-                  ></ion-icon>
-                </span>
-              </button>
-            </div>
-
-            <!-- Details -->
-            <div class="w-full">
-              <div class="bg-blue-100/10 divide-y divide-gray-300">
-                <div class="px-4 py-3 flex justify-between">
-                  <h3 class="text-gray-600 text-sm lg:text-base font-medium">
-                    Developer
-                  </h3>
-                  <p class="text-gray-900 text-xs lg:text-sm">
-                    Dubai Properties
-                  </p>
-                </div>
-                <div class="px-4 py-3 flex justify-between">
-                  <h3 class="text-gray-600 text-sm lg:text-base font-medium">
-                    District
-                  </h3>
-                  <p class="text-gray-900 text-xs lg:text-sm">
-                    Dubai Properties
-                  </p>
-                </div>
-                <div class="px-4 py-3 flex justify-between">
-                  <h3 class="text-gray-600 text-sm lg:text-base font-medium">
-                    Price
-                  </h3>
-                  <p class="text-gray-900 text-xs lg:text-sm">
-                    Dubai Properties
-                  </p>
-                </div>
-                <div class="px-4 py-3 flex justify-between">
-                  <h3 class="text-gray-600 text-sm lg:text-base font-medium">
-                    Size
-                  </h3>
-                  <p class="text-gray-900 text-xs lg:text-sm">
-                    Dubai Properties
-                  </p>
-                </div>
-                <div class="px-4 py-3 flex justify-between">
-                  <h3 class="text-gray-600 text-sm lg:text-base font-medium">
-                    Handover
-                  </h3>
-                  <p class="text-gray-900 text-xs lg:text-sm">
-                    Dubai Properties
-                  </p>
-                </div>
-                <div class="px-4 py-3 flex justify-between">
-                  <h3 class="text-gray-600 text-sm lg:text-base font-medium">
-                    Unit type
-                  </h3>
-                  <p class="text-gray-900 text-xs lg:text-sm">
-                    Dubai Properties
-                  </p>
-                </div>
-                <div class="px-4 py-3 flex justify-between">
-                  <h3 class="text-gray-600 text-sm lg:text-base font-medium">
-                    Furnishing
-                  </h3>
-                  <p class="text-gray-900 text-xs lg:text-sm">
-                    Dubai Properties
-                  </p>
-                </div>
-                <div class="px-4 py-3 flex justify-between">
-                  <h3 class="text-gray-600 text-sm lg:text-base font-medium">
-                    Resale allowed after
-                  </h3>
-                  <p class="text-gray-700 text-xs lg:text-sm">
-                    Dubai Properties
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div
+        class="flex justify-center gap-x-2 w-full lg:rounded-3xl overflow-hidden shadow-lg"
+      >
         <!-- section -->
         <div
-          class="px-4 sm:px-8 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] w-full overflow-auto py-4 bg-white/60 backdrop-blur-md "
+          class="px-4 lg:px-8 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] w-full overflow-auto py-4 pb-10 bg-white/60 backdrop-blur-md"
         >
-          <div class="fav-wrapper w-full mx-auto">
-            <h3 class="font-semibold text-xl text-blue-800 mt-8">
-              8 properties available in Abu Dhabi
-            </h3>
-            <p class="mb-4 text-gray-600 text-sm">include nearby suburbs</p>
-
-            <div class="mb-2">
-              <div
-                class="flex gap-x-1 items-center w-max bg-gray-200 backdrop-blur-sm rounded-full shadow-sm py-0.5 px-1 lg:py-1 lg:px-1.5"
+          <!-- Create -->
+          <div
+            id="createPortfolioComponent"
+            class="h-60 md:h-80 rounded-3xl flex items-center justify-center bg-gradient-to-br from-purple-600 to-blue-500"
+          >
+            <div class="text-center">
+              <h1
+                class="text-2xl md:text-6xl px-10 md:px-0 font-bold text-white mb-8 animate-pulse"
               >
-                <button
-                  id="list-view"
-                  class="bg-white rounded-full py-1 px-1 lg:px-1.5 flex items-center justify-center"
-                >
-                  <span
-                    class="text-gray-800 font-medium text-[10px] lg:text-sm mr-1"
-                    >List View</span
-                  >
-                </button>
-                <button
-                  id="map-view"
-                  class="rounded-full py-1 px-1 lg:px-1.5 font-medium flex items-center justify-center"
-                >
-                  <span
-                    class="text-gray-500 font-medium text-[10px] lg:text-sm mr-1"
-                    >Map View</span
-                  >
-                </button>
-              </div>
+                Showcase Your Real Estate Expertise
+              </h1>
+              <button
+                onclick="openModal()"
+                class="bg-white text-purple-600 text-sm md:text-base font-semibold py-3 px-6 rounded-full shadow-lg transform transition duration-300 ease-in-out hover:scale-110 hover:bg-purple-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
+              >
+                Create Your Portfolio
+              </button>
             </div>
-            <hr class="mb-2" />
-            <!-- List -->
-            <div id="list-view-container" class="rounded-xl mb-10 flex flex-col divide-y-2 ">
-              <div onclick="openProjectSidebar()" class="flex justify-center items-center cursor-pointer">
-                <div
-                  class="flex flex-col md:flex-row gap-x-4 w-full rounded-lg py-5"
-                >
-                  <div class="mb-4 md:mb-0">
-                    <img
-                      class="w-72 lg:w-96 aspect-video h-full object-cover rounded-xl"
-                      src="https://www.propertyfinder.ae/blog/wp-content/uploads/2023/08/ondrej-bocek-3Q17UE2FZM4-unsplash.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div class="">
-                    <div
-                      class="mb-5 w-max rounded-full border border-gray-400 py-1 pl-2 pr-3 flex items-center"
-                    >
-                      <img
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/single_card_with_stacked_avatars-svg1.svg"
-                        alt="icon"
-                      />
+          </div>
+          <!-- <div id="createPortfolioComponent" class="text-center animate-fade-in">
+            <button
+              onclick="openModal()"
+              class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            >
+              Create Your Portfolio
+            </button>
+          </div> -->
 
-                      <p tabindex="0" class="focus:outline-none ml-2 text-xs">
-                        Open 7 Sept, 23:00
-                      </p>
-                    </div>
-                    <h4
-                      tabindex="0"
-                      class="focus:outline-none text-gray-800 font-semibold mb-2"
-                    >
-                      AED 320,093,000
-                    </h4>
-                    <p
-                      tabindex="0"
-                      class="focus:outline-none mb-3 text-gray-600 text-sm"
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Integer posuere erat ar ..
-                    </p>
-                    <p class="text-gray-500 text-xs font-medium">
-                      3 Bed &bull; 2 Bath &bull; 1 Car
-                    </p>
-                    <div class="mt-4 flex items-center gap-2 text-gray-600">
-                      <div class="px-2 py-1 rounded-full bg-gray-400">
-                        <p class="text-white text-xs">Apartment</p>
-                      </div>
-                      <div class="px-2 py-1 rounded-full bg-gray-400">
-                        <p class="text-white text-xs">Flat</p>
-                      </div>
-                      <div class="px-2 py-1 rounded-full bg-gray-400">
-                        <p class="text-white text-xs">Unit</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div onclick="openProjectSidebar()" class="flex justify-center items-center cursor-pointer">
-                <div
-                  class="flex flex-col md:flex-row gap-x-4 w-full rounded-lg py-5"
-                >
-                  <div class="mb-4 md:mb-0">
-                    <img
-                      class="w-72 lg:w-96 aspect-video h-full object-cover rounded-xl"
-                      src="https://www.propertyfinder.ae/blog/wp-content/uploads/2023/08/ondrej-bocek-3Q17UE2FZM4-unsplash.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div class="">
-                    <div
-                      class="mb-5 w-max rounded-full border border-gray-400 py-1 pl-2 pr-3 flex items-center"
-                    >
-                      <img
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/single_card_with_stacked_avatars-svg1.svg"
-                        alt="icon"
-                      />
-
-                      <p tabindex="0" class="focus:outline-none ml-2 text-xs">
-                        Open 7 Sept, 23:00
-                      </p>
-                    </div>
-                    <h4
-                      tabindex="0"
-                      class="focus:outline-none text-gray-800 font-semibold mb-2"
-                    >
-                      AED 320,093,000
-                    </h4>
-                    <p
-                      tabindex="0"
-                      class="focus:outline-none mb-3 text-gray-600 text-sm"
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Integer posuere erat ar ..
-                    </p>
-                    <p class="text-gray-500 text-xs font-medium">
-                      3 Bed &bull; 2 Bath &bull; 1 Car
-                    </p>
-                    <div class="mt-4 flex items-center gap-2 text-gray-600">
-                      <div class="px-2 py-1 rounded-full bg-gray-400">
-                        <p class="text-white text-xs">Apartment</p>
-                      </div>
-                      <div class="px-2 py-1 rounded-full bg-gray-400">
-                        <p class="text-white text-xs">Flat</p>
-                      </div>
-                      <div class="px-2 py-1 rounded-full bg-gray-400">
-                        <p class="text-white text-xs">Unit</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div onclick="openProjectSidebar()" class="flex justify-center items-center cursor-pointer">
-                <div
-                  class="flex flex-col md:flex-row gap-x-4 w-full rounded-lg py-5"
-                >
-                  <div class="mb-4 md:mb-0">
-                    <img
-                      class="w-72 lg:w-96 aspect-video h-full object-cover rounded-xl"
-                      src="https://www.propertyfinder.ae/blog/wp-content/uploads/2023/08/ondrej-bocek-3Q17UE2FZM4-unsplash.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div class="">
-                    <div
-                      class="mb-5 w-max rounded-full border border-gray-400 py-1 pl-2 pr-3 flex items-center"
-                    >
-                      <img
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/single_card_with_stacked_avatars-svg1.svg"
-                        alt="icon"
-                      />
-
-                      <p tabindex="0" class="focus:outline-none ml-2 text-xs">
-                        Open 7 Sept, 23:00
-                      </p>
-                    </div>
-                    <h4
-                      tabindex="0"
-                      class="focus:outline-none text-gray-800 font-semibold mb-2"
-                    >
-                      AED 320,093,000
-                    </h4>
-                    <p
-                      tabindex="0"
-                      class="focus:outline-none mb-3 text-gray-600 text-sm"
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Integer posuere erat ar ..
-                    </p>
-                    <p class="text-gray-500 text-xs font-medium">
-                      3 Bed &bull; 2 Bath &bull; 1 Car
-                    </p>
-                    <div class="mt-4 flex items-center gap-2 text-gray-600">
-                      <div class="px-2 py-1 rounded-full bg-gray-400">
-                        <p class="text-white text-xs">Apartment</p>
-                      </div>
-                      <div class="px-2 py-1 rounded-full bg-gray-400">
-                        <p class="text-white text-xs">Flat</p>
-                      </div>
-                      <div class="px-2 py-1 rounded-full bg-gray-400">
-                        <p class="text-white text-xs">Unit</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="map-view-container" class="hidden">
-              <div class="overflow-hidden rounded-xl bg-gray-100 h-[400px] md:h-[600px]">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d36014.92721428063!2d54.350579929568454!3d24.471830375557406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e440f723ef2b9%3A0xc7cc2e9341971108!2sAbu%20Dhabi%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1724091904495!5m2!1sen!2s"
-                  class="size-full outline-0 border-none border-0 "
-                  allowfullscreen=""
-                  loading="lazy"
-                  frameborder="0"
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
-              </div>
-            </div>
+          <div id="portfolioContent" class="hidden w-full max-w-6xl mx-auto">
+            <!-- Portfolio content will be dynamically inserted here -->
           </div>
         </div>
       </div>
     </main>
+    <script>
+      function openModal() {
+        document.getElementById("modal").classList.remove("hidden");
+      }
 
+      function closeModal() {
+        document.getElementById("modal").classList.add("hidden");
+      }
+
+      document
+        .getElementById("portfolioForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+          const data = Object.fromEntries(formData.entries());
+          createPortfolio(data);
+          closeModal();
+        });
+
+      function createPortfolio(data) {
+        const portfolioHTML = `
+                <div class="container mx-auto px-4 py-8 animate-fade-in">
+                    <!-- Header -->
+                    <header class="bg-white shadow-lg rounded-lg p-6 mb-8">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <img src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_9.png" alt="${data.name}'s Profile Picture" class="w-32 h-32 rounded-full mb-4 md:mb-0 md:mr-6 border-4 border-blue-500">
+                            <div class="text-center md:text-left">
+                                <h1 class="text-3xl font-bold text-blue-700">${data.name}</h1>
+                                <p class="text-xl text-blue-600">${data.title}</p>
+                                <div class="mt-2 space-x-2">
+                                    <a href="#" class="text-blue-500 hover:text-blue-700 transition-colors duration-300"><ion-icon name="logo-facebook"></ion-icon></a>
+                                    <a href="#" class="text-blue-500 hover:text-blue-700 transition-colors duration-300"><ion-icon name="logo-twitter"></ion-icon></a>
+                                    <a href="#" class="text-blue-500 hover:text-blue-700 transition-colors duration-300"><ion-icon name="logo-instagram"></ion-icon></a>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Main Content -->
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <!-- Left Sidebar -->
+                        <div class="w-full lg:w-1/3">
+                            <div class="bg-white shadow-lg rounded-lg p-6 mb-8">
+                                <h2 class="text-xl font-semibold mb-4 text-blue-700 border-b-2 border-blue-200 pb-2">Contact Information</h2>
+                                <ul class="space-y-2">
+                                    <li><strong class="text-blue-600">Email:</strong> ${data.email}</li>
+                                    <li><strong class="text-blue-600">Phone:</strong> ${data.phone}</li>
+                                    <li><strong class="text-blue-600">Agency:</strong> ${data.agency}</li>
+                                    <li><strong class="text-blue-600">RERA Number:</strong> ${data.reraNumber}</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white shadow-lg rounded-lg p-6">
+                                <h2 class="text-xl font-semibold mb-4 text-blue-700 border-b-2 border-blue-200 pb-2">Expertise</h2>
+                                <ul class="space-y-2">
+                                    <li><strong class="text-blue-600">Experience:</strong> ${data.experience} years</li>
+                                    <li><strong class="text-blue-600">Specializations:</strong> ${data.specializations}</li>
+                                    <li><strong class="text-blue-600">Languages:</strong> ${data.languages}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Main Content Area -->
+                        <div class="w-full lg:w-2/3">
+                            <div class="bg-white shadow-lg rounded-lg p-6 mb-8">
+                                <h2 class="text-2xl font-semibold mb-4 text-blue-700 border-b-2 border-blue-200 pb-2">About Me</h2>
+                                <p class="text-gray-700 leading-relaxed">${data.bio}</p>
+                            </div>
+                            <div class="bg-white shadow-lg rounded-lg p-6">
+                                <h2 class="text-2xl font-semibold mb-4 text-blue-700 border-b-2 border-blue-200 pb-2">Client Testimonials</h2>
+                                <p class="text-gray-600 italic">No testimonials yet. As you work with clients, you can add their feedback here!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <footer class="bg-white shadow-lg rounded-lg p-6 mt-8">
+                        <div class="flex flex-col md:flex-row justify-between items-center">
+                          <button class="mb-4 md:mb-0 flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                            <ion-icon class="mr-2" name="document"></ion-icon>
+                              <span class="font-semibold">Share Profile (PDF)</span>
+                          </button>
+                          <button onclick="openModal()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                              Update Profile
+                          </button>
+                        </div>
+                    </footer>
+                </div>
+            `;
+
+        document
+          .getElementById("createPortfolioComponent")
+          .classList.add("hidden");
+        const portfolioContent = document.getElementById("portfolioContent");
+        portfolioContent.innerHTML = portfolioHTML;
+        portfolioContent.classList.remove("hidden");
+      }
+
+      // Close modal when clicking outside
+      window.onclick = function (event) {
+        const modal = document.getElementById("modal");
+        if (event.target == modal) {
+          closeModal();
+        }
+      };
+    </script>
     <script
       type="text/javascript"
       src="//code.jquery.com/jquery-1.11.0.min.js"
@@ -949,5 +790,8 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script src="
+      https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js
+      "></script>
   </body>
 </html>

@@ -47,7 +47,9 @@
             </div>
           </div>
           <!-- Searchbar desktop -->
-          <div class="hidden lg:block max-w-[18rem] lg:w-full ml-2 lg:ml-0 mr-4">
+          <div
+            class="hidden lg:block max-w-[18rem] lg:w-full ml-2 lg:ml-0 mr-4"
+          >
             <form class="relative bg-transparent backdrop-blur-md rounded-full">
               <label for="Search" class="sr-only"> Search </label>
               <input
@@ -147,15 +149,31 @@
                 </p>
               </button>
 
-              <div id="currencies" class="absolute z-20 top-2 lg:top-10 -left-24 lg:left-0 w-60 lg:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+              <div
+                id="currencies"
+                class="absolute z-20 top-2 lg:top-10 -left-24 lg:left-0 w-60 lg:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
+              >
                 <div class="p-8">
-                  <div class="uppercase tracking-wide text-sm text-blue-500 font-semibold mb-4">Select Options</div>
-                  
+                  <div
+                    class="uppercase tracking-wide text-sm text-blue-500 font-semibold mb-4"
+                  >
+                    Select Options
+                  </div>
+
                   <!-- Currency Selection -->
                   <div class="mb-6">
-                    <label for="currency" class="block text-sm font-medium text-gray-700 mb-2">Currency</label>
+                    <label
+                      for="currency"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                      >Currency</label
+                    >
                     <div class="relative">
-                      <select onchange="selectCurrency(this)" id="currency" name="currency" class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                      <select
+                        onchange="selectCurrency(this)"
+                        id="currency"
+                        name="currency"
+                        class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      >
                         <option value="USD">USD</option>
                         <option value="EUR">EUR</option>
                         <option value="AED">AED</option>
@@ -163,15 +181,27 @@
                       </select>
                     </div>
                   </div>
-                  
+
                   <!-- Measurement Selection -->
                   <div>
-                    <label for="measurement" class="block text-sm font-medium text-gray-700 mb-2">Measurement</label>
+                    <label
+                      for="measurement"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                      >Measurement</label
+                    >
                     <div class="flex space-x-2">
-                      <button onClick="selectMeasure(this)" id="ft-btn" class="flex-1 bg-blue-100 text-blue-700 py-2 px-4 rounded-lg font-medium hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out">
+                      <button
+                        onClick="selectMeasure(this)"
+                        id="ft-btn"
+                        class="flex-1 bg-blue-100 text-blue-700 py-2 px-4 rounded-lg font-medium hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out"
+                      >
                         ft<sup>2</sup>
                       </button>
-                      <button onClick="selectMeasure(this)" id="m-btn" class="flex-1 bg-white text-gray-700 py-2 px-4 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out">
+                      <button
+                        onClick="selectMeasure(this)"
+                        id="m-btn"
+                        class="flex-1 bg-white text-gray-700 py-2 px-4 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out"
+                      >
                         m<sup>2</sup>
                       </button>
                     </div>
@@ -195,7 +225,7 @@
               </label>
             </div>
 
-             <!-- scripts -->
+            <!-- scripts -->
             <div class="relative">
               <button
                 id="scripts-button"
@@ -213,7 +243,9 @@
                 <div
                   class="scripts-slider pb-10 bg-white/90 backdrop-blur-md shadow-lg rounded-xl size-full"
                 >
-                  <div class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm">
+                  <div
+                    class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm"
+                  >
                     <p>
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                       Autem tenetur, tempora recusandae animi neque ducimus.
@@ -309,7 +341,9 @@
               </p>
             </div>
           </div>
-          <div class="px-3 h-[calc(100%-var(--header-height))] overflow-y-auto custom-scroller">
+          <div
+            class="px-3 h-[calc(100%-var(--header-height))] overflow-y-auto custom-scroller"
+          >
             <!-- menu icon -->
             <div
               class="absolute z-10 top-[4.5rem] -right-10 size-10 flex items-center rounded-r-full shadow-xl bg-white/90 hover:bg-gray-50"
@@ -592,7 +626,7 @@
             </div>
             <div class="flex flex-col xl:flex-row gap-4">
               <!-- Calendar with meetings -->
-              <div class="mt-10 xl:w-1/2">
+              <div class="mt-10 xl:w-2/3">
                 <h3 class="text-gray-700">Meetings</h3>
                 <div class="mt-3 bg-white rounded-2xl shadow p-8">
                   <img
@@ -603,77 +637,80 @@
                 </div>
               </div>
               <!-- Knowledge base -->
-              <div class="mt-10 xl:w-1/2">
+              <div class="mt-10 xl:w-1/3">
                 <h3 class="text-gray-700">Knowledge Base</h3>
-                <div class="mt-3 bg-white rounded-3xl shadow">
-                  <div
-                    class="dashboard-slider pt-4 pb-14 bg-white/90 backdrop-blur-md rounded-2xl shadow size-full"
-                  >
+                <div class="pb-14 bg-blue-950 shadow-xl rounded-3xl">
+                  <div class="mt-3 dashboard-slider">
                     <div
-                      class="p-6 max-h-40 overflow-auto text-gray-700 text-sm"
+                      class="relative max-h-[30rem] w-full rounded-3xl overflow-hidden shadow"
                     >
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut
-                        ipsam?
-                      </p>
+                      <img
+                        class="absolute inset-0 size-full object-cover"
+                        src="https://img.freepik.com/free-photo/digital-art-snow-landscape_23-2151840713.jpg?t=st=1729082410~exp=1729086010~hmac=eb8b29ed33c1b3ef8433c8fd134b7e83fd7a484bbe22cb50725f561f07d84468&w=740"
+                        alt=""
+                      />
+                      <div class="absolute h-[30rem] w-full bg-black/50"></div>
+                      <div class="relative h-[30rem] overflow-auto custom-scroller p-6 text-white text-lg">
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Autem tenetur, tempora recusandae animi neque
+                          ducimus. Nisi, consectetur et natus earum reiciendis
+                          recusandae officia velit architecto vel neque magni aut
+                          ipsam?
+                        </p>
+                      </div>
                     </div>
                     <div
-                      class="p-6 max-h-40 overflow-auto text-gray-700 text-sm"
+                      class="relative max-h-[30rem] w-full rounded-3xl overflow-hidden shadow"
                     >
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut
-                        ipsam?
-                      </p>
+                      <img
+                        class="absolute inset-0 size-full object-cover"
+                        src="https://img.freepik.com/free-photo/3d-black-friday-celebration_23-2151848862.jpg?t=st=1729092515~exp=1729096115~hmac=24f79c703ac1a08aa8dfe35e476ca0cda929fa9e0167d3974dad7e4e0409f9aa&w=740"
+                        alt=""
+                      />
+                      <div class="absolute h-[30rem] w-full bg-black/50"></div>
+                      <div class="relative h-[30rem] overflow-auto custom-scroller p-6 text-white text-lg">
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Autem tenetur, tempora recusandae animi neque
+                          ducimus. Nisi, consectetur et natus earum reiciendis
+                          recusandae officia velit architecto vel neque magni aut
+                          ipsam?
+                        </p>
+                      </div>
                     </div>
                     <div
-                      class="p-6 max-h-40 overflow-auto text-gray-700 text-sm"
+                      class="relative max-h-[30rem] w-full rounded-3xl overflow-hidden shadow"
                     >
-                      <p>Lorem ipsum dolorto vel neque magni aut ipsam?</p>
-                    </div>
-                    <div
-                      class="p-6 max-h-40 overflow-auto text-gray-700 text-sm"
-                    >
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut
-                        ipsam?
-                      </p>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut
-                        ipsam?
-                      </p>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut
-                        ipsam?
-                      </p>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut
-                        ipsam?
-                      </p>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Autem tenetur, tempora recusandae animi neque
-                        ducimus. Nisi, consectetur et natus earum reiciendis
-                        recusandae officia velit architecto vel neque magni aut
-                        ipsam?
-                      </p>
+                      <img
+                        class="absolute inset-0 size-full object-cover"
+                        src="https://img.freepik.com/free-photo/autumn-season-still-life_23-2151840164.jpg?t=st=1729092605~exp=1729096205~hmac=aa3a2532554693acb80d042b69881f7ee0df77d3805bb84fcdf7499001243b7a&w=740"
+                        alt=""
+                      />
+                      <div class="absolute h-[30rem] w-full bg-black/50"></div>
+                      <div class="relative h-[30rem] overflow-auto custom-scroller p-6 text-white text-lg">
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Autem tenetur, tempora recusandae animi neque
+                          ducimus. Nisi, consectetur et natus earum reiciendis
+                          recusandae officia velit architecto vel neque magni aut
+                          ipsam?
+                        </p>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Autem tenetur, tempora recusandae animi neque
+                          ducimus. Nisi, consectetur et natus earum reiciendis
+                          recusandae officia velit architecto vel neque magni aut
+                          ipsam?
+                        </p>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Autem tenetur, tempora recusandae animi neque
+                          ducimus. Nisi, consectetur et natus earum reiciendis
+                          recusandae officia velit architecto vel neque magni aut
+                          ipsam?
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
