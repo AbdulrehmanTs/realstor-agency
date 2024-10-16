@@ -31,7 +31,7 @@
     <!-- header -->
     <div class="lg:py-2 lg:px-4 w-full h-[--header-height] relative z-30">
       <div
-        class="px-2 sm:px-4 lg:px-2 bg-white/60 shadow-md flex items-center backdrop-blur-sm size-full lg:rounded-full"
+        class="px-2 sm:px-4 lg:px-2 bg-gray-400/60 shadow-md flex items-center backdrop-blur-sm size-full lg:rounded-full"
       >
         <div class="w-full flex items-center">
           <!-- logo -->
@@ -46,7 +46,7 @@
             </div>
           </div>
           <!-- Searchbar desktop -->
-          <div class="hidden lg:block max-w-xs lg:w-full ml-2 lg:ml-0 mr-4">
+          <div class="hidden lg:block max-w-[18rem] lg:w-full ml-2 lg:ml-0 mr-4">
             <form class="relative bg-transparent backdrop-blur-md rounded-full">
               <label for="Search" class="sr-only"> Search </label>
               <input
@@ -418,10 +418,6 @@
               id="states-button"
               class="flex gap-x-1 items-center bg-blue-500 backdrop-blur-sm text-white rounded lg:rounded-full shadow-sm p-1 lg:p-1.5"
             >
-              <ion-icon
-                class="size-3 lg:size-4"
-                name="funnel-outline"
-              ></ion-icon>
               <p class="text-[10px]">Districts</p>
               <div
                 class="size-3 lg:size-4 bg-white rounded-full flex items-center justify-center"
@@ -602,10 +598,6 @@
               id="emirates-button"
               class="flex gap-x-1 items-center bg-blue-500 backdrop-blur-sm text-white rounded lg:rounded-full shadow-sm p-1 lg:p-1.5"
             >
-              <ion-icon
-                class="size-3 lg:size-4"
-                name="funnel-outline"
-              ></ion-icon>
               <p class="text-[10px]">Emirates</p>
               <div
                 class="size-3 lg:size-4 bg-white rounded-full flex items-center justify-center"
@@ -703,10 +695,6 @@
               id="developers-button"
               class="flex gap-x-1 items-center bg-blue-500 backdrop-blur-sm text-white rounded lg:rounded-full shadow-sm p-1 lg:p-1.5"
             >
-              <ion-icon
-                class="size-3 lg:size-4"
-                name="funnel-outline"
-              ></ion-icon>
               <p class="text-[10px]">Developers</p>
               <!-- display: flex when there is a filter selected -->
               <div
@@ -786,25 +774,21 @@
               <!-- </div> -->
             </div>
           </div>
-          <!-- Clear filter -->
-          <div class="relative hidden lg:block">
+          <!-- More Filters -->
+          <div class="relative hidden lg:block mr-2">
             <button
-              id="emirates-button"
-              class="flex gap-x-1 items-center bg-blue-600 backdrop-blur-sm text-white rounded lg:rounded-full shadow-sm p-1 lg:p-1.5"
+              id="more-filters-button"
+              class="flex gap-x-1 items-center bg-blue-500 backdrop-blur-sm text-white rounded lg:rounded-full shadow-sm p-1 lg:p-1.5"
             >
-              <ion-icon
-                class="size-3 lg:size-4"
-                name="refresh-outline"
-              ></ion-icon>
-              <p class="text-[10px] whitespace-nowrap">Clear all</p>
+              <p class="text-nowrap text-[10px]">More Filters</p>
             </button>
 
             <div
-              id="emirates-wrapper"
+              id="more-filters-wrapper"
               class="absolute z-20 top-8 lg:top-10 -left-8 lg:left-0 w-64 lg:w-96 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
             >
-              <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full">
-                <div class="p-3 lg:p-4 bg-white ring-2 rounded-xl size-full">
+              <div class="shadow-lg rounded-xl size-full">
+                <div class="p-3 lg:p-4 bg-white rounded-xl size-full">
                   <div class="flex items-center justify-between">
                     <h4 class="font-semibold text-gray-800 lg:text-lg">
                       Filters
@@ -817,11 +801,35 @@
                   </div>
 
                   <div class="mt-4">
-                    <div class="bg-white border rounded-lg p-3 lg:p-4">
+                    <div class="bg-white rounded-lg p-3 lg:p-4">
                       <!-- Emirate Dropdown -->
                       <div class="relative">
+                        <input
+                          checked
+                          type="radio"
+                          id="emirate2"
+                          name="filters"
+                          class="hidden peer"
+                          onclick="(e)=> e.preventDefault()"
+                        />
+                        <label
+                          for="emirate2"
+                          class="cursor-pointer flex items-center"
+                        >
+                          <span class="font-semibold text-sm lg:text-lg"
+                            >Emirate</span
+                          >
+                          <span
+                            class="size-4 flex items-center justify-center bg-blue-500 text-white rounded-full text-[8px] ml-1"
+                            >2</span
+                          >
+                        </label>
+                        <ion-icon
+                          class="absolute right-0 top-0 size-4 lg:size-5 peer-checked:rotate-90 transition-all"
+                          name="chevron-forward"
+                        ></ion-icon>
                         <div
-                          class="mt-2 max-h-[280px] transition-all duration-300 overflow-auto"
+                          class="mt-2 max-h-0 peer-checked:max-h-[280px] transition-all duration-300 overflow-auto"
                         >
                           <input
                             type="text"
@@ -873,11 +881,179 @@
                           </div>
                         </div>
                       </div>
+
+                      <!-- States Dropdown -->
+                      <div class="relative">
+                        <input
+                          type="radio"
+                          id="states2"
+                          name="filters"
+                          class="hidden peer"
+                          onclick="(e)=> e.preventDefault()"
+                        />
+                        <label
+                          for="states2"
+                          class="cursor-pointer flex justify-between items-center"
+                        >
+                          <span class="font-semibold text-sm lg:text-lg"
+                            >States</span
+                          >
+                        </label>
+                        <ion-icon
+                          class="absolute right-0 top-0 size-4 lg:size-5 peer-checked:rotate-90 transition-all"
+                          name="chevron-forward"
+                        ></ion-icon>
+                        <div
+                          class="mt-2 max-h-0 peer-checked:max-h-[280px] transition-all duration-300 overflow-auto"
+                        >
+                          <input
+                            type="text"
+                            placeholder="Search states"
+                            class="w-full p-1 lg:p-2 border border-gray-500 text-xs lg:text-sm rounded-md mb-2 focus:outline-none"
+                          />
+
+                          <div class="my-4 overflow-auto flex flex-col gap-y-1">
+                            <!-- Abu Dhabi -->
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Abu Dhabi</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Al Ain</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm"
+                                >Madinat Zayed</span
+                              >
+                            </label>
+
+                            <!-- Ajman -->
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Ajman</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Masfout</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Manama</span>
+                            </label>
+
+                            <!-- Al Fujairah -->
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Fujairah</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm"
+                                >Dibba Al-Fujairah</span
+                              >
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Masafi</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Qidfa</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Al Bithnah</span>
+                            </label>
+
+                            <!-- Dubai -->
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Dubai</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Hatta</span>
+                            </label>
+
+                            <!-- Ras Al Khaimah -->
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm"
+                                >Ras Al Khaimah</span
+                              >
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm"
+                                >Al Jazirah Al Hamra</span
+                              >
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Rams</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Al Hamra</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Al Riffa</span>
+                            </label>
+
+                            <!-- Sharjah -->
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Sharjah</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm"
+                                >Khor Fakkan</span
+                              >
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Kalba</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm">Al Dhaid</span>
+                            </label>
+
+                            <!-- Umm Al Quwain -->
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm"
+                                >Umm Al Quwain</span
+                              >
+                            </label>
+                            <label class="flex items-center space-x-2">
+                              <input type="checkbox" class="focus:ring-0" />
+                              <span class="text-xs lg:text-sm"
+                                >Falaj Al Mualla</span
+                              >
+                            </label>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <!-- Clear filter -->
+          <div class="relative hidden lg:block">
+            <button
+              id="emirates-button"
+              class="flex gap-x-1 items-center bg-blue-700 backdrop-blur-sm text-white rounded lg:rounded-full shadow-sm p-1 lg:p-1.5"
+            >
+              <p class="text-[10px] whitespace-nowrap">Reset</p>
+            </button>
+
           </div>
           <!-- divider -->
           <span class="hidden lg:block ml-4 w-[2px] h-4 bg-gray-500"></span>
@@ -902,92 +1078,36 @@
                   ft<sup>2</sup>
                 </p>
               </button>
-
-              <div
-                id="currencies"
-                class="absolute z-20 top-8 lg:top-10 -left-24 lg:left-0 w-60 lg:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
-              >
-                <!-- <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"> -->
-                <div
-                  class="p-4 bg-white/90 backdrop-blur-md rounded-xl shadow-lg size-full"
-                >
-                  <h2
-                    class="text-sm lg:text-lg text-gray-800 font-semibold mb-2"
-                  >
-                    Currency
-                  </h2>
-                  <div class="flex flex-wrap items-center gap-2">
-                    <button
-                      onClick="selectCurrency(this)"
-                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
-                    >
-                      <p
-                        class="currency font-medium text-[10px] lg:text-sm text-gray-600"
-                      >
-                        AED
-                      </p>
-                    </button>
-                    <button
-                      onClick="selectCurrency(this)"
-                      class="bg-blue-500 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
-                    >
-                      <p
-                        class="currency font-medium text-[10px] lg:text-sm text-gray-100"
-                      >
-                        USD
-                      </p>
-                    </button>
-                    <button
-                      onClick="selectCurrency(this)"
-                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
-                    >
-                      <p
-                        class="currency font-medium text-[10px] lg:text-sm text-gray-600"
-                      >
-                        EUR
-                      </p>
-                    </button>
-                    <button
-                      onClick="selectCurrency(this)"
-                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
-                    >
-                      <p
-                        class="currency font-medium text-[10px] lg:text-sm text-gray-600"
-                      >
-                        CAD
-                      </p>
-                    </button>
+              <div id="currencies" class="absolute z-20 top-2 lg:top-10 -left-24 lg:left-0 w-60 lg:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+                <div class="p-8">
+                  <div class="uppercase tracking-wide text-sm text-blue-500 font-semibold mb-4">Select Options</div>
+                  
+                  <!-- Currency Selection -->
+                  <div class="mb-6">
+                    <label for="currency" class="block text-sm font-medium text-gray-700 mb-2">Currency</label>
+                    <div class="relative">
+                      <select onchange="selectCurrency(this)" id="currency" name="currency" class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="AED">AED</option>
+                        <option value="CAD">CAD</option>
+                      </select>
+                    </div>
                   </div>
-                  <!-- Sizes -->
-                  <h2
-                    class="text-sm lg:text-lg text-gray-800 font-semibold mt-4 mb-2"
-                  >
-                    Measures
-                  </h2>
-                  <div class="flex flex-wrap items-center gap-2">
-                    <button
-                      onClick="selectMeasure(this)"
-                      class="bg-blue-500 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
-                    >
-                      <p
-                        class="measure font-medium text-[10px] lg:text-sm text-gray-100"
-                      >
+                  
+                  <!-- Measurement Selection -->
+                  <div>
+                    <label for="measurement" class="block text-sm font-medium text-gray-700 mb-2">Measurement</label>
+                    <div class="flex space-x-2">
+                      <button onClick="selectMeasure(this)" id="ft-btn" class="flex-1 bg-blue-100 text-blue-700 py-2 px-4 rounded-lg font-medium hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out">
                         ft<sup>2</sup>
-                      </p>
-                    </button>
-                    <button
-                      onClick="selectMeasure(this)"
-                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
-                    >
-                      <p
-                        class="measure font-medium text-[10px] lg:text-sm text-gray-600"
-                      >
+                      </button>
+                      <button onClick="selectMeasure(this)" id="m-btn" class="flex-1 bg-white text-gray-700 py-2 px-4 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out">
                         m<sup>2</sup>
-                      </p>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <!-- </div> -->
               </div>
             </div>
 
@@ -1044,23 +1164,19 @@
                 id="scripts-button"
                 class="bg-gray-200 backdrop-blur-sm rounded-full text-gray-600 flex items-center gap-x-1 shadow-sm px-3 py-1.5"
               >
-                <ion-icon
-                  class="size-5 text-gray-600"
-                  name="barcode-outline"
-                ></ion-icon>
                 <span class="text-sm">Scripts</span>
                 <ion-icon class="size-4" name="chevron-down"></ion-icon>
               </button>
 
               <div
                 id="scripts-panel"
-                class="opacity-0 absolute top-10 right-0 z-10 w-72 pointer-events-none -translate-y-4 transition-all duration-300"
+                class="opacity-0 absolute top-10 -right-1 z-10 w-72 pointer-events-none -translate-y-4 transition-all duration-300"
               >
                 <!-- <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"> -->
                 <div
-                  class="scripts-slider pt-4 pb-10 bg-white/90 backdrop-blur-md shadow-lg rounded-xl size-full"
+                  class="scripts-slider pb-10 bg-white/90 backdrop-blur-md shadow-lg rounded-xl size-full"
                 >
-                  <div class="p-6 min-h-24 max-h-[15vh] text-gray-700 text-sm">
+                  <div class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm">
                     <p>
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                       Autem tenetur, tempora recusandae animi neque ducimus.
@@ -1102,7 +1218,7 @@
                 </div>
                 <a
                   href="./scripts.html"
-                  class="absolute bottom-9 left-5 text-blue-500 font-medium text-sm hover:underline rounded-full py-1 px-2 transition"
+                  class="absolute bottom-2 left-5 text-blue-500 font-medium text-sm hover:underline rounded-full py-1 px-2 transition"
                   >See all</a
                 >
                 <!-- </div> -->
@@ -1132,7 +1248,7 @@
         class="w-0 lg:w-16 z-30 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] absolute lg:left-4 top-0 transition-all"
       >
         <div
-          class="relative bg-white/60 backdrop-blur-sm h-full rounded-full lg:border lg:border-gray-300 transition-all duration-0"
+          class="relative bg-gray-400/60 backdrop-blur-sm h-full rounded-full transition-all duration-0"
         >
           <!-- Logo -->
           <div
@@ -1154,7 +1270,7 @@
               </p>
             </div>
           </div>
-          <div class="px-3 h-[calc(100%-var(--header-height))]">
+          <div class="px-3 h-[calc(100%-var(--header-height))] overflow-y-auto custom-scroller">
             <!-- menu icon -->
             <div
               class="absolute z-10 top-[4.5rem] -right-10 size-10 flex items-center rounded-r-full shadow-xl bg-white/90 hover:bg-gray-50"
@@ -1167,7 +1283,7 @@
               </button>
             </div>
             <!-- Navitems -->
-            <div class="w-full h-full overflow-y-auto">
+            <div class="w-full h-full">
               <ul class="flex flex-col gap-y-3 py-4 h-full">
                 <li class="transition">
                   <a
@@ -1175,10 +1291,10 @@
                     class="flex items-center hover:bg-blue-600/10 rounded p-2"
                   >
                     <ion-icon
-                      class="text-blue-700 size-5"
+                      class="text-blue-600 size-5"
                       name="home"
                     ></ion-icon>
-                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                    <p class="navitem-title text-xs hidden text-blue-600 ml-6">
                       Home
                     </p>
                   </a>
@@ -2104,7 +2220,7 @@
 
     <!-- project-right-sidebar -->
     <div
-      class="absolute bottom-3 right-0 lg:right-4 z-10 w-full max-w-0 lg:max-w-72 h-[70vh] shadow-lg rounded-xl pt-2 size-full transition-all duration-300 ease-out"
+      class="absolute bottom-3 right-0 lg:right-4 z-10 w-full max-w-0 lg:max-w-72 h-[68vh] shadow-lg rounded-xl pt-2 size-full transition-all duration-300 ease-out"
     >
       <!-- toggle btn -->
       <button

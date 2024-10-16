@@ -30,6 +30,8 @@ const emiratesBtn = document.getElementById("emirates-button");
 const emiratesWrapper = document.getElementById("emirates-wrapper");
 const developersBtn = document.getElementById("developers-button");
 const developersWrapper = document.getElementById("developers-wrapper");
+const moreFiltersBtn = document.getElementById("more-filters-button");
+const moreFiltersWrapper = document.getElementById("more-filters-wrapper");
 
 navBtn?.addEventListener("click", toggleNavbar);
 navBtnMobile?.addEventListener("click", toggleNavbar);
@@ -47,31 +49,32 @@ filtersBtn?.addEventListener("click", toggleFilterWrapper);
 statesBtn?.addEventListener("click", toggleStatesWrapper);
 emiratesBtn?.addEventListener("click", toggleEmiratesWrapper);
 developersBtn?.addEventListener("click", toggleDevelopersWrapper);
+moreFiltersBtn?.addEventListener("click", toggleMoreFilterWrapper);
 
 function toggleNavbar() {
   if (navbar.classList.contains("lg:w-16")) {
-    navbar.classList.remove("w-0", "lg:w-16",);
+    navbar.classList.remove("w-0", "lg:w-16");
     navbar.classList.add("w-64", "lg:w-72");
     navbar.firstElementChild.classList.remove("rounded-full");
     navbar.firstElementChild.classList.add("lg:rounded-3xl");
     navBtn.firstElementChild.setAttribute("name", "chevron-back");
     navBtnMobile.firstElementChild.setAttribute("name", "close-outline");
     setTimeout(() => {
-      document.querySelector(".brand-name").style.display = "block"
+      document.querySelector(".brand-name").style.display = "block";
       Array.from(navitemTitles).forEach((item) => {
         item.classList.remove("hidden");
       });
     }, 150);
   } else {
     navbar.classList.remove("w-64", "lg:w-72");
-    navbar.classList.add("w-0", "lg:w-16",);
+    navbar.classList.add("w-0", "lg:w-16");
     navBtn.firstElementChild.setAttribute("name", "chevron-forward");
     navBtnMobile.firstElementChild.setAttribute("name", "reorder-three");
     Array.from(navitemTitles).forEach((item) => {
       item.classList.add("hidden");
     });
     setTimeout(() => {
-      document.querySelector(".brand-name").style.display = "none"
+      document.querySelector(".brand-name").style.display = "none";
       navbar.firstElementChild.classList.remove("lg:rounded-3xl");
       navbar.firstElementChild.classList.add("rounded-full");
     }, 100);
@@ -182,6 +185,32 @@ function toggleDevelopersWrapper() {
   }
 }
 
+function toggleMoreFilterWrapper() {
+  if (moreFiltersWrapper.classList.contains("opacity-0")) {
+    moreFiltersWrapper.classList.remove(
+      "-translate-y-2",
+      "opacity-0",
+      "pointer-events-none"
+    );
+    moreFiltersWrapper.classList.add(
+      "translate-y-0",
+      "opacity-100",
+      "pointer-events-auto"
+    );
+  } else {
+    moreFiltersWrapper.classList.remove(
+      "translate-y-0",
+      "opacity-100",
+      "pointer-events-auto"
+    );
+    moreFiltersWrapper.classList.add(
+      "-translate-y-2",
+      "opacity-0",
+      "pointer-events-none"
+    );
+  }
+}
+
 function handleCurrencyChange() {
   if (currenciesContainer.classList.contains("opacity-0")) {
     currenciesContainer.classList.remove(
@@ -251,45 +280,28 @@ function handleGridswitch() {
 }
 
 function selectCurrency(element) {
-  const selectedCurrency = element.querySelector(".currency");
-  currencyButton.querySelector(".currency").innerHTML =
-    selectedCurrency.innerHTML;
-  // handleCurrencyChange();
-  currenciesContainer.querySelectorAll(".currency").forEach((item) => {
-    // if already selected
-    if (selectedCurrency.innerHTML === item.innerHTML) {
-      item.parentElement.classList.add("bg-blue-500");
-      item.parentElement.classList.remove("bg-gray-200");
-      item.classList.add("text-gray-100");
-      item.classList.remove("text-gray-600");
-    } else {
-      item.parentElement.classList.add("bg-gray-200");
-      item.parentElement.classList.remove("bg-blue-500");
-      item.classList.add("text-gray-600");
-      item.classList.remove("text-gray-100");
-    }
-  });
+  const selectedCurrency = element.value;
+  currencyButton.querySelector(".currency").innerHTML = selectedCurrency;
 }
 
 function selectMeasure(element) {
-  const selectedMeasure = element.querySelector(".measure");
+  const selectedMeasure = element.innerHTML;
   currencyButton.querySelector(".measure").innerHTML =
-    selectedMeasure.innerHTML;
-  // handleCurrencyChange();
-  currenciesContainer.querySelectorAll(".measure").forEach((item) => {
-    // if already selected
-    if (selectedMeasure.innerHTML === item.innerHTML) {
-      item.parentElement.classList.add("bg-blue-500");
-      item.parentElement.classList.remove("bg-gray-200");
-      item.classList.add("text-gray-100");
-      item.classList.remove("text-gray-600");
+    selectedMeasure;
+    const ftBtn = document.getElementById("ft-btn")
+    const mBtn = document.getElementById("m-btn")
+    console.log(selectedMeasure === ftBtn.innerHTML);
+    if (selectedMeasure === ftBtn.innerHTML) {
+      ftBtn.classList.remove("bg-white", "text-gray-700", "border" ,"border-gray-300","hover:bg-gray-50")
+      ftBtn.classList.add("bg-blue-100", "text-blue-700","hover:bg-blue-200")
+      mBtn.classList.remove("bg-blue-100", "text-blue-700","hover:bg-blue-200")
+      mBtn.classList.add("bg-white", "text-gray-700", "border" ,"border-gray-300","hover:bg-gray-50")
     } else {
-      item.parentElement.classList.add("bg-gray-200");
-      item.parentElement.classList.remove("bg-blue-500");
-      item.classList.add("text-gray-600");
-      item.classList.remove("text-gray-100");
+      mBtn.classList.remove("bg-white", "text-gray-700", "border" ,"border-gray-300","hover:bg-gray-50")
+      mBtn.classList.add("bg-blue-100", "text-blue-700","hover:bg-blue-200")
+      ftBtn.classList.remove("bg-blue-100", "text-blue-700","hover:bg-blue-200")
+      ftBtn.classList.add("bg-white", "text-gray-700", "border" ,"border-gray-300","hover:bg-gray-50")
     }
-  });
 }
 const mobileSearch = document.querySelector("#mobile-search");
 const searchExpandBtn = document.querySelector("#search-expand-btn");
@@ -628,6 +640,14 @@ window.addEventListener("click", (e) => {
       toggleDevelopersWrapper();
     }
   }
+  if (
+    !moreFiltersBtn?.contains(e.target) &&
+    !moreFiltersWrapper?.contains(e.target)
+  ) {
+    if (moreFiltersWrapper?.classList.contains("opacity-100")) {
+      toggleMoreFilterWrapper();
+    }
+  }
 
   // close scripts panel
   // if (!scriptsButton.contains(e.target) && !scriptsPanel.contains(e.target)) {
@@ -636,7 +656,11 @@ window.addEventListener("click", (e) => {
   //   }
   // }
 
-  if (!developerInput.contains(e.target) && !developerList.contains(e.target)) {
+  if (
+    developerInput &&
+    !developerInput.contains(e.target) &&
+    !developerList.contains(e.target)
+  ) {
     closeDeveloperList();
   }
 });
@@ -705,12 +729,12 @@ function handleDeveloperSearch(e) {
 const formSteps = document.getElementById("form-steps");
 const stepsProgress = document.getElementById("steps-progress");
 
-if (formsList?.children){
-  Array.from(formsList?.children)?.forEach((form, index)=> {
-    if (index>0) {
+if (formsList?.children) {
+  Array.from(formsList?.children)?.forEach((form, index) => {
+    if (index > 0) {
       form.style.display = "none";
     }
-  })
+  });
 }
 
 function nextStep(stepNumber) {
@@ -722,19 +746,19 @@ function nextStep(stepNumber) {
   };
   Array.from(formSteps?.children)?.forEach((item, index) => {
     if (stepNumber === index + 1) {
-      item.classList.add("text-blue-600")
+      item.classList.add("text-blue-600");
     } else {
-      item.classList.remove("text-blue-600")
+      item.classList.remove("text-blue-600");
     }
-    stepsProgress.style.width = `${percentageMap[stepNumber]}%`
+    stepsProgress.style.width = `${percentageMap[stepNumber]}%`;
   });
-  Array.from(formsList?.children)?.forEach((form, index)=> {
+  Array.from(formsList?.children)?.forEach((form, index) => {
     if (stepNumber === index + 1) {
       form.style.display = "block";
     } else {
       form.style.display = "none";
     }
-  })
+  });
 }
 
 // Image Slider
@@ -746,7 +770,7 @@ $(document).ready(function () {
   });
 
   $(".scripts-slider").slick({
-    dots: true,
+    dots: false,
     autoplay: false,
     adaptiveHeight: true,
     prevArrow:

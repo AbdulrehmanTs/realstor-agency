@@ -32,7 +32,7 @@
     <!-- header -->
     <div class="lg:py-2 lg:px-4 w-full h-[--header-height] relative z-30">
       <div
-        class="px-2 sm:px-4 lg:px-2 bg-white/60 shadow-md flex items-center backdrop-blur-sm size-full lg:rounded-full"
+        class="px-2 sm:px-4 lg:px-2 bg-gray-400/60 shadow-md flex items-center backdrop-blur-sm size-full lg:rounded-full"
       >
         <div class="w-full flex items-center">
           <!-- logo -->
@@ -47,7 +47,7 @@
             </div>
           </div>
           <!-- Searchbar desktop -->
-          <div class="hidden lg:block max-w-xs lg:w-full ml-2 lg:ml-0 mr-4">
+          <div class="hidden lg:block max-w-[18rem] lg:w-full ml-2 lg:ml-0 mr-4">
             <form class="relative bg-transparent backdrop-blur-md rounded-full">
               <label for="Search" class="sr-only"> Search </label>
               <input
@@ -147,91 +147,36 @@
                 </p>
               </button>
 
-              <div
-                id="currencies"
-                class="absolute z-20 top-8 lg:top-10 -left-24 lg:left-0 w-60 lg:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out"
-              >
-                <!-- <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"> -->
-                <div
-                  class="p-4 bg-white/90 backdrop-blur-md rounded-xl shadow-lg size-full"
-                >
-                  <h2
-                    class="text-sm lg:text-lg text-gray-800 font-semibold mb-2"
-                  >
-                    Currency
-                  </h2>
-                  <div class="flex flex-wrap items-center gap-2">
-                    <button
-                      onClick="selectCurrency(this)"
-                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
-                    >
-                      <p
-                        class="currency font-medium text-[10px] lg:text-sm text-gray-600"
-                      >
-                        AED
-                      </p>
-                    </button>
-                    <button
-                      onClick="selectCurrency(this)"
-                      class="bg-blue-500 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
-                    >
-                      <p
-                        class="currency font-medium text-[10px] lg:text-sm text-gray-100"
-                      >
-                        USD
-                      </p>
-                    </button>
-                    <button
-                      onClick="selectCurrency(this)"
-                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
-                    >
-                      <p
-                        class="currency font-medium text-[10px] lg:text-sm text-gray-600"
-                      >
-                        EUR
-                      </p>
-                    </button>
-                    <button
-                      onClick="selectCurrency(this)"
-                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
-                    >
-                      <p
-                        class="currency font-medium text-[10px] lg:text-sm text-gray-600"
-                      >
-                        CAD
-                      </p>
-                    </button>
+              <div id="currencies" class="absolute z-20 top-2 lg:top-10 -left-24 lg:left-0 w-60 lg:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+                <div class="p-8">
+                  <div class="uppercase tracking-wide text-sm text-blue-500 font-semibold mb-4">Select Options</div>
+                  
+                  <!-- Currency Selection -->
+                  <div class="mb-6">
+                    <label for="currency" class="block text-sm font-medium text-gray-700 mb-2">Currency</label>
+                    <div class="relative">
+                      <select onchange="selectCurrency(this)" id="currency" name="currency" class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="AED">AED</option>
+                        <option value="CAD">CAD</option>
+                      </select>
+                    </div>
                   </div>
-                  <!-- Sizes -->
-                  <h2
-                    class="text-sm lg:text-lg text-gray-800 font-semibold mt-4 mb-2"
-                  >
-                    Measures
-                  </h2>
-                  <div class="flex flex-wrap items-center gap-2">
-                    <button
-                      onClick="selectMeasure(this)"
-                      class="bg-blue-500 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
-                    >
-                      <p
-                        class="measure font-medium text-[10px] lg:text-sm text-gray-100"
-                      >
+                  
+                  <!-- Measurement Selection -->
+                  <div>
+                    <label for="measurement" class="block text-sm font-medium text-gray-700 mb-2">Measurement</label>
+                    <div class="flex space-x-2">
+                      <button onClick="selectMeasure(this)" id="ft-btn" class="flex-1 bg-blue-100 text-blue-700 py-2 px-4 rounded-lg font-medium hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out">
                         ft<sup>2</sup>
-                      </p>
-                    </button>
-                    <button
-                      onClick="selectMeasure(this)"
-                      class="bg-gray-200 hover:shadow-md px-4 lg:px-7 py-1 lg:py-1.5 rounded-full shadow-sm"
-                    >
-                      <p
-                        class="measure font-medium text-[10px] lg:text-sm text-gray-600"
-                      >
+                      </button>
+                      <button onClick="selectMeasure(this)" id="m-btn" class="flex-1 bg-white text-gray-700 py-2 px-4 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out">
                         m<sup>2</sup>
-                      </p>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <!-- </div> -->
               </div>
             </div>
 
@@ -251,29 +196,25 @@
               </label>
             </div>
 
-            <!-- scripts -->
+             <!-- scripts -->
             <div class="relative">
               <button
                 id="scripts-button"
                 class="bg-gray-200 backdrop-blur-sm rounded-full text-gray-600 flex items-center gap-x-1 shadow-sm px-3 py-1.5"
               >
-                <ion-icon
-                  class="size-5 text-gray-600"
-                  name="barcode-outline"
-                ></ion-icon>
                 <span class="text-sm">Scripts</span>
                 <ion-icon class="size-4" name="chevron-down"></ion-icon>
               </button>
 
               <div
                 id="scripts-panel"
-                class="opacity-0 absolute top-10 right-0 z-10 w-72 pointer-events-none -translate-y-4 transition-all duration-300"
+                class="opacity-0 absolute top-10 -right-1 z-10 w-72 pointer-events-none -translate-y-4 transition-all duration-300"
               >
                 <!-- <div class="shadow-lg bg-blue-300 rounded-xl pt-2 size-full"> -->
                 <div
-                  class="scripts-slider pt-4 pb-10 bg-white/90 backdrop-blur-md shadow-lg rounded-xl size-full"
+                  class="scripts-slider pb-10 bg-white/90 backdrop-blur-md shadow-lg rounded-xl size-full"
                 >
-                  <div class="p-6 min-h-24 max-h-[15vh] text-gray-700 text-sm">
+                  <div class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm">
                     <p>
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                       Autem tenetur, tempora recusandae animi neque ducimus.
@@ -315,7 +256,7 @@
                 </div>
                 <a
                   href="./scripts.html"
-                  class="absolute bottom-9 left-5 text-blue-500 font-medium text-sm hover:underline rounded-full py-1 px-2 transition"
+                  class="absolute bottom-2 left-5 text-blue-500 font-medium text-sm hover:underline rounded-full py-1 px-2 transition"
                   >See all</a
                 >
                 <!-- </div> -->
@@ -345,7 +286,7 @@
         class="w-0 lg:w-16 z-30 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] absolute lg:left-4 top-0 transition-all"
       >
         <div
-          class="relative bg-white/60 backdrop-blur-sm h-full rounded-full lg:border lg:border-gray-300 transition-all duration-0"
+          class="relative bg-gray-400/60 backdrop-blur-sm h-full rounded-full transition-all duration-0"
         >
           <!-- Logo -->
           <div
@@ -367,7 +308,7 @@
               </p>
             </div>
           </div>
-          <div class="px-3 h-[calc(100%-var(--header-height))]">
+          <div class="px-3 h-[calc(100%-var(--header-height))] overflow-y-auto custom-scroller">
             <!-- menu icon -->
             <div
               class="absolute z-10 top-[4.5rem] -right-10 size-10 flex items-center rounded-r-full shadow-xl bg-white/90 hover:bg-gray-50"
