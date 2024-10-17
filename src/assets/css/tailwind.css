@@ -4420,6 +4420,22 @@ select{
   background-color: rgb(250 204 21 / var(--tw-bg-opacity));
 }
 
+.bg-gray-400\/80{
+  background-color: rgb(156 163 175 / 0.8);
+}
+
+.bg-gray-400\/90{
+  background-color: rgb(156 163 175 / 0.9);
+}
+
+.bg-gray-300\/90{
+  background-color: rgb(209 213 219 / 0.9);
+}
+
+.bg-gray-300\/80{
+  background-color: rgb(209 213 219 / 0.8);
+}
+
 .bg-opacity-50{
   --tw-bg-opacity: 0.5;
 }
