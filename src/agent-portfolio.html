@@ -660,12 +660,13 @@
         </div>
       </div>
 
+
       <div
         class="flex justify-center gap-x-2 w-full lg:rounded-3xl overflow-hidden shadow-lg"
       >
         <!-- section -->
         <div
-          class="h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] w-full lg:p-4 bg-white/60 backdrop-blur-md"
+          class="h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] overflow-auto w-full lg:p-4 bg-white/60 backdrop-blur-md"
         >
           <!-- Profile Container -->
           <div class="h-full flex flex-col lg:flex-row lg:items-start gap-x-4">
@@ -791,11 +792,11 @@
 
             <!-- Main Content -->
             <div
-              class="h-full lg:w-4/5 overflow-auto bg-gray-800 ring-2 ring-gray-400 text-white lg:rounded-3xl"
+              class="relative lg:h-full lg:w-4/5 lg:overflow-auto bg-gray-800 ring-2 ring-gray-400 text-white lg:rounded-3xl"
             >
               <!-- Tabs Navigation -->
               <div
-                class="ml-auto w-max p-4 mb-4 rounded-bl-3xl lg:rounded-tr-3xl bg-gray-700"
+                class="ml-auto sticky lg:fixed z-10 top-0 right-0 lg:top-4 lg:right-4 tabs-navigation border-b border-l border-gray-400/40 w-max p-4 mb-4 rounded-bl-3xl lg:rounded-tr-3xl bg-gray-700"
               >
                 <button class="tab-button text-yellow-400" data-tab="about">
                   About
@@ -810,7 +811,7 @@
 
               <!-- Tab Content -->
               <div id="about" class="p-6 tab-content block">
-                <h2 class="text-lg font-medium">About Me</h2>
+                <h2 class="mt-8 text-lg font-medium">About Me</h2>
                 <div class="w-10 h-[2px] rounded-full bg-yellow-400"></div>
                 <p class="mt-4 text-sm text-gray-300">
                   I bring over 10 years of experience in helping clients buy,
@@ -822,7 +823,7 @@
                 </p>
                 <h3 class="text-lg font-medium mt-6">What I'm Doing</h3>
                 <div class="w-10 h-[2px] rounded-full bg-yellow-400"></div>
-                <div class="mt-4 grid grid-cols-2 gap-4">
+                <div class="mt-4 grid lg:grid-cols-2 gap-4">
                   <div
                     class="p-4 bg-gray-700 rounded-lg flex items-center gap-4"
                   >
@@ -887,7 +888,7 @@
                 <div
                   class="w-10 h-[2px] rounded-full bg-yellow-400 mb-10"
                 ></div>
-                <div class="mt-4 grid grid-cols-2 gap-x-4 gap-y-8">
+                <div class="mt-4 grid lg:grid-cols-2 gap-x-4 gap-y-8">
                   <div
                     class="relative p-4 bg-gray-700 rounded-lg flex items-center gap-4"
                   >
@@ -957,7 +958,7 @@
 
               <!-- Resume Section -->
               <div id="resume" class="p-6 tab-content hidden">
-                <h2 class="text-lg font-medium">Resume</h2>
+                <h2 class="mt-8 text-lg font-medium">Resume</h2>
                 <div class="w-10 h-[2px] rounded-full bg-yellow-400"></div>
 
                 <!-- Education Section -->
@@ -1046,7 +1047,7 @@
               </div>
 
               <div id="contact" class="p-6 tab-content hidden">
-                <h2 class="text-lg font-medium">Contact</h2>
+                <h2 class="mt-8 text-lg font-medium">Contact</h2>
                 <div class="w-10 h-[2px] rounded-full bg-yellow-400"></div>
               
                 <!-- Google Map Embed -->
@@ -1064,7 +1065,7 @@
                 </div>
               
                 <!-- Contact Form -->
-                <div class="bg-gray-800 p-4 rounded-lg">
+                <div class="bg-gray-800 rounded-lg">
                   <h3 class="text-lg font-medium mb-4 text-yellow-400">Contact Form</h3>
                   <form>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
