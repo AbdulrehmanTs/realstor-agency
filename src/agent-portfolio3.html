@@ -215,13 +215,41 @@
           <div class="ml-auto hidden lg:flex items-center gap-x-2">
             <!-- toggle -->
             <div class="flex items-center gap-x-2">
-              <p class="text-[10px] lg:text-xs text-gray-700">Meeting mode:</p>
-              <label class="relative inline-flex cursor-pointer items-center">
+              <label class="group relative inline-flex cursor-pointer items-center">
                 <input id="switch" type="checkbox" class="peer sr-only" />
                 <label for="switch" class="hidden"></label>
                 <div
                   class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
                 ></div>
+                <div class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition">
+                  <p class="whitespace-nowrap text-white text-xs">
+                    Meeting mode
+                  </p>
+                </div>
+              </label>
+              <label class="group relative inline-flex cursor-pointer items-center">
+                <input id="switch" type="checkbox" class="peer sr-only" />
+                <label for="switch" class="hidden"></label>
+                <div
+                  class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                ></div>
+                <div class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition">
+                  <p class="whitespace-nowrap text-white text-xs">
+                    Focus mode
+                  </p>
+                </div>
+              </label>
+              <label class="group relative inline-flex cursor-pointer items-center">
+                <input id="switch" type="checkbox" class="peer sr-only" />
+                <label for="switch" class="hidden"></label>
+                <div
+                  class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                ></div>
+                <div class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition">
+                  <p class="whitespace-nowrap text-white text-xs">
+                    Client mode
+                  </p>
+                </div>
               </label>
             </div>
 
@@ -576,13 +604,13 @@
                 <li class="transition mt-auto">
                   <a
                     href="./settings.html"
-                    class="flex items-center hover:bg-green-600/10 rounded p-2"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
                   >
                     <ion-icon
-                      class="text-green-700 size-6"
+                      class="text-blue-700 size-6"
                       name="cog"
                     ></ion-icon>
-                    <p class="navitem-title text-xs hidden text-green-700 ml-6">
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
                       Settings
                     </p>
                   </a>
@@ -590,13 +618,13 @@
                 <li class="transition">
                   <a
                     href="./support.html"
-                    class="flex items-center hover:bg-green-600/10 rounded p-2"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
                   >
                     <ion-icon
-                      class="text-green-700 size-5"
+                      class="text-blue-700 size-5"
                       name="headset"
                     ></ion-icon>
-                    <p class="navitem-title text-xs hidden text-green-700 ml-6">
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
                       Support (24hrs)
                     </p>
                   </a>

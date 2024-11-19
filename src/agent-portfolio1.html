@@ -185,13 +185,41 @@
           <div class="ml-auto hidden lg:flex items-center gap-x-2">
             <!-- toggle -->
             <div class="flex items-center gap-x-2">
-              <p class="text-[10px] lg:text-xs text-gray-700">Meeting mode:</p>
-              <label class="relative inline-flex cursor-pointer items-center">
+              <label class="group relative inline-flex cursor-pointer items-center">
                 <input id="switch" type="checkbox" class="peer sr-only" />
                 <label for="switch" class="hidden"></label>
                 <div
                   class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
                 ></div>
+                <div class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition">
+                  <p class="whitespace-nowrap text-white text-xs">
+                    Meeting mode
+                  </p>
+                </div>
+              </label>
+              <label class="group relative inline-flex cursor-pointer items-center">
+                <input id="switch" type="checkbox" class="peer sr-only" />
+                <label for="switch" class="hidden"></label>
+                <div
+                  class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                ></div>
+                <div class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition">
+                  <p class="whitespace-nowrap text-white text-xs">
+                    Focus mode
+                  </p>
+                </div>
+              </label>
+              <label class="group relative inline-flex cursor-pointer items-center">
+                <input id="switch" type="checkbox" class="peer sr-only" />
+                <label for="switch" class="hidden"></label>
+                <div
+                  class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                ></div>
+                <div class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition">
+                  <p class="whitespace-nowrap text-white text-xs">
+                    Client mode
+                  </p>
+                </div>
               </label>
             </div>
 
@@ -437,10 +465,10 @@
     <main
       class="relative lg:mt-2 lg:pl-[calc(var(--navbar-width)+2rem)] lg:pr-4"
     >
-      <!-- navbar -->
+       <!-- navbar -->
       <div
         id="navbar"
-        class="w-0 lg:w-16 z-30 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] absolute lg:left-4 top-0 transition-all"
+        class="w-0 lg:w-16 z-30 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] overflow-hidden lg:overflow-visible absolute lg:left-4 top-0 transition-all"
       >
         <div
           class="relative bg-gray-300/80 backdrop-blur-sm h-full rounded-full transition-all duration-0"
@@ -449,7 +477,7 @@
           <div
             class="flex justify-start px-4 h-[var(--header-height)] border-b border-gray-600/20"
           >
-            <div class="flex items-center">
+            <div class="flex items-center justify-between w-full">
               <div
                 class="size-8 hidden lg:flex items-center justify-center rounded-full bg-white"
               >
@@ -458,27 +486,41 @@
                   name="invert-mode-outline"
                 ></ion-icon>
               </div>
-              <p
-                class="brand-name hidden font-medium whitespace-nowrap lg:ml-4 text-blue-800"
-              >
-                Realtors Pilot
-              </p>
+              <div class="brand-name hidden items-center justify-between w-full">
+                <p
+                  class="font-medium whitespace-nowrap lg:ml-4 text-blue-800"
+                >
+                  Realtors Pilot
+                </p>
+                <!-- nav-btn-mobile -->
+                  <button
+                  class="flex items-center ml-auto lg:hidden"
+                  onclick="toggleNavbar()"
+                >
+                  <ion-icon
+                    class="text-blue-800 size-6 lg:size-8 rounded lg:rounded-full p-1"
+                    name="close-outline"
+                  ></ion-icon>
+                </button>
+              </div>
             </div>
           </div>
-          <div class="px-3 h-[calc(100%-var(--header-height))] overflow-y-auto custom-scroller">
+          <div
+            class="px-3 h-[calc(100%-var(--header-height))] overflow-y-auto custom-scroller"
+          >
             <!-- menu icon -->
             <div
-              class="absolute z-10 top-[4.5rem] -right-10 size-10 flex items-center rounded-r-full shadow-xl bg-white/90 hover:bg-gray-50"
+              class="hidden absolute z-10 top-[4.5rem] -right-10 size-10 lg:flex items-center rounded-r-full shadow-xl bg-blue-500/90 hover:bg-blue-500"
             >
               <button id="nav-btn" class="flex rounded p-2">
                 <ion-icon
-                  class="text-blue-800 size-5"
+                  class="text-white size-5"
                   name="chevron-forward"
                 ></ion-icon>
               </button>
             </div>
             <!-- Navitems -->
-            <div class="w-full h-full overflow-y-auto">
+            <div class="w-full h-full">
               <ul class="flex flex-col gap-y-3 py-4 h-full">
                 <li class="transition">
                   <a
@@ -595,13 +637,13 @@
                 <li class="transition mt-auto">
                   <a
                     href="./settings.html"
-                    class="flex items-center hover:bg-green-600/10 rounded p-2"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
                   >
                     <ion-icon
-                      class="text-green-700 size-6"
+                      class="text-blue-700 size-6"
                       name="cog"
                     ></ion-icon>
-                    <p class="navitem-title text-xs hidden text-green-700 ml-6">
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
                       Settings
                     </p>
                   </a>
@@ -609,13 +651,13 @@
                 <li class="transition">
                   <a
                     href="./support.html"
-                    class="flex items-center hover:bg-green-600/10 rounded p-2"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
                   >
                     <ion-icon
-                      class="text-green-700 size-5"
+                      class="text-blue-700 size-5"
                       name="headset"
                     ></ion-icon>
-                    <p class="navitem-title text-xs hidden text-green-700 ml-6">
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
                       Support (24hrs)
                     </p>
                   </a>

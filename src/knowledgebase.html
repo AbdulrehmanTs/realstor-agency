@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Realtors Pilot | Settings</title>
+    <title>Realtors Pilot | Knowledgebase</title>
     <link href="./assets/css/tailwind.css" rel="stylesheet" />
     <link rel="icon" href="assets/images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="./assets/slick/slick.css" />
@@ -12,6 +12,7 @@
       type="text/css"
       href="./assets/slick/slick-theme.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body class="overflow-x-hidden">
     <!-- fullsize-map -->
@@ -47,7 +48,9 @@
             </div>
           </div>
           <!-- Searchbar desktop -->
-          <div class="hidden lg:block max-w-[18rem] lg:w-full ml-2 lg:ml-0 mr-4">
+          <div
+            class="hidden lg:block max-w-[18rem] lg:w-full ml-2 lg:ml-0 mr-4"
+          >
             <form class="relative bg-transparent backdrop-blur-md rounded-full">
               <label for="Search" class="sr-only"> Search </label>
               <input
@@ -147,15 +150,31 @@
                 </p>
               </button>
 
-              <div id="currencies" class="absolute z-20 top-2 lg:top-10 -left-24 lg:left-0 w-60 lg:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+              <div
+                id="currencies"
+                class="absolute z-20 top-2 lg:top-10 -left-24 lg:left-0 w-60 lg:w-80 -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 ease-out max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
+              >
                 <div class="p-8">
-                  <div class="uppercase tracking-wide text-sm text-blue-500 font-semibold mb-4">Select Options</div>
-                  
+                  <div
+                    class="uppercase tracking-wide text-sm text-blue-500 font-semibold mb-4"
+                  >
+                    Select Options
+                  </div>
+
                   <!-- Currency Selection -->
                   <div class="mb-6">
-                    <label for="currency" class="block text-sm font-medium text-gray-700 mb-2">Currency</label>
+                    <label
+                      for="currency"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                      >Currency</label
+                    >
                     <div class="relative">
-                      <select onchange="selectCurrency(this)" id="currency" name="currency" class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                      <select
+                        onchange="selectCurrency(this)"
+                        id="currency"
+                        name="currency"
+                        class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      >
                         <option value="USD">USD</option>
                         <option value="EUR">EUR</option>
                         <option value="AED">AED</option>
@@ -163,15 +182,27 @@
                       </select>
                     </div>
                   </div>
-                  
+
                   <!-- Measurement Selection -->
                   <div>
-                    <label for="measurement" class="block text-sm font-medium text-gray-700 mb-2">Measurement</label>
+                    <label
+                      for="measurement"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                      >Measurement</label
+                    >
                     <div class="flex space-x-2">
-                      <button onClick="selectMeasure(this)" id="ft-btn" class="flex-1 bg-blue-100 text-blue-700 py-2 px-4 rounded-lg font-medium hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out">
+                      <button
+                        onClick="selectMeasure(this)"
+                        id="ft-btn"
+                        class="flex-1 bg-blue-100 text-blue-700 py-2 px-4 rounded-lg font-medium hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out"
+                      >
                         ft<sup>2</sup>
                       </button>
-                      <button onClick="selectMeasure(this)" id="m-btn" class="flex-1 bg-white text-gray-700 py-2 px-4 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out">
+                      <button
+                        onClick="selectMeasure(this)"
+                        id="m-btn"
+                        class="flex-1 bg-white text-gray-700 py-2 px-4 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out"
+                      >
                         m<sup>2</sup>
                       </button>
                     </div>
@@ -185,37 +216,47 @@
           <div class="ml-auto hidden lg:flex items-center gap-x-2">
             <!-- toggle -->
             <div class="flex items-center gap-x-2">
-              <label class="group relative inline-flex cursor-pointer items-center">
+              <label
+                class="group relative inline-flex cursor-pointer items-center"
+              >
                 <input id="switch" type="checkbox" class="peer sr-only" />
                 <label for="switch" class="hidden"></label>
                 <div
                   class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
                 ></div>
-                <div class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition">
+                <div
+                  class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition"
+                >
                   <p class="whitespace-nowrap text-white text-xs">
                     Meeting mode
                   </p>
                 </div>
               </label>
-              <label class="group relative inline-flex cursor-pointer items-center">
+              <label
+                class="group relative inline-flex cursor-pointer items-center"
+              >
                 <input id="switch" type="checkbox" class="peer sr-only" />
                 <label for="switch" class="hidden"></label>
                 <div
                   class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
                 ></div>
-                <div class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition">
-                  <p class="whitespace-nowrap text-white text-xs">
-                    Focus mode
-                  </p>
+                <div
+                  class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition"
+                >
+                  <p class="whitespace-nowrap text-white text-xs">Focus mode</p>
                 </div>
               </label>
-              <label class="group relative inline-flex cursor-pointer items-center">
+              <label
+                class="group relative inline-flex cursor-pointer items-center"
+              >
                 <input id="switch" type="checkbox" class="peer sr-only" />
                 <label for="switch" class="hidden"></label>
                 <div
                   class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
                 ></div>
-                <div class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition">
+                <div
+                  class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition"
+                >
                   <p class="whitespace-nowrap text-white text-xs">
                     Client mode
                   </p>
@@ -223,7 +264,7 @@
               </label>
             </div>
 
-             <!-- scripts -->
+            <!-- scripts -->
             <div class="relative">
               <button
                 id="scripts-button"
@@ -264,51 +305,19 @@
                       </svg>
                       <span class="text-gray-500">My Script</span>
                     </div>
-                    <p>
+                    <p class="text-xs">
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                       Autem tenetur, tempora recusandae animi neque ducimus.
                       Nisi, consectetur et natus earum reiciendis recusandae
                       officia velit architecto vel neque magni aut ipsam?
                     </p>
-                    <p>
+                    <p class="text-xs">
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                       Autem tenetur, tempora recusandae animi neque ducimus.
                       Nisi, consectetur et natus earum reiciendis recusandae
                       officia velit architecto vel neque magni aut ipsam?
                     </p>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Autem tenetur, tempora recusandae animi neque ducimus.
-                      Nisi, consectetur et natus earum reiciendis recusandae
-                      officia velit architecto vel neque magni aut ipsam?
-                    </p>
-                  </div>
-                  <div
-                    class="p-6 h-full max-h-[60vh] overflow-auto text-gray-700 text-sm"
-                  >
-                    <div
-                      class="flex items-center gap-x-2 mb-4 w-max rounded p-1 bg-blue-100"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-users"
-                      >
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                        <circle cx="9" cy="7" r="4" />
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                      </svg>
-                      <span class="text-gray-500">Manager's Script</span>
-                    </div>
-                    <p>
+                    <p class="text-xs">
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                       Autem tenetur, tempora recusandae animi neque ducimus.
                       Nisi, consectetur et natus earum reiciendis recusandae
@@ -340,7 +349,41 @@
                       </svg>
                       <span class="text-gray-500">Manager's Script</span>
                     </div>
-                    <p>Lorem ipsum dolorto vel neque magni aut ipsam?</p>
+                    <p class="text-xs">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                  </div>
+                  <div
+                    class="p-6 h-full max-h-[60vh] overflow-auto text-gray-700 text-sm"
+                  >
+                    <div
+                      class="flex items-center gap-x-2 mb-4 w-max rounded p-1 bg-blue-100"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-users"
+                      >
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                      </svg>
+                      <span class="text-gray-500">Manager's Script</span>
+                    </div>
+                    <p class="text-xs">
+                      Lorem ipsum dolorto vel neque magni aut ipsam?
+                    </p>
                   </div>
                   <div
                     class="p-6 h-full max-h-[60vh] overflow-auto text-gray-700 text-sm"
@@ -365,13 +408,13 @@
                       </svg>
                       <span class="text-gray-500">My Script</span>
                     </div>
-                    <p>
+                    <p class="text-xs">
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                       Autem tenetur, tempora recusandae animi neque ducimus.
                       Nisi, consectetur et natus earum reiciendis recusandae
                       officia velit architecto vel neque magni aut ipsam?
                     </p>
-                    <p>
+                    <p class="text-xs">
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                       Autem tenetur, tempora recusandae animi neque ducimus.
                       Nisi, consectetur et natus earum reiciendis recusandae
@@ -407,7 +450,7 @@
     <main
       class="relative lg:mt-2 lg:pl-[calc(var(--navbar-width)+2rem)] lg:pr-4"
     >
-       <!-- navbar -->
+      <!-- navbar -->
       <div
         id="navbar"
         class="w-0 lg:w-16 z-30 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] overflow-hidden lg:overflow-visible absolute lg:left-4 top-0 transition-all"
@@ -428,14 +471,14 @@
                   name="invert-mode-outline"
                 ></ion-icon>
               </div>
-              <div class="brand-name hidden items-center justify-between w-full">
-                <p
-                  class="font-medium whitespace-nowrap lg:ml-4 text-blue-800"
-                >
+              <div
+                class="brand-name hidden items-center justify-between w-full"
+              >
+                <p class="font-medium whitespace-nowrap lg:ml-4 text-blue-800">
                   Realtors Pilot
                 </p>
                 <!-- nav-btn-mobile -->
-                  <button
+                <button
                   class="flex items-center ml-auto lg:hidden"
                   onclick="toggleNavbar()"
                 >
@@ -562,7 +605,7 @@
                     </p>
                   </a>
                 </li>
-                <li class="transition">
+                <!-- <li class="transition">
                   <a
                     href="./agent-portfolio.html"
                     class="flex items-center hover:bg-blue-600/10 rounded p-2"
@@ -573,6 +616,30 @@
                     ></ion-icon>
                     <p class="navitem-title text-xs hidden text-blue-700 ml-6">
                       Agent Portfolio
+                    </p>
+                  </a>
+                </li> -->
+                <li class="transition">
+                  <a
+                    href="./knowledgebase.html"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
+                  >
+                    <svg
+                      class="w-6 h-6 text-blue-700"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 21V2.352A3.451 3.451 0 0 0 9.5 2a3.5 3.5 0 0 0-3.261 2.238A3.5 3.5 0 0 0 4.04 8.015a3.518 3.518 0 0 0-.766 1.128c-.042.1-.064.209-.1.313a3.34 3.34 0 0 0-.106.344 3.463 3.463 0 0 0 .02 1.468A4.017 4.017 0 0 0 2.3 12.5l-.015.036a3.861 3.861 0 0 0-.216.779A3.968 3.968 0 0 0 2 14c.003.24.027.48.072.716a4 4 0 0 0 .235.832c.006.014.015.027.021.041a3.85 3.85 0 0 0 .417.727c.105.146.219.285.342.415.072.076.148.146.225.216.1.091.205.179.315.26.11.081.2.14.308.2.02.013.039.028.059.04v.053a3.506 3.506 0 0 0 3.03 3.469 3.426 3.426 0 0 0 4.154.577A.972.972 0 0 1 11 21Zm10.934-7.68a3.956 3.956 0 0 0-.215-.779l-.017-.038a4.016 4.016 0 0 0-.79-1.235 3.417 3.417 0 0 0 .017-1.468 3.387 3.387 0 0 0-.1-.333c-.034-.108-.057-.22-.1-.324a3.517 3.517 0 0 0-.766-1.128 3.5 3.5 0 0 0-2.202-3.777A3.5 3.5 0 0 0 14.5 2a3.451 3.451 0 0 0-1.5.352V21a.972.972 0 0 1-.184.546 3.426 3.426 0 0 0 4.154-.577A3.506 3.506 0 0 0 20 17.5v-.049c.02-.012.039-.027.059-.04.106-.064.208-.13.308-.2s.214-.169.315-.26c.077-.07.153-.14.225-.216a4.007 4.007 0 0 0 .459-.588c.115-.176.215-.361.3-.554.006-.014.015-.027.021-.041.087-.213.156-.434.205-.659.013-.057.024-.115.035-.173.046-.237.07-.478.073-.72a3.948 3.948 0 0 0-.066-.68Z"
+                      />
+                    </svg>
+
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                      Knowledgebase
                     </p>
                   </a>
                 </li>
@@ -618,138 +685,280 @@
           class="px-4 lg:px-8 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] w-full overflow-auto py-4 pb-10 bg-white/60 backdrop-blur-md"
         >
           <div class="w-full">
-            <h1 class="text-3xl font-bold">Settings</h1>
-
-            <div class="mt-8 bg-white rounded-lg shadow-md">
-              <div class="p-6 space-y-6">
-                <h2 class="text-sm md:text-xl font-medium">Info</h2>
-
-                <div class="space-y-4">
-                  <div class="flex items-center justify-between">
-                    <label for="photo" class="text-sm mb-3 md:mb-0 md:text-lg">Photo</label>
-                    <div class="flex items-center space-x-4">
-                      <img
-                        src="https://tuk-cdn.s3.amazonaws.com/assets/templates/Analytics-Dashboard/a_8.png"
-                        alt="Profile"
-                        class="w-16 h-16 rounded-full"
-                      />
-                      <button
-                        class="text-xs md:text-base px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
-                      >
-                        Edit
-                      </button>
-                    </div>
-                  </div>
-
-                  <div class="flex flex-col sm:flex-row sm:items-center justify-between">
-                    <label for="name" class="text-sm mb-1 md:mb-0 md:text-lg">Name</label>
-                    <div class="flex items-center space-x-4">
-                      <input
-                        id="name"
-                        type="text"
-                        value="Sophie Chamberlain"
-                        class="text-xs md:text-base w-64 px-3 py-2 border border-gray-300 rounded-md"
-                        readonly
-                      />
-                      <button
-                        class="text-xs md:text-base px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
-                      >
-                        Edit
-                      </button>
-                    </div>
-                  </div>
-
-                  <div class="flex flex-col sm:flex-row sm:items-center justify-between">
-                    <label for="email" class="text-sm mb-1 md:mb-0 md:text-lg">Email address</label>
-                    <div class="flex items-center space-x-4">
-                      <input
-                        id="email"
-                        type="email"
-                        value="hi@realtors.co"
-                        class="text-xs md:text-base w-64 px-3 py-2 border border-gray-300 rounded-md"
-                        readonly
-                      />
-                      <button
-                        class="text-xs md:text-base px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
-                      >
-                        Edit
-                      </button>
-                    </div>
-                  </div>
-
-                  <div class="flex flex-col sm:flex-row sm:items-center justify-between">
-                    <label for="password" class="text-sm mb-1 md:mb-0 md:text-lg">Password</label>
-                    <div class="flex items-center space-x-4">
-                      <input
-                        id="password"
-                        type="password"
-                        value="••••••••"
-                        class="text-xs md:text-base w-64 px-3 py-2 border border-gray-300 rounded-md"
-                        readonly
-                      />
-                      <button
-                        class="text-xs md:text-base px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
-                      >
-                        Change
-                      </button>
+            <h2 class="mt-4 font-semibold text-2xl text-gray-700">
+              Knowledgebase
+            </h2>
+            <!-- Knowledge base -->
+            <div class="mt-10">
+              <div
+                class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5"
+              >
+                <div class="bg-blue-950 shadow-xl rounded-xl">
+                  <div
+                    class="relative w-full rounded-xl overflow-hidden shadow mb-6"
+                  >
+                    <img
+                      class="absolute inset-0 size-full object-cover"
+                      src="https://img.freepik.com/free-photo/digital-art-snow-landscape_23-2151840713.jpg?t=st=1729082410~exp=1729086010~hmac=eb8b29ed33c1b3ef8433c8fd134b7e83fd7a484bbe22cb50725f561f07d84468&w=740"
+                      alt=""
+                    />
+                    <div class="absolute h-full w-full bg-black/50"></div>
+                    <div
+                      class="relative h-full overflow-auto custom-scroller p-4 text-white text-lg"
+                    >
+                      <h3 class="font-bold">01</h3>
+                      <p class="text-sm">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus. Nisi, consectetur et natus earum reiciendis
+                        recusandae officia velit architecto vel neque magni aut
+                        ipsam?
+                      </p>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div class="mt-8 bg-white rounded-lg shadow-md">
-              <div class="p-6 space-y-6">
-                <h2 class="text-sm md:text-xl font-medium">Preferences</h2>
-
-                <div class="space-y-4">
-                  <div class="flex items-center justify-between">
-                    <label for="notifications" class="text-sm md:text-lg"
-                      >Notifications</label
+                <div class="bg-blue-950 shadow-xl rounded-xl">
+                  <div
+                    class="relative w-full rounded-xl overflow-hidden shadow mb-6"
+                  >
+                    <img
+                      class="absolute inset-0 size-full object-cover"
+                      src="https://images.pexels.com/photos/1172064/pexels-photo-1172064.jpeg?cs=srgb&dl=pexels-freestockpro-1172064.jpg&fm=jpg"
+                      alt=""
+                    />
+                    <div class="absolute h-full w-full bg-black/50"></div>
+                    <div
+                      class="relative h-full overflow-auto custom-scroller p-4 text-white text-lg"
                     >
-                    <label
-                      class="relative inline-flex items-center cursor-pointer"
-                    >
-                      <input
-                        type="checkbox"
-                        id="notifications"
-                        class="sr-only peer"
-                      />
-                      <div
-                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"
-                      ></div>
-                    </label>
-                  </div>
-                  <div class="flex items-center justify-between">
-                    <label for="timezone" class="text-sm md:text-lg"
-                      >Automatic time zone</label
-                    >
-                    <div class="flex items-center space-x-4">
-                      <label
-                        class="relative inline-flex items-center cursor-pointer"
-                      >
-                        <input
-                          type="checkbox"
-                          id="timezone"
-                          class="sr-only peer"
-                        />
-                        <div
-                          class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"
-                        ></div>
-                      </label>
-                      <span class="text-xs md:text-sm">GMT +07:00</span>
+                      <h3 class="font-bold">02</h3>
+                      <p class="text-sm">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus. Nisi, consectetur et natus earum reiciendis
+                        recusandae officia velit architecto vel neque magni aut
+                        ipsam?
+                      </p>
+                      <p class="text-sm">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus. Nisi, consectetur et natus earum reiciendis
+                        recusandae officia velit architecto vel neque magni aut
+                        ipsam?
+                      </p>
                     </div>
                   </div>
-
-                  <div class="flex items-center justify-between">
-                    <label for="language" class="text-sm md:text-lg">Language</label>
-                    <select
-                      id="language"
-                      class="w-40 md:w-64 px-2 py-1 md:px-3 md:py-2 text-sm md:text-base border border-gray-300 rounded-md"
+                </div>
+                <div class="bg-blue-950 shadow-xl rounded-xl">
+                  <div
+                    class="relative w-full rounded-xl overflow-hidden shadow mb-6"
+                  >
+                    <img
+                      class="absolute inset-0 size-full object-cover"
+                      src="https://i.pinimg.com/236x/26/dd/c2/26ddc282c19ef9ccb82ff37b933582c8.jpg"
+                      alt=""
+                    />
+                    <div class="absolute h-full w-full bg-black/50"></div>
+                    <div
+                      class="relative h-full overflow-auto custom-scroller p-4 text-white text-lg"
                     >
-                      <option value="en-GB">🇬🇧 English UK</option>
-                      <option value="en-US">🇺🇸 English US</option>
-                    </select>
+                      <h3 class="font-bold">03</h3>
+                      <p class="text-sm">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus. Nisi, consectetur et natus earum reiciendis
+                        recusandae officia velit architecto vel neque magni aut
+                        ipsam?
+                      </p>
+                      <p class="text-sm">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus. Nisi, consectetur et natus earum reiciendis
+                        recusandae officia velit architecto vel neque magni aut
+                        ipsam?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-blue-950 shadow-xl rounded-xl">
+                  <div
+                    class="relative w-full rounded-xl overflow-hidden shadow mb-6"
+                  >
+                    <img
+                      class="absolute inset-0 size-full object-cover"
+                      src="https://i.pinimg.com/236x/26/dd/c2/26ddc282c19ef9ccb82ff37b933582c8.jpg"
+                      alt=""
+                    />
+                    <div class="absolute h-full w-full bg-black/50"></div>
+                    <div
+                      class="relative h-full overflow-auto custom-scroller p-4 text-white text-lg"
+                    >
+                      <h3 class="font-bold">04</h3>
+                      <p class="text-sm">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus. Nisi, consectetur et natus earum reiciendis
+                        recusandae officia velit architecto vel neque magni aut
+                        ipsam?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-blue-950 shadow-xl rounded-xl">
+                  <div
+                    class="relative w-full rounded-xl overflow-hidden shadow mb-6"
+                  >
+                    <img
+                      class="absolute inset-0 size-full object-cover"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjScILvzD0XLXGs2WUqE2K74zr_2ETkiez-Q&s"
+                      alt=""
+                    />
+                    <div class="absolute h-full w-full bg-black/50"></div>
+                    <div
+                      class="relative h-full overflow-auto custom-scroller p-4 text-white text-lg"
+                    >
+                      <h3 class="font-bold">05</h3>
+                      <p class="text-sm">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus. Nisi, consectetur et natus earum reiciendis
+                        recusandae officia velit architecto vel neque magni aut
+                        ipsam?
+                      </p>
+                      <p class="text-sm">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus. Nisi, consectetur et natus earum reiciendis
+                        recusandae officia velit architecto vel neque magni aut
+                        ipsam?
+                      </p>
+                      <p class="text-sm">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus. Nisi, consectetur et natus earum reiciendis
+                        recusandae officia velit architecto vel neque magni aut
+                        ipsam?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-blue-950 shadow-xl rounded-xl">
+                  <div
+                    class="relative w-full rounded-xl overflow-hidden shadow mb-6"
+                  >
+                    <img
+                      class="absolute inset-0 size-full object-cover"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR7zVdCVUqf7GuozXjH666R3JCnIRLW0y4ZA&s"
+                      alt=""
+                    />
+                    <div class="absolute h-full w-full bg-black/50"></div>
+                    <div
+                      class="relative h-full overflow-auto custom-scroller p-4 text-white text-lg"
+                    >
+                      <h3 class="font-bold">06</h3>
+                      <p class="text-sm">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus. Nisi, consectetur et natus earum reiciendis
+                        recusandae officia velit architecto vel neque magni aut
+                        ipsam?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-blue-950 shadow-xl rounded-xl">
+                  <div
+                    class="relative w-full rounded-xl overflow-hidden shadow mb-6"
+                  >
+                    <img
+                      class="absolute inset-0 size-full object-cover"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV4IvpsyYt3GKGwKJwupuY5B4dXkz_Ey3IZg&s"
+                      alt=""
+                    />
+                    <div class="absolute h-full w-full bg-black/50"></div>
+                    <div
+                      class="relative h-full overflow-auto custom-scroller p-4 text-white text-lg"
+                    >
+                      <h3 class="font-bold">07</h3>
+                      <p class="text-sm">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus. Nisi, consectetur et natus earum reiciendis
+                        recusandae officia velit architecto vel neque magni aut
+                        ipsam?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-blue-950 shadow-xl rounded-xl">
+                  <div
+                    class="relative w-full rounded-xl overflow-hidden shadow mb-6"
+                  >
+                    <img
+                      class="absolute inset-0 size-full object-cover"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS41g2XUqObOKKoj2YX7jpptOkLRyEdY850Hg&s"
+                      alt=""
+                    />
+                    <div class="absolute h-full w-full bg-black/50"></div>
+                    <div
+                      class="relative h-full overflow-auto custom-scroller p-4 text-white text-lg"
+                    >
+                      <h3 class="font-bold">08</h3>
+                      <p class="text-sm">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus. Nisi, consectetur et natus earum reiciendis
+                        recusandae officia velit architecto vel neque magni aut
+                        ipsam?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-blue-950 shadow-xl rounded-xl">
+                  <div
+                    class="relative w-full rounded-xl overflow-hidden shadow mb-6"
+                  >
+                    <img
+                      class="absolute inset-0 size-full object-cover"
+                      src="https://img.freepik.com/free-photo/digital-art-snow-landscape_23-2151840713.jpg?t=st=1729082410~exp=1729086010~hmac=eb8b29ed33c1b3ef8433c8fd134b7e83fd7a484bbe22cb50725f561f07d84468&w=740"
+                      alt=""
+                    />
+                    <div class="absolute h-full w-full bg-black/50"></div>
+                    <div
+                      class="relative h-full overflow-auto custom-scroller p-4 text-white text-lg"
+                    >
+                      <h3 class="font-bold">09</h3>
+                      <p class="text-sm">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus. Nisi, consectetur et natus earum reiciendis
+                        recusandae officia velit architecto vel neque magni aut
+                        ipsam?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-blue-950 shadow-xl rounded-xl">
+                  <div
+                    class="relative w-full rounded-xl overflow-hidden shadow mb-6"
+                  >
+                    <img
+                      class="absolute inset-0 size-full object-cover"
+                      src="https://i.pinimg.com/564x/34/18/ba/3418baf09e9e68b56725fdc4cccd5350.jpg"
+                      alt=""
+                    />
+                    <div class="absolute h-full w-full bg-black/50"></div>
+                    <div
+                      class="relative h-full overflow-auto custom-scroller p-4 text-white text-lg"
+                    >
+                      <h3 class="font-bold">10</h3>
+                      <p class="text-sm">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Autem tenetur, tempora recusandae animi neque
+                        ducimus. Nisi, consectetur et natus earum reiciendis
+                        recusandae officia velit architecto vel neque magni aut
+                        ipsam?
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -758,6 +967,41 @@
         </div>
       </div>
     </main>
+
+    <script>
+      // chart.js Line Chart
+      document.addEventListener("DOMContentLoaded", function () {
+        const ctx = document.getElementById("salesChart").getContext("2d");
+        new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+            datasets: [
+              {
+                label: "Monthly Deals",
+                data: [40, 30, 50, 45, 60, 55],
+                borderColor: "#2563eb",
+                tension: 0.1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                display: true,
+                position: "top",
+              },
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      });
+    </script>
 
     <script
       type="text/javascript"

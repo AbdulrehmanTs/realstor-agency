@@ -12,6 +12,7 @@
       type="text/css"
       href="./assets/slick/slick-theme.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body class="overflow-x-hidden">
     <!-- fullsize-map -->
@@ -215,13 +216,51 @@
           <div class="ml-auto hidden lg:flex items-center gap-x-2">
             <!-- toggle -->
             <div class="flex items-center gap-x-2">
-              <p class="text-[10px] lg:text-xs text-gray-700">Meeting mode:</p>
-              <label class="relative inline-flex cursor-pointer items-center">
+              <label
+                class="group relative inline-flex cursor-pointer items-center"
+              >
                 <input id="switch" type="checkbox" class="peer sr-only" />
                 <label for="switch" class="hidden"></label>
                 <div
                   class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
                 ></div>
+                <div
+                  class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition"
+                >
+                  <p class="whitespace-nowrap text-white text-xs">
+                    Meeting mode
+                  </p>
+                </div>
+              </label>
+              <label
+                class="group relative inline-flex cursor-pointer items-center"
+              >
+                <input id="switch" type="checkbox" class="peer sr-only" />
+                <label for="switch" class="hidden"></label>
+                <div
+                  class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                ></div>
+                <div
+                  class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition"
+                >
+                  <p class="whitespace-nowrap text-white text-xs">Focus mode</p>
+                </div>
+              </label>
+              <label
+                class="group relative inline-flex cursor-pointer items-center"
+              >
+                <input id="switch" type="checkbox" class="peer sr-only" />
+                <label for="switch" class="hidden"></label>
+                <div
+                  class="peer h-6 w-11 rounded-full bg-gray-200 backdrop-blur-sm after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                ></div>
+                <div
+                  class="absolute top-8 left-1/2 -translate-x-1/2 p-2 bg-gray-600 rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 group-hover:top-8 transition"
+                >
+                  <p class="whitespace-nowrap text-white text-xs">
+                    Client mode
+                  </p>
+                </div>
               </label>
             </div>
 
@@ -231,8 +270,8 @@
                 id="scripts-button"
                 class="bg-gray-200 backdrop-blur-sm rounded-full text-gray-600 flex items-center gap-x-1 shadow-sm px-3 py-1.5"
               >
-                <span class="text-sm">Scripts</span>
-                <ion-icon class="size-4" name="chevron-down"></ion-icon>
+                <span class="text-xs">Scripts</span>
+                <ion-icon class="size-3" name="chevron-down"></ion-icon>
               </button>
 
               <div
@@ -244,8 +283,40 @@
                   class="scripts-slider pb-10 bg-white/90 backdrop-blur-md shadow-lg rounded-xl size-full"
                 >
                   <div
-                    class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm"
+                    class="p-6 h-full max-h-[60vh] overflow-auto text-gray-700 text-sm"
                   >
+                    <div
+                      class="flex items-center gap-x-2 mb-4 w-max rounded p-1 bg-blue-100"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-user"
+                      >
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                      <span class="text-gray-500">My Script</span>
+                    </div>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Autem tenetur, tempora recusandae animi neque ducimus.
+                      Nisi, consectetur et natus earum reiciendis recusandae
+                      officia velit architecto vel neque magni aut ipsam?
+                    </p>
                     <p>
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                       Autem tenetur, tempora recusandae animi neque ducimus.
@@ -254,8 +325,30 @@
                     </p>
                   </div>
                   <div
-                    class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm"
+                    class="p-6 h-full max-h-[60vh] overflow-auto text-gray-700 text-sm"
                   >
+                    <div
+                      class="flex items-center gap-x-2 mb-4 w-max rounded p-1 bg-blue-100"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-users"
+                      >
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                      </svg>
+                      <span class="text-gray-500">Manager's Script</span>
+                    </div>
                     <p>
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                       Autem tenetur, tempora recusandae animi neque ducimus.
@@ -264,13 +357,55 @@
                     </p>
                   </div>
                   <div
-                    class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm"
+                    class="p-6 h-full max-h-[60vh] overflow-auto text-gray-700 text-sm"
                   >
+                    <div
+                      class="flex items-center gap-x-2 mb-4 w-max rounded p-1 bg-blue-100"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-users"
+                      >
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                      </svg>
+                      <span class="text-gray-500">Manager's Script</span>
+                    </div>
                     <p>Lorem ipsum dolorto vel neque magni aut ipsam?</p>
                   </div>
                   <div
-                    class="p-6 min-h-24 max-h-[15vh] overflow-auto text-gray-700 text-sm"
+                    class="p-6 h-full max-h-[60vh] overflow-auto text-gray-700 text-sm"
                   >
+                    <div
+                      class="flex items-center gap-x-2 mb-4 w-max rounded p-1 bg-blue-100"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-user"
+                      >
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                      <span class="text-gray-500">My Script</span>
+                    </div>
                     <p>
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                       Autem tenetur, tempora recusandae animi neque ducimus.
@@ -316,7 +451,7 @@
       <!-- navbar -->
       <div
         id="navbar"
-        class="w-0 lg:w-16 z-30 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] absolute lg:left-4 top-0 transition-all"
+        class="w-0 lg:w-16 z-30 h-[calc(100vh-var(--header-height))] lg:h-[calc(100vh-var(--header-height)-1rem)] overflow-hidden lg:overflow-visible absolute lg:left-4 top-0 transition-all"
       >
         <div
           class="relative bg-gray-300/80 backdrop-blur-sm h-full rounded-full transition-all duration-0"
@@ -325,7 +460,7 @@
           <div
             class="flex justify-start px-4 h-[var(--header-height)] border-b border-gray-600/20"
           >
-            <div class="flex items-center">
+            <div class="flex items-center justify-between w-full">
               <div
                 class="size-8 hidden lg:flex items-center justify-center rounded-full bg-white"
               >
@@ -334,11 +469,23 @@
                   name="invert-mode-outline"
                 ></ion-icon>
               </div>
-              <p
-                class="brand-name hidden font-medium whitespace-nowrap lg:ml-4 text-blue-800"
+              <div
+                class="brand-name hidden items-center justify-between w-full"
               >
-                Realtors Pilot
-              </p>
+                <p class="font-medium whitespace-nowrap lg:ml-4 text-blue-800">
+                  Realtors Pilot
+                </p>
+                <!-- nav-btn-mobile -->
+                <button
+                  class="flex items-center ml-auto lg:hidden"
+                  onclick="toggleNavbar()"
+                >
+                  <ion-icon
+                    class="text-blue-800 size-6 lg:size-8 rounded lg:rounded-full p-1"
+                    name="close-outline"
+                  ></ion-icon>
+                </button>
+              </div>
             </div>
           </div>
           <div
@@ -346,17 +493,17 @@
           >
             <!-- menu icon -->
             <div
-              class="absolute z-10 top-[4.5rem] -right-10 size-10 flex items-center rounded-r-full shadow-xl bg-white/90 hover:bg-gray-50"
+              class="hidden absolute z-10 top-[4.5rem] -right-10 size-10 lg:flex items-center rounded-r-full shadow-xl bg-blue-500/90 hover:bg-blue-500"
             >
               <button id="nav-btn" class="flex rounded p-2">
                 <ion-icon
-                  class="text-blue-800 size-5"
+                  class="text-white size-5"
                   name="chevron-forward"
                 ></ion-icon>
               </button>
             </div>
             <!-- Navitems -->
-            <div class="w-full h-full overflow-y-auto">
+            <div class="w-full h-full">
               <ul class="flex flex-col gap-y-3 py-4 h-full">
                 <li class="transition">
                   <a
@@ -456,7 +603,7 @@
                     </p>
                   </a>
                 </li>
-                <li class="transition">
+                <!-- <li class="transition">
                   <a
                     href="./agent-portfolio.html"
                     class="flex items-center hover:bg-blue-600/10 rounded p-2"
@@ -469,17 +616,41 @@
                       Agent Portfolio
                     </p>
                   </a>
+                </li> -->
+                <li class="transition">
+                  <a
+                    href="./knowledgebase.html"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
+                  >
+                    <svg
+                      class="w-6 h-6 text-blue-700"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 21V2.352A3.451 3.451 0 0 0 9.5 2a3.5 3.5 0 0 0-3.261 2.238A3.5 3.5 0 0 0 4.04 8.015a3.518 3.518 0 0 0-.766 1.128c-.042.1-.064.209-.1.313a3.34 3.34 0 0 0-.106.344 3.463 3.463 0 0 0 .02 1.468A4.017 4.017 0 0 0 2.3 12.5l-.015.036a3.861 3.861 0 0 0-.216.779A3.968 3.968 0 0 0 2 14c.003.24.027.48.072.716a4 4 0 0 0 .235.832c.006.014.015.027.021.041a3.85 3.85 0 0 0 .417.727c.105.146.219.285.342.415.072.076.148.146.225.216.1.091.205.179.315.26.11.081.2.14.308.2.02.013.039.028.059.04v.053a3.506 3.506 0 0 0 3.03 3.469 3.426 3.426 0 0 0 4.154.577A.972.972 0 0 1 11 21Zm10.934-7.68a3.956 3.956 0 0 0-.215-.779l-.017-.038a4.016 4.016 0 0 0-.79-1.235 3.417 3.417 0 0 0 .017-1.468 3.387 3.387 0 0 0-.1-.333c-.034-.108-.057-.22-.1-.324a3.517 3.517 0 0 0-.766-1.128 3.5 3.5 0 0 0-2.202-3.777A3.5 3.5 0 0 0 14.5 2a3.451 3.451 0 0 0-1.5.352V21a.972.972 0 0 1-.184.546 3.426 3.426 0 0 0 4.154-.577A3.506 3.506 0 0 0 20 17.5v-.049c.02-.012.039-.027.059-.04.106-.064.208-.13.308-.2s.214-.169.315-.26c.077-.07.153-.14.225-.216a4.007 4.007 0 0 0 .459-.588c.115-.176.215-.361.3-.554.006-.014.015-.027.021-.041.087-.213.156-.434.205-.659.013-.057.024-.115.035-.173.046-.237.07-.478.073-.72a3.948 3.948 0 0 0-.066-.68Z"
+                      />
+                    </svg>
+
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
+                      Knowledgebase
+                    </p>
+                  </a>
                 </li>
                 <li class="transition mt-auto">
                   <a
                     href="./settings.html"
-                    class="flex items-center hover:bg-green-600/10 rounded p-2"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
                   >
                     <ion-icon
-                      class="text-green-700 size-6"
+                      class="text-blue-700 size-6"
                       name="cog"
                     ></ion-icon>
-                    <p class="navitem-title text-xs hidden text-green-700 ml-6">
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
                       Settings
                     </p>
                   </a>
@@ -487,13 +658,13 @@
                 <li class="transition">
                   <a
                     href="./support.html"
-                    class="flex items-center hover:bg-green-600/10 rounded p-2"
+                    class="flex items-center hover:bg-blue-600/10 rounded p-2"
                   >
                     <ion-icon
-                      class="text-green-700 size-5"
+                      class="text-blue-700 size-5"
                       name="headset"
                     ></ion-icon>
-                    <p class="navitem-title text-xs hidden text-green-700 ml-6">
+                    <p class="navitem-title text-xs hidden text-blue-700 ml-6">
                       Support (24hrs)
                     </p>
                   </a>
@@ -518,9 +689,9 @@
                 Main Dashboard
               </h2>
               <div
-                class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-4"
+                class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"
               >
-                <div class="rounded-3xl shadow bg-blue-100 p-6 2xl:p-8">
+                <div class="rounded-xl shadow bg-blue-50 p-6 2xl:p-8">
                   <ion-icon
                     class="size-10 text-blue-600"
                     name="bookmarks-outline"
@@ -537,7 +708,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="rounded-3xl shadow bg-blue-100 p-6 2xl:p-8">
+                <div class="rounded-xl shadow bg-blue-50 p-6 2xl:p-8">
                   <ion-icon
                     class="size-10 text-blue-600"
                     name="diamond-outline"
@@ -554,7 +725,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="rounded-3xl shadow bg-blue-100 p-6 2xl:p-8">
+                <div class="rounded-xl shadow bg-blue-50 p-6 2xl:p-8">
                   <ion-icon
                     class="size-10 text-blue-600"
                     name="people-outline"
@@ -571,7 +742,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="rounded-3xl shadow bg-blue-100 p-6 2xl:p-8">
+                <div class="rounded-xl shadow bg-blue-50 p-6 2xl:p-8">
                   <ion-icon
                     class="size-10 text-blue-600"
                     name="rocket-outline"
@@ -588,7 +759,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="rounded-3xl shadow bg-blue-100 p-6 2xl:p-8">
+                <div class="rounded-xl shadow bg-blue-50 p-6 2xl:p-8">
                   <ion-icon
                     class="size-10 text-blue-600"
                     name="calendar-number-outline"
@@ -605,7 +776,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="rounded-3xl shadow bg-blue-100 p-6 2xl:p-8">
+                <div class="rounded-xl shadow bg-blue-50 p-6 2xl:p-8">
                   <ion-icon
                     class="size-10 text-blue-600"
                     name="calendar-outline"
@@ -623,10 +794,74 @@
                   </div>
                 </div>
               </div>
+
+              <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dashboard Chart Card -->
+                <div class="bg-white shadow-lg rounded-xl p-6">
+                  <h2 class="text-xl font-bold mb-4 text-gray-800">
+                    Monthly Deals Performance
+                  </h2>
+                  <canvas id="salesChart" class="h-64 w-full"></canvas>
+                </div>
+
+                <!-- Latest Shared Data Table -->
+                <div class="bg-white shadow-lg rounded-xl p-6">
+                  <h2 class="text-xl font-bold mb-4 text-gray-800">
+                    Latest Shared Data
+                  </h2>
+                  <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-600">
+                      <thead class="bg-gray-100 text-gray-500 uppercase">
+                        <tr>
+                          <th class="px-4 py-3">ID</th>
+                          <th class="px-4 py-3">Name</th>
+                          <th class="px-4 py-3">Status</th>
+                          <th class="px-4 py-3">Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="border-b hover:bg-gray-50">
+                          <td class="px-4 py-3">#001</td>
+                          <td class="px-4 py-3">John Doe</td>
+                          <td class="px-4 py-3">
+                            <span
+                              class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full"
+                              >Active</span
+                            >
+                          </td>
+                          <td class="px-4 py-3">2024-01-15</td>
+                        </tr>
+                        <tr class="border-b hover:bg-gray-50">
+                          <td class="px-4 py-3">#002</td>
+                          <td class="px-4 py-3">Jane Smith</td>
+                          <td class="px-4 py-3">
+                            <span
+                              class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full"
+                              >Pending</span
+                            >
+                          </td>
+                          <td class="px-4 py-3">2024-01-20</td>
+                        </tr>
+                        <tr class="border-b hover:bg-gray-50">
+                          <td class="px-4 py-3">#003</td>
+                          <td class="px-4 py-3">Mike Johnson</td>
+                          <td class="px-4 py-3">
+                            <span
+                              class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full"
+                              >Inactive</span
+                            >
+                          </td>
+                          <td class="px-4 py-3">2024-01-25</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="flex flex-col xl:flex-row gap-4">
               <!-- Calendar with meetings -->
-              <div class="mt-10 xl:w-2/3">
+              <div class="mt-10 xl:w-1/2">
                 <h3 class="text-gray-700">Meetings</h3>
                 <div class="mt-3 bg-white rounded-2xl shadow p-8">
                   <img
@@ -636,90 +871,46 @@
                   />
                 </div>
               </div>
-              <!-- Knowledge base -->
-              <div class="mt-10 xl:w-1/3">
-                <h3 class="text-gray-700">Knowledge Base</h3>
-                <div class="pb-14 bg-blue-950 shadow-xl rounded-3xl">
-                  <div class="mt-3 dashboard-slider">
-                    <div
-                      class="relative max-h-[30rem] w-full rounded-3xl overflow-hidden shadow"
-                    >
-                      <img
-                        class="absolute inset-0 size-full object-cover"
-                        src="https://img.freepik.com/free-photo/digital-art-snow-landscape_23-2151840713.jpg?t=st=1729082410~exp=1729086010~hmac=eb8b29ed33c1b3ef8433c8fd134b7e83fd7a484bbe22cb50725f561f07d84468&w=740"
-                        alt=""
-                      />
-                      <div class="absolute h-[30rem] w-full bg-black/50"></div>
-                      <div class="relative h-[30rem] overflow-auto custom-scroller p-6 text-white text-lg">
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur, adipisicing
-                          elit. Autem tenetur, tempora recusandae animi neque
-                          ducimus. Nisi, consectetur et natus earum reiciendis
-                          recusandae officia velit architecto vel neque magni aut
-                          ipsam?
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      class="relative max-h-[30rem] w-full rounded-3xl overflow-hidden shadow"
-                    >
-                      <img
-                        class="absolute inset-0 size-full object-cover"
-                        src="https://img.freepik.com/free-photo/3d-black-friday-celebration_23-2151848862.jpg?t=st=1729092515~exp=1729096115~hmac=24f79c703ac1a08aa8dfe35e476ca0cda929fa9e0167d3974dad7e4e0409f9aa&w=740"
-                        alt=""
-                      />
-                      <div class="absolute h-[30rem] w-full bg-black/50"></div>
-                      <div class="relative h-[30rem] overflow-auto custom-scroller p-6 text-white text-lg">
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur, adipisicing
-                          elit. Autem tenetur, tempora recusandae animi neque
-                          ducimus. Nisi, consectetur et natus earum reiciendis
-                          recusandae officia velit architecto vel neque magni aut
-                          ipsam?
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      class="relative max-h-[30rem] w-full rounded-3xl overflow-hidden shadow"
-                    >
-                      <img
-                        class="absolute inset-0 size-full object-cover"
-                        src="https://img.freepik.com/free-photo/autumn-season-still-life_23-2151840164.jpg?t=st=1729092605~exp=1729096205~hmac=aa3a2532554693acb80d042b69881f7ee0df77d3805bb84fcdf7499001243b7a&w=740"
-                        alt=""
-                      />
-                      <div class="absolute h-[30rem] w-full bg-black/50"></div>
-                      <div class="relative h-[30rem] overflow-auto custom-scroller p-6 text-white text-lg">
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur, adipisicing
-                          elit. Autem tenetur, tempora recusandae animi neque
-                          ducimus. Nisi, consectetur et natus earum reiciendis
-                          recusandae officia velit architecto vel neque magni aut
-                          ipsam?
-                        </p>
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur, adipisicing
-                          elit. Autem tenetur, tempora recusandae animi neque
-                          ducimus. Nisi, consectetur et natus earum reiciendis
-                          recusandae officia velit architecto vel neque magni aut
-                          ipsam?
-                        </p>
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur, adipisicing
-                          elit. Autem tenetur, tempora recusandae animi neque
-                          ducimus. Nisi, consectetur et natus earum reiciendis
-                          recusandae officia velit architecto vel neque magni aut
-                          ipsam?
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </main>
+
+    <script>
+      // chart.js Line Chart
+      document.addEventListener("DOMContentLoaded", function () {
+        const ctx = document.getElementById("salesChart").getContext("2d");
+        new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+            datasets: [
+              {
+                label: "Monthly Deals",
+                data: [40, 30, 50, 45, 60, 55],
+                borderColor: "#2563eb",
+                tension: 0.1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                display: true,
+                position: "top",
+              },
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      });
+    </script>
 
     <script
       type="text/javascript"

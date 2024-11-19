@@ -410,14 +410,14 @@
                     <h1
                       class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight"
                     >
-                      I'm A Senior Real Estate Agent With More Than 20 Years of
-                      Experience
+                      Helping Families Find Their Dream Homes
                     </h1>
 
                     <h2
                       class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-sky-600 text-transparent bg-clip-text"
                     >
-                      Helping Families Find Their Dream Homes
+                      I'm A Senior Real Estate Agent With More Than 20 Years of
+                      Experience
                     </h2>
 
                     <p class="text-gray-600 text-lg leading-relaxed">
@@ -827,8 +827,8 @@
         ease: "power2.out",
       });
 
-      const numbers = document.querySelectorAll('.text-5xl');
-      numbers.forEach(number => {
+      const numbers = document.querySelectorAll(".text-5xl");
+      numbers.forEach((number) => {
         const finalValue = parseInt(number.textContent);
         gsap.from(number, {
           textContent: 0,
@@ -837,10 +837,10 @@
           snap: { textContent: 1 },
           stagger: {
             each: 0.2,
-            onUpdate: function() {
+            onUpdate: function () {
               number.textContent = Math.ceil(number.textContent);
             },
-          }
+          },
         });
       });
 
