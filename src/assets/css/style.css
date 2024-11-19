@@ -152,9 +152,20 @@ body {
 
 .custom-scroller::-webkit-scrollbar {
   width: 4px;
+  height: 4px;
 }
 
 .custom-scroller::-webkit-scrollbar-thumb {
+  background-color: rgb(179, 178, 178);
+  border-radius: 20px;
+}
+
+.custom-scroller-x::-webkit-scrollbar {
+  width: 0px;
+  height: 4px;
+}
+
+.custom-scroller-x::-webkit-scrollbar-thumb {
   background-color: rgb(179, 178, 178);
   border-radius: 20px;
 }
