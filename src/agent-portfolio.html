@@ -9,6 +9,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <!-- Required Core Stylesheet -->
+    <link rel="stylesheet" href="assets/css/glide.core.min.css" />
   </head>
   <body class="bg-gray-100">
     <!-- Header Section -->
@@ -24,7 +26,9 @@
         class="relative container mx-auto px-4 md:px-8 lg:px-10 py-16 flex justify-between"
       >
         <div class="relative z-10 flex flex-col w-full max-w-md lg:max-w-xl">
-          <div class="bg-white/30 md:bg-white rounded-lg shadow-lg p-6 md:p-8 space-y-4">
+          <div
+            class="bg-white/30 md:bg-white rounded-lg shadow-lg p-6 md:p-8 space-y-4"
+          >
             <div class="flex justify-start mb-2 text-yellow-400">
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
@@ -57,8 +61,12 @@
             <div
               class="flex flex-wrap items-center gap-2 text-gray-700 mb-4 justify-start"
             >
-              <i class="fab fa-behance text-xl text-blue-400 md:text-blue-500"></i>
-              <a href="#" class="text-xs md:text-base text-blue-400 md:text-blue-500 hover:underline font-semibold break-all"
+              <i
+                class="fab fa-behance text-xl text-blue-400 md:text-blue-500"
+              ></i>
+              <a
+                href="#"
+                class="text-xs md:text-base text-blue-400 md:text-blue-500 hover:underline font-semibold break-all"
                 >https://www.behance.net/AbrahamJohnProfile</a
               >
             </div>
@@ -320,34 +328,63 @@
     <section class="bg-gray-100 py-8">
       <div class="container mx-auto px-4 md:px-8 lg:px-10 text-center">
         <div class="border border-gray-300 rounded-lg p-6 bg-white shadow-md">
-          <h2 class="text-3xl font-bold mb-8">Developers Working With</h2>
-          <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
-            <img
-              src="assets/images/layers-logo.png"
-              alt="Layers"
-              class="h-12 object-contain"
-            />
-            <img
-              src="assets/images/quotient-logo.png"
-              alt="Quotient"
-              class="h-12 object-contain"
-            />
-            <img
-              src="assets/images/circooles-logo.png"
-              alt="Circoolets"
-              class="h-12 object-contain"
-            />
-            <img
-              src="assets/images/hourglass-logo.png"
-              alt="Hourglass"
-              class="h-12 object-contain"
-            />
-            <img
-              src="assets/images/commandr-logo.png"
-              alt="Command+R"
-              class="h-12 object-contain"
-            />
+          <h2 class="text-xl md:text-3xl font-bold mb-8">
+            Developers Working With
+          </h2>
+          <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="glide__slide">
+                  <img
+                    src="assets/images/layers-logo.png"
+                    alt="Layers"
+                    class="h-12 object-contain"
+                  />
+                </li>
+                <li class="glide__slide">
+                  <img
+                    src="assets/images/quotient-logo.png"
+                    alt="Quotient"
+                    class="h-12 object-contain"
+                  />
+                </li>
+                <li class="glide__slide">
+                  <img
+                    src="assets/images/circooles-logo.png"
+                    alt="Circoolets"
+                    class="h-12 object-contain"
+                  />
+                </li>
+                <li class="glide__slide">
+                  <img
+                    src="assets/images/hourglass-logo.png"
+                    alt="Hourglass"
+                    class="h-12 object-contain"
+                  />
+                </li>
+                <li class="glide__slide">
+                  <img
+                    src="assets/images/commandr-logo.png"
+                    alt="Command+R"
+                    class="h-12 object-contain"
+                  />
+                </li>
+              </ul>
+              <div class="hidden lg:block glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left absolute top-1/2 -translate-y-1/2 -left-4" data-glide-dir="<">
+                  <div class="size-8 rounded-full bg-stone-700/80 flex items-center justify-center">
+                    <i class="fa-solid fa-arrow-left text-white/80"></i>
+                  </div>
+                </button>
+                <button class="glide__arrow glide__arrow--right absolute top-1/2 -translate-y-1/2 -right-4" data-glide-dir=">">
+                  <div class="size-8 rounded-full bg-stone-700/80 flex items-center justify-center">
+                    <i class="fa-solid fa-arrow-right text-white/80"></i>
+                  </div>
+                </button>
+              </div>
+            </div>
           </div>
+          
         </div>
       </div>
     </section>
@@ -811,5 +848,26 @@
         </div>
       </div>
     </section>
+
+    <script src="assets/js/glide.min.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const glide = new Glide(".glide", {
+          type: "carousel",
+          startAt: 0,
+          perView: 5,
+          autoplay: 3000,
+          breakpoints: {
+            1024: { perView: 4 }, // For screens <= 1024px
+            768: { perView: 3 },   // For screens <= 768px
+          }
+        }).mount();
+
+        glide.mount();
+
+     
+      });
+    </script>
   </body>
 </html>
